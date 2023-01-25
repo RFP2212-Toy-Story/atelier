@@ -2,6 +2,9 @@
 // LIBRARY IMPORTS
 import React from 'react';
 
+// LOCAL IMPORTS
+import Overview from './components/Overview.jsx';
+
 
 // MAIN
 const App = () => {
@@ -10,6 +13,7 @@ const App = () => {
   return (
     <div>
       JELLO WHIRLED
+      <Overview />
     </div>
   );
 }
