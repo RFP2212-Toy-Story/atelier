@@ -1,1 +1,7 @@
-
+# GIT IGNORE DEFAULTS FROM HACK REACTOR
+.env
+*.DS_Store
+*.map
+*bundle.js
+config.js
+node_modules/
