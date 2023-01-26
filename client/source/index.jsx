@@ -1,7 +1,7 @@
 
 // LIBRARY IMPORTS
 import React from "react";
-import {render} from "react-dom";
+import { render } from "react-dom";
 
 // LOCAL IMPORTS
 import App from "./App.jsx";

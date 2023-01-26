@@ -11,6 +11,6 @@ const controllers = require('./controllers');
 
 
 // MAIN
-router.use('/', express.state(path.join(__dirname, '../client/dist')));
+router.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 module.exports = router;
