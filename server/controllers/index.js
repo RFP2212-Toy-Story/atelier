@@ -7,11 +7,7 @@ const models = require('../models');
 
 
 function parseGet(request, response) {
-  console.log(process.env.API_TOKEN, process.env.API_URL);
-
   let newURL = process.env.API_URL + request.url.slice(4);
-  console.log('newURL', newURL);
-
   let config = {
     headers: {
       'Authorization': process.env.API_TOKEN
@@ -20,6 +16,7 @@ function parseGet(request, response) {
 
   axios.get(newURL, config)
     .then((apiRes) => {
+      console.info('request ended in 200');
       response.status(200);
       response.send(apiRes.data);
     })
