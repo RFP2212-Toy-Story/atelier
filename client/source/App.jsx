@@ -4,7 +4,8 @@ import React from 'react';
 import axios from 'axios';
 
 // LOCAL IMPORTS
-import Overview from './components/Overview.jsx';
+import Overview from './components/overview/Overview.jsx';
+import Header from './components/header/Header.jsx'
 
 
 const authServerURL = 'http://localhost:3000/api';
@@ -28,7 +29,7 @@ const App = () => {
 
   return (
     <div>
-      !JELLO WHIRLED!
+      <Header />
       <Overview />
       <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
     </div>
