@@ -1,0 +1,23 @@
+
+.header {
+  background-color: grey;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.photo-block {
+  width: 300px;
+  height: 300px;
+}
+
+.overview {
+  background-color: blueviolet;
+  border: 2px solid black;
+}
+
+.flex-row-filler {
+  flex: auto;
+}

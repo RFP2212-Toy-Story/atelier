@@ -4,12 +4,17 @@ require('dotenv').config(); // must be first
 const express = require('express');
 
 // LOCAL REQUIRES
+const logger = require('./utilities/logger.js');
 const router = require('./router.js');
 
 
 // MAIN
 const server = express();
+
+server.use(logger);
+server.use(express.json());
 server.use(router);
+
 server.listen(process.env.PORT, (error) => {
   if (error) {
     console.error(error);
