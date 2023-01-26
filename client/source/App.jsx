@@ -3,7 +3,8 @@
 import React from 'react';
 
 // LOCAL IMPORTS
-import Overview from './components/Overview.jsx';
+import Overview from './components/overview/Overview.jsx';
+import Header from './components/header/Header.jsx'
 
 
 // MAIN
@@ -12,7 +13,7 @@ const App = () => {
 
   return (
     <div>
-      !JELLO WHIRLED!
+      <Header />
       <Overview />
     </div>
   );
