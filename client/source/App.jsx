@@ -6,7 +6,8 @@ import axios from 'axios';
 // LOCAL IMPORTS
 import Overview from './components/overview/Overview.jsx';
 import Header from './components/header/Header.jsx'
-
+import RelatedList from './components/RelatedProducts/RelatedList.jsx';
+import OutfitList from './components/RelatedProducts/OutfitList.jsx';
 
 const authServerURL = 'http://localhost:3000/api';
 
@@ -32,6 +33,8 @@ const App = () => {
       <Header />
       <Overview />
       <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
+      <RelatedList />
+      <OutfitList />
     </div>
   );
 }
