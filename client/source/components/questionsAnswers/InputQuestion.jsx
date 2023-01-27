@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ProdContext } from '../../ProdContext.js';
+
 
 
 const InputQuestion = () => {
+  const {prodID, setProdID} = useContext(ProdContext);
+
 
   return (
-    <div>
+    <div>Product ID from InputQuestion: {prodID}
       <input
         type="text"
         placeholder="Have a Question? Search For Answers"
@@ -12,6 +16,7 @@ const InputQuestion = () => {
         // value={questInput}
     >
       </input>
+      <button onClick={() => setProdID('new product ID')}>Change ID</button>
     </div>
   );
 }
