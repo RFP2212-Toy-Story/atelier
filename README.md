@@ -23,7 +23,7 @@ You should now be able to access the client application at the location you set 
 
 # Running ESLint:
 - if using VSCode, make sure the settings file in this repo is being seen and used
-- you may manually run ESLint with the command `npx eslint .` in the project root
+- you may manually run ESLint with the command `npm run eslint-dev` in the project root
 - to specifically ignore ESLint's opinion about a given line, add the comment `// eslint-disable-line`
   - EG `const forFutureUse = require('package-name'); // esline-disable-line`
 - when you commit code locally, ESLint will automatically check your code and may prevent the commit
