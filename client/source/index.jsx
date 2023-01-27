@@ -4,11 +4,12 @@ import React from "react";
 import { render } from "react-dom";
 
 // LOCAL IMPORTS
-import App from "./App.jsx";
+import AppHolder from "./AppHolder.jsx";
+import { ProdContext } from './ProdContext.js';
 
 
 // MAIN
 render(
-  <App />,
+  <AppHolder />,
   document.getElementById("root")
 );

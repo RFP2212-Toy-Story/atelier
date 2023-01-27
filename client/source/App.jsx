@@ -8,7 +8,8 @@ import Header from './components/header/Header.jsx'
 import RelatedList from './components/RelatedProducts/RelatedList.jsx';
 import OutfitList from './components/RelatedProducts/OutfitList.jsx';
 import QAModule from './components/questionsAnswers/QAModule.jsx';
-import ReviewModule from './components/RR/ReviewModule.jsx';import { ProdContext } from './ProdContext.js';
+import ReviewModule from './components/RR/ReviewModule.jsx';
+import { ProdContext } from './ProdContext.js';
 
 
 const authServerURL = 'http://localhost:3000/api';
@@ -45,6 +46,5 @@ const App = () => {
     </div>
   );
 }
-
 
 export default App;
