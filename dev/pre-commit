@@ -1,11 +1,11 @@
-#!/usr/bin/sh
+#!/bin/bash
 
-echo "\n\tStarting Pre-Commit ESLint validation script"
+echo $'\n\tStarting Pre-Commit ESLint validation script'
 
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$")
 
 if [[ "$STAGED_FILES" = "" ]]; then
-  echo "\n\t\033[0;36mNo files are currently staged\033[0m"
+  echo $'\n\t\e[0;36mNo files are currently staged\e[0m'
   exit 0
 fi
 
@@ -14,20 +14,20 @@ PASS=true
 for FILE in $STAGED_FILES; do
   npx eslint "$FILE"
   if [[ "$?" == 0 ]]; then
-    echo "\t\033[32mESLint Passed: $FILE\033[0m"
+    echo $'\t\e[32mESLint Passed: $FILE\e[0m'
   else
-    echo "\t\033[41mESLint Failed: $FILE\033[0m"
+    echo $'\t\e[41mESLint Failed: $FILE\e[0m'
     PASS=false
   fi
 done
 
-echo "\nJavascript validation completed!\n"
+echo $'\nJavascript validation completed!\n'
 
 if ! $PASS; then
-  echo "\n\t\033[41mCOMMIT FAILED:\033[0m Your commit contains files that makes ESLint grumpy.\nPlease fix the ESLint errors and try again.\n"
+  echo $'\n\t\e[41mCOMMIT FAILED:\e[0m Your commit contains files that makes ESLint grumpy.\nPlease fix the ESLint errors and try again.\n'
   exit 1
 else
-  echo "\n\t\033[42mCOMMIT SUCCEEDED\033[0m\n"
+  echo $'\n\t\e[42mCOMMIT SUCCEEDED\e[0m\n'
 fi
 
 exit $?
