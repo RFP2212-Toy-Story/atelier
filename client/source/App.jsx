@@ -1,13 +1,12 @@
-
 // LIBRARY IMPORTS
 import React, { useState } from 'react';
 import axios from 'axios';
 
 // LOCAL IMPORTS
 import Overview from './components/overview/Overview.jsx';
-import QAModule from './components/questionsAnswers/QAModule.jsx';
 import Header from './components/header/Header.jsx'
-import { ProdContext } from './ProdContext.js';
+import QAModule from './components/questionsAnswers/QAModule.jsx';
+import ReviewModule from './components/RR/ReviewModule.jsx';import { ProdContext } from './ProdContext.js';
 
 
 const authServerURL = 'http://localhost:3000/api';
@@ -38,6 +37,7 @@ const App = () => {
         <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
         <QAModule />
       </ProdContext.Provider>
+      <ReviewModule />
     </div>
   );
 }
