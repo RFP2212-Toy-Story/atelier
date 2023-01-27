@@ -5,6 +5,7 @@ import axios from 'axios';
 
 // LOCAL IMPORTS
 import Overview from './components/overview/Overview.jsx';
+import QAModule from './components/questionsAnswers/QAModule.jsx';
 import Header from './components/header/Header.jsx'
 
 
@@ -32,6 +33,7 @@ const App = () => {
       <Header />
       <Overview />
       <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
+      <QAModule />
     </div>
   );
 }
