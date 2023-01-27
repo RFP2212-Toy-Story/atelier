@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // LOCAL IMPORTS
 import Overview from './components/Overview.jsx';
-
+import ReviewModule from './components/RR/ReviewModule.jsx';
 
 const authServerURL = 'http://localhost:3000/api';
 
@@ -31,6 +31,7 @@ const App = () => {
       !JELLO WHIRLED!
       <Overview />
       <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
+      <ReviewModule />
     </div>
   );
 }
