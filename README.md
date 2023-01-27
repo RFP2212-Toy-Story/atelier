@@ -13,3 +13,7 @@ A complete redesign of a retail portal.
   - `npm run client-dev`
 You should now be able to access the client application at the location you set for your server `.env` file.
 
+# Running ESLint
+- In the project root run the command `npx eslint .` to show all current errors and warnings
+- To specifically dignore ESLint's opinion about a given line, add the comment `// eslint-disable-line`
+  - EG `const forFutureUse = require('package-name'); // esline-disable-line`
