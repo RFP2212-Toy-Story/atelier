@@ -29,7 +29,7 @@ var powerSet = function (string) {
   return returnValues;
 };
 
-let testing = 0;
+let testing = 1;
 
 if (testing) {
   let results = [];
