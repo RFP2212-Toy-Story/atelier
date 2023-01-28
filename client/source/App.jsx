@@ -1,12 +1,16 @@
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 // LOCAL IMPORTS
 import Overview from './components/overview/Overview.jsx';
 import Header from './components/header/Header.jsx'
+import RelatedList from './components/RelatedProducts/RelatedList.jsx';
+import OutfitList from './components/RelatedProducts/OutfitList.jsx';
 import QAModule from './components/questionsAnswers/QAModule.jsx';
 import ReviewModule from './components/RR/ReviewModule.jsx';
+import { ProdContext } from './ProdContext.js';
+
 
 const authServerURL = 'http://localhost:3000/api';
 
@@ -26,17 +30,21 @@ const App = () => {
       });
   }
 
+  const [prodID, setProdID] = useState('product id');
 
   return (
     <div>
-      <Header />
-      <Overview />
-      <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
-      <QAModule />
-      <ReviewModule />
+      <ProdContext.Provider value={{prodID, setProdID}}>
+        <Header />
+        <Overview />
+        <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
+        <RelatedList />
+        <OutfitList />
+        <QAModule />
+        <ReviewModule />
+      </ProdContext.Provider>
     </div>
   );
 }
-
 
 export default App;
