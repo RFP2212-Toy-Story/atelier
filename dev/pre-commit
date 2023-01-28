@@ -23,9 +23,9 @@ FILES_TO_FIX=()
 for FILE in ${STAGED_FILES}; do
   npx eslint ${FILE}
   if [[ "$?" == 0 ]]; then
-    printf "\t${GREEN_BG}ESLint Passed: ${FILE}${CLR}"
+    printf "\t${GREEN_BG}ESLint Passed: ${FILE}${CLR}\n"
   else
-    printf "\t${RED_BG}ESLint Failed: ${FILE}${CLR}"
+    printf "\t${RED_BG}ESLint Failed: ${FILE}${CLR}\n"
     FILES_TO_FIX+=("${FILE}")
     PASS=false
   fi
