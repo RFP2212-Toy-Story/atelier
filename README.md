@@ -31,4 +31,5 @@ You should now be able to access the client application at the location you set 
   - EG `git commit --no-verify`
 
 # Running Tests:
-- the command `npm test` will run all tests locally and collect the current test coverage
+- the command `npm test` will run all tests locally
+- to run tests and also ouput total coverage, use the command `npm run test-coverage`
