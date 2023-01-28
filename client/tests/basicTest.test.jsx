@@ -25,7 +25,7 @@ describe('REACT: testing basic div rendering', () => {
 
     // Wait for page to update with query text
     const string = await screen.getByText('Hello World!');
-    expect(string).toBeTruthy();
+    expect(string.textContent).toBe('Hello World!');
   });
 });
 
