@@ -19,14 +19,13 @@ const TestApp = function CreateTestApp() {
   );
 };
 
-test('null', () => {
-  expect(true).toEqual(true);
+describe('REACT: testing basic div rendering', () => {
+  test('loads items eventually', async () => {
+    render(<TestApp />);
+
+    // Wait for page to update with query text
+    const string = await screen.getByText('Hello World!');
+    expect(string).toBeTruthy();
+  });
 });
 
-test('loads items eventually', async () => {
-  render(<TestApp />);
-
-  // Wait for page to update with query text
-  const string = await screen.getByText('Hello World!');
-  expect(string).toBeTruthy();
-});
