@@ -2,15 +2,13 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
 
-// LOCAL IMPORTS
-import SiteNews from './SiteNews';
-
 
 // HEADER COMPONENT
 const Header = function CreateHeaderComponent() {
   const [stuck, setStuck] = useState(false);
 
   const headerClasses = `header ${(stuck) ? 'sticky-header' : ''}`;
+  const paddingClasses = `header-padding ${(stuck) ? 'sticky-padding' : ''}`;
 
   const handleScroll = () => {
     setStuck(window.scrollY > 100);
@@ -34,7 +32,7 @@ const Header = function CreateHeaderComponent() {
           <input type="text" placeholder="search..." />
         </div>
       </div>
-      <SiteNews />
+      <div className={paddingClasses} />
     </div>
   );
 };
