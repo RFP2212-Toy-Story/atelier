@@ -40,6 +40,10 @@
   flex-direction: row;
 }
 
+.flex-row-filler {
+  flex: auto;
+}
+
 .photo-block {
   width: 300px;
   height: 300px;
@@ -48,8 +52,4 @@
 .overview {
   background-color: blueviolet;
   border: 2px solid black;
-}
-
-.flex-row-filler {
-  flex: auto;
 }

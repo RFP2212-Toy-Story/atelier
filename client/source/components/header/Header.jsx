@@ -24,11 +24,10 @@ const Header = function CreateHeaderComponent() {
   return (
     <div>
       <div className={headerClasses}>
-        <div>
-          <h1>DINOMITE DESIGNS 🦖</h1>
-        </div>
         <div />
-        <div>
+        <div className="flex-row">
+          <h1>DINOMITE DESIGNS 🦖</h1>
+          <div className="flex-row-filler" />
           <input type="text" placeholder="search..." />
         </div>
       </div>
