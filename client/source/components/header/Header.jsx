@@ -19,7 +19,7 @@ const Header = function CreateHeaderComponent() {
 
     // returns at unmount, and prevents potential memory leaks
     return (() => { window.removeEventListener('scroll', handleScroll); });
-  });
+  }, []);
 
   return (
     <div>
