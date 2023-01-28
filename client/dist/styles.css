@@ -1,6 +1,27 @@
-
 .header {
-  background-color: grey;
+  text-align: center;
+  padding: 40px 0;
+  background: magenta;
+}
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation-name: header-shrink;
+  animation-duration: 2s;
+  padding: 10px 0;
+  background-color: darkmagenta;
+}
+@keyframes header-shrink {
+  from {
+    padding: 40px 0;
+    background-color: magenta;
+  }
+  to {
+    padding: 10px 0;
+    background-color: darkmagenta;
+  }
 }
 
 .flex-row {
