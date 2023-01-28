@@ -28,7 +28,8 @@
             {
                 "allow": [
                     "error",
-                    "info"
+                    "info",
+                    "clear"
                 ]
             }
         ],
@@ -37,6 +38,9 @@
             {
                 "max": 2
             }
+        ],
+        "import/newline-after-import": [
+            "off"
         ]
     }
 }

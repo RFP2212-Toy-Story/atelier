@@ -3,22 +3,22 @@
 import React from 'react';
 
 // LOCAL IMPORTS
-import SiteNews from './SiteNews.jsx'
+import SiteNews from './SiteNews';
 
 
 // MAIN
-const Header = () => {
+function Header() {
   return (
     <div>
-      <div className='header flex-row'>
+      <div className="header flex-row">
         <div>
           <h1>DINOMITE DESIGNS 🦖</h1>
         </div>
-        <div className='flex-row-filler'></div>
+        <div className="flex-row-filler" />
         <div>
-          <input type='text' placeholder='search...' />\
+          <input type="text" placeholder="search..." />
         </div>
-        <hr></hr>
+        <hr />
       </div>
       <SiteNews />
     </div>

@@ -4,13 +4,13 @@ import React from 'react';
 
 
 // MAIN
-const ProductText = () => {
+const ProductText = function createProductTextComponent() {
   return (
-    <div className='product-text'>
+    <div className="product-text">
       PITHY TEXT
     </div>
   );
-}
+};
 
 
 export default ProductText;
