@@ -10,7 +10,14 @@
         "plugin:react/recommended",
         "plugin:jsx-a11y/recommended"
     ],
-    "overrides": [],
+    "overrides": [
+        {
+            "files": [
+                "*.jsx",
+                "*.js"
+            ]
+        }
+    ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
