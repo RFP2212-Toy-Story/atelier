@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 // LOCAL IMPORTS
 import App from './App';
-import { ProdContext } from './ProdContext';
+import ProdContext from './ProdContext';
 
 
 // MAIN
