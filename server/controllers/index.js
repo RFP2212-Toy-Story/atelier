@@ -3,16 +3,16 @@
 const axios = require('axios');
 
 // LOCAL REQUIRES
-const models = require('../models');
+const models = require('../models'); // eslint-disable-line
 
 
 function parseGet(request, response) {
-  let newURL = process.env.API_URL + request.url.slice(4);
-  let config = {
+  const newURL = process.env.API_URL + request.url.slice(4);
+  const config = {
     headers: {
-      'Authorization': process.env.API_TOKEN
-    }
-  }
+      Authorization: process.env.API_TOKEN,
+    },
+  };
 
   axios.get(newURL, config)
     .then((apiRes) => {
@@ -26,20 +26,20 @@ function parseGet(request, response) {
     });
 }
 
-function parsePost(request, response) { }
-function parsePut(request, response) { }
+function parsePost(request, response) { } // eslint-disable-line
+function parsePut(request, response) { } // eslint-disable-line
 
-function return404(request, response) {
+function return404Page(request, response) {
   console.info('request ended in 404');
   response.status(404);
   response.send(
-    '<div><center><h1>[404]</h1></center></div>'
-  )
+    '<div><center><h1>[404]</h1></center></div>',
+  );
 }
 
 module.exports = {
   get: parseGet,
   post: parsePost,
   put: parsePut,
-  return404: return404
+  return404: return404Page,
 };

@@ -4,8 +4,8 @@ require('dotenv').config(); // must be first
 const express = require('express');
 
 // LOCAL REQUIRES
-const logger = require('./utilities/logger.js');
-const router = require('./router.js');
+const logger = require('./utilities/logger');
+const router = require('./router');
 
 
 // MAIN
@@ -21,7 +21,7 @@ server.listen(process.env.PORT, (error) => {
     throw error;
   } else {
     console.clear();
-    console.log('=== SERVER ON', '='.repeat(42));
+    console.info('=== SERVER ON', '='.repeat(42));
     console.info(`SERVER: Listening at http://${process.env.SITE_URL}:${process.env.PORT}`);
   }
-})
+});

@@ -28,7 +28,8 @@
             {
                 "allow": [
                     "error",
-                    "info"
+                    "info",
+                    "clear"
                 ]
             }
         ],
@@ -37,6 +38,15 @@
             {
                 "max": 2
             }
+        ],
+        "import/newline-after-import": [
+            "off"
+        ],
+        "react/jsx-one-expression-per-line": [
+            "off"
+        ],
+        "react/prop-types": [
+            "off"
         ]
     }
 }
