@@ -30,7 +30,7 @@ const App = () => {
       });
   }
 
-  const [prodID, setProdID] = useState('product id');
+  const [prodID, setProdID] = useState('40344');
 
   return (
     <div>

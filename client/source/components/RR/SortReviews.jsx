@@ -1,21 +1,19 @@
 import React from 'react';
 
-const SortReviews = ({ sortType, setSortType }) => {
-
+const SortReviews = function SortReviews({ sortType, setSortType }) {
   return (
-    <span>
+    <span className="sort-bar">
       <h3> reviews, sorted by</h3>
     </span>
   );
-}
+};
+
+// SortReviews.propTypes = {
+//   sortType: PropTypes.string.isRequired,
+// };
+
 
 export default SortReviews;
-
-
-
-
-
-
 
 // GET /reviews:
 // {
