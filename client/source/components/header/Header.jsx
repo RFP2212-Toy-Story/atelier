@@ -1,29 +1,40 @@
 
 // LIBRARY IMPORTS
-import React from 'react';
-
-// LOCAL IMPORTS
-import SiteNews from './SiteNews.jsx'
+import React, { useEffect, useState } from 'react';
 
 
-// MAIN
-const Header = () => {
+// HEADER COMPONENT
+const Header = function CreateHeaderComponent() {
+  const [stuck, setStuck] = useState(false);
+
+  const headerClasses = `header ${(stuck) ? 'sticky-header' : ''}`;
+  const paddingClasses = `header-padding ${(stuck) ? 'sticky-padding' : ''}`;
+
+  const handleScroll = () => {
+    setStuck(window.scrollY > 100);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    // returns at unmount, and prevents potential memory leaks
+    return (() => { window.removeEventListener('scroll', handleScroll); });
+  }, []);
+
   return (
     <div>
-      <div className='header flex-row'>
-        <div>
+      <div className={headerClasses}>
+        <div />
+        <div className="flex-row">
           <h1>DINOMITE DESIGNS 🦖</h1>
+          <div className="flex-row-filler" />
+          <input type="text" placeholder="search..." />
         </div>
-        <div className='flex-row-filler'></div>
-        <div>
-          <input type='text' placeholder='search...' />\
-        </div>
-        <hr></hr>
       </div>
-      <SiteNews />
+      <div className={paddingClasses} />
     </div>
   );
-}
+};
 
 
 export default Header;
