@@ -4,11 +4,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react'; // jest is a jerk about using ES6 import
 
-const TestApp = function CreateTestApp() {
-  return (
-    <div>Hello World!</div>
-  );
-};
+import TestApp from './basicTest';
 
 describe('REACT: testing basic div rendering', () => {
   test('loads items eventually', async () => {
