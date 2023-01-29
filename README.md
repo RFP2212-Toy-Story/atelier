@@ -33,5 +33,5 @@ You should now be able to access the client application at the location you set 
 # Running Tests:
 - the command `npm test` will run all tests locally
 - to run tests and also ouput total coverage, use the command `npm run test-coverage`
-  - any file here that matches the pattern `*.test.{js/jsx}` will be considered for coverage
+  - any file here that matches the pattern `*.{js/jsx}` will be considered for coverage
   - this will both print to screen, and produce a pretty HTML report in `./coverage`

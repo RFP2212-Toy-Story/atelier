@@ -1,17 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-
-// use the above in each file, or the below once... somehow
-// every project needs to have its own config. If you want the config to be picked up automatically,
-// put it inside jest.config.js file or like usually in package.json.
-// https://stackoverflow.com/questions/69227566/consider-using-the-jsdom-test-environment
-// https://jestjs.io/docs/configuration#projects-arraystring--projectconfig
-// { "projects": ["<rootDir>/client", "<rootDir>/server", "<rootDir>/some-glob/*"] }
-
-// import { render, screen } from '@testing-library/react'; // jest is a jerk about using ES6 import
-const { render, screen } = require('@testing-library/react');
-const React = require('react');
+import React from 'react';
+import { render, screen } from '@testing-library/react'; // jest is a jerk about using ES6 import
 
 const TestApp = function CreateTestApp() {
   return (
@@ -28,4 +19,3 @@ describe('REACT: testing basic div rendering', () => {
     expect(string.textContent).toBe('Hello World!');
   });
 });
-

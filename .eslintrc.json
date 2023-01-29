@@ -1,6 +1,6 @@
 {
     "env": {
-        "jest": true, // do not just "jest/globals" as it overrides all other lint rules
+        "jest": true, // do not use "jest/globals" as it overrides many other lint rules
         "browser": true,
         "es2021": true
     },

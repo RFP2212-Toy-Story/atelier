@@ -3,4 +3,7 @@ module.exports = {
     'html-spa',
     'text',
   ],
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
 };
