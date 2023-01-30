@@ -22,7 +22,7 @@ function parseGet(request, response) {
     })
     .catch((error) => {
       console.error(error);
-      response.sendStatus(error.response.status);
+      response.send(error);
     });
 }
 
