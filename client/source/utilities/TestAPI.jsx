@@ -18,9 +18,9 @@ function testPostRequest() {
     name: 'test name',
     email: 'test@test.com',
     photos: [
-      'http://www.google.com',
+      'http://www.google.com'
     ],
-    characteristics: {},
+    characteristics: {}
   };
 
   requests.post('/reviews', testPost)
