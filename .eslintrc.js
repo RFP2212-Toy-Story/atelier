@@ -1,5 +1,6 @@
 module.exports = {
   env: {
+    jest: true,
     browser: true,
     es2021: true
   },
@@ -9,7 +10,22 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended'
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: [
+        '*.jsx',
+        '*.js'
+      ]
+    },
+    {
+      files: [
+        '*.test.*'
+      ],
+      rules: {
+        'import/no-extraneous-dependencies': 'off'
+      }
+    }
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module'
