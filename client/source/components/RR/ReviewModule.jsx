@@ -4,14 +4,14 @@ import SortReviews from './SortReviews.jsx';
 import AddReview from './AddReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-// import ProdContext from '../../ProdContext.js';
 import * as requests from '../../utilities/axiosRequests.js';
+// import ProdContext from '../../ProdContext.js';
 
 const ReviewModule = function ReviewModule() {
   // const { prodID } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
   const [reviewCount, setReviewCount] = useState(null);
-  const [meta, setMeta] = useState([]);
+  const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
   // const [selectedRatings, setSelectedRatings] = useState([]);
   const prodID = '40444';
@@ -58,7 +58,7 @@ const ReviewModule = function ReviewModule() {
       <div className="review-list-container">
         <ReviewList
           reviews={reviews}
-          setReviews={setReviews}
+          reviewCount={reviewCount}
         />
         <AddReview />
       </div>

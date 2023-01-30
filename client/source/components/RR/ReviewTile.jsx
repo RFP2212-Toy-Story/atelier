@@ -27,7 +27,7 @@ const ReviewTile = function ReviewTile({ review }) {
       <div className="review-summary">{review.summary}</div>
       <div className="review-body">{review.body}</div>
       { review.recommend
-        ? <div className="review-rec">I recommend this product</div>
+        ? <div className="review-rec">✓ I recommend this product</div>
         : null }
       { review.response
         ? (
