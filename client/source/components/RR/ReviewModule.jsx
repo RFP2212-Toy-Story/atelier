@@ -20,7 +20,7 @@ const ReviewModule = function ReviewModule() {
       .get('/api/reviews/', { params: { product_id: prodID } })
       .then((results) => {
         setReviews(results.data.results);
-        setReviewCount(results.data.count);
+        setReviewCount(results.data.results.length);
       })
       .catch((err) => console.error('Error with reviews request: ', err));
   };
