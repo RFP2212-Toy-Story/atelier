@@ -63,6 +63,13 @@
         ],
         "react/prop-types": [
             "off"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "import/extensions": [
+            "off"
         ]
     }
 }
