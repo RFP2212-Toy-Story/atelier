@@ -26,7 +26,25 @@ function parseGet(request, response) {
     });
 }
 
-function parsePost(request, response) { } // eslint-disable-line
+function parsePost(request, response) {
+  const newURL = process.env.API_URL + request.url.slice(4);
+  const config = {
+    headers: {
+      Authorization: process.env.API_TOKEN,
+    },
+  };
+
+  axios.post(newURL, request.body.data, config)
+    .then((apiRes) => {
+      console.info('request ended in', apiRes.status);
+      response.status(apiRes.status);
+      response.send(apiRes.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      response.sendStatus(error.response.status);
+    });
+}
 
 function parsePut(request, response) {
   const newURL = process.env.API_URL + request.url.slice(4);
@@ -36,7 +54,7 @@ function parsePut(request, response) {
     },
   };
 
-  axios.put(newURL, request.body, config)
+  axios.put(newURL, request.body.data, config)
     .then((apiRes) => {
       console.info('request ended in', apiRes.status);
       response.status(apiRes.status);
