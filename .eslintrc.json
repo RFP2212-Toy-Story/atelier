@@ -47,7 +47,6 @@
         ],
         "react/prop-types": [
             "off"
-<<<<<<< HEAD
         ],
         "comma-dangle": [
             "error",
@@ -56,8 +55,6 @@
         "import/extensions": [
             ".js",
             ".jsx"
-=======
->>>>>>> main
         ]
     }
 }
