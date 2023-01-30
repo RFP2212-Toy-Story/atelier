@@ -37,6 +37,14 @@
             {
                 "max": 2
             }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "import/extensions": [
+            ".js",
+            ".jsx"
         ]
     }
 }
