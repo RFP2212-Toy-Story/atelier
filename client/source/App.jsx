@@ -1,50 +1,31 @@
 // LIBRARY IMPORTS
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 // LOCAL IMPORTS
-import Overview from './components/overview/Overview.jsx';
-import Header from './components/header/Header.jsx'
-import RelatedList from './components/RelatedProducts/RelatedList.jsx';
-import OutfitList from './components/RelatedProducts/OutfitList.jsx';
-import QAModule from './components/questionsAnswers/QAModule.jsx';
-import ReviewModule from './components/RR/ReviewModule.jsx';
-import { ProdContext } from './ProdContext.js';
+import Overview from './components/overview/Overview';
+import Header from './components/header/Header';
+import RelatedList from './components/RelatedProducts/RelatedList';
+import OutfitList from './components/RelatedProducts/OutfitList';
+import QAModule from './components/questionsAnswers/QAModule';
+import ReviewModule from './components/RR/ReviewModule';
+import TestAPI from './utilities/TestAPI';
 
-
-const authServerURL = 'http://localhost:3000/api';
 
 // MAIN
-const App = () => {
+const App = function CreateAppComponent() {
   console.info('APP COMPONENT MOUNTED');
-
-
-  function testGetRequest() {
-    console.log('TEST GET REQUEST');
-    axios.get(authServerURL + '/products')
-      .then((response) => {
-        console.info(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  const [prodID, setProdID] = useState('40444');
 
   return (
     <div>
-      <ProdContext.Provider value={{prodID, setProdID}}>
-        <Header />
-        <Overview />
-        <button onClick={testGetRequest}>TEST GET PRODUCTS REQUEST</button>
-        <RelatedList />
-        <OutfitList />
-        <QAModule />
-        <ReviewModule />
-      </ProdContext.Provider>
+      <Header />
+      <Overview />
+      <RelatedList />
+      <OutfitList />
+      <QAModule />
+      <ReviewModule />
+      <TestAPI />
     </div>
   );
-}
+};
 
 export default App;
