@@ -8,7 +8,7 @@ import ProdContext from './ProdContext';
 
 // MAIN
 const AppHolder = function CreateAppHolder() {
-  const [prodID, setProdID] = useState('product id');
+  const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
 
   return (
     <div>

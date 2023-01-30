@@ -4,7 +4,7 @@ import React from 'react';
 
 
 // MAIN
-const ProductText = function createProductTextComponent() {
+const ProductText = function CreateProductTextComponent() {
   return (
     <div className="product-text">
       PITHY TEXT

@@ -4,7 +4,7 @@ import React from 'react';
 
 
 // MAIN
-const ProductStlyes = function createProductStlyesComponent() {
+const ProductStlyes = function CreateProductStlyesComponent() {
   return (
     <div className="product-styles">
       PRODUCT STYLES

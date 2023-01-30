@@ -44,12 +44,17 @@
   flex: auto;
 }
 
-.photo-block {
-  width: 300px;
-  height: 300px;
-}
-
 .overview {
+  display: flex;
   background-color: blueviolet;
   border: 2px solid black;
+}
+
+.photo-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.photo {
+  display: flex;
 }
