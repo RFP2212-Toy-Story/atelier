@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReviewList from './ReviewList.jsx';
 import SortReviews from './SortReviews.jsx';
-import AddReview from './AddReview.jsx';
+// import AddReview from './AddReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
@@ -14,7 +14,7 @@ const ReviewModule = function ReviewModule() {
   const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
   // const [selectedRatings, setSelectedRatings] = useState([]);
-  const prodID = '40444';
+  const prodID = '40333';
 
   const updateList = () => {
     requests
@@ -60,7 +60,6 @@ const ReviewModule = function ReviewModule() {
           reviews={reviews}
           reviewCount={reviewCount}
         />
-        <AddReview />
       </div>
     </div>
   );
