@@ -12,13 +12,13 @@ const ReviewModule = function ReviewModule() {
   const [reviews, setReviews] = useState([]);
   const [reviewCount, setReviewCount] = useState(null);
   const [meta, setMeta] = useState([]);
-  const [sortType, setSortType] = useState('relevance');
+  const [sortType, setSortType] = useState('relevant');
   // const [selectedRatings, setSelectedRatings] = useState([]);
   const prodID = '40444';
 
   const updateList = () => {
     requests
-      .get(`/reviews/?product_id=${prodID}`)
+      .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
       .then((results) => {
         setReviews(results.data.results);
         setReviewCount(results.data.results.length);
@@ -36,7 +36,7 @@ const ReviewModule = function ReviewModule() {
   useEffect(() => {
     updateList();
     updateMeta();
-  }, []);
+  }, [sortType]);
 
 
   return (

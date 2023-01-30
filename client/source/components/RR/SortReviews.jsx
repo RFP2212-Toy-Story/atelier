@@ -9,7 +9,7 @@ const SortReviews = function SortReviews({ reviewCount, sortType, setSortType })
           value={sortType}
           onChange={(event) => setSortType(event.target.value)}
         >
-          <option value="relevance">relevance</option>
+          <option value="relevant">relevant</option>
           <option value="helpful">helpful</option>
           <option value="newest">newest</option>
         </select>
