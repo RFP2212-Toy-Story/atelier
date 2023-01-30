@@ -53,8 +53,7 @@
             "never"
         ],
         "import/extensions": [
-            ".js",
-            ".jsx"
+            "off"
         ]
     }
 }
