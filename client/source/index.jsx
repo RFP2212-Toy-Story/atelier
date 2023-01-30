@@ -1,15 +1,13 @@
-
 // LIBRARY IMPORTS
-import React from "react";
-import { render } from "react-dom";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
 // LOCAL IMPORTS
-import AppHolder from "./AppHolder.jsx";
-import { ProdContext } from './ProdContext.js';
+import AppHolder from './AppHolder';
 
 
 // MAIN
-render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <AppHolder />,
-  document.getElementById("root")
 );
