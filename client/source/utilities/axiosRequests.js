@@ -26,7 +26,7 @@ const get = function getByEndpoint(endpoint) {
  * */
 const post = function postBygetByEndpoint(endpoint, json) {
   const config = {
-    data: json,
+    data: json
   };
 
   return axios.post(`${authServerURL}/api${endpoint}`, config);
@@ -43,7 +43,7 @@ const post = function postBygetByEndpoint(endpoint, json) {
  * */
 const put = function putBygetByEndpoint(endpoint, json) {
   const config = {
-    data: json,
+    data: json
   };
 
   return axios.put(`${authServerURL}/api${endpoint}`, config);
@@ -52,5 +52,5 @@ const put = function putBygetByEndpoint(endpoint, json) {
 export {
   get,
   post,
-  put,
+  put
 };

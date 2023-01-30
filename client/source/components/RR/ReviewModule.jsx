@@ -1,23 +1,24 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import SortReviews from './SortReviews.jsx';
 import AddReview from './AddReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
-import { ProdContext } from '../../ProdContext.js';
+// import ProdContext from '../../ProdContext.js';
+import * as requests from '../../utilities/axiosRequests.js';
 
 const ReviewModule = function ReviewModule() {
-  const { prodID } = useContext(ProdContext);
+  // const { prodID } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
   const [reviewCount, setReviewCount] = useState(null);
   const [meta, setMeta] = useState([]);
   const [sortType, setSortType] = useState('relevance');
   // const [selectedRatings, setSelectedRatings] = useState([]);
+  const prodID = '40444';
 
   const updateList = () => {
-    axios
-      .get('/api/reviews/', { params: { product_id: prodID } })
+    requests
+      .get(`/reviews/?product_id=${prodID}`)
       .then((results) => {
         setReviews(results.data.results);
         setReviewCount(results.data.results.length);
@@ -26,8 +27,8 @@ const ReviewModule = function ReviewModule() {
   };
 
   const updateMeta = () => {
-    axios
-      .get('/api/reviews/meta', { params: { product_id: prodID } })
+    requests
+      .get(`/reviews/meta?product_id=${prodID}`)
       .then((results) => setMeta(results.data))
       .catch((err) => console.error('Error with reviews meta request: ', err));
   };

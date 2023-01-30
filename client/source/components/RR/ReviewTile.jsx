@@ -10,7 +10,7 @@ const ReviewTile = function ReviewTile({ review }) {
     2: '**',
     3: '***',
     4: '****',
-    5: '*****',
+    5: '*****'
   };
 
   const convertRating = (rating) => starRating[rating];
