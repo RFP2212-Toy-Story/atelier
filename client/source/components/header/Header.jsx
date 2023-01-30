@@ -8,7 +8,7 @@ const Header = function CreateHeaderComponent() {
   const [stuck, setStuck] = useState(false);
 
   const headerClasses = `header ${(stuck) ? 'sticky-header' : ''}`;
-  const paddingClasses = `header-padding ${(stuck) ? 'sticky-padding' : ''}`;
+  const subClasses = `header-title ${(stuck) ? 'hidden' : ''}`;
 
   const handleScroll = () => {
     setStuck(window.scrollY > 100);
@@ -22,16 +22,25 @@ const Header = function CreateHeaderComponent() {
   }, []);
 
   return (
-    <div>
+    <div className="header-wrapper">
       <div className={headerClasses}>
-        <div />
-        <div className="flex-row">
-          <h1>DINOMITE DESIGNS 🦖</h1>
-          <div className="flex-row-filler" />
-          <input type="text" placeholder="search..." />
+
+        <div className="flex-column">
+          <div className="header-title flex-row">
+            <h1>DINOMITE DESIGNS</h1>
+            <h1 style={{ position: 'relative', bottom: '8px', marginLeft: '8px' }}>🦖</h1>
+          </div>
+          <div style={{ marginRight: '32px' }} className={subClasses}>VINTAGE CLOTHES THAT OUTLAST EONS</div>
         </div>
+
+        <div className="flex-row">
+          <form>
+            <input className="header-search-bar-field" type="text" placeholder="search..." />
+            <button className="header-search-bar-field" type="submit">🔎</button>
+          </form>
+        </div>
+
       </div>
-      <div className={paddingClasses} />
     </div>
   );
 };
