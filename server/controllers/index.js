@@ -16,8 +16,8 @@ function parseGet(request, response) {
 
   axios.get(newURL, config)
     .then((apiRes) => {
-      console.info('request ended in 200');
-      response.status(200);
+      console.info('request ended in', apiRes.status);
+      response.status(apiRes.status);
       response.send(apiRes.data);
     })
     .catch((error) => {
@@ -27,7 +27,26 @@ function parseGet(request, response) {
 }
 
 function parsePost(request, response) { } // eslint-disable-line
-function parsePut(request, response) { } // eslint-disable-line
+
+function parsePut(request, response) {
+  const newURL = process.env.API_URL + request.url.slice(4);
+  const config = {
+    headers: {
+      Authorization: process.env.API_TOKEN,
+    },
+  };
+
+  axios.put(newURL, request.body, config)
+    .then((apiRes) => {
+      console.info('request ended in', apiRes.status);
+      response.status(apiRes.status);
+      response.send(apiRes.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      response.sendStatus(error.response.status);
+    });
+}
 
 function return404Page(request, response) {
   console.info('request ended in 404');

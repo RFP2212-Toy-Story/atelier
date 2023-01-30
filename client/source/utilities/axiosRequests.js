@@ -1,18 +1,52 @@
 import axios from 'axios';
 
 
-const authServerURL = 'http://localhost:3000/api';
+const authServerURL = 'http://localhost:3000';
 
-
+/**
+ * Fire an Axios Get Request.
+ *
+ * It takes a string value to append to the endpoint,
+ * which should match the Atelier API endpoint pattern.
+ * @param {string} endpoint - Endpoint to be used
+ * @returns an Axios Request Promise
+ * */
 const get = function getByEndpoint(endpoint) {
-  return axios.get(`${authServerURL}/${endpoint}`);
+  return axios.get(`${authServerURL}/api/${endpoint}`);
 };
 
-const post = function postBygetByEndpoint(endpoint) {
-  return axios.post(`${authServerURL}/${endpoint}`);
+/**
+ * Fire an Axios Post Request.
+ *
+ * It takes a data json, and a string value to append to the endpoint,
+ * which should match the Atelier API endpoint pattern.
+ * @param {string} endpoint - Endpoint to be used
+ * @param {json} json - Data to be posted
+ * @returns an Axios Request Promise
+ * */
+const post = function postBygetByEndpoint(endpoint, json) {
+  const config = {
+    data: json,
+  };
+
+  return axios.post(`${authServerURL}/api/${endpoint}`, config);
 };
-const put = function putBygetByEndpoint(endpoint) {
-  return axios.put(`${authServerURL}/${endpoint}`);
+
+/**
+ * Fire an Axios Put Request.
+ *
+ * It takes a data json, and a string value to append to the endpoint,
+ * which should match the Atelier API endpoint pattern.
+ * @param {string} endpoint - Endpoint to be used
+ * @param {json} json - Data to be put
+ * @returns an Axios Request Promise
+ * */
+const put = function putBygetByEndpoint(endpoint, json) {
+  const config = {
+    data: json,
+  };
+
+  return axios.put(`${authServerURL}/api/${endpoint}`, config);
 };
 
 export {

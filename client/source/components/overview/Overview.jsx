@@ -16,7 +16,7 @@ const Overview = function createOverviewComponent() {
     const productID = 40344;
 
     requests.get(`products/${productID}/styles`)
-      .then((response) => { console.info('GOT:', response.data); })
+      .then((response) => { console.info(response.status, response.data); })
       .catch((error) => { console.error(error); });
   }
 
