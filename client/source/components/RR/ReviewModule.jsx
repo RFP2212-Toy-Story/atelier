@@ -10,22 +10,27 @@ import { ProdContext } from '../../ProdContext.js';
 const ReviewModule = function ReviewModule() {
   const { prodID } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
-  // const [displayedReviews, setDisplayedReviews] = useState([]);
+  const [meta, setMeta] = useState([]);
   const [sortType, setSortType] = useState('');
   // const [selectedRatings, setSelectedRatings] = useState([]);
 
   const updateList = () => {
     axios
-      .get('/api/reviews/', { params: { product_id: prodID } }) // confirm test
-      .then((data) => {
-        // console.log('GOT DATA :', data, data.data.results);
-        setReviews(data.data.results);
-      }) // array of review objs
-      .catch((err) => console.error('Error in updating list: ', err));
+      .get('/api/reviews/', { params: { product_id: prodID } })
+      .then((results) => setReviews(results.data.results))
+      .catch((err) => console.error('Error with reviews request: ', err));
+  };
+
+  const updateMeta = () => {
+    axios
+      .get('/api/reviews/meta', { params: { product_id: prodID } })
+      .then((results) => setMeta(results.data))
+      .catch((err) => console.error('Error with reviews meta request: ', err));
   };
 
   useEffect(() => {
     updateList();
+    updateMeta();
   }, []);
 
 
@@ -33,7 +38,9 @@ const ReviewModule = function ReviewModule() {
     <div>
       <h2>Ratings and Reviews</h2>
       <div className="breakdown-container">
-        <RatingBreakdown />
+        <RatingBreakdown
+          meta={meta}
+        />
         <ProductBreakdown />
       </div>
       <div className="sort-container">
