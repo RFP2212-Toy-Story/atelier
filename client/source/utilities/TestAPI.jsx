@@ -3,13 +3,13 @@ import React from 'react';
 import * as requests from './axiosRequests';
 
 function testGetRequest() {
-  requests.get('products')
+  requests.get('/products')
     .then((response) => console.info(response.status, response.data))
     .catch((error) => error);
 }
 
 function testPutRequest() {
-  requests.put('reviews/1278333/helpful', { review_id: 0 })
+  requests.put('/reviews/1278333/helpful', { review_id: 0 })
     .then((response) => console.info(response.status, response.data))
     .catch((error) => error);
 }

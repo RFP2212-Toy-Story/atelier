@@ -12,7 +12,7 @@ const authServerURL = 'http://localhost:3000';
  * @returns an Axios Request Promise
  * */
 const get = function getByEndpoint(endpoint) {
-  return axios.get(`${authServerURL}/api/${endpoint}`);
+  return axios.get(`${authServerURL}/api${endpoint}`);
 };
 
 /**
@@ -29,7 +29,7 @@ const post = function postBygetByEndpoint(endpoint, json) {
     data: json,
   };
 
-  return axios.post(`${authServerURL}/api/${endpoint}`, config);
+  return axios.post(`${authServerURL}/api${endpoint}`, config);
 };
 
 /**
@@ -46,7 +46,7 @@ const put = function putBygetByEndpoint(endpoint, json) {
     data: json,
   };
 
-  return axios.put(`${authServerURL}/api/${endpoint}`, config);
+  return axios.put(`${authServerURL}/api${endpoint}`, config);
 };
 
 export {
