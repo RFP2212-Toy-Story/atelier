@@ -10,14 +10,18 @@ import { ProdContext } from '../../ProdContext.js';
 const ReviewModule = function ReviewModule() {
   const { prodID } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
+  const [reviewCount, setReviewCount] = useState(null);
   const [meta, setMeta] = useState([]);
-  const [sortType, setSortType] = useState('');
+  const [sortType, setSortType] = useState('relevance');
   // const [selectedRatings, setSelectedRatings] = useState([]);
 
   const updateList = () => {
     axios
       .get('/api/reviews/', { params: { product_id: prodID } })
-      .then((results) => setReviews(results.data.results))
+      .then((results) => {
+        setReviews(results.data.results);
+        setReviewCount(results.data.count);
+      })
       .catch((err) => console.error('Error with reviews request: ', err));
   };
 
@@ -45,6 +49,7 @@ const ReviewModule = function ReviewModule() {
       </div>
       <div className="sort-container">
         <SortReviews
+          reviewCount={reviewCount}
           sortType={sortType}
           setSortType={setSortType}
         />
