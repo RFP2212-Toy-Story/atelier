@@ -18,14 +18,8 @@ const Overview = function CreateOverviewComponent() {
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(0);
 
-  function handleClick() {
-    requests.get(`products/${prodID}/styles`)
-      .then((response) => { console.info(response.status, response.data); })
-      .catch((error) => { console.error(error); });
-  }
-
   useEffect(() => {
-    requests.get(`products/${prodID}/styles`)
+    requests.get(`/products/${prodID}/styles`)
       .then((response) => {
         console.info(response.status, response.data.results);
         setStyles(response.data.results);
@@ -43,7 +37,7 @@ const Overview = function CreateOverviewComponent() {
         <ProductStyles />
       </div>
       <ProductText />
-      <button type="button" onClick={handleClick}>OVERVIEW TEST GET STYLES</button>
+
     </div>
   );
 };
