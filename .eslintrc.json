@@ -44,20 +44,6 @@
         ],
         "react/jsx-one-expression-per-line": [
             "off"
-        ],
-        "react/prop-types": [
-            "off"
-<<<<<<< HEAD
-        ],
-        "comma-dangle": [
-            "error",
-            "never"
-        ],
-        "import/extensions": [
-            ".js",
-            ".jsx"
-=======
->>>>>>> main
         ]
     }
 }
