@@ -30,7 +30,7 @@ const Header = function CreateHeaderComponent() {
             <h1>DINOMITE DESIGNS</h1>
             <h1 style={{ position: 'relative', bottom: '8px', marginLeft: '8px' }}>🦖</h1>
           </div>
-          <div className={subClasses}>VINTAGE CLOTHES THAT OUTLAST EONS</div>
+          <div style={{ marginRight: '32px' }} className={subClasses}>VINTAGE CLOTHES THAT OUTLAST EONS</div>
         </div>
 
         <div className="flex-row">
