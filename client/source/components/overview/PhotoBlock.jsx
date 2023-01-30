@@ -4,13 +4,13 @@ import React from 'react';
 
 
 // MAIN
-const PhotoBlock = () => {
+const PhotoBlock = function createPhotoBlockComponent() {
   return (
-    <div className='photo-block'>
+    <div className="photo-block">
       PHOTOS
     </div>
   );
-}
+};
 
 
 export default PhotoBlock;
