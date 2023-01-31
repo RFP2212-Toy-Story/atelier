@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import InputQuestion from './InputQuestion';
-import { Container } from './styles/Container.styled';
-
+import LoadAddQA from './LoadAddQA';
+import DisplayPhotos from './DisplayPhotos';
+import { Container, InputContainer } from './styles/Containers.styled';
 
 // MAIN
 const QAModule = function CreateQAModuleComponent() {
@@ -12,6 +13,10 @@ const QAModule = function CreateQAModuleComponent() {
     <Container>
       <h3>Questions and Answers</h3>
       <InputQuestion />
+      <h3>Photos</h3>
+      <DisplayPhotos />
+      <h3>Load More Answers</h3>
+      <LoadAddQA />
     </Container>
   );
 };
