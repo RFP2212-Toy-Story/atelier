@@ -24,7 +24,7 @@ const get = function getByEndpoint(endpoint) {
  * @param {json} json - Data to be posted
  * @returns an Axios Request Promise
  * */
-const post = function postBygetByEndpoint(endpoint, json) {
+const post = function postByEndpoint(endpoint, json) {
   const config = {
     data: json
   };
@@ -41,7 +41,7 @@ const post = function postBygetByEndpoint(endpoint, json) {
  * @param {json} json - Data to be put
  * @returns an Axios Request Promise
  * */
-const put = function putBygetByEndpoint(endpoint, json) {
+const put = function putByEndpoint(endpoint, json) {
   const config = {
     data: json
   };
