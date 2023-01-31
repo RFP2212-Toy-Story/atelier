@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import ReviewList from './ReviewList.jsx';
 import SortReviews from './SortReviews.jsx';
-// import AddReview from './AddReview.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
@@ -13,7 +12,14 @@ const ReviewModule = function ReviewModule() {
   const [reviewCount, setReviewCount] = useState(null);
   const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
-  // const [selectedRatings, setSelectedRatings] = useState([]);
+  const [ratingsFilter, setRatingsFilter] = useState({
+    5: false,
+    4: false,
+    3: false,
+    2: false,
+    1: false
+  });
+  // for test only, to be deleted
   const prodID = '40444';
 
   const updateList = () => {

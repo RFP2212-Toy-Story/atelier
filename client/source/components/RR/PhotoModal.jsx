@@ -18,5 +18,3 @@ const PhotoModal = function PhotoModal({ photo, onClose }) {
 };
 
 export default PhotoModal;
-
-

@@ -14,11 +14,10 @@ const ReviewPhoto = function ReviewPhoto({ photo }) {
         aria-hidden="true"
         onClick={() => setModal(true)}
       />
-      { modal && createPortal(
-        <PhotoModal
-          photo={photo}
-          onClose={() => setModal(false)}
-        />, document.body)}
+      { modal && createPortal(<PhotoModal
+        photo={photo}
+        onClose={() => setModal(false)}
+      />, document.body)}
     </>
   );
 };
