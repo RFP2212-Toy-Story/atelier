@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import InputQuestion from './InputQuestion';
 import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
-import { Container, InputContainer } from './styles/Containers.styled';
+import { Container } from './styles/Containers.styled';
 
 // MAIN
 const QAModule = function CreateQAModuleComponent() {
