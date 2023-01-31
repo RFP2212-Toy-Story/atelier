@@ -43,7 +43,7 @@ const post = function postByEndpoint(endpoint, json) {
  * */
 const put = function putByEndpoint(endpoint, json) {
   const config = {
-    param: json
+    data: json
   };
 
   return axios.put(`${authServerURL}/api${endpoint}`, config);
