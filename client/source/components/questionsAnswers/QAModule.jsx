@@ -1,22 +1,21 @@
-import React, { useState, useContext } from 'react';
-import InputQuestion from './InputQuestion.jsx';
-// import { ProdContext } from '../../ProdContext.js';
+import React from 'react';
+import InputQuestion from './InputQuestion';
+import LoadAddQA from './LoadAddQA';
+import DisplayPhotos from './DisplayPhotos';
+import { Container } from './styles/Containers.styled';
 
-
-// MAIN
-const QAModule = () => {
-
-  // const [questInput, setQuestInput] = useState('');
-  // const {prodID, setProdID} = useContext(ProdContext);
-
+const QAModule = function CreateQAModuleComponent() {
   return (
-    <div>
+    <Container>
       <h3>Questions and Answers</h3>
       <InputQuestion />
-      {/* <div>Product ID from QAModule: {prodID}</div> */}
-    </div>
+      <h3>Photos</h3>
+      <DisplayPhotos />
+      <h3>Load More Answers</h3>
+      <LoadAddQA />
+    </Container>
   );
-}
+};
 
 
 export default QAModule;
