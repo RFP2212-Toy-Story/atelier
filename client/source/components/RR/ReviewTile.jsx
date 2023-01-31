@@ -3,9 +3,11 @@ import { format, parseISO } from 'date-fns';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
+  // FORMAT DATE
   const parsedDate = parseISO(review.date);
   const formattedDate = format(parsedDate, 'PPP');
 
+  // PLACEHOLDER DISPLAY STAR RATING
   const starRating = {
     1: '*',
     2: '**',
@@ -13,11 +15,17 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     4: '****',
     5: '*****'
   };
-
-  // console.log('review:', review);
-
   const convertRating = (rating) => starRating[rating];
 
+  // FUNCTIONS
+  const capSummary = function capSummary(summary) {
+    if (summary.length > 60) {
+      return `${summary.slice(0, 60)}...`;
+    }
+    return summary;
+  };
+
+  // EVENT HANDLERS
   const handleHelpfulness = function handleHelpfulness(event) {
     event.target.setAttribute('disabled', true);
     requests
@@ -49,7 +57,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           {formattedDate}
         </span>
       </div>
-      <div className="review-summary">{review.summary}</div>
+      <div className="review-summary">{capSummary(review.summary)}</div>
       <div className="review-body">{review.body}</div>
       { review.recommend
         ? <div className="review-rec">✓ I recommend this product</div>
