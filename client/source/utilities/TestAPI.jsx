@@ -18,9 +18,9 @@ function testPostRequest() {
     name: 'test name',
     email: 'test@test.com',
     photos: [
-      'http://www.google.com',
+      'http://www.google.com'
     ],
-    characteristics: {},
+    characteristics: {}
   };
 
   requests.post('/reviews', testPost)
@@ -36,12 +36,19 @@ function testPutRequest() {
     .catch((error) => console.error(error));
 }
 
+function testGetStylesRequest() {
+  requests.get('/products/40344/styles')
+    .then((response) => { console.info(response.status, response.data); })
+    .catch((error) => { console.error(error); });
+}
+
 const TestAPI = function createTestAPIComponent() {
   return (
-    <div>
+    <div id="test-api-component">
       <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
       <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
       <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
+      <button type="button" onClick={testGetStylesRequest}>OVERVIEW TEST GET STYLES</button>
     </div>
   );
 };
