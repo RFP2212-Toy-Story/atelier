@@ -4,11 +4,7 @@ import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
 import { Container } from './styles/Containers.styled';
 
-// MAIN
 const QAModule = function CreateQAModuleComponent() {
-  // const [questInput, setQuestInput] = useState('');
-  // const {prodID, setProdID} = useContext(ProdContext);
-
   return (
     <Container>
       <h3>Questions and Answers</h3>
