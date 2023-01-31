@@ -44,7 +44,7 @@ function testGetStylesRequest() {
 
 const TestAPI = function createTestAPIComponent() {
   return (
-    <div>
+    <div id="test-api-component">
       <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
       <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
       <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>

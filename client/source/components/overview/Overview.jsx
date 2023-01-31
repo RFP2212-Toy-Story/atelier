@@ -52,7 +52,7 @@ const Overview = function CreateOverviewComponent() {
   }, [prodID]);
 
   return (
-    <div className="overview flex-column">
+    <div id="overview-component" className="overview flex-column">
       <div className="flex-row">
         <PhotoBlock photos={styles[currentStyle]?.photos} />
         <div className="flex-row-filler" />

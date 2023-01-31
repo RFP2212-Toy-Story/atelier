@@ -34,6 +34,18 @@ const Header = function CreateHeaderComponent() {
         </div>
 
         <div className="flex-row">
+          <a href="#top">
+            <button type="button">TOP OF PAGE</button>
+          </a>
+
+          <a href="#overview-component">
+            <button type="button">OVERVIEW</button>
+          </a>
+
+          <a href="#test-api-component">
+            <button type="button">TEST API COMPONENT</button>
+          </a>
+
           <form>
             <input className="header-search-bar-field" type="text" placeholder="search..." />
             <button className="header-search-bar-field" type="submit">🔎</button>

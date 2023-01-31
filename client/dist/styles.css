@@ -8,6 +8,10 @@
     rgba(48, 9, 34, 0.3) 0px 10px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   position: fixed;
   box-sizing: border-box;
