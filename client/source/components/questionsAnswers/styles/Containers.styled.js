@@ -31,6 +31,7 @@ export const LoadContainer = styled.div`
     font-weight: 600;
     &:hover {
     color: white;
+    }
   }
 `;
 
