@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
+  // STATE
+  const [fullBody, setFullBody] = useState(false);
+
   // FORMAT DATE
   const parsedDate = parseISO(review.date);
   const formattedDate = format(parsedDate, 'PPP');
@@ -23,6 +26,13 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
       return `${summary.slice(0, 60)}...`;
     }
     return summary;
+  };
+
+  const capBody = function capBody(bodyText) {
+    if (bodyText.length > 250 && fullBody === false) {
+      return `${bodyText.slice(0, 250)}...`;
+    }
+    return bodyText;
   };
 
   // EVENT HANDLERS
@@ -58,7 +68,19 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
         </span>
       </div>
       <div className="review-summary">{capSummary(review.summary)}</div>
-      <div className="review-body">{review.body}</div>
+      <div className="review-body-container">
+        <div className="review-text">{capBody(review.body)}</div>
+        { review.body.length > 250 && fullBody === false
+          ? (
+            <button
+              className="show-more-button"
+              type="button"
+              onClick={() => setFullBody(true)}
+            >SHOW MORE
+            </button>
+          )
+          : null }
+      </div>
       { review.recommend
         ? <div className="review-rec">✓ I recommend this product</div>
         : null }
@@ -74,15 +96,15 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
         <span>Helpful?</span>
         <span>
           <button
-            type="button"
             className="review-helpful"
+            type="button"
             onClick={handleHelpfulness}
           >Yes
           </button>
           <span className="helpfulness-count">{`(${review.helpfulness})`}</span>
           <button
-            type="button"
             className="report-review"
+            type="button"
             onClick={handleReported}
           >Report
           </button>
