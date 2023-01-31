@@ -1,5 +1,6 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
+import GlobalStyles from './GlobalStyles.js';
 
 // LOCAL IMPORTS
 import App from './App.jsx';
@@ -20,6 +21,7 @@ const AppHolder = function CreateAppHolder() {
 
   return (
     <div>
+      <GlobalStyles />
       <ProdContext.Provider value={{ prodID, setProdID, product, setProduct }}> {/* eslint-disable-line */}
         <App />
       </ProdContext.Provider>
