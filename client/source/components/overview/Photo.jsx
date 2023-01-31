@@ -6,7 +6,7 @@ import React from 'react';
 const Photo = function CreatePhotoComponent({ photo }) {
   return (
     <div className="photo">
-      <img alt="" src={photo.thumbnail_url} />
+      <img width="50%" alt="" src={photo.thumbnail_url} />
     </div>
   );
 };

@@ -3,18 +3,40 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 // LOCAL IMPORTS
-import PhotoBlock from './PhotoBlock';
-import ProductStyles from './ProductStyles';
-import ProductText from './ProductText';
+import PhotoBlock from './PhotoBlock.jsx';
+import ProductInfo from './ProductInfo.jsx';
+import ProductText from './ProductText.jsx';
 
-import ProdContext from '../../ProdContext';
+import ProdContext from '../../ProdContext.js';
 
-import * as requests from '../../utilities/axiosRequests';
+import * as requests from '../../utilities/axiosRequests.js';
 
+// EXAMPLE GET PRODUCT BY ID
+// {
+//   "id": 40344,
+//   "campus": "hr-rfp",
+//   "name": "Camo Onesie",
+//   "slogan": "Blend in to your crowd",
+//   "description": "The So Fatigues will wake you up and fit you in. This \\ ... \\ surroundings.",
+//   "category": "Jackets",
+//   "default_price": "140.00",
+//   "created_at": "2021-08-13T14:38:44.509Z",
+//   "updated_at": "2021-08-13T14:38:44.509Z",
+//   "features": [
+//       {
+//           "feature": "Fabric",
+//           "value": "Canvas"
+//       },
+//       {
+//           "feature": "Buttons",
+//           "value": "Brass"
+//       }
+//   ]
+// }
 
 // MAIN
 const Overview = function CreateOverviewComponent() {
-  const { prodID } = useContext(ProdContext);
+  const { prodID, product } = useContext(ProdContext);
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(0);
 
@@ -30,13 +52,13 @@ const Overview = function CreateOverviewComponent() {
   }, [prodID]);
 
   return (
-    <div className="overview">
+    <div className="overview flex-column">
       <div className="flex-row">
         <PhotoBlock photos={styles[currentStyle]?.photos} />
         <div className="flex-row-filler" />
-        <ProductStyles />
+        <ProductInfo product={product} styles={styles} setCurrentStyle={setCurrentStyle} />
       </div>
-      <ProductText />
+      <ProductText product={product} />
 
     </div>
   );
