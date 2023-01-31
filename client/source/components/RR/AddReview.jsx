@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddReview = function AddReview() {
+  const [modal, setModal] = useState(false);
+
   return (
     <button
-      className="add-review-button"
+      className="showModal"
       type="button"
+      onClick={() => setModal(!modal)}
     >ADD A REVIEW
     </button>
   );

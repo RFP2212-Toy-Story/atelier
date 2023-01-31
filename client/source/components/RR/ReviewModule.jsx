@@ -14,7 +14,7 @@ const ReviewModule = function ReviewModule() {
   const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
   // const [selectedRatings, setSelectedRatings] = useState([]);
-  const prodID = '40333';
+  const prodID = '40444';
 
   const updateList = () => {
     requests
@@ -59,6 +59,7 @@ const ReviewModule = function ReviewModule() {
         <ReviewList
           reviews={reviews}
           reviewCount={reviewCount}
+          updateList={updateList}
         />
       </div>
     </div>
