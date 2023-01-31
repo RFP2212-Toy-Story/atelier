@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
+import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
@@ -80,6 +81,14 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
             </button>
           )
           : null }
+        <div className="review-photos">
+          {review.photos.map((photo) => (
+            <ReviewPhoto
+              photo={photo}
+              key={photo.id}
+            />
+          ))}
+        </div>
       </div>
       { review.recommend
         ? <div className="review-rec">✓ I recommend this product</div>
