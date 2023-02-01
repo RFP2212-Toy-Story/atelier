@@ -2,10 +2,12 @@ import React from 'react';
 import InputQuestion from './InputQuestion';
 import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
-import ModalExample from '../../ModalExample';
+import Modal from '../../Modal';
+import useModal from '../../useModal';
 import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
+  const { isOpen, onOpen, onClose } = useModal();
   return (
     <Container>
       <h3>Questions and Answers</h3>
@@ -14,7 +16,11 @@ const QAModule = function CreateQAModuleComponent() {
       <DisplayPhotos />
       <h3>Load More Answers</h3>
       <LoadAddQA />
-      <ModalExample />
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <div>Hello from QAModule</div>
+        <DisplayPhotos />
+      </Modal>
+      <button onClick={onOpen} type="button">Open Modal</button>
     </Container>
   );
 };
