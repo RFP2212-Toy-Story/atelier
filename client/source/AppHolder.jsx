@@ -1,5 +1,6 @@
 // LIBRARY IMPORTS
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import GlobalStyles from './GlobalStyles.js';
 
 // LOCAL IMPORTS
 import App from './App.jsx';
@@ -18,9 +19,14 @@ const AppHolder = function CreateAppHolder() {
       .catch((error) => { console.error(error); });
   }, [prodID]);
 
+  const providerValues = useMemo(() => ({
+    prodID, setProdID, product, setProduct
+  }), [prodID, product]);
+
   return (
     <div>
-      <ProdContext.Provider value={{ prodID, setProdID, product, setProduct }}> {/* eslint-disable-line */}
+      <ProdContext.Provider value={providerValues}>
+        <GlobalStyles />
         <App />
       </ProdContext.Provider>
     </div>
