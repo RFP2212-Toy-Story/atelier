@@ -1,5 +1,6 @@
 // LIBRARY IMPORTS
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import GlobalStyles from './GlobalStyles.js';
 
 // LOCAL IMPORTS
 import App from './App.jsx';
@@ -9,7 +10,7 @@ import * as requests from './utilities/axiosRequests.js';
 
 // MAIN
 const AppHolder = function CreateAppHolder() {
-  const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
+  const [prodID, setProdID] = useState(40444); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState(undefined);
 
   useEffect(() => {
@@ -18,9 +19,14 @@ const AppHolder = function CreateAppHolder() {
       .catch((error) => { console.error(error); });
   }, [prodID]);
 
+  const providerValues = useMemo(() => ({
+    prodID, setProdID, product, setProduct
+  }), [prodID, product]);
+
   return (
     <div>
-      <ProdContext.Provider value={{ prodID, setProdID, product, setProduct }}> {/* eslint-disable-line */}
+      <ProdContext.Provider value={providerValues}>
+        <GlobalStyles />
         <App />
       </ProdContext.Provider>
     </div>

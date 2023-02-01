@@ -2,16 +2,15 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
 
+import * as Styles from './HeaderStyles.js';
+
 
 // HEADER COMPONENT
 const Header = function CreateHeaderComponent() {
-  const [stuck, setStuck] = useState(false);
-
-  const headerClasses = `header ${(stuck) ? 'sticky-header' : ''}`;
-  const subClasses = `header-title ${(stuck) ? 'hidden' : ''}`;
+  const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
-    setStuck(window.scrollY > 100);
+    setScrolled(window.scrollY > 100);
   };
 
   useEffect(() => {
@@ -22,18 +21,31 @@ const Header = function CreateHeaderComponent() {
   }, []);
 
   return (
-    <div className="header-wrapper">
-      <div className={headerClasses}>
+    <Styles.HeaderWrapperDiv>
 
-        <div className="flex-column">
-          <div className="header-title flex-row">
-            <h1>DINOMITE DESIGNS</h1>
+      <Styles.HeaderDiv scrolled={scrolled}>
+
+        <div className="FlexColumn">
+
+          <div className="FlexRow">
+
+            <Styles.PixelFontDiv>
+              <h1>DINOMITE DESIGNS</h1>
+            </Styles.PixelFontDiv>
+
             <h1 style={{ position: 'relative', bottom: '8px', marginLeft: '8px' }}>🦖</h1>
+
           </div>
-          <div style={{ marginRight: '32px' }} className={subClasses}>VINTAGE CLOTHES THAT OUTLAST EONS</div>
+
+          <Styles.PixelFontDiv>
+            <Styles.FadingDiv scrolled={scrolled}>
+              VINTAGE CLOTHES THAT OUTLAST EONS
+            </Styles.FadingDiv>
+          </Styles.PixelFontDiv>
+
         </div>
 
-        <div className="flex-row">
+        <div className="FlexRow">
           <a href="#top">
             <button type="button">TOP OF PAGE</button>
           </a>
@@ -47,13 +59,13 @@ const Header = function CreateHeaderComponent() {
           </a>
 
           <form>
-            <input className="header-search-bar-field" type="text" placeholder="search..." />
-            <button className="header-search-bar-field" type="submit">🔎</button>
+            <input style={{ backgroundColor: '#FF99D7' }} type="text" placeholder="search..." />
+            <button type="submit">🔎</button>
           </form>
         </div>
 
-      </div>
-    </div>
+      </Styles.HeaderDiv>
+    </Styles.HeaderWrapperDiv>
   );
 };
 
