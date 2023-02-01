@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-// import qaData from './exampleDataQA';
+
 import { InputContainer } from './styles/Containers.styled';
 
-const SearchAnswers = function CreateSearchAnswersComponent() {
-  // const [answers, setAnswers] = useState(qaData.results[0].answers);
+const SearchQuestions = function CreateSearchQuestions({ answers, setAnswers, handleSearch }) {
   const [input, setInput] = useState('');
-  // const [query, setQuery] = useState('');
-  // console.log(query);
 
-  // const filtered = [...answers].filter(function(answer) {
-  //   return answer.body.toLowerCase().includes(input.toLowerCase())
-  // });
+  console.log('answers: ', answers);
 
   return (
     <InputContainer>
@@ -23,7 +18,7 @@ const SearchAnswers = function CreateSearchAnswersComponent() {
       <button
         type="button"
         onClick={() => {
-          // setQuery(input);
+          handleSearch(input);
         }}
       >Go!
       </button>
@@ -31,4 +26,4 @@ const SearchAnswers = function CreateSearchAnswersComponent() {
   );
 };
 
-export default SearchAnswers;
+export default SearchQuestions;
