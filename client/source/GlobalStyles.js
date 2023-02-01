@@ -8,7 +8,7 @@ const Globalstyles = createGlobalStyle`
 
 // BODY
 body {
-  background-color: #fefae2;
+  background-color: #fffbea;
   font-family: 'Nunito', sans-serif
 }
 
