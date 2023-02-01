@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputContainer } from './styles/Containers.styled';
 
-const InputQuestion = function CreateInputQuestionComponent() {
+const SearchAnswers = function CreateSearchAnswersComponent() {
   return (
     <InputContainer>
       <input
@@ -13,5 +13,4 @@ const InputQuestion = function CreateInputQuestionComponent() {
   );
 };
 
-
-export default InputQuestion;
+export default SearchAnswers;
