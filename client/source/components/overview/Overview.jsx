@@ -33,7 +33,12 @@ const Overview = function CreateOverviewComponent() {
       <div className="FlexRow">
         <PhotoBlock photos={styles[currentStyle]?.photos} />
         <div className="flex-row-filler" />
-        <ProductInfo product={product} styles={styles} setCurrentStyle={setCurrentStyle} />
+        <ProductInfo
+          product={product}
+          styles={styles}
+          style={styles[currentStyle]}
+          setCurrentStyle={setCurrentStyle}
+        />
       </div>
       <ProductText product={product} />
 
