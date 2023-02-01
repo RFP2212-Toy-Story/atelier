@@ -9,7 +9,8 @@ const Globalstyles = createGlobalStyle`
 // BODY
 body {
   background-color: #fffbea;
-  font-family: 'Nunito', sans-serif
+  font-family: 'Nunito', sans-serif;
+  color: #3D405B
 }
 
 // BROWSER OVERRIDES
