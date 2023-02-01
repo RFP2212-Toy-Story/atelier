@@ -6,13 +6,7 @@ const RelatedListCard = function CreateRelatedListCard({ id }) {
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
 
-  function extractImageData() {
-    const defaultStyle = styleData[0];
-    console.log('PHOTO OBJ: ', styleData);
-    const photoData = defaultStyle.photos[0];
-
-    // return filteredStyles[0].thumbnail_url;
-  }
+  console.log('TESTING: ', imageURL);
 
   useEffect(() => {
     requests.get(`/products/${id}`)
@@ -22,12 +16,12 @@ const RelatedListCard = function CreateRelatedListCard({ id }) {
       .catch((error) => { console.error(error); });
 
     requests.get(`/products/${id}/styles`)
-      .then((response) => {
-        setStyleData(response.data.results);
-        setImageURL(extractImageData());
+      .then(({ data }) => {
+        setStyleData(data.results);
+        setImageURL(data.results[0].photos[0].thumbnail_url);
       })
       .catch((error) => { console.error(error); });
-  }, []);
+  }, [id]);
 
   return (
     <div className="card">

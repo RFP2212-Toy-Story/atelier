@@ -1,45 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import styled from 'styled-components';
 
 import RelatedListCard from './RelatedListCard.jsx';
 import CompareWindow from './CompareWindow.jsx';
 import * as requests from '../../utilities/axiosRequests';
+import ProdContext from '../../ProdContext.js';
+
 
 const RelatedList = function CreateRelatedList() {
-  const [index, setIndex] = useState(0);
+  const { prodID } = useContext(ProdContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const productID = 40444;
+  const [index, setIndex] = useState(0);
+  const { length } = relatedProducts;
 
   useEffect(() => {
-    requests.get(`/products/${productID}/related`)
+    requests.get(`/products/${prodID}/related`)
       .then((response) => {
         setRelatedProducts(response.data);
       })
       .catch((error) => { console.error(error); });
-  }, []);
+  }, [prodID]);
 
-  // SAMPLE DATA
-  // setRelatedProducts([
-  //   40621,
-  //   40956,
-  //   41259,
-  //   40731,
-  //   40452,
-  //   40476,
-  //   40692
-  // ]);
+  // const handlePrevious = () => {
+  //   const newIndex = index - 1;
+  //   setIndex(newIndex < 0 ? length - 1 : newIndex);
+  // };
 
-  const { length } = relatedProducts;
-
-  const handlePrevious = () => {
-    const newIndex = index - 1;
-    setIndex(newIndex < 0 ? length - 1 : newIndex);
-  };
-
-  const handleNext = () => {
-    const newIndex = index + 1;
-    setIndex(newIndex >= length ? 0 : newIndex);
-  };
+  // const handleNext = () => {
+  //   const newIndex = index + 1;
+  //   setIndex(newIndex >= length ? 0 : newIndex);
+  // };
 
   return (
     <div className="related carousel">
@@ -48,7 +39,7 @@ const RelatedList = function CreateRelatedList() {
         <BsChevronLeft />
       </button>
       <div>
-        {relatedProducts.map((product) => <RelatedListCard key={product} id={product} />)}
+        {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} id={relatedProdId} />)}
       </div>
       <button type="button">
         <BsChevronRight />
