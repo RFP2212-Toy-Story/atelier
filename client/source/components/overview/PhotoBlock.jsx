@@ -31,7 +31,6 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
         break;
       case 'thumbnail': {
         const index = Number(event.target.getAttribute('label'));
-        console.log(index);
         setCurrIndex(index);
 
         break;
