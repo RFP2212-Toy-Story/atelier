@@ -5,7 +5,9 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 // import ProdContext from '../../ProdContext.js';
-import { ReviewModuleContainer } from './styles/RR.styled.js';
+import {
+  ReviewModuleContainer, ReviewContentsContainer, BreakdownContainer, ReviewListContainer
+} from './styles/RR.styled.js';
 
 const ReviewModule = function ReviewModule() {
   // const { prodID } = useContext(ProdContext);
@@ -48,29 +50,29 @@ const ReviewModule = function ReviewModule() {
 
   return (
     <ReviewModuleContainer>
-      <h2>Ratings and Reviews</h2>
-      <div className="breakdown-container">
-        <RatingBreakdown
-          meta={meta}
-        />
-        <ProductBreakdown
-          traits={meta.characteristics}
-        />
-      </div>
-      <div className="sort-container">
-        <SortReviews
-          reviewCount={reviewCount}
-          sortType={sortType}
-          setSortType={setSortType}
-        />
-      </div>
-      <div className="review-list-container">
-        <ReviewList
-          reviews={reviews}
-          reviewCount={reviewCount}
-          updateList={updateList}
-        />
-      </div>
+      <h3>Ratings and Reviews</h3>
+      <ReviewContentsContainer>
+        <BreakdownContainer>
+          <RatingBreakdown meta={meta} />
+          <ProductBreakdown traits={meta.characteristics} />
+        </BreakdownContainer>
+        <ReviewListContainer>
+          <div className="sort-container">
+            <SortReviews
+              reviewCount={reviewCount}
+              sortType={sortType}
+              setSortType={setSortType}
+            />
+          </div>
+          <div className="review-list-container">
+            <ReviewList
+              reviews={reviews}
+              reviewCount={reviewCount}
+              updateList={updateList}
+            />
+          </div>
+        </ReviewListContainer>
+      </ReviewContentsContainer>
     </ReviewModuleContainer>
   );
 };
