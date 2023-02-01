@@ -2,16 +2,15 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
 
+import * as Styles from './HeaderStyles.js';
+
 
 // HEADER COMPONENT
 const Header = function CreateHeaderComponent() {
-  const [stuck, setStuck] = useState(false);
-
-  const headerClasses = `header ${(stuck) ? 'sticky-header' : ''}`;
-  const paddingClasses = `header-padding ${(stuck) ? 'sticky-padding' : ''}`;
+  const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
-    setStuck(window.scrollY > 100);
+    setScrolled(window.scrollY > 100);
   };
 
   useEffect(() => {
@@ -22,17 +21,51 @@ const Header = function CreateHeaderComponent() {
   }, []);
 
   return (
-    <div>
-      <div className={headerClasses}>
-        <div />
-        <div className="flex-row">
-          <h1>DINOMITE DESIGNS 🦖</h1>
-          <div className="flex-row-filler" />
-          <input type="text" placeholder="search..." />
+    <Styles.HeaderWrapperDiv>
+
+      <Styles.HeaderDiv scrolled={scrolled}>
+
+        <div className="FlexColumn">
+
+          <div className="FlexRow">
+
+            <Styles.PixelFontDiv>
+              <h1>DINOMITE DESIGNS</h1>
+            </Styles.PixelFontDiv>
+
+            <h1 style={{ position: 'relative', bottom: '8px', marginLeft: '8px' }}>🦖</h1>
+
+          </div>
+
+          <Styles.PixelFontDiv>
+            <Styles.FadingDiv scrolled={scrolled}>
+              VINTAGE CLOTHES THAT OUTLAST EONS
+            </Styles.FadingDiv>
+          </Styles.PixelFontDiv>
+
         </div>
-      </div>
-      <div className={paddingClasses} />
-    </div>
+
+        <div className="FlexRow">
+          <a href="#top">
+            <button type="button">TOP OF PAGE</button>
+          </a>
+
+          <a href="#overview-component">
+            <button type="button">OVERVIEW</button>
+          </a>
+
+          <a href="#test-api-component">
+            <button type="button">TEST API COMPONENT</button>
+          </a>
+
+          <form>
+            <input style={{ backgroundColor: '#FF99D7' }} type="text" placeholder="search..." />
+            <button type="submit">🔎</button>
+          </form>
+        </div>
+
+      </Styles.HeaderDiv>
+    </Styles.HeaderWrapperDiv>
   );
 };
 

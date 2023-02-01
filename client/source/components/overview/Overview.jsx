@@ -1,34 +1,42 @@
 
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 // LOCAL IMPORTS
-import PhotoBlock from './PhotoBlock';
-import ProductStyles from './ProductStyles';
-import ProductText from './ProductText';
+import PhotoBlock from './PhotoBlock.jsx';
+import ProductInfo from './ProductInfo.jsx';
+import ProductText from './ProductText.jsx';
 
-import * as requests from '../../utilities/axiosRequests';
+import ProdContext from '../../ProdContext.js';
+
+import * as requests from '../../utilities/axiosRequests.js';
 
 
 // MAIN
-const Overview = function createOverviewComponent() {
-  function handleClick() {
-    const productID = 40344;
+const Overview = function CreateOverviewComponent() {
+  const { prodID, product } = useContext(ProdContext);
+  const [styles, setStyles] = useState([]);
+  const [currentStyle, setCurrentStyle] = useState(0);
 
-    requests.get(`/products/${productID}/styles`)
-      .then((response) => { console.info(response.status, response.data); })
+  useEffect(() => {
+    requests.get(`/products/${prodID}/styles`)
+      .then((response) => {
+        console.info(response.status, response.data.results);
+        setStyles(response.data.results);
+        return (response.data.results);
+      })
       .catch((error) => { console.error(error); });
-  }
+  }, [prodID]);
 
   return (
-    <div className="overview">
-      <div className="flex-row">
-        <PhotoBlock />
+    <div id="overview-component" style={{ border: '1px solid black' }} className="overview FlexColumn">
+      <div className="FlexRow">
+        <PhotoBlock photos={styles[currentStyle]?.photos} />
         <div className="flex-row-filler" />
-        <ProductStyles />
+        <ProductInfo product={product} styles={styles} setCurrentStyle={setCurrentStyle} />
       </div>
-      <ProductText />
-      <button type="button" onClick={handleClick}>OVERVIEW TEST GET STYLES</button>
+      <ProductText product={product} />
+
     </div>
   );
 };

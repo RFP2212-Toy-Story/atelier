@@ -2,12 +2,14 @@
 // LIBRARY IMPORTS
 import React from 'react';
 
+import Photo from './Photo';
+
 
 // MAIN
-const PhotoBlock = function createPhotoBlockComponent() {
+const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
   return (
     <div className="photo-block">
-      PHOTOS
+      {photos?.map((photo) => <Photo key={photo.url} photo={photo} />)}
     </div>
   );
 };
