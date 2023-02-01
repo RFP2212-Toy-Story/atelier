@@ -12,6 +12,7 @@ const Photo = function CreatePhotoComponent({ photo }) {
   const [zoomed, setZoomed] = useState(false);
 
   const fastAverageColor = new FastAverageColor();
+  const photoWidth = (new URL(photo.url)).searchParams.get('w');
 
   console.info('Average Color', averageColor);
 
@@ -30,11 +31,11 @@ const Photo = function CreatePhotoComponent({ photo }) {
   }, []);
 
   return (
-    <div className="photo" style={{ 'background-color': `${averageColor.hex}` }}>
-      <img onClick={handleClick} width="50%" alt="product photograph" src={photo.thumbnail_url} />
-      {zoomed ? <Styles.Overlay /> : null}
-      {zoomed ? <ZoomedPhoto callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null}
-    </div>
+    <Styles.PhotoTileDiv color={averageColor.hex}>
+      <img onClick={handleClick} style={{ width: '100%', maxHeight: '100%' }} alt="product photograph" src={photo.thumbnail_url} />
+      {zoomed ? <Styles.OverlayDiv /> : null}
+      {zoomed ? <ZoomedPhoto photoWidth={photoWidth} callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null} {/* eslint-disable-line */}
+    </Styles.PhotoTileDiv>
   );
 };
 

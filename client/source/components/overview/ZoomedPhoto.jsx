@@ -3,9 +3,9 @@ import React, { useCallback, useEffect } from 'react';
 import * as Styles from './overviewStyles.js';
 
 
-const ZoomedPhoto = function CreateZoomedPhotoComponent({ callback, color, photo }) {
-  const photoWidth = (new URL(photo.url)).searchParams.get('w');
-
+const ZoomedPhoto = function CreateZoomedPhotoComponent({
+  callback, color, photo, photoWidth
+}) {
   const handleClick = useCallback(() => {
     callback();
   });
@@ -22,7 +22,7 @@ const ZoomedPhoto = function CreateZoomedPhotoComponent({ callback, color, photo
 
   return (
     <Styles.ZoomedPhotoDiv color={color} onClick={handleClick} width={photoWidth}>
-      <img style={{ maxWidth: '100%' }} alt="large format product photograph" src={photo.url} />
+      <img style={{ maxWidth: '100%', maxHeight: '100%' }} alt="large format product photograph" src={photo.url} />
     </Styles.ZoomedPhotoDiv>
   );
 };
