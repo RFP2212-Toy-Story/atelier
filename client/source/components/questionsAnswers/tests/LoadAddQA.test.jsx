@@ -11,14 +11,9 @@ afterEach(() => {
 });
 
 describe('Button Component', () => {
-  render(<LoadAddQA btnTxt="More Answered Questions" />);
-  const button = screen.getByTestId('button');
-  // Test 1
-  test('Button Rendering', () => {
-    expect(button).toBeInTheDocument();
-  });
-  // Test 2
-  test('Button Text', () => {
-    expect(button).toHaveTextContent('More Answered Questions');
+  test('Button Rendering', async () => {
+    render(<LoadAddQA />);
+    const button = await screen.getByTestId('More answered');
+    expect(button.textContent).toBe('More Answered Questions');
   });
 });
