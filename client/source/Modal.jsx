@@ -9,16 +9,15 @@ const Wrapper = styled.div`
   border-radius: 12px;
   padding: 1rem;
   position: absolute;
-  width: 250px;
-  /* top: 50%; */
+  width: 600px;
+  top: 50%;
   /* left: calc(50% - 125px); */
-  /* bottom: 100px; */
-  /* right: 100px; */
-  /* left: 50%; */
+  /* bottom: 100px;
+  right: 100px; */
+  left: 50%;
   margin: auto;
   inset: 0;
-  height: 200px;
-  width: 200px;
+  /* height: 200px; */
 `;
 
 export default function Modal({ children, isOpen, onClose }) {
