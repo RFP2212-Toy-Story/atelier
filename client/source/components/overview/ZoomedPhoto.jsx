@@ -22,7 +22,7 @@ const ZoomedPhoto = function CreateZoomedPhotoComponent({
 
   return (
     <Styles.ZoomedPhotoDiv color={color} onClick={handleClick} width={photoWidth}>
-      <img style={{ maxWidth: '100%', maxHeight: '100%' }} alt="large format product photograph" src={photo.url} />
+      <img style={{ maxHeight: '75vh' }} alt="large format product photograph" src={photo.url} />
     </Styles.ZoomedPhotoDiv>
   );
 };
