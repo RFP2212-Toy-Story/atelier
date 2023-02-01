@@ -10,7 +10,6 @@ import QAModule from './components/questionsAnswers/QAModule';
 import ReviewModule from './components/RR/ReviewModule';
 import TestAPI from './utilities/TestAPI';
 
-
 // MAIN
 const App = function CreateAppComponent() {
   console.info('APP COMPONENT MOUNTED');
