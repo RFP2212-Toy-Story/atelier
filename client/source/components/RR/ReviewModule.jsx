@@ -5,6 +5,7 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 import ProductBreakdown from './ProductBreakdown.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 // import ProdContext from '../../ProdContext.js';
+import { ReviewModuleContainer } from './styles/RR.styled.js';
 
 const ReviewModule = function ReviewModule() {
   // const { prodID } = useContext(ProdContext);
@@ -46,13 +47,15 @@ const ReviewModule = function ReviewModule() {
 
 
   return (
-    <div>
+    <ReviewModuleContainer>
       <h2>Ratings and Reviews</h2>
       <div className="breakdown-container">
         <RatingBreakdown
           meta={meta}
         />
-        <ProductBreakdown />
+        <ProductBreakdown
+          traits={meta.characteristics}
+        />
       </div>
       <div className="sort-container">
         <SortReviews
@@ -68,7 +71,7 @@ const ReviewModule = function ReviewModule() {
           updateList={updateList}
         />
       </div>
-    </div>
+    </ReviewModuleContainer>
   );
 };
 

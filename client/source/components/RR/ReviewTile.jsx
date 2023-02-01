@@ -82,12 +82,12 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           )
           : null }
         <div className="review-photos">
-          {review.photos.map((photo) => (
+          {/* {review.photos.map((photo) => (
             <ReviewPhoto
               photo={photo}
               key={photo.id}
             />
-          ))}
+          ))} */}
         </div>
       </div>
       { review.recommend
