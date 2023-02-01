@@ -31,15 +31,18 @@ const Overview = function CreateOverviewComponent() {
   return (
     <div id="overview-component" style={{ border: '1px solid black' }} className="overview FlexColumn">
       <div className="FlexRow">
+
         <PhotoBlock photos={styles[currentStyle]?.photos} />
-        <div className="flex-row-filler" />
+
         <ProductInfo
           product={product}
           styles={styles}
           style={styles[currentStyle]}
           setCurrentStyle={setCurrentStyle}
         />
+
       </div>
+
       <ProductText product={product} />
 
     </div>

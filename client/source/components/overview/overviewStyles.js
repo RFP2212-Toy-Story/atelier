@@ -46,14 +46,45 @@ const OverlayDiv = styled.div`
 
 const PhotoBlockDiv = styled.div`
   display: flex;
+  height: 600px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `;
 
+const CarouselWrapperDiv = styled.div`
+  border: '2px solid green';
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CarouselButton = styled.button`
+  position: relative;
+  width: 48px;
+  height: 48px;
+`;
+
+const ThumbnailImage = styled.img`
+  max-height: 80px;
+  box-sizing: border-box;
+  margin: 4px;
+  background-color: ${(props) => `${props.color}`};
+  padding: 6px;
+  border: 2px solid ${(props) => `${props.color}`};
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+`;
+
 export {
+  CarouselButton,
+  CarouselWrapperDiv,
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
+  ThumbnailImage,
   ZoomedPhotoDiv
 };
