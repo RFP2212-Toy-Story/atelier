@@ -4,7 +4,7 @@ const StyledRelatedList = styled.div`
   display: grid;
   gap: 1vw;
   grid-auto-flow: column;
-  grid-auto-columns: 14%;
+  grid-auto-columns: 21%;
 
   overflow-x: auto;
   overscroll-behavior-inline: contain
