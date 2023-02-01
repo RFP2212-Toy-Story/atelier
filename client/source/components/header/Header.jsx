@@ -2,7 +2,7 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
 
-import * as Styles from './HeaderStyles.js';
+import * as Styles from './headerStyles.js';
 
 
 // HEADER COMPONENT
