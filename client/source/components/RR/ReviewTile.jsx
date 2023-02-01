@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import ReviewPhoto from './ReviewPhoto.jsx';
+// import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {

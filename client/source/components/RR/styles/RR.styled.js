@@ -9,8 +9,5 @@ export const ReviewModuleContainer = styled.div`
 `;
 
 export const ReviewListContainer = styled.div`
-
+  display:flex;
 `;
-
-// export const ReviewTileContainer = styled.div`
-// `;
