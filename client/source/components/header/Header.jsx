@@ -2,7 +2,7 @@
 // LIBRARY IMPORTS
 import React, { useEffect, useState } from 'react';
 
-import * as Styles from './HeaderStyles.js';
+import * as Styles from './headerStyles.js';
 
 
 // HEADER COMPONENT
@@ -59,7 +59,7 @@ const Header = function CreateHeaderComponent() {
           </a>
 
           <form>
-            <input style={{ backgroundColor: '#FF99D7' }} type="text" placeholder="search..." />
+            <input style={{ backgroundColor: '#E07A5F' }} type="text" placeholder="search..." />
             <button type="submit">🔎</button>
           </form>
         </div>

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import * as requests from './axiosRequests';
+import ProdContext from '../ProdContext.js';
 
 function testGetRequest() {
   requests.get('/products')
@@ -42,9 +43,17 @@ function testGetStylesRequest() {
     .catch((error) => { console.error(error); });
 }
 
-const TestAPI = function createTestAPIComponent() {
+const TestAPI = function CreateTestAPIComponent() {
+  const { setProdID } = useContext(ProdContext);
+
+  function testSetProdID() {
+    const newProdID = prompt('please enter your desired PROD_ID...');
+    setProdID(newProdID);
+  }
+
   return (
     <div id="test-api-component">
+      <button type="button" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
       <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
       <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
       <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
