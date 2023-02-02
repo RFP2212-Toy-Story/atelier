@@ -74,7 +74,7 @@ export const SortContainer = styled.div`
   }
 
   .sort-selection {
-    background-color: #fffbea;
+    background-color: #FFFBEA;
     font-family: 'Nunito', sans-serif;
     color: #3D405B;
     font-size: 100%;
@@ -171,7 +171,7 @@ export const ReviewPhotos = styled.div`
 
   img {
     max-width: 20%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     padding: 0.5em;
   }

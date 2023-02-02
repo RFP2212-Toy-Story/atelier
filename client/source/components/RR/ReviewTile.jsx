@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
+import ReviewRating from './ReviewRating.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 import { ReviewTileContainer, ReviewPhotos } from './styles/RR.styled.js';
@@ -11,16 +12,6 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
   // FORMAT DATE
   const parsedDate = parseISO(review.date);
   const formattedDate = format(parsedDate, 'PPP');
-
-  // PLACEHOLDER DISPLAY STAR RATING
-  const starRating = {
-    1: '*',
-    2: '**',
-    3: '***',
-    4: '****',
-    5: '*****'
-  };
-  const convertRating = (rating) => starRating[rating];
 
   // FUNCTIONS
   const capSummary = function capSummary(summary) {
@@ -64,7 +55,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     <ReviewTileContainer>
       <div className="review-tile">
         <div className="review-header">
-          <div className="review-rating">{convertRating(review.rating)}</div>
+          <ReviewRating rating={review.rating} />
           <div className="review-user-date">
             {`${review.reviewer_name}, `}
             {formattedDate}
