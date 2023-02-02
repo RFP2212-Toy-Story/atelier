@@ -10,19 +10,19 @@ const QAModule = function CreateQAModuleComponent() {
   const [questions, setQuestions] = useState(qaData.results);
   const [query, setQuery] = useState('');
 
-  const queryFiltered = questions.filter(
-    (question) => {return question.question_body.toLowerCase().includes(query.toLowerCase())});
+  const filteredQuestions = questions.filter(
+    (question) => question.question_body.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <Container>
       <h3>Questions and Answers</h3>
       <SearchQuestions
-        questions={queryFiltered}
         handleSearch={setQuery}
         query={query}
       />
       <h3>Questions</h3>
-      <QAList questions={questions} />
+      <QAList questions={filteredQuestions} />
       <h3>Photos</h3>
       <DisplayPhotos />
       <h3>Load More Answers</h3>
