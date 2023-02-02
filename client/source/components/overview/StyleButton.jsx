@@ -1,13 +1,15 @@
 import React from 'react';
 
+import * as Styles from './overviewStyles.js';
+
 const StyleButton = function CreateStyleButtonComponent({ index, name, setStyle }) {
-  function handleClick(event) {
+  const handleClick = (event) => {
     setStyle(event.target.id);
-  }
+  };
 
   return (
     <div>
-      <button onClick={handleClick} id={index} type="button">{name}</button>
+      <Styles.StyleButton onClick={handleClick} id={index} type="button">{name}</Styles.StyleButton>
     </div>
   );
 };
