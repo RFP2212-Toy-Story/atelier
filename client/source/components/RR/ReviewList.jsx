@@ -27,7 +27,7 @@ const ReviewList = function ReviewList({ reviews, reviewCount, updateList }) {
               </button>
             )
             : null }
-          {/* <AddReview /> */}
+          <AddReview />
         </div>
       </ReviewListFooter>
     </div>

@@ -12,9 +12,11 @@ import {
 const ReviewModule = function ReviewModule() {
   const { prodID } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
-  const [reviewCount, setReviewCount] = useState(null);
   const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
+  // const [reviewCount, setReviewCount] = useState(null); // per /reviews
+  // const [ratingCount, setRatingCount] = useState([]); // per /reviews/meta
+  // const [averageRating, setAverageRating] = useState(null);
   const [ratingsFilter, setRatingsFilter] = useState({
     5: false,
     4: false,
@@ -23,12 +25,13 @@ const ReviewModule = function ReviewModule() {
     1: false
   });
 
+  // REQUESTS
   const updateList = () => {
     requests
       .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
       .then((results) => {
         setReviews(results.data.results);
-        setReviewCount(results.data.results.length);
+        // setReviewCount(results.data.results.length);
       })
       .catch((err) => console.error('Error with reviews request: ', err));
   };
@@ -40,11 +43,33 @@ const ReviewModule = function ReviewModule() {
       .catch((err) => console.error('Error with reviews meta request: ', err));
   };
 
+  // INITIALIZE
   useEffect(() => {
     updateList();
     updateMeta();
   }, [sortType]);
 
+  // FUNCTIONS
+
+
+  // const calculateAverageRating = (ratings) => {
+  //   let count = null; // 39
+  //   let total = null; // 117
+  //   let breakdown = Object.entries(ratings);// [[1, 7], [2, 9], [3, 5], [4, 13], [5, 5]]
+  //   breakdown.forEach((rating) => {
+  //     count += rating[1];
+  //     total += (rating[0] * rating[1]);
+  //   });
+  //   setAverageRating(total / count);
+  // };
+
+  // console.log('ratings:', calculateAverageRating({
+  //   1: 7,
+  //   2: 9,
+  //   3: 5,
+  //   4: 13,
+  //   5: 5
+  // }));
 
   return (
     <ReviewModuleContainer>
@@ -57,7 +82,7 @@ const ReviewModule = function ReviewModule() {
         <ReviewListContainer>
           <div className="sort-container">
             <SortReviews
-              reviewCount={reviewCount}
+              reviewCount={reviews.length}
               sortType={sortType}
               setSortType={setSortType}
             />
@@ -65,7 +90,7 @@ const ReviewModule = function ReviewModule() {
           <div className="review-list-container">
             <ReviewList
               reviews={reviews}
-              reviewCount={reviewCount}
+              reviewCount={reviews.length}
               updateList={updateList}
             />
           </div>
