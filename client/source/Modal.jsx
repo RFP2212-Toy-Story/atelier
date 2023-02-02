@@ -44,14 +44,9 @@ const ModalOverlay = styled.div`
 
 const CloseButton = styled.button`
   position: absolute;
-  /* don't need to go crazy with z-index here, just sits over .modal-guts */
-  /* z-index: 1; */
   cursor: pointer;
   top: 10px;
-
-  /* needs to look OK with or without scrollbar */
   right: 20px;
-
   border: 0;
   font-size: 1.3rem;
 `;
