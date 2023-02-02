@@ -31,6 +31,7 @@ const ShrinkAnimation = keyframes`
 // STYLES
 const FadingDiv = styled.div`
   margin-right: 34px;
+  margin-top: -60px;
   height: 0px;
   ${(props) => {
     if (props.scrolled) {
@@ -79,7 +80,8 @@ const HeaderWrapperDiv = styled.div`
 `;
 
 const PixelFontDiv = styled.div`
-  font-family: 'Press Start 2P';
+  font-size: 2rem;
+  font-family: 'Nerko One';
 `;
 
 export {

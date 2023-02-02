@@ -8,18 +8,22 @@ import Photo from './Photo';
 
 // MAIN
 const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
-  const [currindex, setCurrIndex] = useState(0);
-  const [length, setLength] = useState(photos?.length);
+  const [currIndex, setCurrIndex] = useState(0);
 
   useEffect(() => {
-    setLength(photos?.length);
-    if (currindex > length - 1) {
-      setCurrIndex(0);
+    if (!photos) { return; }
+    let newIndex = currIndex;
+    if (currIndex > photos.length - 1) {
+      newIndex = 0;
+      setCurrIndex(newIndex);
     }
-    if (currindex < 0) {
-      setCurrIndex(photos.length - 1);
+    if (currIndex < 0) {
+      newIndex = photos.length - 1;
+      setCurrIndex(newIndex);
     }
-  }, [photos, currindex]);
+    const thumbnail = document.querySelector(`[data-label='${newIndex}']`);
+    thumbnail.parentNode.scrollTop = thumbnail.offsetTop - thumbnail.parentNode.offsetTop;
+  }, [photos, currIndex]);
 
   const handleClick = ((event) => {
     switch (event.target.id) {
@@ -30,9 +34,8 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
         setCurrIndex((previous) => previous + 1);
         break;
       case 'thumbnail': {
-        const index = Number(event.target.getAttribute('label'));
+        const index = Number(event.target.dataset.label);
         setCurrIndex(index);
-
         break;
       }
       default:
@@ -43,20 +46,20 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
   return (
     <Styles.PhotoBlockDiv>
 
-      <div style={{ maxHeight: '420px', overflow: 'auto' }} className="FlexColumn">
+      <Styles.ThumbnailWrapperDiv>
         {photos?.map((photo, index) => {
           let border;
-          if (index === currindex) {
+          if (index === currIndex) {
             border = { border: '2px solid red' };
           }
-          return <Styles.ThumbnailImage style={border} id="thumbnail" label={index} onClick={handleClick} key={photo.thumbnail_url} alt="product photograph" src={photo.thumbnail_url} />;
+          return <Styles.ThumbnailImage style={border} id="thumbnail" data-label={index} onClick={handleClick} key={photo.thumbnail_url} alt="product photograph" src={photo.thumbnail_url} />;
         })}
-      </div>
+      </Styles.ThumbnailWrapperDiv>
 
       <Styles.CarouselButton id="left" onClick={handleClick} style={{ left: '20px' }}>❰</Styles.CarouselButton>
       <Styles.CarouselWrapperDiv>
         {photos?.map((photo, index) => {
-          if (index === currindex) {
+          if (index === currIndex) {
             return (<Photo key={photo.url} photo={photo} />);
           }
           return null;

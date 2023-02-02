@@ -17,7 +17,6 @@ const ZoomedPhotoDiv = styled.div`
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
-
 const PhotoTileDiv = styled.div`
   &:hover {
     border: 2px solid green;
@@ -62,15 +61,45 @@ const CarouselWrapperDiv = styled.div`
 `;
 
 const CarouselButton = styled.button`
+  &:hover {
+    color: green;
+  }
+  color: grey;
+  background: none;
+  border: none;
+  font-size: 2rem;
   position: relative;
   width: 48px;
   height: 48px;
 `;
 
+const ThumbnailWrapperDiv = styled.div`
+  &:hover {
+    ::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    visibility: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
+  }
+  direction: rtl;
+  scroll-behavior: smooth;
+  max-height: 420px;
+  overflow: auto;
+`;
+
 const ThumbnailImage = styled.img`
   max-height: 80px;
+  display: block;
   box-sizing: border-box;
-  margin: 4px;
+  margin: 4px auto;
   background-color: ${(props) => `${props.color}`};
   padding: 6px;
   border: 2px solid ${(props) => `${props.color}`};
@@ -86,5 +115,6 @@ export {
   PhotoBlockDiv,
   PhotoTileDiv,
   ThumbnailImage,
+  ThumbnailWrapperDiv,
   ZoomedPhotoDiv
 };
