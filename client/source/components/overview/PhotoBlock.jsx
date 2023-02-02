@@ -50,7 +50,7 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
         {photos?.map((photo, index) => {
           let border;
           if (index === currIndex) {
-            border = { border: '2px solid red' };
+            border = { border: '2px solid magenta' };
           }
           return <Styles.ThumbnailImage style={border} id="thumbnail" data-label={index} onClick={handleClick} key={photo.thumbnail_url} alt="product photograph" src={photo.thumbnail_url} />;
         })}

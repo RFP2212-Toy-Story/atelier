@@ -4,7 +4,7 @@ const ZoomedPhotoDiv = styled.div`
   &:hover {
     cursor: zoom-out;
   };
-  border: 4px solid ${(props) => `${props.color}`};
+  border: 6px solid ${(props) => `${props.color}`};
   padding: 20px;
   background-color: ${(props) => `${props.color}`};
   position: fixed;
@@ -19,13 +19,14 @@ const ZoomedPhotoDiv = styled.div`
 
 const PhotoTileDiv = styled.div`
   &:hover {
-    border: 2px solid green;
     cursor: zoom-in;
+    transform: scale(1.1);
   };
+  transition: transform 1s ease-out;
   margin: 20px;
   background-color: ${(props) => `${props.color}`};
   padding: 10px;
-  border: 2px solid ${(props) => `${props.color}`};
+  border: 4px solid ${(props) => `${props.color}`};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -52,7 +53,6 @@ const PhotoBlockDiv = styled.div`
 `;
 
 const CarouselWrapperDiv = styled.div`
-  border: '2px solid green';
   width: 800px;
   display: flex;
   flex-direction: row;
@@ -62,8 +62,10 @@ const CarouselWrapperDiv = styled.div`
 
 const CarouselButton = styled.button`
   &:hover {
-    color: green;
+    color: magenta;
+    transform: scale(1.1);
   }
+  transition: transform 0.2s;
   color: grey;
   background: none;
   border: none;
@@ -89,10 +91,11 @@ const ThumbnailWrapperDiv = styled.div`
     border-radius: 2px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
   }
+  overflow-x: hidden;
   direction: rtl;
   scroll-behavior: smooth;
   max-height: 420px;
-  overflow: auto;
+  overflow-y: auto;
 `;
 
 const ThumbnailImage = styled.img`
@@ -108,12 +111,25 @@ const ThumbnailImage = styled.img`
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
+const StyleButton = styled.button`
+  &:hover {
+    color: white;
+    background-color: magenta;
+    transform: scale(1.1);
+  }
+  transition: transform 0.2s;
+  color: grey;
+  border-radius: 4px;
+  border: none;
+`;
+
 export {
   CarouselButton,
   CarouselWrapperDiv,
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
+  StyleButton,
   ThumbnailImage,
   ThumbnailWrapperDiv,
   ZoomedPhotoDiv

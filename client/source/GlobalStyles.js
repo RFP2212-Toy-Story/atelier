@@ -34,6 +34,11 @@ html {
   justify-content: center;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 `;
 
 export default Globalstyles;
