@@ -15,7 +15,7 @@ const QAModule = function CreateQAModuleComponent() {
   // for test only, to be deleted
   const prodID = '40444';
 
-  const updateQuestions = () => {
+  const getQuestions = () => {
     requests
       .get(`/qa/questions?product_id=${prodID}&count=4`)
       .then((results) => {
@@ -25,7 +25,7 @@ const QAModule = function CreateQAModuleComponent() {
       .catch((err) => console.error('Error with reviews request: ', err));
   };
 
-  useEffect(() => updateQuestions(), []);
+  useEffect(() => getQuestions(), []);
 
   const filteredQuestions = questions.filter(
     (question) => question.question_body.toLowerCase().includes(query.toLowerCase())
