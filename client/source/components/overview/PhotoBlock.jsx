@@ -43,7 +43,7 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
   return (
     <Styles.PhotoBlockDiv>
 
-      <div className="FlexColumn">
+      <div style={{ maxHeight: '420px', overflow: 'auto' }} className="FlexColumn">
         {photos?.map((photo, index) => {
           let border;
           if (index === currindex) {

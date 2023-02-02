@@ -44,7 +44,7 @@ const FadingDiv = styled.div`
 `;
 
 const HeaderDiv = styled.div`
-  z-index: 9000;
+  z-index: 50;
   position: fixed;
   box-sizing: border-box;
   top: 0;
