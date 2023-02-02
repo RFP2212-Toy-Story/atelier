@@ -3,7 +3,7 @@ import React from 'react';
 import SearchQuestions from './SearchQuestions';
 import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
-import Modal from '../../Modal';
+import Modal from '../shared/Modal';
 import useModal from '../../useModal';
 import { Container } from './styles/Containers.styled';
 
