@@ -62,7 +62,7 @@ const CarouselWrapperDiv = styled.div`
 
 const CarouselButton = styled.button`
   &:hover {
-    color: magenta;
+    color: #E07A5F;
     transform: scale(1.1);
   }
   transition: transform 0.2s;
@@ -99,6 +99,10 @@ const ThumbnailWrapperDiv = styled.div`
 `;
 
 const ThumbnailImage = styled.img`
+  &:hover {
+    transform: scale(1.1);
+  }
+  transition: transform 0.2s;
   max-height: 80px;
   display: block;
   box-sizing: border-box;
@@ -114,7 +118,7 @@ const ThumbnailImage = styled.img`
 const StyleButton = styled.button`
   &:hover {
     color: white;
-    background-color: magenta;
+    background-color: #E07A5F;
     transform: scale(1.1);
   }
   transition: transform 0.2s;
