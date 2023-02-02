@@ -10,13 +10,9 @@ import {
 } from './styles/RR.styled.js';
 
 const ReviewModule = function ReviewModule() {
-  const { prodID } = useContext(ProdContext);
+  const { prodID, meta } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
-  const [meta, setMeta] = useState({});
   const [sortType, setSortType] = useState('relevant');
-  // const [reviewCount, setReviewCount] = useState(null); // per /reviews
-  // const [ratingCount, setRatingCount] = useState([]); // per /reviews/meta
-  // const [averageRating, setAverageRating] = useState(null);
   const [ratingsFilter, setRatingsFilter] = useState({
     5: false,
     4: false,
@@ -31,45 +27,14 @@ const ReviewModule = function ReviewModule() {
       .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
       .then((results) => {
         setReviews(results.data.results);
-        // setReviewCount(results.data.results.length);
       })
       .catch((err) => console.error('Error with reviews request: ', err));
-  };
-
-  const updateMeta = () => {
-    requests
-      .get(`/reviews/meta?product_id=${prodID}`)
-      .then((results) => setMeta(results.data))
-      .catch((err) => console.error('Error with reviews meta request: ', err));
   };
 
   // INITIALIZE
   useEffect(() => {
     updateList();
-    updateMeta();
   }, [sortType]);
-
-  // FUNCTIONS
-
-
-  // const calculateAverageRating = (ratings) => {
-  //   let count = null; // 39
-  //   let total = null; // 117
-  //   let breakdown = Object.entries(ratings);// [[1, 7], [2, 9], [3, 5], [4, 13], [5, 5]]
-  //   breakdown.forEach((rating) => {
-  //     count += rating[1];
-  //     total += (rating[0] * rating[1]);
-  //   });
-  //   setAverageRating(total / count);
-  // };
-
-  // console.log('ratings:', calculateAverageRating({
-  //   1: 7,
-  //   2: 9,
-  //   3: 5,
-  //   4: 13,
-  //   5: 5
-  // }));
 
   return (
     <ReviewModuleContainer>
