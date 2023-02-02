@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { InputContainer } from './styles/Containers.styled';
 
-const SearchQuestions = function CreateSearchQuestions({ answers, setAnswers, handleSearch }) {
+const SearchQuestions = function CreateSearchQuestions({ questions, handleSearch }) {
   const [input, setInput] = useState('');
 
-  console.log('answers: ', answers);
+  console.log('questions: ', questions);
 
   return (
     <InputContainer>

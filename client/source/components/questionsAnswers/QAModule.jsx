@@ -8,37 +8,16 @@ import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
   const [questions, setQuestions] = useState(qaData.results);
-  const [answers, setAnswers] = useState(qaData.results[0].answers);
   const [query, setQuery] = useState('');
 
-
-  // const queryAnswer = function() {
-  //   const keys = Object.keys(answers);
-  //   const queried = [];
-  //   for (let i = 0; i < keys.length; i++) {
-  //     if (answers[keys[i]].body.includes(query)) {
-  //       queried.push(answers[keys[i]]);
-  //     }
-  //   }
-  //   setFiltered(queried);
-  // };
-
-  // const qKeys = Object.keys(questions);
-
-  // console.log('qKeys', qKeys);
-  // const queryFiltered = qKeys.filter((key) => {return questions[key].body.includes(query)});
-
-  const answerKeys = Object.keys(answers);
-
-  const queryFiltered = answerKeys.filter((key) => {return answers[key].body.includes(query)});
-
+  const queryFiltered = questions.filter(
+    (question) => {return question.question_body.toLowerCase().includes(query.toLowerCase())});
 
   return (
     <Container>
       <h3>Questions and Answers</h3>
       <SearchQuestions
-        answers={queryFiltered}
-        setAnswers={setAnswers}
+        questions={queryFiltered}
         handleSearch={setQuery}
         query={query}
       />

@@ -11,13 +11,13 @@ export const Container = styled.div`
 
 export const InputContainer = styled.div`
   input {
-    color: white;
+    color: black;
     background-color: #EEF1F7;
     width: 50em;
   }
   button {
     background-color: #EEF1F7;
-    color: white;
+    color: black;
   }
 `;
 
