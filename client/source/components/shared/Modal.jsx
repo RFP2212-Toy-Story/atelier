@@ -52,12 +52,6 @@ const CloseButton = styled.button`
 `;
 
 export default function Modal({ children, isOpen, onClose }) {
-  if (isOpen) {
-    document.body.classList.add('stop-scrolling');
-  } else {
-    document.body.classList.remove('stop-scrolling');
-  }
-
   return (
     isOpen && createPortal(
       <>
