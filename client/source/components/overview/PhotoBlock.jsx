@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 import * as Styles from './overviewStyles.js';
-import Photo from './Photo';
+import Photo from './sub-components/Photo';
 
 
 // MAIN

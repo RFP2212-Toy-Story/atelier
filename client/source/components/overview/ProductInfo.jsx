@@ -2,8 +2,8 @@
 // LIBRARY IMPORTS
 import React from 'react';
 
-import Checkout from './Checkout.jsx';
-import ProductStyles from './ProductStyles';
+import Checkout from './sub-components/Checkout.jsx';
+import ProductStyles from './sub-components/ProductStyles';
 
 
 // MAIN

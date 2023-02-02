@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as Styles from './overviewStyles.js';
+import * as Styles from '../overviewStyles.js';
 
 const StyleButton = function CreateStyleButtonComponent({
   index, name, setStyle, selected

@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FastAverageColor } from 'fast-average-color';
 
-import * as Styles from './overviewStyles.js';
+import * as Styles from '../overviewStyles.js';
 import ZoomedPhoto from './ZoomedPhoto.jsx';
 
 
