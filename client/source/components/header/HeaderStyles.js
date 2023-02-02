@@ -62,13 +62,13 @@ const HeaderDiv = styled.div`
         box-shadow: ${BoxShadowSmall};
         animation: 2s ${ShrinkAnimation};
         height: 80px;
-        background-color: darkmagenta;
+        background-color: #e07a5f;
       `;
     }
     return css`
       box-shadow: ${BoxShadowLarge}
       height: 140px;
-      background-color: magenta;
+      background-color: #E79C88;
     `;
   }}
 `;

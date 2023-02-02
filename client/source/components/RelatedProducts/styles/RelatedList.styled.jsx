@@ -1,13 +1,27 @@
 import styled from 'styled-components';
 
 const StyledRelatedList = styled.div`
-  display: grid;
-  gap: 1vw;
-  grid-auto-flow: column;
-  grid-auto-columns: 21%;
+  .container {
+    display: grid;
+    position: relative;
+  }
 
-  overflow-x: auto;
-  overscroll-behavior-inline: contain
+  .left {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    background: #FFFBEA;
+    border-radius: 50%;
+  }
+
+  .right {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    left: 98%;
+    background: #FFFBEA;
+    border-radius: 50%;
+  }
 `;
 
 export default StyledRelatedList;

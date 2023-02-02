@@ -1,12 +1,13 @@
 // LIBRARY IMPORTS
 import React, { useState, useEffect, useContext } from 'react';
+import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
 import ProdContext from '../../ProdContext.js';
 import * as requests from '../../utilities/axiosRequests';
 import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
 
-const RelatedListCard = function CreateRelatedListCard({ id }) {
+const RelatedListCard = function CreateRelatedListCard({ id, setCompareClicked }) {
   // STATES
   const { prodID, setProdID } = useContext(ProdContext);
   const [productDetail, setProductDetail] = useState({});
@@ -33,10 +34,14 @@ const RelatedListCard = function CreateRelatedListCard({ id }) {
   const handleCardClick = () => {
     setProdID(id);
   };
+  const handleCompareClick = () => {
+    setCompareClicked(true);
+  };
 
   return (
     <StyledRelatedListCard onClick={handleCardClick}>
       <img alt={productDetail.name} src={imageURL} />
+      <HiOutlineStar className="compareButton" onClick={handleCompareClick} />
       <h3>{productDetail.category}</h3>
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
