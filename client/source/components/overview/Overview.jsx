@@ -18,6 +18,14 @@ const Overview = function CreateOverviewComponent() {
   const [styles, setStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState(0);
 
+  const findDefaultStyle = (style, index) => {
+    if (style['default?'] === true) { setCurrentStyle(index); }
+  };
+
+  useEffect(() => {
+    styles.forEach(findDefaultStyle);
+  }, []);
+
   useEffect(() => {
     requests.get(`/products/${prodID}/styles`)
       .then((response) => {
