@@ -9,5 +9,5 @@ import AppHolder from './AppHolder';
 // MAIN
 const root = createRoot(document.getElementById('root'));
 root.render(
-  <AppHolder />,
+  <AppHolder />
 );
