@@ -64,11 +64,11 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     <ReviewTileContainer>
       <div className="review-tile">
         <div className="review-header">
-          <span className="review-rating">{convertRating(review.rating)}</span>
-          <span className="review-user-date">
+          <div className="review-rating">{convertRating(review.rating)}</div>
+          <div className="review-user-date">
             {`${review.reviewer_name}, `}
             {formattedDate}
-          </span>
+          </div>
         </div>
         <div className="review-summary">{capSummary(review.summary)}</div>
         <div className="review-body-container">
@@ -79,7 +79,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
                 className="show-more-button"
                 type="button"
                 onClick={() => setFullBody(true)}
-              >SHOW MORE
+              >SHOW MORE +
               </button>
             )
             : null }
@@ -101,22 +101,23 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           ? (
             <div className="review-response">
               <div className="response-header">Response:</div>
+              <p />
               <div className="response-text">{review.response}</div>
             </div>
           )
           : null }
         <div className="review-footer">
-          <span>Helpful?</span>
+          <span>Helpful? </span>
           <span>
             <button
-              className="review-helpful"
+              className="review-footer-button"
               type="button"
               onClick={handleHelpfulness}
-            >Yes
+            >Yes {`(${review.helpfulness})`}
             </button>
-            <span className="helpfulness-count">{`(${review.helpfulness})`}</span>
+            <span className="helpfulness-break">  |  </span>
             <button
-              className="report-review"
+              className="review-footer-button"
               type="button"
               onClick={handleReported}
             >Report
