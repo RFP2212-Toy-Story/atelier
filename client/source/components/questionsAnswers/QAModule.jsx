@@ -1,13 +1,17 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import SearchQuestions from './SearchQuestions';
 import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
 import QAList from './QAList';
+import Modal from '../shared/Modal';
+import useModal from '../../useModal';
 import * as requests from '../../utilities/axiosRequests.js';
 import qaData from './exampleDataQA';
 import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
+  const [isOpen, onOpen, onClose] = useModal();
   const [questions, setQuestions] = useState(qaData.results);
   // const [questionCount, setQuestionCount] = useState(qaData.results.length);
   const [query, setQuery] = useState('');
