@@ -11,7 +11,7 @@ import qaData from './exampleDataQA';
 import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
-  const [isOpen, onOpen, onClose] = useModal();
+  const { isOpen, onOpen, onClose } = useModal();
   const [questions, setQuestions] = useState(qaData.results);
   // const [questionCount, setQuestionCount] = useState(qaData.results.length);
   const [query, setQuery] = useState('');
