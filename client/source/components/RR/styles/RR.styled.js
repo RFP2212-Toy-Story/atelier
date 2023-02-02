@@ -9,17 +9,57 @@ export const ReviewModuleContainer = styled.div`
 `;
 
 export const ReviewContentsContainer = styled.div`
-  display: flex;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  grid-auto-flow: column;
+  /* grid-auto-columns: auto 1fr 1fr auto; */
+  /* display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  padding: 0.5em;
+  padding: 0.5em; */
 `;
 
 export const BreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.5em;
+`;
+
+export const ProductBreakdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+
+  .trait-slider {
+    padding: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    background: #F6DFB6;
+    border-radius: 20px;
+    height: 0.35rem;
+    width: 100%
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #3D405B;
+    border-radius: 20px;
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .slider-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 80%
+  }
 `;
 
 export const SortContainer = styled.div`
@@ -47,6 +87,7 @@ export const ReviewListContainer = styled.div`
   flex-direction: column;
   align-items: stretch;
   padding: 0.5em;
+  overscroll-behavior-y: contain;
 `;
 
 export const ReviewTileContainer = styled.div`
@@ -145,8 +186,6 @@ export const ReviewListFooter = styled.div`
     color: #3D405B;
     border-color: #3D405B;
     font-weight: bold;
-    /* font-size: 110%; */
     padding: 1em;
   }
-
 `;
