@@ -3,7 +3,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import ProdContext from '../../ProdContext.js';
 import SearchQuestions from './SearchQuestions';
-import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
 import QAList from './QAList';
 import Modal from '../shared/Modal';
@@ -16,12 +15,11 @@ const QAModule = function CreateQAModuleComponent() {
   const { isOpen, onOpen, onClose } = useModal();
   const { prodID } = useContext(ProdContext);
   const [questions, setQuestions] = useState(qaData.results);
-  const [questionCount, setQuestionCount] = useState(4);
   const [query, setQuery] = useState('');
 
   const getQuestions = () => {
     requests
-      .get(`/qa/questions?product_id=${prodID}&count=${questionCount}`)
+      .get(`qa/questions?product_id=${prodID}`)
       .then((results) => {
         setQuestions(results.data.results);
       })
@@ -46,8 +44,6 @@ const QAModule = function CreateQAModuleComponent() {
       <QAList questions={filteredQuestions} getQuestions={getQuestions} />
       <h3>Photos</h3>
       <DisplayPhotos />
-      <h3>Load More Answers</h3>
-      <LoadAddQA questionCount={questionCount} setQuestionCount={setQuestionCount} getQuestions={getQuestions} />
       <Modal isOpen={isOpen} onClose={onClose}>
         <div>Hello from QAModule</div>
         <DisplayPhotos />

@@ -4,8 +4,6 @@ import styled from 'styled-components';
 const SearchQuestions = function CreateSearchQuestions({ handleSearch }) {
   const [input, setInput] = useState('');
 
-  // console.log('questions: ', questions);
-
   return (
     <InputContainer>
       <Input
