@@ -1,14 +1,3 @@
-const average = function calculateAverageRating(ratings) {
-  let count = null;
-  let total = null;
-  const breakdown = Object.entries(ratings);
-  breakdown.forEach((rating) => {
-    count += Number(rating[1]);
-    total += (rating[0] * rating[1]);
-  });
-  return (total / count).toFixed(1);
-};
-
 const count = function calculateTotalRatings(ratings) {
   return Object.keys(ratings).reduce((acc, key) => acc + Number(ratings[key]), 0);
 };
@@ -38,7 +27,6 @@ const recommended = function recommendedPercentage(votes) {
 };
 
 export {
-  average,
   count,
   percentages,
   recommended

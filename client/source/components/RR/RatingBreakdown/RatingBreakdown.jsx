@@ -1,13 +1,14 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
 import * as helpers from '../helpers/ratings.js';
+import average from '../../../utilities/helpers.js';
 
 const RatingBreakdown = function RatingsBreakdown({ ratings, recommend }) {
   if (!ratings) {
     return <div />;
   }
 
-  const averageRating = helpers.average(ratings);
+  const averageRating = average(ratings);
   const breakdown = helpers.percentages(ratings);
   const votes = helpers.recommended(recommend);
 
