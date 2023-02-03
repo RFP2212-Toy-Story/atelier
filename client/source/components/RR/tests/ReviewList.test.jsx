@@ -5,7 +5,7 @@
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import reviews from './RRdata.js';
-import ReviewList from '../ReviewList';
+import ReviewList from '../ReviewList/ReviewList.jsx';
 
 afterEach(() => {
   cleanup();

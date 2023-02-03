@@ -1,5 +1,5 @@
 import React from 'react';
-import { SortContainer } from './styles/RR.styled.js';
+import { SortContainer } from '../styles/RR.styled.js';
 
 const SortReviews = function SortReviews({ reviewCount, sortType, setSortType }) {
   return (

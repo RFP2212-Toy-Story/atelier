@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import ReviewRating from './ReviewRating.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
-import * as requests from '../../utilities/axiosRequests.js';
-import { ReviewTileContainer, ReviewPhotos } from './styles/RR.styled.js';
+import * as requests from '../../../utilities/axiosRequests.js';
+import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
   // STATE

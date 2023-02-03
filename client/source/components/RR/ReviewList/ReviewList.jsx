@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import AddReview from './AddReview.jsx';
-import { ReviewListFooter } from './styles/RR.styled.js';
+import { ReviewListFooter } from '../styles/RR.styled.js';
 
 const ReviewList = function ReviewList({ reviews, reviewCount, updateList }) {
   const [numReviews, setNumReviews] = useState(2);
