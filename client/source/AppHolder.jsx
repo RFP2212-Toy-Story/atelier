@@ -6,6 +6,7 @@ import GlobalStyles from './GlobalStyles.js';
 import App from './App.jsx';
 import ProdContext from './ProdContext.js';
 import * as requests from './utilities/axiosRequests.js';
+import ClickTracker from './utilities/clickTracker.js';
 
 // MAIN
 const AppHolder = function CreateAppHolder() {
@@ -28,6 +29,11 @@ const AppHolder = function CreateAppHolder() {
       .then((results) => setMeta(results.data))
       .catch((err) => console.error('Error with reviews meta request: ', err));
   };
+
+  useEffect(() => {
+    const Tracker = new ClickTracker();
+    return (() => Tracker.removeClickTracker());
+  }, []);
 
   useEffect(() => {
     updateProdID();
