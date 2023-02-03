@@ -3,10 +3,10 @@ const calculateAverageRating = (ratings) => {
   let total = null;
   const breakdown = Object.entries(ratings);
   breakdown.forEach((rating) => {
-    count += Number.parseInt(rating[1], 10);
+    count += Number(rating[1]);
     total += (rating[0] * rating[1]);
   });
-  return (total / count);
+  return (total / count).toFixed(1);
 };
 
 export default calculateAverageRating;
