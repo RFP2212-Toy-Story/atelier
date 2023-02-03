@@ -1,6 +1,6 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
-import * as helpers from '../helpers/helpers.js';
+import * as helpers from '../helpers/ratings.js';
 
 const RatingBreakdown = function RatingsBreakdown({ ratings, recommend }) {
   if (!ratings) {
