@@ -13,12 +13,25 @@ const AppHolder = function CreateAppHolder() {
   const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState(undefined);
   const [styles, setStyles] = useState([]);
-
+  const [meta, setMeta] = useState({});
+  
   // HOOKS
-  useEffect(() => {
+  const updateProdID = () => {
     requests.get(`/products/${prodID}`)
       .then((response) => { setProduct(response.data); })
       .catch((error) => { console.error(error); });
+  };
+
+  const updateMeta = () => {
+    requests
+      .get(`/reviews/meta?product_id=${prodID}`)
+      .then((results) => setMeta(results.data))
+      .catch((err) => console.error('Error with reviews meta request: ', err));
+  };
+
+  useEffect(() => {
+    updateProdID();
+    updateMeta();
   }, [prodID]);
 
   useEffect(() => {
@@ -32,8 +45,9 @@ const AppHolder = function CreateAppHolder() {
   }, [prodID]);
 
   const providerValues = useMemo(() => ({
-    prodID, setProdID, product, setProduct, styles, setStyles
+    prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta
   }), [prodID, product]);
+
 
   return (
     <div>

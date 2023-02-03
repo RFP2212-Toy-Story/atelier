@@ -1,20 +1,24 @@
 import React from 'react';
+import { SortContainer } from './styles/RR.styled.js';
 
 const SortReviews = function SortReviews({ reviewCount, sortType, setSortType }) {
   return (
-    <div className="sort-bar">
-      <label htmlFor={sortType}>
-        {reviewCount} reviews, sorted by { }
-        <select
-          value={sortType}
-          onChange={(event) => setSortType(event.target.value)}
-        >
-          <option value="relevant">relevant</option>
-          <option value="helpful">helpful</option>
-          <option value="newest">newest</option>
-        </select>
-      </label>
-    </div>
+    <SortContainer>
+      <div className="sort-bar">
+        <label htmlFor={sortType}>
+          {reviewCount} reviews, sorted by { }
+          <select
+            className="sort-selection"
+            value={sortType}
+            onChange={(event) => setSortType(event.target.value)}
+          >
+            <option value="relevant">relevant</option>
+            <option value="helpful">helpful</option>
+            <option value="newest">newest</option>
+          </select>
+        </label>
+      </div>
+    </SortContainer>
   );
 };
 
