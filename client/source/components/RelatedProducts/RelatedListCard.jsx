@@ -10,9 +10,10 @@ import CompareTable from './CompareTable.jsx';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
 
+// MAIN
 const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
   // STATES
-  const { prodID, setProdID } = useContext(ProdContext);
+  const { setProdID } = useContext(ProdContext);
   const [productDetail, setProductDetail] = useState({});
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');

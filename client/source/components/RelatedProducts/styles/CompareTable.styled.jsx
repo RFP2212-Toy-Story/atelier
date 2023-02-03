@@ -5,6 +5,7 @@ const StyledCompareTable = styled.div`
   padding:5px 10px;
   max-width:700px;
   margin:10px auto;
+
   .compare {
     overflow:scroll;
     border-collapse: collapse;

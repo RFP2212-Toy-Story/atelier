@@ -14,8 +14,6 @@ const RelatedList = function CreateRelatedList() {
   // STATES
   const { prodID } = useContext(ProdContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [index, setIndex] = useState(0);
-  const { length } = relatedProducts;
 
   // HOOKS
   useEffect(() => {
@@ -26,22 +24,12 @@ const RelatedList = function CreateRelatedList() {
       .catch((error) => { console.error(error); });
   }, [prodID]);
 
-  // HANDLERS
-  // const handlePrevious = () => {
-  //   const newIndex = index - 1;
-  //   setIndex(newIndex < 0 ? length - 1 : newIndex);
-  // };
-
-  // const handleNext = () => {
-  //   const newIndex = index + 1;
-  //   setIndex(newIndex >= length ? 0 : newIndex);
-  // };
-
   return (
     <StyledRelatedList>
       <h3>Related Products:</h3>
       <div className="container">
         <StyledMediaScroll>
+          {/* eslint-disable-next-line max-len */}
           {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} relatedProdId={relatedProdId} />)}
         </StyledMediaScroll>
         <BiChevronLeftCircle className="left" />
