@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
-// import ReviewPhoto from './ReviewPhoto.jsx';
+import ReviewRating from './ReviewRating.jsx';
+import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
+import { ReviewTileContainer, ReviewPhotos } from './styles/RR.styled.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
   // STATE
@@ -10,16 +12,6 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
   // FORMAT DATE
   const parsedDate = parseISO(review.date);
   const formattedDate = format(parsedDate, 'PPP');
-
-  // PLACEHOLDER DISPLAY STAR RATING
-  const starRating = {
-    1: '*',
-    2: '**',
-    3: '***',
-    4: '****',
-    5: '*****'
-  };
-  const convertRating = (rating) => starRating[rating];
 
   // FUNCTIONS
   const capSummary = function capSummary(summary) {
@@ -60,66 +52,71 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
   };
 
   return (
-    <div className="review-tile">
-      <div className="review-header">
-        <span className="review-rating">{convertRating(review.rating)}</span>
-        <span className="review-user-date">
-          {`${review.reviewer_name}, `}
-          {formattedDate}
-        </span>
-      </div>
-      <div className="review-summary">{capSummary(review.summary)}</div>
-      <div className="review-body-container">
-        <div className="review-text">{capBody(review.body)}</div>
-        { review.body.length > 250 && fullBody === false
+    <ReviewTileContainer>
+      <div className="review-tile">
+        <div className="review-header">
+          <ReviewRating rating={review.rating} />
+          <div className="review-user-date">
+            {`${review.reviewer_name}, `}
+            {formattedDate}
+          </div>
+        </div>
+        <div className="review-summary">{capSummary(review.summary)}</div>
+        <div className="review-body-container">
+          <div className="review-text">{capBody(review.body)}</div>
+          { review.body.length > 250 && fullBody === false
+            ? (
+              <button
+                className="show-more-button"
+                type="button"
+                onClick={() => setFullBody(true)}
+              >SHOW MORE +
+              </button>
+            )
+            : null }
+          <ReviewPhotos>
+            <div className="review-photos">
+              {review.photos.map((photo) => (
+                <ReviewPhoto
+                  photo={photo}
+                  key={photo.id}
+                />
+              ))}
+            </div>
+          </ReviewPhotos>
+        </div>
+        { review.recommend
+          ? <div className="review-rec">✓ I recommend this product</div>
+          : null }
+        { review.response
           ? (
-            <button
-              className="show-more-button"
-              type="button"
-              onClick={() => setFullBody(true)}
-            >SHOW MORE
-            </button>
+            <div className="review-response">
+              <div className="response-header">Response:</div>
+              <p />
+              <div className="response-text">{review.response}</div>
+            </div>
           )
           : null }
-        <div className="review-photos">
-          {/* {review.photos.map((photo) => (
-            <ReviewPhoto
-              photo={photo}
-              key={photo.id}
-            />
-          ))} */}
+        <div className="review-footer">
+          <span>Helpful? </span>
+          <span>
+            <button
+              className="review-footer-button"
+              type="button"
+              onClick={handleHelpfulness}
+            >Yes {`(${review.helpfulness})`}
+            </button>
+            <span className="helpfulness-break">  |  </span>
+            <button
+              className="review-footer-button"
+              type="button"
+              onClick={handleReported}
+            >Report
+            </button>
+          </span>
         </div>
       </div>
-      { review.recommend
-        ? <div className="review-rec">✓ I recommend this product</div>
-        : null }
-      { review.response
-        ? (
-          <div className="review-response">
-            <div className="response-header">Response:</div>
-            <div className="response-text">{review.response}</div>
-          </div>
-        )
-        : null }
-      <div className="review-footer">
-        <span>Helpful?</span>
-        <span>
-          <button
-            className="review-helpful"
-            type="button"
-            onClick={handleHelpfulness}
-          >Yes
-          </button>
-          <span className="helpfulness-count">{`(${review.helpfulness})`}</span>
-          <button
-            className="report-review"
-            type="button"
-            onClick={handleReported}
-          >Report
-          </button>
-        </span>
-      </div>
-    </div>
+    </ReviewTileContainer>
   );
 };
 

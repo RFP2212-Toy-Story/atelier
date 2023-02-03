@@ -10,18 +10,32 @@ import * as requests from './utilities/axiosRequests.js';
 
 // MAIN
 const AppHolder = function CreateAppHolder() {
-  const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
+  const [prodID, setProdID] = useState(40444); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState(undefined);
+  const [meta, setMeta] = useState({});
 
-  useEffect(() => {
+  const updateProdID = () => {
     requests.get(`/products/${prodID}`)
       .then((response) => { setProduct(response.data); })
       .catch((error) => { console.error(error); });
+  };
+
+  const updateMeta = () => {
+    requests
+      .get(`/reviews/meta?product_id=${prodID}`)
+      .then((results) => setMeta(results.data))
+      .catch((err) => console.error('Error with reviews meta request: ', err));
+  };
+
+  useEffect(() => {
+    updateProdID();
+    updateMeta();
   }, [prodID]);
 
   const providerValues = useMemo(() => ({
-    prodID, setProdID, product, setProduct
+    prodID, setProdID, product, setProduct, meta, setMeta
   }), [prodID, product]);
+
 
   return (
     <div>
