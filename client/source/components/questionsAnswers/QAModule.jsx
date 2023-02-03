@@ -16,15 +16,14 @@ const QAModule = function CreateQAModuleComponent() {
   const { isOpen, onOpen, onClose } = useModal();
   const { prodID } = useContext(ProdContext);
   const [questions, setQuestions] = useState(qaData.results);
-  // const [questionCount, setQuestionCount] = useState(qaData.results.length);
+  const [questionCount, setQuestionCount] = useState(4);
   const [query, setQuery] = useState('');
 
   const getQuestions = () => {
     requests
-      .get(`/qa/questions?product_id=${prodID}&count=4`)
+      .get(`/qa/questions?product_id=${prodID}&count=${questionCount}`)
       .then((results) => {
         setQuestions(results.data.results);
-        // setQuestionCount(results.data.results.length);
       })
       .catch((err) => console.error('getQuestions error: ', err));
   };
@@ -48,7 +47,7 @@ const QAModule = function CreateQAModuleComponent() {
       <h3>Photos</h3>
       <DisplayPhotos />
       <h3>Load More Answers</h3>
-      <LoadAddQA />
+      <LoadAddQA questionCount={questionCount} setQuestionCount={setQuestionCount} getQuestions={getQuestions} />
       <Modal isOpen={isOpen} onClose={onClose}>
         <div>Hello from QAModule</div>
         <DisplayPhotos />
