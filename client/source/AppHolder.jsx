@@ -7,13 +7,15 @@ import App from './App.jsx';
 import ProdContext from './ProdContext.js';
 import * as requests from './utilities/axiosRequests.js';
 
-
 // MAIN
 const AppHolder = function CreateAppHolder() {
-  const [prodID, setProdID] = useState(40444); // TODO: default view for 'no item searched yet'
+  // STATES
+  const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState(undefined);
+  const [styles, setStyles] = useState([]);
   const [meta, setMeta] = useState({});
-
+  
+  // HOOKS
   const updateProdID = () => {
     requests.get(`/products/${prodID}`)
       .then((response) => { setProduct(response.data); })
@@ -32,8 +34,18 @@ const AppHolder = function CreateAppHolder() {
     updateMeta();
   }, [prodID]);
 
+  useEffect(() => {
+    requests.get(`/products/${prodID}/styles`)
+      .then((response) => {
+        console.info(response.status, response.data.results);
+        setStyles(response.data.results);
+        return (response.data.results);
+      })
+      .catch((error) => { console.error(error); });
+  }, [prodID]);
+
   const providerValues = useMemo(() => ({
-    prodID, setProdID, product, setProduct, meta, setMeta
+    prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta
   }), [prodID, product]);
 
 
