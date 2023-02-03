@@ -53,6 +53,17 @@ const TestAPI = function CreateTestAPIComponent() {
 
   return (
     <div id="test-api-component">
+      <img
+        style={{
+          position: 'fixed',
+          bottom: 10,
+          right: 80,
+          zIndex: 9001,
+          border: 'none'
+        }}
+        alt="lightning rat with power tools"
+        src="/images/pikachu-hard-at-work.gif"
+      />
       <button type="button" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
       <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
       <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
