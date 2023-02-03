@@ -3,7 +3,7 @@ const calculateAverageRating = (ratings) => {
   let total = null;
   const breakdown = Object.entries(ratings);
   breakdown.forEach((rating) => {
-    count += rating[1];
+    count += Number.parseInt(rating[1], 10);
     total += (rating[0] * rating[1]);
   });
   return (total / count);
