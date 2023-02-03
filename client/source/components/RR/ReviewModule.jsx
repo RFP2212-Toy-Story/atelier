@@ -21,7 +21,6 @@ const ReviewModule = function ReviewModule() {
     1: false
   });
 
-  // REQUESTS
   const updateList = () => {
     requests
       .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
@@ -31,7 +30,6 @@ const ReviewModule = function ReviewModule() {
       .catch((err) => console.error('Error with reviews request: ', err));
   };
 
-  // INITIALIZE
   useEffect(() => {
     updateList();
   }, [sortType]);
@@ -41,7 +39,7 @@ const ReviewModule = function ReviewModule() {
       <h3>Ratings and Reviews</h3>
       <ReviewContentsContainer>
         <BreakdownContainer>
-          <RatingBreakdown meta={meta} />
+          <RatingBreakdown ratings={meta.ratings} />
           <ProductBreakdown traits={meta.characteristics} />
         </BreakdownContainer>
         <ReviewListContainer>

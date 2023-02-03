@@ -1,15 +1,14 @@
 import React from 'react';
 import calculateAverageRating from '../../utilities/helpers.js';
 
-const RatingBreakdown = function RatingsBreakdown({ meta }) {
-  // console.log('meta', meta);
-  // const { ratings } = meta.ratings;
-  // const averageRating = calculateAverageRating(meta.ratings);
-  // const totalRatings = Object.keys(ratings).reduce((acc, rating) => acc + ratings[rating], 0);
+const RatingBreakdown = function RatingsBreakdown({ ratings }) {
+  if (!ratings) {
+    return <div />;
+  }
 
   return (
     <div className="rating-breakdown">
-      <div>{calculateAverageRating(meta.ratings)}</div>
+      <div>{calculateAverageRating(ratings)}</div>
     </div>
   );
 };
