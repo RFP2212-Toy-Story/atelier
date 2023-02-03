@@ -19,7 +19,7 @@ const QAModule = function CreateQAModuleComponent() {
 
   const getQuestions = () => {
     requests
-      .get(`qa/questions?product_id=${prodID}`)
+      .get(`/qa/questions?product_id=${prodID}`)
       .then((results) => {
         setQuestions(results.data.results);
       })

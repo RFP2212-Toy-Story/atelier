@@ -43,14 +43,4 @@ const Button = styled.button`
   border: 1px solid #3D405B;
 `;
 
-/*   input {
-    color: black;
-    background-color: #EEF1F7;
-    width: 50em;
-  }
-  button {
-    background-color: #EEF1F7;
-    color: black;
-  } */
-
 export default SearchQuestions;
