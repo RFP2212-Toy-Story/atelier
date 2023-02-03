@@ -16,6 +16,6 @@ jobs:
       - name: save-test-coverage
         if: always()
         uses: actions/upload-artifact@v2
-          with:
-            name: coverage-report
-            path: ./coverage/coverage.txt
+        with:
+          name: coverage-report
+          path: ./coverage/coverage.txt
