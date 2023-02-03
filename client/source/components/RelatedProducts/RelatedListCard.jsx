@@ -6,7 +6,7 @@ import { HiOutlineStar } from 'react-icons/hi';
 import ProdContext from '../../ProdContext.js';
 import * as requests from '../../utilities/axiosRequests';
 import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
-import CompareWindow from './CompareWindow.jsx';
+import CompareTable from './CompareTable.jsx';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
 
@@ -47,7 +47,10 @@ const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <CompareWindow prodID={prodID} relatedProdId={relatedProdId} />
+        <CompareTable
+          relatedProductDetail={productDetail}
+          relatedStyleData={styleData}
+        />
       </Modal>
     </StyledRelatedListCard>
   );
