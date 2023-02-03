@@ -29,9 +29,11 @@ const Slider = function Slider({ trait, feedback }) {
           disabled
         />
       </div>
-      <div className="slider-left-text">{traitMapping.left}</div>
-      <div className="slider-center-text">{traitMapping.center}</div>
-      <div className="slider-right-text">{traitMapping.right}</div>
+      <div className="slider-text">
+        <div className="slider-left-text">{traitMapping.left}</div>
+        <div className="slider-center-text">{traitMapping.center}</div>
+        <div className="slider-right-text">{traitMapping.right}</div>
+      </div>
     </div>
   );
 };
