@@ -1,13 +1,14 @@
 import React from 'react';
+import UnorderedList from './styles/UnorderedList';
 import QAItem from './QAItem';
 
 const QAList = function CreateQAListComponent({ questions, getQuestions }) {
   return (
     <div>
       {questions.map((question) => (
-        <ul key={question.question_id}>
+        <UnorderedList key={question.question_id}>
           <QAItem id={question.question_id} question={question} getQuestions={getQuestions} />
-        </ul>
+        </UnorderedList>
       ))}
     </div>
   );

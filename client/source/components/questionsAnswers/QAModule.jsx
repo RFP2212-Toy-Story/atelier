@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
+import ProdContext from '../../ProdContext.js';
 import SearchQuestions from './SearchQuestions';
 import LoadAddQA from './LoadAddQA';
 import DisplayPhotos from './DisplayPhotos';
@@ -12,12 +14,10 @@ import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
   const { isOpen, onOpen, onClose } = useModal();
+  const { prodID } = useContext(ProdContext);
   const [questions, setQuestions] = useState(qaData.results);
   // const [questionCount, setQuestionCount] = useState(qaData.results.length);
   const [query, setQuery] = useState('');
-
-  // for test only, to be deleted
-  const prodID = '40444';
 
   const getQuestions = () => {
     requests
@@ -29,7 +29,9 @@ const QAModule = function CreateQAModuleComponent() {
       .catch((err) => console.error('getQuestions error: ', err));
   };
 
-  useEffect(() => getQuestions(), []);
+  useEffect(() => {
+    getQuestions();
+  }, [prodID]);
 
   const filteredQuestions = questions.filter(
     (question) => question.question_body.toLowerCase().includes(query.toLowerCase())
@@ -37,12 +39,11 @@ const QAModule = function CreateQAModuleComponent() {
 
   return (
     <Container>
-      <h3>Questions and Answers</h3>
+      <Title>Questions and Answers</Title>
       <SearchQuestions
         handleSearch={setQuery}
         query={query}
       />
-      <h3>Questions</h3>
       <QAList questions={filteredQuestions} getQuestions={getQuestions} />
       <h3>Photos</h3>
       <DisplayPhotos />
@@ -63,5 +64,8 @@ const QAModule = function CreateQAModuleComponent() {
   );
 };
 
+const Title = styled.h3`
+  text-align: center;
+`;
 
 export default QAModule;

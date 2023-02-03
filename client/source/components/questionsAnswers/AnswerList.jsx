@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnswerItem from './AnswerItem';
+import UnorderedList from './styles/UnorderedList';
 
 const AnswerList = function CreateAnswerListComponent({ answers, getQuestions }) {
-  const keys = Object.keys(answers);
+  const [count, setCount] = useState(2);
+  const answerKeys = Object.keys(answers);
+  const currentAnswerKeys = answerKeys.slice(0, count);
 
   return (
     <div>
-      {keys.map((key) => (
-        <ul key={answers[key].id}>
+      {currentAnswerKeys.map((key) => (
+        <UnorderedList key={answers[key].id}>
           <AnswerItem
             id={answers[key].id}
             answer={answers[key].body}
@@ -16,8 +19,9 @@ const AnswerList = function CreateAnswerListComponent({ answers, getQuestions })
             helpfulness={answers[key].helpfulness}
             getQuestions={getQuestions}
           />
-        </ul>
+        </UnorderedList>
       ))}
+      <button type="button" onClick={() => setCount(count + 2)}>More Answers</button>
     </div>
   );
 };

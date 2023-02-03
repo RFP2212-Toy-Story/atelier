@@ -1,25 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: #7E8079;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border: 0.1em solid black;
+  box-sizing: border-box;
 `;
 
-export const InputContainer = styled.div`
-  input {
-    color: black;
-    background-color: #EEF1F7;
-    width: 50em;
-  }
-  button {
-    background-color: #EEF1F7;
-    color: black;
-  }
-`;
 
 export const LoadContainer = styled.div`
   button {
