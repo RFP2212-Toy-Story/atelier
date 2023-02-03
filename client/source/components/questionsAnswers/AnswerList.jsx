@@ -1,9 +1,8 @@
 import React from 'react';
 import AnswerItem from './AnswerItem';
 
-const AnswerList = function CreateAnswerListComponent({ answers }) {
+const AnswerList = function CreateAnswerListComponent({ answers, getQuestions }) {
   const keys = Object.keys(answers);
-  // console.log('answer keys: ', keys);
 
   return (
     <div>
@@ -14,6 +13,8 @@ const AnswerList = function CreateAnswerListComponent({ answers }) {
             answer={answers[key].body}
             username={answers[key].answerer_name}
             date={answers[key].date}
+            helpfulness={answers[key].helpfulness}
+            getQuestions={getQuestions}
           />
         </ul>
       ))}

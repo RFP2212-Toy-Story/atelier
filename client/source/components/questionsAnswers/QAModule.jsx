@@ -26,7 +26,7 @@ const QAModule = function CreateQAModuleComponent() {
         setQuestions(results.data.results);
         // setQuestionCount(results.data.results.length);
       })
-      .catch((err) => console.error('Error with reviews request: ', err));
+      .catch((err) => console.error('getQuestions error: ', err));
   };
 
   useEffect(() => getQuestions(), []);
@@ -43,7 +43,7 @@ const QAModule = function CreateQAModuleComponent() {
         query={query}
       />
       <h3>Questions</h3>
-      <QAList questions={filteredQuestions} />
+      <QAList questions={filteredQuestions} getQuestions={getQuestions} />
       <h3>Photos</h3>
       <DisplayPhotos />
       <h3>Load More Answers</h3>
