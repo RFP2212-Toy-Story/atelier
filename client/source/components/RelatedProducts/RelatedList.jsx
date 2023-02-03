@@ -10,13 +10,15 @@ import * as requests from '../../utilities/axiosRequests';
 import ProdContext from '../../ProdContext.js';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledRelatedList from './styles/RelatedList.styled.jsx';
+import Modal from '../shared/Modal';
+import useModal from '../../useModal';
 
 // MAIN
 const RelatedList = function CreateRelatedList() {
   // STATES
   const { prodID } = useContext(ProdContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [compareClicked, setCompareClicked] = useState(false);
+  const { isOpen, onOpen, onClose } = useModal();
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
@@ -45,12 +47,14 @@ const RelatedList = function CreateRelatedList() {
       <h3>Related Products:</h3>
       <div className="container">
         <StyledMediaScroll>
-          {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} id={relatedProdId} setCompareClicked={setCompareClicked} />)}
+          {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} id={relatedProdId} onOpen={onOpen} />)}
         </StyledMediaScroll>
         <BiChevronLeftCircle className="left" />
         <BiChevronRightCircle className="right" />
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <CompareWindow />
+        </Modal>
       </div>
-      {/* compareClicked && createPortal(<CompareWindow onClose={() => setCompareClicked(false)} />, document.body) */}
     </StyledRelatedList>
   );
 };
