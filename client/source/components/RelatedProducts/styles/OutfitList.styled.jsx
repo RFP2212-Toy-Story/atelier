@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledRelatedList = styled.div`
+const StyledOutfitList = styled.div`
   .container {
     display: grid;
     position: relative;
@@ -24,4 +24,4 @@ const StyledRelatedList = styled.div`
   }
 `;
 
-export default StyledRelatedList;
+export default StyledOutfitList;

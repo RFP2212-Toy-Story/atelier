@@ -31,7 +31,7 @@ const StyledRelatedListCard = styled.div`
     font-size: 1 rem;
   }
 
-  .compareButton {
+  .removeButton {
     position: absolute;
     cursor: pointer;
     left: 89%;
