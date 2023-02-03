@@ -1,7 +1,10 @@
 module.exports = {
   coverageReporters: [
     'html-spa',
-    'text'
+    'text',
+    ['text',
+      { file: 'coverage.txt' }
+    ]
   ],
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest'
