@@ -1,45 +1,58 @@
 // LIBRARY IMPORTS
 import React, { useState, useEffect, useContext } from 'react';
+import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
 import ProdContext from '../../ProdContext.js';
 import * as requests from '../../utilities/axiosRequests';
 import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
+import CompareTable from './CompareTable.jsx';
+import Modal from '../shared/Modal';
+import useModal from '../../useModal';
 
-const RelatedListCard = function CreateRelatedListCard({ id }) {
+// MAIN
+const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
   // STATES
-  const { prodID, setProdID } = useContext(ProdContext);
+  const { setProdID } = useContext(ProdContext);
   const [productDetail, setProductDetail] = useState({});
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
+  const { isOpen, onOpen, onClose } = useModal();
 
   // HOOKS
   useEffect(() => {
-    requests.get(`/products/${id}`)
+    requests.get(`/products/${relatedProdId}`)
       .then((response) => {
         setProductDetail(response.data);
       })
       .catch((error) => { console.error(error); });
 
-    requests.get(`/products/${id}/styles`)
+    requests.get(`/products/${relatedProdId}/styles`)
       .then(({ data }) => {
         setStyleData(data.results);
         setImageURL(data.results[0].photos[0].thumbnail_url);
       })
       .catch((error) => { console.error(error); });
-  }, [id]);
+  }, [relatedProdId]);
 
   // HANDLERS
   const handleCardClick = () => {
-    setProdID(id);
+    setProdID(relatedProdId);
   };
 
   return (
     <StyledRelatedListCard onClick={handleCardClick}>
       <img alt={productDetail.name} src={imageURL} />
+      <HiOutlineStar className="compareButton" onClick={onOpen} />
       <h3>{productDetail.category}</h3>
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <CompareTable
+          relatedProductDetail={productDetail}
+          relatedStyleData={styleData}
+        />
+      </Modal>
     </StyledRelatedListCard>
   );
 };
