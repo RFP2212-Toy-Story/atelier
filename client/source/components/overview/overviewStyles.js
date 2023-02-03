@@ -33,6 +33,7 @@ const PhotoTileDiv = styled.div`
 `;
 
 const OverlayDiv = styled.div`
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   left: 0;

@@ -7,7 +7,9 @@ const Checkout = function CreateCheckoutComponent({ style }) {
 
   function getSizes(skus) {
     if (skus) {
-      const sizes = Array.from(new Set(Object.values(skus).map((sku) => sku.size)));
+      const sizes = Array.from(new Set(Object.values(skus).map((sku) => {
+        if (sku.quantity) { return sku.size; } return null;
+      })));
       setSizeArray(sizes);
       return sizes;
     }
@@ -18,8 +20,9 @@ const Checkout = function CreateCheckoutComponent({ style }) {
     if (!skus) { return; }
     skus.forEach((sku) => {
       if (sku.size === size) {
-        const array = [...Array(Math.min(sku.quantity, 16)).keys()];
-        setQuantityArray(array.splice(1));
+        let array = [...Array(Math.min(sku.quantity, 15)).keys()];
+        array = array.map((num) => num + 1);
+        setQuantityArray(array);
       }
     });
   }
@@ -31,19 +34,23 @@ const Checkout = function CreateCheckoutComponent({ style }) {
   }
 
   useEffect(() => {
-    const sizes = getSizes(style?.skus); // eslint-disable-line
-    // TODO: initial load of size quantities
-    // getQuantities(sizes[0], style?.skus);
+    getSizes(style?.skus);
+    const element = document.getElementById('checkout-size-select');
+    const element2 = document.getElementById('checkout-quantity-select');
+    element.value = 'Choose a size...';
+    element2.value = 'Choose a quantity...';
   }, [style]);
 
   return (
     <div>
       <div>
-        <select onChange={handleSizeChange}>
+        <select id="checkout-size-select" onChange={handleSizeChange}>
+          <option defaultValue>Choose a size...</option>
           {sizeArray?.map((size) => (<option key={size}>{size}</option>))}
         </select>
 
-        <select>
+        <select id="checkout-quantity-select">
+          <option defaultValue>Choose a quantity...</option>
           {quantityArray.map((number) => (<option key={number}>{number}</option>))}
         </select>
       </div>

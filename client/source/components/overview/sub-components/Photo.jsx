@@ -14,8 +14,6 @@ const Photo = function CreatePhotoComponent({ photo }) {
   const fastAverageColor = new FastAverageColor();
   const photoWidth = (new URL(photo.url)).searchParams.get('w');
 
-  console.info('Average Color', averageColor);
-
   const handleClick = () => {
     setZoomed((previous) => !previous);
   };
