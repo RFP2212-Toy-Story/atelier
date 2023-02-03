@@ -50,7 +50,7 @@ const RelatedList = function CreateRelatedList() {
         <BiChevronLeftCircle className="left" />
         <BiChevronRightCircle className="right" />
       </div>
-      {compareClicked && createPortal(<CompareWindow onClose={() => setCompareClicked(false)} />, document.body)}
+      {/* compareClicked && createPortal(<CompareWindow onClose={() => setCompareClicked(false)} />, document.body) */}
     </StyledRelatedList>
   );
 };
