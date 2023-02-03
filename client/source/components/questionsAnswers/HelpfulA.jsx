@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as requests from '../../utilities/axiosRequests.js';
-import FooterButton from './styles/buttons';
+import { ButtonContainer } from './styles/Containers.styled';
 
 const HelpfulA = function CreateHelpfulAComponent({ id, getQuestions, helpfulness }) {
   const [isReported, setIsReported] = useState(false);
@@ -31,22 +31,22 @@ const HelpfulA = function CreateHelpfulAComponent({ id, getQuestions, helpfulnes
   };
 
   return (
-    <div>
+    <ButtonContainer>
       <span>Helpful? </span>
       <span>
-        <FooterButton
+        <button
           type="button"
           onClick={handleHelpfulA}
         >Yes {`(${helpfulness})`}
-        </FooterButton>
+        </button>
         <span>  |  </span>
-        <FooterButton
+        <button
           type="button"
           onClick={handleReportedA}
         >{isReported ? 'Reported' : 'Report'}
-        </FooterButton>
+        </button>
       </span>
-    </div>
+    </ButtonContainer>
   );
 };
 

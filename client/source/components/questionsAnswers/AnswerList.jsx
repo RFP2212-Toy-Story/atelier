@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AnswerItem from './AnswerItem';
 import UnorderedList from './styles/UnorderedList';
+import { MoreButtonContainer } from './styles/Containers.styled';
 
 const AnswerList = function CreateAnswerListComponent({ answers, getQuestions }) {
   const [count, setCount] = useState(2);
@@ -21,7 +22,9 @@ const AnswerList = function CreateAnswerListComponent({ answers, getQuestions })
           />
         </UnorderedList>
       ))}
-      <button type="button" onClick={() => setCount(count + 2)}>More Answers</button>
+      <MoreButtonContainer>
+        <button type="button" onClick={() => setCount(count + 2)}>More Answers</button>
+      </MoreButtonContainer>
     </div>
   );
 };

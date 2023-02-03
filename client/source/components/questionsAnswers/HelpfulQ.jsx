@@ -1,5 +1,5 @@
 import React from 'react';
-import FooterButton from './styles/buttons';
+import { ButtonContainer } from './styles/Containers.styled';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const HelpfulQ = function CreateHelpfulQComponent({ questionHelpfulness, id, getQuestions }) {
@@ -15,14 +15,14 @@ const HelpfulQ = function CreateHelpfulQComponent({ questionHelpfulness, id, get
   };
 
   return (
-    <div>
+    <ButtonContainer>
       <span>Helpful? </span>
       <span>
-        <FooterButton
+        <button
           type="button"
           onClick={handleHelpfulQ}
         >Yes {`(${questionHelpfulness})`}
-        </FooterButton>
+        </button>
         <span>  |  </span>
         <button
           type="button"
@@ -30,7 +30,7 @@ const HelpfulQ = function CreateHelpfulQComponent({ questionHelpfulness, id, get
         >Add Answer
         </button>
       </span>
-    </div>
+    </ButtonContainer>
   );
 };
 
