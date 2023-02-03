@@ -1,6 +1,8 @@
+// LIBRARY IMPORTS
 import React from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Wrapper = styled.div`
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
@@ -49,6 +51,7 @@ const CloseButton = styled.button`
   right: 20px;
   border: 0;
   font-size: 1.3rem;
+  background: transparent;
 `;
 
 export default function Modal({ children, isOpen, onClose }) {
@@ -58,7 +61,9 @@ export default function Modal({ children, isOpen, onClose }) {
         <ModalOverlay />
         <Wrapper>
           <ModalInner>
-            <CloseButton type="button" onClick={onClose}>X</CloseButton>
+            <CloseButton>
+              <IoIosCloseCircleOutline onClick={onClose} />
+            </CloseButton>
             {children}
           </ModalInner>
         </Wrapper>

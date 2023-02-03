@@ -1,24 +1,19 @@
 // LIBRARY IMPORTS
 import React, { useState, useEffect, useContext } from 'react';
-import { createPortal } from 'react-dom';
 import { BiChevronLeftCircle, BiChevronRightCircle } from 'react-icons/bi';
 
 // LOCAL IMPORTS
 import RelatedListCard from './RelatedListCard.jsx';
-import CompareWindow from './CompareWindow.jsx';
 import * as requests from '../../utilities/axiosRequests';
 import ProdContext from '../../ProdContext.js';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledRelatedList from './styles/RelatedList.styled.jsx';
-import Modal from '../shared/Modal';
-import useModal from '../../useModal';
 
 // MAIN
 const RelatedList = function CreateRelatedList() {
   // STATES
   const { prodID } = useContext(ProdContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const { isOpen, onOpen, onClose } = useModal();
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
@@ -47,13 +42,10 @@ const RelatedList = function CreateRelatedList() {
       <h3>Related Products:</h3>
       <div className="container">
         <StyledMediaScroll>
-          {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} id={relatedProdId} onOpen={onOpen} />)}
+          {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} relatedProdId={relatedProdId} />)}
         </StyledMediaScroll>
         <BiChevronLeftCircle className="left" />
         <BiChevronRightCircle className="right" />
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <CompareWindow />
-        </Modal>
       </div>
     </StyledRelatedList>
   );

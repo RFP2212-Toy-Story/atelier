@@ -5,8 +5,16 @@ const useModal = function useModal() {
 
   return {
     isOpen: showModal,
-    onOpen: () => { document.body.classList.add('stop-scrolling'); setShowModal(true); },
-    onClose: () => { document.body.classList.remove('stop-scrolling'); setShowModal(false); }
+    onOpen: (e) => {
+      e.stopPropagation();
+      document.body.classList.add('stop-scrolling');
+      setShowModal(true);
+    },
+    onClose: (e) => {
+      e.stopPropagation();
+      document.body.classList.remove('stop-scrolling');
+      setShowModal(false);
+    }
   };
 };
 

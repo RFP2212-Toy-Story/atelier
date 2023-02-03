@@ -6,33 +6,37 @@ import { HiOutlineStar } from 'react-icons/hi';
 import ProdContext from '../../ProdContext.js';
 import * as requests from '../../utilities/axiosRequests';
 import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
+import CompareWindow from './CompareWindow.jsx';
+import Modal from '../shared/Modal';
+import useModal from '../../useModal';
 
-const RelatedListCard = function CreateRelatedListCard({ id, onOpen }) {
+const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
   // STATES
   const { prodID, setProdID } = useContext(ProdContext);
   const [productDetail, setProductDetail] = useState({});
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
+  const { isOpen, onOpen, onClose } = useModal();
 
   // HOOKS
   useEffect(() => {
-    requests.get(`/products/${id}`)
+    requests.get(`/products/${relatedProdId}`)
       .then((response) => {
         setProductDetail(response.data);
       })
       .catch((error) => { console.error(error); });
 
-    requests.get(`/products/${id}/styles`)
+    requests.get(`/products/${relatedProdId}/styles`)
       .then(({ data }) => {
         setStyleData(data.results);
         setImageURL(data.results[0].photos[0].thumbnail_url);
       })
       .catch((error) => { console.error(error); });
-  }, [id]);
+  }, [relatedProdId]);
 
   // HANDLERS
   const handleCardClick = () => {
-    setProdID(id);
+    setProdID(relatedProdId);
   };
 
   return (
@@ -42,6 +46,9 @@ const RelatedListCard = function CreateRelatedListCard({ id, onOpen }) {
       <h3>{productDetail.category}</h3>
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <CompareWindow prodID={prodID} relatedProdId={relatedProdId} />
+      </Modal>
     </StyledRelatedListCard>
   );
 };
