@@ -41,6 +41,10 @@ const testProductStyles = {
         1394769: {
           quantity: 8,
           size: 'XS'
+        },
+        1394770: {
+          quantity: 15,
+          size: 'S'
         }
       }
     }

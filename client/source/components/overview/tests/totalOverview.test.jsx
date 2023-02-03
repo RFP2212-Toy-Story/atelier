@@ -36,7 +36,7 @@ describe('OVERVIEW: comprehensive test', () => {
   });
 
   it('should display the product name', () => {
-    const renderedText = screen.getByText('Camo Onesie', { exact: false });
+    const renderedText = screen.getByText('Camo Onessie', { exact: false });
     expect(renderedText.textContent).toBe('Camo Onesie');
   });
 
