@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import ReviewList from './ReviewList.jsx';
-import SortReviews from './SortReviews.jsx';
-import RatingBreakdown from './RatingBreakdown.jsx';
-import ProductBreakdown from './ProductBreakdown.jsx';
+import ReviewList from './ReviewList/ReviewList.jsx';
+import SortReviews from './SortReviews/SortReviews.jsx';
+import RatingBreakdown from './RatingBreakdown/RatingBreakdown.jsx';
+import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import * as requests from '../../utilities/axiosRequests.js';
 import ProdContext from '../../ProdContext.js';
 import {
@@ -39,7 +39,7 @@ const ReviewModule = function ReviewModule() {
       <h3>Ratings and Reviews</h3>
       <ReviewContentsContainer>
         <BreakdownContainer>
-          <RatingBreakdown ratings={meta.ratings} />
+          <RatingBreakdown ratings={meta.ratings} recommend={meta.recommended} />
           <ProductBreakdown traits={meta.characteristics} />
         </BreakdownContainer>
         <ReviewListContainer>

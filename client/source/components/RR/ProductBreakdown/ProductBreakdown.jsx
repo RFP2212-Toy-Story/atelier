@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from './Slider.jsx';
-import { ProductBreakdownContainer } from './styles/RR.styled.js';
+import { ProductBreakdownContainer } from '../styles/RR.styled.js';
 
 const ProductBreakdown = function ProductBreakdown({ traits }) {
   if (!traits) {
