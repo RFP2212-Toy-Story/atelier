@@ -8,6 +8,7 @@ import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
 const ReviewTile = function ReviewTile({ review, updateList }) {
   // STATE
   const [fullBody, setFullBody] = useState(false);
+  const [reported, setReported] = useState(false);
 
   // FORMAT DATE
   const parsedDate = parseISO(review.date);
@@ -41,12 +42,12 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
   };
 
   const handleReported = function handleReported(event) {
+    setReported(true);
     event.target.setAttribute('disabled', true);
     requests
       .put(`/reviews/${review.review_id}/report`, { review_id: review.review_id })
       .then((results) => {
         console.info(results.status);
-        updateList();
       })
       .catch((err) => console.error('Error reporting review: ', err));
   };
@@ -111,7 +112,9 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
               className="review-footer-button"
               type="button"
               onClick={handleReported}
-            >Report
+            >{reported
+              ? 'Reported'
+              : 'Report'}
             </button>
           </span>
         </div>
