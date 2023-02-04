@@ -19,6 +19,7 @@ const StyledAvgStarArray = styled.div`
 const AvgStarArray = function CreateAvgStarArray() {
   // TEMPORARY DATA
   const avgRating = 3.5;
+
   return (
     <StyledAvgStarArray>
       {Array.from(Array(5)).map((_, index) => {
@@ -35,7 +36,7 @@ const AvgStarArray = function CreateAvgStarArray() {
         if (starPosition > Math.ceil(avgRating)) {
           return (
             <div key={starPosition}>
-              <EmptyStar filling={0} />
+              <EmptyStar />
             </div>
           );
         }
