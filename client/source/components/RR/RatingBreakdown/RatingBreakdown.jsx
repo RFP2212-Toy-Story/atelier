@@ -3,7 +3,7 @@ import RatingBar from './RatingBar.jsx';
 import * as helpers from '../helpers/ratings.js';
 import average from '../../../utilities/helpers.js';
 
-const RatingBreakdown = function RatingsBreakdown({ ratings, recommend }) {
+const RatingBreakdown = function RatingsBreakdown({ ratings, recommend, toggleRating }) {
   if (!ratings) {
     return <div />;
   }
@@ -21,7 +21,9 @@ const RatingBreakdown = function RatingsBreakdown({ ratings, recommend }) {
       </div>
       {breakdown.map((rating) => (
         <RatingBar
+          ratings={ratings}
           rating={rating}
+          toggleRating={toggleRating}
           key={rating[0]}
         />
       ))};
