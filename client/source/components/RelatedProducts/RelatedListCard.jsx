@@ -9,6 +9,7 @@ import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
 import CompareTable from './CompareTable.jsx';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
+import AvgStarArray from '../shared/AvgStarArray.jsx';
 
 // MAIN
 const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
@@ -47,6 +48,7 @@ const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
       <h3>{productDetail.category}</h3>
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
+      <AvgStarArray />
       <Modal isOpen={isOpen} onClose={onClose}>
         <CompareTable
           relatedProductDetail={productDetail}
