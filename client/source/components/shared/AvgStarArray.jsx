@@ -41,21 +41,21 @@ const AvgStarArray = function CreateAvgStarArray() {
         }
 
         const filling = avgRating - index;
-        if (filling === 0.25) {
+        if (filling <= 0.3) {
           return (
             <div key={starPosition}>
               <QuarterStar />
             </div>
           );
         }
-        if (filling === 0.5) {
+        if (filling <= 0.6) {
           return (
             <div key={starPosition}>
               <HalfStar />
             </div>
           );
         }
-        if (filling === 0.75) {
+        if (filling <= 0.9) {
           return (
             <div key={starPosition}>
               <ThreeQuarterStar />
