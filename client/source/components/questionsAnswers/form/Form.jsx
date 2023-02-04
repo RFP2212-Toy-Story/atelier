@@ -8,8 +8,12 @@ const initialFormInput = {
   email: ''
 };
 
-const Form = function CreateFormComponent() {
+const Form = function CreateFormComponent({ postQuestion }) {
   const [formInput, setFormInput] = useState(initialFormInput);
+
+  const clearForm = () => {
+    setFormInput(initialFormInput);
+  };
 
   const handleFormInputChange = useCallback((event) => {
     setFormInput({
@@ -19,7 +23,12 @@ const Form = function CreateFormComponent() {
   }, [formInput]);
 
   return (
-    <form>
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      postQuestion(formInput);
+      clearForm();
+    }}
+    >
       <FormTextarea
         labelText="What is your question?"
         name="question"
@@ -45,7 +54,10 @@ const Form = function CreateFormComponent() {
         onChange={handleFormInputChange}
         disclaimerText="For authentication reasons, you will not be emailed"
       />
-      <input type="submit" value="Submit question" />
+      <input
+        type="submit"
+        value="Submit question"
+      />
     </form>
   );
 };

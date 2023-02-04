@@ -1,9 +1,14 @@
 import React from 'react';
 import { LoadContainer } from './styles/Containers.styled';
+import Form from './form/Form';
+import Modal from '../shared/Modal';
+import useModal from '../../useModal';
 
 const LoadAddQA = function CreateLoadAddQAComponent({
-  questionCount, setQuestionCount
+  questionCount, setQuestionCount, postQuestion
 }) {
+  const { isOpen, onOpen, onClose } = useModal();
+
   return (
     <LoadContainer>
       <button
@@ -14,7 +19,11 @@ const LoadAddQA = function CreateLoadAddQAComponent({
         }}
       >More Answered Questions
       </button>
-      <button type="button">Add a Question</button>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <h3>Add a Question</h3>
+        <Form postQuestion={postQuestion} />
+      </Modal>
+      <button onClick={onOpen} type="button">Add a Question</button>
     </LoadContainer>
   );
 };
