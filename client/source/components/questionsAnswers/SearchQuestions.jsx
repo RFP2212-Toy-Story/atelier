@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const SearchQuestions = function CreateSearchQuestions({ handleSearch }) {
-  const [input, setInput] = useState('');
-
+const SearchQuestions = function CreateSearchQuestions({ handleQ, query }) {
   return (
     <InputContainer>
       <Input
         type="text"
         placeholder="Have a Question? Search For Answers"
-        onChange={(e) => setInput(e.target.value)}
-        value={input}
+        onChange={handleQ}
+        value={query}
       />
-      <Button
-        type="button"
-        onClick={() => {
-          handleSearch(input);
-        }}
-      >Go!
-      </Button>
     </InputContainer>
   );
 };
@@ -35,12 +26,6 @@ const Input = styled.input`
 const InputContainer = styled.div`
   display: flex;
   justify-content: center;
-`;
-
-const Button = styled.button`
-  font-family: inherit;
-  background-color: #EEF1F7;
-  border: 1px solid #3D405B;
 `;
 
 export default SearchQuestions;

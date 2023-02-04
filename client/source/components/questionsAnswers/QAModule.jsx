@@ -34,14 +34,19 @@ const QAModule = function CreateQAModuleComponent() {
     (question) => question.question_body.toLowerCase().includes(query.toLowerCase())
   );
 
+  const handleQ = (event) => {
+    setQuery(event.target.value);
+  };
+
   return (
     <Container>
       <Title>Questions and Answers</Title>
       <SearchQuestions
-        handleSearch={setQuery}
+        handleQ={handleQ}
         query={query}
       />
-      <QAList questions={filteredQuestions} getQuestions={getQuestions} />
+      {query.length > 2 && (<QAList questions={filteredQuestions} getQuestions={getQuestions} />)}
+      {query.length < 3 && (<QAList questions={questions} getQuestions={getQuestions} />)}
       <h3>Photos</h3>
       <DisplayPhotos />
       <Modal isOpen={isOpen} onClose={onClose}>
