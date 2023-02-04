@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ButtonContainer } from './styles/Containers.styled';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const HelpfulQ = function CreateHelpfulQComponent({ questionHelpfulness, id, getQuestions }) {
-  const handleHelpfulQ = function handleHelpfulQ(event) {
+  const handleHelpfulQ = useCallback((event) => {
     event.target.setAttribute('disabled', true);
     requests
       .put(`/qa/questions/${id}/helpful`)
@@ -12,7 +12,7 @@ const HelpfulQ = function CreateHelpfulQComponent({ questionHelpfulness, id, get
         getQuestions();
       })
       .catch((err) => console.error('handleHelpfulQ error: ', err));
-  };
+  }, [id]);
 
   return (
     <ButtonContainer>

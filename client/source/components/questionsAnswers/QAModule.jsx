@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import ProdContext from '../../ProdContext.js';
 import SearchQuestions from './SearchQuestions';
-import Form from './Form';
+import Form from './form/Form';
 import QAList from './QAList';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';

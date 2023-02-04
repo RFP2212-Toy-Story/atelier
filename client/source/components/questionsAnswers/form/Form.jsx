@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
+import FormInput from './FormInput';
 
 const initialFormInput = {
   question: '',
@@ -9,12 +10,12 @@ const initialFormInput = {
 const Form = function CreateFormComponent() {
   const [formInput, setFormInput] = useState(initialFormInput);
 
-  const handleFormInputChange = function createHandleFormInputChange(event) {
+  const handleFormInputChange = useCallback((event) => {
     setFormInput({
       ...formInput,
       [event.target.name]: event.target.value
     });
-  };
+  }, [formInput]);
 
   return (
     <form>
@@ -28,18 +29,15 @@ const Form = function CreateFormComponent() {
           onChange={handleFormInputChange}
         />
       </label>
-      <label htmlFor="nickname">What is your nickname?
-        <input
-          type="text"
-          name="name"
-          id="nickname"
-          value={formInput.name}
-          maxLength="60"
-          placeholder="Example: jackson11!"
-          onChange={handleFormInputChange}
-        />
-      </label>
-      <p>For privacy reasons, do not use your full name or email address</p>
+      <FormInput
+        labelText="What is your nickname?"
+        disclaimerText="For privacy reasons, do not use your full name or email address"
+        type="text"
+        name="name"
+        value={formInput.name}
+        placeholder="Example: jackson11!"
+        onChange={handleFormInputChange}
+      />
       <label htmlFor="email">What is your email?
         <input
           type="email"
