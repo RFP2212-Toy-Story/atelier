@@ -63,7 +63,7 @@ const ReviewModule = function ReviewModule() {
           <div className="review-list-container">
             <ReviewList
               reviews={reviews}
-              reviewCount={reviews.length}
+              ratingsFilter={ratingsFilter}
               updateList={updateList}
             />
           </div>
