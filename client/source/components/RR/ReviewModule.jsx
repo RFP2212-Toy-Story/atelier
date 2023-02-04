@@ -56,7 +56,6 @@ const ReviewModule = function ReviewModule() {
         <ReviewListContainer>
           <div className="sort-container">
             <SortReviews
-              reviewCount={reviews.length}
               sortType={sortType}
               setSortType={setSortType}
             />

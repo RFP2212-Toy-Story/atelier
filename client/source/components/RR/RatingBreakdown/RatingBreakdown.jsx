@@ -11,6 +11,7 @@ const RatingBreakdown = function RatingsBreakdown({ ratings, recommend, toggleRa
   const averageRating = average(ratings);
   const breakdown = helpers.percentages(ratings);
   const votes = helpers.recommended(recommend);
+  const numReviews = helpers.count(ratings);
 
   return (
     <div className="rating-breakdown">
@@ -19,6 +20,7 @@ const RatingBreakdown = function RatingsBreakdown({ ratings, recommend, toggleRa
       <div className="recommended-percentage">
         {`${votes}% of reviews recommend this product`}
       </div>
+      <div className="review-count">{`${numReviews} Customer Reviews`}</div>
       {breakdown.map((rating) => (
         <RatingBar
           ratings={ratings}
