@@ -14,7 +14,7 @@ const AppHolder = function CreateAppHolder() {
   const [product, setProduct] = useState(undefined);
   const [styles, setStyles] = useState([]);
   const [meta, setMeta] = useState({});
-  
+
   // HOOKS
   const updateProdID = () => {
     requests.get(`/products/${prodID}`)
