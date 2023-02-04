@@ -1,18 +1,17 @@
 import React from 'react';
 
-const FormInput = function CreateFormInput({
-  name, value, labelText, placeholder, onChange, disclaimerText, maxLength = '60', type = 'text'
+const FormTextarea = function CreateFormTextarea({
+  labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000'
 }) {
   return (
     <>
       <label htmlFor={name}>{labelText}
-        <input
-          type={type}
-          name={name}
+        <textarea
           id={name}
+          name={name}
           value={value}
-          maxLength={maxLength}
           placeholder={placeholder}
+          maxLength={maxLength}
           onChange={onChange}
         />
       </label>
@@ -21,4 +20,4 @@ const FormInput = function CreateFormInput({
   );
 };
 
-export default FormInput;
+export default FormTextarea;
