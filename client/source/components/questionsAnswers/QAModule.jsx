@@ -39,7 +39,7 @@ const QAModule = function CreateQAModuleComponent() {
   };
 
   return (
-    <Container>
+    <Container data-module-name="questions and answers">
       <Title>Questions and Answers</Title>
       <SearchQuestions
         handleQ={handleQ}
