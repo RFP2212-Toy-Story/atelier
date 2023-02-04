@@ -1,12 +1,12 @@
-const calculateAverageRating = (ratings) => {
+const average = function calculateAverageRating(ratings) {
   let count = null;
   let total = null;
   const breakdown = Object.entries(ratings);
   breakdown.forEach((rating) => {
-    count += rating[1];
+    count += Number(rating[1]);
     total += (rating[0] * rating[1]);
   });
-  return (total / count);
+  return (total / count).toFixed(1);
 };
 
-export default calculateAverageRating;
+export default average;
