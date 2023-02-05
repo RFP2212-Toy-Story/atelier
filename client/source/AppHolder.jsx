@@ -12,32 +12,40 @@ const AppHolder = function CreateAppHolder() {
   // STATES
   const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState({});
-  const [styles, setStyles] = useState([]);
   const [meta, setMeta] = useState({});
+  const [styles, setStyles] = useState([]);
 
   // HOOKS
-  const updateProduct = () => {
-    requests.get(`/products/${prodID}`)
-      .then((response) => { setProduct(response.data); })
+  function getProduct() {
+    return requests.get(`/products/${prodID}`)
+      .then((response) => response.data)
       .catch((error) => { console.error(error); });
-  };
+  }
 
-  const updateMeta = () => {
-    requests.get(`/reviews/meta?product_id=${prodID}`)
-      .then((response) => setMeta(response.data))
+  function getMeta() {
+    return requests.get(`/reviews/meta?product_id=${prodID}`)
+      .then((response) => response.data)
       .catch((err) => console.error('Error with reviews meta request: ', err));
-  };
+  }
 
-  const updateStyles = () => {
-    requests.get(`/products/${prodID}/styles`)
-      .then((response) => { setStyles(response.data.results); })
+  function getStyles() {
+    return requests.get(`/products/${prodID}/styles`)
+      .then((response) => response.data.results)
       .catch((error) => { console.error(error); });
+  }
+
+  const updateAllData = async () => {
+    const dataProduct = await getProduct();
+    const dataMeta = await getMeta();
+    const dataStyles = await getStyles();
+    setProduct(dataProduct);
+    setMeta(dataMeta);
+    setStyles(dataStyles);
   };
 
   useEffect(() => {
-    updateProduct();
-    updateMeta();
-    updateStyles();
+    updateAllData()
+      .catch((error) => console.error(error));
   }, [prodID]);
 
   const providerValues = useMemo(() => ({

@@ -8,7 +8,7 @@ import ProductStyles from './sub-components/ProductStyles';
 
 // MAIN
 const ProductInfo = function CreateProductInfoComponent({
-  product, styles, style, setCurrentStyle
+  product, styles, style, changeStyle
 }) {
   return (
     <div className="product-info">
@@ -17,11 +17,11 @@ const ProductInfo = function CreateProductInfoComponent({
       <h1>{product?.name}</h1>
       <div>
         {style?.sale_price
-          ? <div><div style={{ textDecoration: 'line-through' }}>${product?.default_price}</div><div style={{ color: 'red' }}>${style?.sale_price}</div></div>
-          : <div>${product?.default_price}</div>}
+          ? <div><div style={{ textDecoration: 'line-through' }}>${style?.original_price}</div><div style={{ color: 'red' }}>${style?.sale_price}</div></div>
+          : <div>${style?.original_price}</div>}
       </div>
 
-      <ProductStyles currentStyleID={style?.style_id} styles={styles} setStyle={setCurrentStyle} />
+      <ProductStyles currentStyleID={style?.style_id} styles={styles} changeStyle={changeStyle} />
 
       <Checkout style={style} />
 

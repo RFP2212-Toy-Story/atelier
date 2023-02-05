@@ -6,7 +6,9 @@ import StyleButton from './StyleButton.jsx';
 
 
 // MAIN
-const ProductStlyes = function CreateProductStlyesComponent({ currentStyleID, styles, setStyle }) {
+const ProductStlyes = function CreateProductStlyesComponent({
+  currentStyleID, styles, changeStyle
+}) {
   return (
     <div className="product-styles">
       {styles?.map((style, index) => {
@@ -20,7 +22,8 @@ const ProductStlyes = function CreateProductStlyesComponent({ currentStyleID, st
             index={index}
             key={style.style_id}
             name={style.name}
-            setStyle={setStyle}
+            style={style}
+            changeStyle={changeStyle}
           />
         );
       })}

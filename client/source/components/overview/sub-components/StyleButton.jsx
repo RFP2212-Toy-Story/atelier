@@ -3,10 +3,10 @@ import React from 'react';
 import * as Styles from '../overviewStyles.js';
 
 const StyleButton = function CreateStyleButtonComponent({
-  index, name, setStyle, selected
+  index, name, changeStyle, selected, style
 }) {
-  const handleClick = (event) => {
-    setStyle(event.target.id);
+  const handleClick = () => {
+    changeStyle(style);
   };
 
   return (

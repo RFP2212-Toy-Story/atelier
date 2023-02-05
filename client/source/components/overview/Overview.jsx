@@ -12,28 +12,33 @@ import ProdContext from '../../ProdContext.js';
 
 // MAIN
 const Overview = function CreateOverviewComponent() {
-  const { product, styles } = useContext(ProdContext);
-  const [currentStyle, setCurrentStyle] = useState(0);
+  const { prodID, product, styles } = useContext(ProdContext);
+  const [currentStyle, setCurrentStyle] = useState({});
 
-  const findDefaultStyle = (style, index) => {
-    if (style['default?'] === true) { setCurrentStyle(index); }
+  const findDefaultStyle = (style) => {
+    if (style['default?'] === true) {
+      setCurrentStyle(style);
+    }
+  };
+
+  const changeStyle = (style) => {
+    setCurrentStyle(style);
   };
 
   useEffect(() => {
     styles.forEach(findDefaultStyle);
-  }, []);
+  }, [prodID, product, styles]);
 
   return (
     <div id="overview-component" className="overview FlexColumn">
       <div className="FlexRow">
 
-        <PhotoBlock photos={styles[currentStyle]?.photos} />
-
+        <PhotoBlock photos={currentStyle.photos} />
         <ProductInfo
           product={product}
           styles={styles}
-          style={styles[currentStyle]}
-          setCurrentStyle={setCurrentStyle}
+          style={currentStyle}
+          changeStyle={changeStyle}
         />
 
       </div>

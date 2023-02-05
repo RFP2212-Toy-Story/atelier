@@ -55,8 +55,8 @@ const testProductStyles = {
     {
       style_id: 240501,
       name: 'Desert Brown & Tan',
-      original_price: '100.00',
-      sale_price: null,
+      original_price: '140.00',
+      sale_price: '100.00',
       'default?': false,
       photos: [
         {
