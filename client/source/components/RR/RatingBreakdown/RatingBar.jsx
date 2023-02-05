@@ -9,7 +9,7 @@ const RatingBar = function RatingBar({ ratings, rating, toggleRating }) {
     <div
       className="rating-bar"
       role="button"
-      tabIndex={-1}
+      tabIndex={0}
       onClick={() => toggleRating(starNum)}
       onKeyDown={() => toggleRating(starNum)}
     >

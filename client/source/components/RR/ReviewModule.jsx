@@ -24,9 +24,7 @@ const ReviewModule = function ReviewModule() {
   const updateList = () => {
     requests
       .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
-      .then((results) => {
-        setReviews(results.data.results);
-      })
+      .then((results) => setReviews(results.data.results))
       .catch((err) => console.error('Error with reviews request: ', err));
   };
 
@@ -35,10 +33,21 @@ const ReviewModule = function ReviewModule() {
   }, [sortType]);
 
   const toggleRating = (starNum) => {
-    setRatingsFilter({
-      ...ratingsFilter,
-      [starNum]: !ratingsFilter[starNum]
-    });
+    if (starNum) {
+      setRatingsFilter({
+        ...ratingsFilter,
+        [starNum]: !ratingsFilter[starNum]
+      });
+    } else {
+      setRatingsFilter({
+        ...ratingsFilter,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false
+      });
+    }
   };
 
   return (
@@ -49,7 +58,9 @@ const ReviewModule = function ReviewModule() {
           <RatingBreakdown
             ratings={meta.ratings}
             recommend={meta.recommended}
+            ratingsFilter={ratingsFilter}
             toggleRating={toggleRating}
+            updateList={updateList}
           />
           <ProductBreakdown traits={meta.characteristics} />
         </BreakdownContainer>
