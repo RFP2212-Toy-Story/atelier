@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import FormInput from './form/FormInput';
-import FormTextarea from './form/FormTextarea';
+import FormInput from '../shared/FormInput';
+import FormTextarea from '../shared/FormTextarea';
 
 const initialFormInput = {
   question: '',
@@ -55,7 +55,7 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
         onChange={handleFormInputChange}
         disclaimerText="For authentication reasons, you will not be emailed"
       />
-      <input
+      <InputSubmit
         type="submit"
         value="Submit question"
       />
@@ -65,16 +65,15 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
 
 const Form = styled.form`
   font-family: 'Nunito', sans-serif;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 5px;
-  row-gap: 10px;
-  input {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5px;
-  }
+  row-gap: 8px;
+`;
+
+const InputSubmit = styled.input`
+  font-family: 'Nunito', sans-serif;
+  border-radius: 5px;
 `;
 
 export default QuestionForm;

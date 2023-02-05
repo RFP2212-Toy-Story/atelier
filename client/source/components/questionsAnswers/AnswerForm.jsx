@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import FormInput from './form/FormInput';
-import FormTextarea from './form/FormTextarea';
+import FormInput from '../shared/FormInput';
+import FormTextarea from '../shared/FormTextarea';
 
 const initialFormInput = {
   answer: '',

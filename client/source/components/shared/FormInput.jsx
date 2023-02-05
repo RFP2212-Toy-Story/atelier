@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FormTextarea = function CreateFormTextarea({
-  labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000'
+const FormInput = function CreateFormInput({
+  name, value, labelText, placeholder, onChange, disclaimerText, maxLength = '60', type = 'text'
 }) {
   return (
     <>
       <label htmlFor={name}>{labelText}
-        <textarea
-          id={name}
+        <Input
+          type={type}
           name={name}
+          id={name}
           value={value}
-          placeholder={placeholder}
           maxLength={maxLength}
+          placeholder={placeholder}
           onChange={onChange}
-          rows="5"
-          cols="62"
+          cols="25"
         />
       </label>
       {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
@@ -23,8 +23,14 @@ const FormTextarea = function CreateFormTextarea({
   );
 };
 
+const Input = styled.input`
+  display: block;
+  font-family: inherit;
+  width: 100%;
+`;
+
 const Paragraph = styled.p`
   font-size: 75%;
 `;
 
-export default FormTextarea;
+export default FormInput;

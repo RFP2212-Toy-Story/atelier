@@ -28,8 +28,7 @@ const ModalInner = styled.div`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  /* spacing as needed */
-  padding: 20px 50px 20px 20px;
+  padding: 24px;
   /* let it scroll */
   overflow: auto;
 `;

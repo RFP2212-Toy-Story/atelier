@@ -19,6 +19,10 @@ html {
   scroll-behavior: smooth;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 // CLASSES
 .FlexColumn {
   display: flex;
