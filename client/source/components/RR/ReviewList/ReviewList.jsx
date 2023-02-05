@@ -41,7 +41,12 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
               </button>
             )
             : null }
-          <AddReview />
+          <button
+            className="footer-button"
+            type="button"
+          > ADD A REVIEW
+          </button>
+          {/* <AddReview /> */}
         </div>
       </ReviewListFooter>
     </div>
