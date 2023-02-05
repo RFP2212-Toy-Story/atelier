@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import styled from 'styled-components';
-import FormInput from '../shared/FormInput';
-import FormTextarea from '../shared/FormTextarea';
+import { Form, InputSubmit } from '../shared/form/FormStyles';
+import FormInput from '../shared/form/FormInput';
+import FormTextarea from '../shared/form/FormTextarea';
 
 const initialFormInput = {
   question: '',
@@ -31,14 +31,14 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
     }}
     >
       <FormTextarea
-        labelText="What is your question? "
+        labelText="What is your question? *"
         name="question"
         value={formInput.question}
         placeholder="Why did you like the product or not?"
         onChange={handleFormInputChange}
       />
       <FormInput
-        labelText="What is your nickname? "
+        labelText="What is your nickname? *"
         type="text"
         name="name"
         value={formInput.name}
@@ -47,7 +47,7 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
         disclaimerText="For privacy reasons, do not use your full name or email address"
       />
       <FormInput
-        labelText="What is your email? "
+        labelText="What is your email? *"
         type="email"
         name="email"
         value={formInput.email}
@@ -62,18 +62,5 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
     </Form>
   );
 };
-
-const Form = styled.form`
-  font-family: 'Nunito', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  row-gap: 8px;
-`;
-
-const InputSubmit = styled.input`
-  font-family: 'Nunito', sans-serif;
-  border-radius: 5px;
-`;
 
 export default QuestionForm;

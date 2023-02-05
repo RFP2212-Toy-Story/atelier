@@ -5,7 +5,7 @@ const FormTextarea = function CreateFormTextarea({
   labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000'
 }) {
   return (
-    <>
+    <div>
       <label htmlFor={name}>{labelText}
         <Textarea
           id={name}
@@ -19,7 +19,7 @@ const FormTextarea = function CreateFormTextarea({
         />
       </label>
       {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
-    </>
+    </div>
   );
 };
 
@@ -30,6 +30,7 @@ const Textarea = styled.textarea`
 
 const Paragraph = styled.p`
   font-size: 75%;
+  margin-top: 0;
 `;
 
 export default FormTextarea;

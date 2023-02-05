@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Wrapper = styled.div`
-  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
   background-color: #FFFBEA;
   border: 0.21em dotted #74AA90;
   border-radius: 12px;

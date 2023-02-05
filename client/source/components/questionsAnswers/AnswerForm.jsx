@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import FormInput from '../shared/FormInput';
-import FormTextarea from '../shared/FormTextarea';
+import { Form, InputSubmit } from '../shared/form/FormStyles';
+import FormInput from '../shared/form/FormInput';
+import FormTextarea from '../shared/form/FormTextarea';
 
 const initialFormInput = {
   answer: '',
@@ -32,14 +33,14 @@ const AnswerForm = function CreateAnswerFormComponent({ handlePost }) {
     }}
     >
       <FormTextarea
-        labelText="Your Answer "
+        labelText="Your Answer *"
         name="answer"
         value={formInput.answer}
         placeholder="Your Answer"
         onChange={handleFormInputChange}
       />
       <FormInput
-        labelText="What is your nickname? "
+        labelText="What is your nickname? *"
         type="text"
         name="name"
         value={formInput.name}
@@ -48,7 +49,7 @@ const AnswerForm = function CreateAnswerFormComponent({ handlePost }) {
         disclaimerText="For privacy reasons, do not use your full name or email address"
       />
       <FormInput
-        labelText="What is your email? "
+        labelText="What is your email? *"
         type="email"
         name="email"
         value={formInput.email}
@@ -56,27 +57,24 @@ const AnswerForm = function CreateAnswerFormComponent({ handlePost }) {
         onChange={handleFormInputChange}
         disclaimerText="For authentication reasons, you will not be emailed"
       />
-      <span>Upload Your Photos</span>
-      <input
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="photos">Upload Your Photos
+        <FileInput
+          type="file"
+          id="photos"
+          accept="image/*"
+        />
+      </label>
+      <InputSubmit
         type="submit"
-        value="Submit question"
+        value="Submit answer"
       />
     </Form>
   );
 };
 
-const Form = styled.form`
-  font-family: 'Nunito', sans-serif;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 5px;
-  row-gap: 10px;
-  input {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5px;
-  }
+const FileInput = styled.input`
+
 `;
 
 export default AnswerForm;
