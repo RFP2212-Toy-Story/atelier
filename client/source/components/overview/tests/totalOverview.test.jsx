@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import * as requests from '../../../utilities/axiosRequests.js';
 import * as testData from './testData.js';
@@ -11,7 +11,6 @@ import Overview from '../Overview.jsx';
 
 // prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta
 function renderWithContext(testID, testProduct, testStyles) {
-  console.log(testStyles);
   const prodID = testID;
   const product = testProduct;
   const styles = testStyles.results;
@@ -41,6 +40,16 @@ describe('OVERVIEW: comprehensive test', () => {
     const renderedText = screen.getByText('Camo Onesie', { exact: false });
     expect(renderedText.textContent).toBe('Camo Onesie');
   });
+
+  // it('should change the loaded style', () => {
+  //   const button = screen.getByText('Desert Brown & Tan');
+  //   let cost = screen.getByText('$140.00').parentNode;
+  //   console.log(cost.textContent);
+
+  //   fireEvent.click(button);
+  //   cost = screen.getByText('$100.00').parentNode;
+  //   console.log(cost.textContent);
+  // });
 
   it('will display the DOM in debug mode', () => {
     screen.debug();

@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 const Checkout = function CreateCheckoutComponent({ style }) {
   const [quantityArray, setQuantityArray] = useState(['SOLD OUT']);
   const [sizeArray, setSizeArray] = useState(['SOLD OUT']);
+  const [selectedSize, setSelectedSize] = useState('Choose a size...');
+  const [selectedQuantity, setSelectedQuantity] = useState('Choose a quantity...');
 
   function getSizes(skus) {
     if (skus) {
@@ -28,9 +30,14 @@ const Checkout = function CreateCheckoutComponent({ style }) {
   }
 
   function handleSizeChange(event) {
+    setSelectedSize(event.target.value);
     const size = event.target.value;
     const skus = Object.values(style?.skus);
     getQuantities(size, skus);
+  }
+
+  function handleQuantityChange(event) {
+    setSelectedQuantity(event.target.value);
   }
 
   useEffect(() => {
@@ -44,12 +51,12 @@ const Checkout = function CreateCheckoutComponent({ style }) {
   return (
     <div>
       <div>
-        <select id="checkout-size-select" onChange={handleSizeChange}>
+        <select id="checkout-size-select" value={selectedSize} onChange={handleSizeChange}>
           <option defaultValue>Choose a size...</option>
           {sizeArray?.map((size) => (<option key={size}>{size}</option>))}
         </select>
 
-        <select id="checkout-quantity-select">
+        <select id="checkout-quantity-select" value={selectedQuantity} onChange={handleQuantityChange}>
           <option defaultValue>Choose a quantity...</option>
           {quantityArray.map((number) => (<option key={number}>{number}</option>))}
         </select>

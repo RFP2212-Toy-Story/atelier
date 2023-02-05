@@ -9,8 +9,6 @@ import ProductText from './ProductText.jsx';
 
 import ProdContext from '../../ProdContext.js';
 
-import * as requests from '../../utilities/axiosRequests.js';
-
 
 // MAIN
 const Overview = function CreateOverviewComponent() {

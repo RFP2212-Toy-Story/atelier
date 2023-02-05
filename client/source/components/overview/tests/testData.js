@@ -51,6 +51,33 @@ const testProductStyles = {
           size: 'S'
         }
       }
+    },
+    {
+      style_id: 240501,
+      name: 'Desert Brown & Tan',
+      original_price: '100.00',
+      sale_price: null,
+      'default?': false,
+      photos: [
+        {
+          thumbnail_url: 'https://images.unsplash.com/photo-1533779183510-8f55a55f15c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url: 'https://images.unsplash.com/photo-1533779183510-8f55a55f15c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+        },
+        {
+          thumbnail_url: 'https://images.unsplash.com/photo-1560567546-4c6dbc16877b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+          url: 'https://images.unsplash.com/photo-1560567546-4c6dbc16877b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+        }
+      ],
+      skus: {
+        1394779: {
+          quantity: 15,
+          size: 'XL'
+        },
+        1394780: {
+          quantity: 6,
+          size: 'XXL'
+        }
+      }
     }
   ]
 };
