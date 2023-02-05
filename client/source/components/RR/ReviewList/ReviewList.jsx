@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import AddReview from './AddReview.jsx';
 import { ReviewListFooter } from '../styles/RR.styled.js';
 
-const ReviewList = function ReviewList({ reviews, reviewCount, updateList }) {
+const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
   const [numReviews, setNumReviews] = useState(2);
+  const [filteredReviews, setFilteredReviews] = useState([]);
+
+  const filterReviews = () => {
+    if (Object.values(ratingsFilter).includes(true)) {
+      const filteredList = reviews.filter((review) => ratingsFilter[review.rating]);
+      setFilteredReviews(filteredList);
+    } else {
+      setFilteredReviews(reviews);
+    }
+  };
+
+  useEffect(() => {
+    filterReviews();
+  }, [ratingsFilter, reviews]);
 
   return (
     <div className="review-list">
-      {reviews.slice(0, numReviews).map((review) => (
+      {filteredReviews.slice(0, numReviews).map((review) => (
         <ReviewTile
           review={review}
           key={review.review_id}
@@ -17,7 +31,7 @@ const ReviewList = function ReviewList({ reviews, reviewCount, updateList }) {
       ))}
       <ReviewListFooter>
         <div className="review-list-footer">
-          {(reviewCount > 2 && numReviews < reviewCount)
+          {(filteredReviews.length > 2 && numReviews < filteredReviews.length)
             ? (
               <button
                 className="footer-button"
