@@ -27,7 +27,11 @@ const QAList = function CreateQAListComponent({ questions, getQuestions }) {
     <div>
       {currentQuestions.map((question) => (
         <UnorderedList key={question.question_id}>
-          <QAItem id={question.question_id} question={question} getQuestions={getQuestions} />
+          <QAItem
+            id={question.question_id}
+            question={question}
+            getQuestions={getQuestions}
+          />
         </UnorderedList>
       ))}
       <h3>Load More Answers</h3>

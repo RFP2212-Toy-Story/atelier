@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import FormInput from './FormInput';
-import FormTextarea from './FormTextarea';
+import FormInput from './form/FormInput';
+import FormTextarea from './form/FormTextarea';
 
 const initialFormInput = {
   question: '',
@@ -8,7 +8,7 @@ const initialFormInput = {
   email: ''
 };
 
-const Form = function CreateFormComponent({ postQuestion }) {
+const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
   const [formInput, setFormInput] = useState(initialFormInput);
 
   const clearForm = () => {
@@ -25,7 +25,7 @@ const Form = function CreateFormComponent({ postQuestion }) {
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
-      postQuestion(formInput);
+      handlePost(formInput);
       clearForm();
     }}
     >
@@ -62,4 +62,4 @@ const Form = function CreateFormComponent({ postQuestion }) {
   );
 };
 
-export default Form;
+export default QuestionForm;

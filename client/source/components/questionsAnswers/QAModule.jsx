@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import ProdContext from '../../ProdContext.js';
