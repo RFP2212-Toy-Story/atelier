@@ -51,7 +51,7 @@ const ReviewModule = function ReviewModule() {
   };
 
   return (
-    <ReviewModuleContainer>
+    <ReviewModuleContainer data-module-name="ratings and reviews">
       <h3>Ratings and Reviews</h3>
       <ReviewContentsContainer>
         <BreakdownContainer>

@@ -25,7 +25,7 @@ const RelatedList = function CreateRelatedList() {
   }, [prodID]);
 
   return (
-    <StyledRelatedList>
+    <StyledRelatedList data-module-name="related products">
       <h3>Related Products:</h3>
       <div className="container">
         <StyledMediaScroll>
