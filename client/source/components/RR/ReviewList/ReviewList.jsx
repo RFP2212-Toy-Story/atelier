@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
-import AddReview from './AddReview.jsx';
+import AddReview from './AddReview/AddReview.jsx';
 import Modal from '../../shared/Modal.jsx';
 import useModal from '../../../useModal';
 import { ReviewListFooter } from '../styles/RR.styled.js';

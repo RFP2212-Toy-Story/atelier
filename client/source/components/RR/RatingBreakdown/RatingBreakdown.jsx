@@ -1,6 +1,6 @@
 import React from 'react';
 import RatingBar from './RatingBar.jsx';
-import * as helpers from '../helpers/ratings.js';
+import * as helpers from '../utilities/helpers.js';
 import average from '../../../utilities/helpers.js';
 
 const RatingBreakdown = function RatingsBreakdown({
