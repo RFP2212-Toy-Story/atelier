@@ -35,4 +35,16 @@ describe('PhotoBlock: basic rendering', () => {
     image = await screen.getByAltText('product photograph');
     expect(image.src).toContain('1501088430049');
   });
+
+  test('show a zoomed image when the primary image is clicked', () => {
+    const images = screen.queryAllByAltText('large format product photograph');
+    expect(images.length).toBe(0);
+
+    let image = screen.getByAltText('product photograph');
+    expect(image.src).toContain('w=300');
+
+    fireEvent.click(image);
+    image = screen.getByAltText('large format product photograph');
+    expect(image.src).toContain('w=668');
+  });
 });
