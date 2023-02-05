@@ -19,7 +19,6 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
       .post(`/qa/questions/${id}/answers`, obj)
       .then((results) => {
         console.info(results.status);
-        // getQuestions(); // ??
       })
       .catch((err) => console.error('postAnswer error: ', err));
   };

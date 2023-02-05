@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const FormTextarea = function CreateFormTextarea({
   labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000'
@@ -13,11 +14,17 @@ const FormTextarea = function CreateFormTextarea({
           placeholder={placeholder}
           maxLength={maxLength}
           onChange={onChange}
+          rows="5"
+          cols="62"
         />
       </label>
-      {disclaimerText && (<p>{disclaimerText}</p>)}
+      {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
     </>
   );
 };
+
+const Paragraph = styled.p`
+  font-size: 75%;
+`;
 
 export default FormTextarea;

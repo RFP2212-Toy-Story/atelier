@@ -33,13 +33,12 @@ const LoadAddQA = function CreateLoadAddQAComponent({
       </button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <h3>Ask Your Question</h3>
-        <h4>{`About the ${product}`}</h4>
+        <h4>{`About the ${product?.name || 'unknown product'}`}</h4>
         <QuestionForm handlePost={handlePost} />
       </Modal>
       <button onClick={onOpen} type="button">Add a Question</button>
     </LoadContainer>
   );
 };
-
 
 export default LoadAddQA;

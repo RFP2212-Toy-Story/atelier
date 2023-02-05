@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const FormInput = function CreateFormInput({
   name, value, labelText, placeholder, onChange, disclaimerText, maxLength = '60', type = 'text'
@@ -6,7 +7,7 @@ const FormInput = function CreateFormInput({
   return (
     <>
       <label htmlFor={name}>{labelText}
-        <input
+        <Input
           type={type}
           name={name}
           id={name}
@@ -14,11 +15,20 @@ const FormInput = function CreateFormInput({
           maxLength={maxLength}
           placeholder={placeholder}
           onChange={onChange}
+          cols="25"
         />
       </label>
-      {disclaimerText && (<p>{disclaimerText}</p>)}
+      {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
     </>
   );
 };
+
+const Input = styled.input`
+  width: 300px;
+`;
+
+const Paragraph = styled.p`
+  font-size: 75%;
+`;
 
 export default FormInput;

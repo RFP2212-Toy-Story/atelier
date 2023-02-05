@@ -34,7 +34,6 @@ const QAList = function CreateQAListComponent({ questions, getQuestions }) {
           />
         </UnorderedList>
       ))}
-      <h3>Load More Answers</h3>
       <LoadAddQA
         questionCount={questionCount}
         setQuestionCount={setQuestionCount}

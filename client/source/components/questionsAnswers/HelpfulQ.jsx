@@ -47,7 +47,7 @@ const HelpfulQ = function CreateHelpfulQComponent({
         <span>  |  </span>
         <Modal isOpen={isOpen} onClose={onClose}>
           <h3>Submit Your Answer</h3>
-          <h4>{`${product}:${questionBody}`}</h4>
+          <h4>{`${product?.name || 'unknown product'}: ${questionBody}`}</h4>
           <AnswerForm handlePost={handlePost} />
         </Modal>
         <button
