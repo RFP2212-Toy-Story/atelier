@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as requests from '../../utilities/axiosRequests.js';
 import AnswerList from './AnswerList';
 import HelpfulQ from './HelpfulQ';
 
@@ -10,6 +11,18 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
     question_helpfulness: questionHelpfulness
   } = question;
 
+  const postAnswer = (data) => {
+    const obj = {
+      body: data.answer, name: data.name, email: data.email, photos: data.photos
+    };
+    requests
+      .post(`/qa/questions/${id}/answers`, obj)
+      .then((results) => {
+        console.info(results.status);
+      })
+      .catch((err) => console.error('postAnswer error: ', err));
+  };
+
   return (
     <ListItem>
       <QuestionRow>
@@ -17,9 +30,18 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
           <H3>Q:</H3>
           <QuestionText>{questionBody}</QuestionText>
         </Question>
-        <HelpfulQ questionHelpfulness={questionHelpfulness} id={id} getQuestions={getQuestions} />
+        <HelpfulQ
+          questionHelpfulness={questionHelpfulness}
+          id={id}
+          getQuestions={getQuestions}
+          questionBody={questionBody}
+          postAnswer={postAnswer}
+        />
       </QuestionRow>
-      <AnswerList answers={answers} getQuestions={getQuestions} />
+      <AnswerList
+        answers={answers}
+        getQuestions={getQuestions}
+      />
     </ListItem>
   );
 };

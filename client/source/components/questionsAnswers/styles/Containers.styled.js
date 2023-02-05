@@ -6,16 +6,17 @@ export const Container = styled.div`
 
 
 export const LoadContainer = styled.div`
+  padding: 1em;
   button {
-    padding: 2em;
-    background-color: #EEF1F7;
+    padding: 1em;
+    background-color: #F6DFB6;
     font-size: 1em;
-    border-radius: 0.1em;
+    border-radius: 20px;
     color: black;
     font-weight: 600;
     cursor: pointer;
     &:hover {
-    color: white;
+    color: #E07A5F;
     }
   }
 `;
@@ -41,6 +42,9 @@ export const ButtonContainer = styled.div`
     border-bottom-width: 1px;
     border-color: #3D405B;
     cursor: pointer;
+    &:hover {
+    color: #E07A5F;
+    }
   }
 `;
 
@@ -49,5 +53,6 @@ export const MoreButtonContainer = styled(ButtonContainer)`
     font-size: 75%;
     border: 1px solid #3D405B;
     background-color: white;
+    border-radius: 5px;
   }
 `;
