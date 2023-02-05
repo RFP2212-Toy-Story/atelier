@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReviewTile from './ReviewTile.jsx';
 import AddReview from './AddReview.jsx';
+import Modal from '../../shared/Modal.jsx';
+import useModal from '../../../useModal';
 import { ReviewListFooter } from '../styles/RR.styled.js';
 
 const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
+  const { isOpen, onOpen, onClose } = useModal();
   const [numReviews, setNumReviews] = useState(2);
   const [filteredReviews, setFilteredReviews] = useState([]);
 
@@ -44,9 +47,12 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
           <button
             className="footer-button"
             type="button"
+            onClick={onOpen}
           > ADD A REVIEW
           </button>
-          {/* <AddReview /> */}
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <AddReview />
+          </Modal>
         </div>
       </ReviewListFooter>
     </div>
