@@ -42,10 +42,7 @@ const RatingBreakdown = function RatingsBreakdown({
             <button
               className="default-button"
               type="button"
-              onClick={() => {
-                console.log('i have been clicked!');
-                toggleRating();
-              }}
+              onClick={() => toggleRating()}
             >Remove all filters
             </button>
           </div>
