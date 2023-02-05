@@ -14,8 +14,7 @@ import * as requests from '../../utilities/axiosRequests.js';
 
 // MAIN
 const Overview = function CreateOverviewComponent() {
-  const { prodID, product } = useContext(ProdContext);
-  const [styles, setStyles] = useState([]);
+  const { product, styles } = useContext(ProdContext);
   const [currentStyle, setCurrentStyle] = useState(0);
 
   const findDefaultStyle = (style, index) => {
@@ -25,16 +24,6 @@ const Overview = function CreateOverviewComponent() {
   useEffect(() => {
     styles.forEach(findDefaultStyle);
   }, []);
-
-  useEffect(() => {
-    requests.get(`/products/${prodID}/styles`)
-      .then((response) => {
-        console.info(response.status, response.data.results);
-        setStyles(response.data.results);
-        return (response.data.results);
-      })
-      .catch((error) => { console.error(error); });
-  }, [prodID]);
 
   return (
     <div id="overview-component" className="overview FlexColumn">

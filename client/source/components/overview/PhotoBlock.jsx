@@ -52,7 +52,7 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
           if (index === currIndex) {
             border = { border: '2px solid #E07A5F' };
           }
-          return <Styles.ThumbnailImage style={border} id="thumbnail" data-label={index} onClick={handleClick} key={photo.thumbnail_url} alt="product photograph" src={photo.thumbnail_url} />;
+          return <Styles.ThumbnailImage style={border} id="thumbnail" data-label={index} onClick={handleClick} key={photo.thumbnail_url} alt="product photograph thumbnail" src={photo.thumbnail_url} />;
         })}
       </Styles.ThumbnailWrapperDiv>
 
@@ -60,7 +60,7 @@ const PhotoBlock = function CreatePhotoBlockComponent({ photos }) {
       <Styles.CarouselWrapperDiv>
         {photos?.map((photo, index) => {
           if (index === currIndex) {
-            return (<Photo key={photo.url} photo={photo} />);
+            return (<Photo key={photo.url} photo={photo} alt="product photograph" />);
           }
           return null;
         })}

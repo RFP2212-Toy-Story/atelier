@@ -10,44 +10,39 @@ import * as requests from './utilities/axiosRequests.js';
 // MAIN
 const AppHolder = function CreateAppHolder() {
   // STATES
-  const [prodID, setProdID] = useState(40356); // TODO: default view for 'no item searched yet'
-  const [product, setProduct] = useState(undefined);
+  const [prodID, setProdID] = useState(40344); // TODO: default view for 'no item searched yet'
+  const [product, setProduct] = useState({});
   const [styles, setStyles] = useState([]);
   const [meta, setMeta] = useState({});
 
   // HOOKS
-  const updateProdID = () => {
+  const updateProduct = () => {
     requests.get(`/products/${prodID}`)
       .then((response) => { setProduct(response.data); })
       .catch((error) => { console.error(error); });
   };
 
   const updateMeta = () => {
-    requests
-      .get(`/reviews/meta?product_id=${prodID}`)
-      .then((results) => setMeta(results.data))
+    requests.get(`/reviews/meta?product_id=${prodID}`)
+      .then((response) => setMeta(response.data))
       .catch((err) => console.error('Error with reviews meta request: ', err));
   };
 
-  useEffect(() => {
-    updateProdID();
-    updateMeta();
-  }, [prodID]);
+  const updateStyles = () => {
+    requests.get(`/products/${prodID}/styles`)
+      .then((response) => { setStyles(response.data.results); })
+      .catch((error) => { console.error(error); });
+  };
 
   useEffect(() => {
-    requests.get(`/products/${prodID}/styles`)
-      .then((response) => {
-        console.info(response.status, response.data.results);
-        setStyles(response.data.results);
-        return (response.data.results);
-      })
-      .catch((error) => { console.error(error); });
+    updateProduct();
+    updateMeta();
+    updateStyles();
   }, [prodID]);
 
   const providerValues = useMemo(() => ({
     prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta
   }), [prodID, product]);
-
 
   return (
     <div>
