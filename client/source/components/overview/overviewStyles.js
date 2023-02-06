@@ -65,6 +65,7 @@ const CarouselButton = styled.button`
   &:hover {
     color: #E07A5F;
     transform: scale(1.1);
+    background-color: transparent;
   }
   transition: transform 0.2s;
   color: grey;

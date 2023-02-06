@@ -35,21 +35,25 @@ input, button {
   }
 }
 
+button {
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.075);
+}
+
+select {
+  background-color: #FEFCE9;
+  border: 1px solid #BBBBBB;
+  border-radius: 0.25rem;
+  color: #3D405B
+}
+select:hover {
+  background-color: #F6DEB6;
+}
+
+
 // CLASSES
-.FlexColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.FlexRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
