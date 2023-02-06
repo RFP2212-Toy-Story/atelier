@@ -21,7 +21,7 @@ const Header = function CreateHeaderComponent() {
   }, []);
 
   return (
-    <Styles.HeaderWrapperDiv>
+    <Styles.HeaderWrapperDiv data-module-name="header">
 
       <Styles.HeaderDiv scrolled={scrolled}>
 

@@ -8,20 +8,22 @@ import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
 const ReviewTile = function ReviewTile({ review, updateList }) {
   // STATE
   const [fullBody, setFullBody] = useState(false);
-
-  // FORMAT DATE
-  const parsedDate = parseISO(review.date);
-  const formattedDate = format(parsedDate, 'PPP');
+  const [reported, setReported] = useState(false);
 
   // FUNCTIONS
-  const capSummary = function capSummary(summary) {
+  const formatDate = (date) => {
+    const parsedDate = parseISO(date);
+    return format(parsedDate, 'PPP');
+  };
+
+  const capSummary = (summary) => {
     if (summary.length > 60) {
       return `${summary.slice(0, 60)}...`;
     }
     return summary;
   };
 
-  const capBody = function capBody(bodyText) {
+  const capBody = (bodyText) => {
     if (bodyText.length > 250 && fullBody === false) {
       return `${bodyText.slice(0, 250)}...`;
     }
@@ -29,7 +31,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
   };
 
   // EVENT HANDLERS
-  const handleHelpfulness = function handleHelpfulness(event) {
+  const handleHelpfulness = (event) => {
     event.target.setAttribute('disabled', true);
     requests
       .put(`/reviews/${review.review_id}/helpful`, { review_id: review.review_id })
@@ -37,17 +39,15 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
         console.info(results.status);
         updateList();
       })
-      .catch((err) => console.error('Error updating helpfulness: ', err));
+      .catch((err) => console.error(err));
   };
 
-  const handleReported = function handleReported(event) {
+  const handleReported = (event) => {
+    setReported(true);
     event.target.setAttribute('disabled', true);
     requests
       .put(`/reviews/${review.review_id}/report`, { review_id: review.review_id })
-      .then((results) => {
-        console.info(results.status);
-        updateList();
-      })
+      .then((results) => console.info(results.status))
       .catch((err) => console.error('Error reporting review: ', err));
   };
 
@@ -58,7 +58,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           <ReviewRating rating={review.rating} />
           <div className="review-user-date">
             {`${review.reviewer_name}, `}
-            {formattedDate}
+            {formatDate(review.date)}
           </div>
         </div>
         <div className="review-summary">{capSummary(review.summary)}</div>
@@ -111,7 +111,9 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
               className="review-footer-button"
               type="button"
               onClick={handleReported}
-            >Report
+            >{reported
+              ? 'Reported'
+              : 'Report'}
             </button>
           </span>
         </div>
