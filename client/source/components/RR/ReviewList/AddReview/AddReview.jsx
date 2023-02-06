@@ -1,11 +1,14 @@
 import React, { useState, useContext } from 'react';
 import ProdContext from '../../../../ProdContext.js';
+import { Form, InputSubmit } from '../../../shared/form/FormStyles.js';
 import Characteristic from './Characteristic.jsx';
+import FormInput from '../../../shared/form/FormInput.jsx';
 import traitOptions from '../../utilities/mappings.js';
 
 const AddReview = function AddReview() {
-  const { prodID, product } = useContext(ProdContext);
-  const [formInput, setFormInput] = useState({
+  const { prodID } = useContext(ProdContext);
+
+  const initialFormInput = {
     product_id: prodID,
     rating: 0,
     summary: '',
@@ -15,14 +18,16 @@ const AddReview = function AddReview() {
     email: '',
     photos: [],
     characteristics: {}
-  });
-
+  };
   const traits = Object.entries(traitOptions);
+  const [formInput, setFormInput] = useState(initialFormInput);
+
+  const clearForm = () => {
+    setFormInput(initialFormInput);
+  };
 
   return (
-    <form className="review-form">
-      <div className="review-form-title">Write Your Review</div>
-      <div className="review-form-subtitle">About the {product.name}</div>
+    <Form>
       <div className="form-section">
         <div className="form-section-header">Overall rating*</div>
         <div>placeholder for stars</div>
@@ -50,6 +55,7 @@ const AddReview = function AddReview() {
           />
         ))}
       </div>
+
       <div className="form-section">
         <div className="form-section-header">Review summary</div>
         <input
@@ -59,6 +65,7 @@ const AddReview = function AddReview() {
           placeholder="Example: Best purchase ever!"
         />
       </div>
+
       <div className="form-section">
         <div className="form-section-header">Review body*</div>
         <textarea
@@ -92,13 +99,12 @@ const AddReview = function AddReview() {
           placeholder="Example: jackson11@email.com"
         />
         <div className="form-section-footer">For authentication reasons, you will not be emailed</div>
-        <button
+        <InputSubmit
           type="submit"
-        >
-          Submit Review
-        </button>
+          value="Submit review"
+        />
       </div>
-    </form>
+    </Form>
   );
 };
 
