@@ -50,7 +50,7 @@ const QuestionText = styled.p`
 const ListItem = styled.li`
   list-style: none;
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 0.5em;
   padding: 12px;
 `;
 
