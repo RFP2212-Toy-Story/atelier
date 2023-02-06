@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
-import * as Styles from './overviewStyles.js';
+import * as Styles from '../overviewStyles.js';
 
 
 const ZoomedPhoto = function CreateZoomedPhotoComponent({
