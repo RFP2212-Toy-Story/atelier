@@ -47,7 +47,6 @@ select {
   border: 1px solid #BBBBBB;
   border-radius: 0.25rem;
   color: #3D405B
-  font-family: 'Nunito', sans-serif;
 }
 select:hover {
   background-color: #F6DEB6;
@@ -55,20 +54,6 @@ select:hover {
 
 
 // CLASSES
-.FlexColumn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.FlexRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
