@@ -1,10 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ProdContext from '../../../../ProdContext.js';
 import Characteristic from './Characteristic.jsx';
 import traitOptions from '../../utilities/mappings.js';
 
 const AddReview = function AddReview() {
-  const { product } = useContext(ProdContext);
+  const { prodID, product } = useContext(ProdContext);
+  const [formInput, setFormInput] = useState({
+    product_id: prodID,
+    rating: null,
+    summary: '',
+    recommended: '',
+    body: '',
+    name: '',
+    email: '',
+    photos: [],
+    characteristics: {
+      14: null,
+      15: null,
+      16: null,
+      17: null,
+      18: null,
+      19: null
+    }
+  });
+
   const traits = Object.entries(traitOptions);
 
   return (
@@ -43,6 +62,7 @@ const AddReview = function AddReview() {
         <input
           type="text"
           maxLength="60"
+          required="required"
           placeholder="Example: Best purchase ever!"
         />
       </div>
@@ -52,6 +72,7 @@ const AddReview = function AddReview() {
           type="text"
           minLength="50"
           maxLength="1000"
+          required="required"
           placeholder="Why did you like the product or not?"
         />
         {/* <div className="body-counter"></> */}
@@ -64,12 +85,25 @@ const AddReview = function AddReview() {
         <input
           type="text"
           maxLength="60"
+          required="required"
           placeholder="Example: jackson11!"
         />
         <div className="form-section-footer">For privacy reasons, do not use your full name or email address</div>
       </div>
       <div className="form-section">
         <div className="form-section-header">Your email*</div>
+        <input
+          type="email"
+          maxLength="60"
+          required="required"
+          placeholder="Example: jackson11@email.com"
+        />
+        <div className="form-section-footer">For authentication reasons, you will not be emailed</div>
+        <button
+          type="submit"
+        >
+          Submit Review
+        </button>
       </div>
     </form>
   );
