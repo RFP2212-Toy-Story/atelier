@@ -123,11 +123,17 @@ const StyleButton = styled.button`
     background-color: #E07A5F;
     transform: scale(1.1);
   }
-background-color: ${(props) => (props.selected ? '#E07A5F' : null)};
-color: ${(props) => (props.selected ? '#FFFFFF' : 'grey')};
-transition: transform 0.2s;
-border-radius: 4px;
-border: none;
+  transition: transform 0.2s;
+  background-color: ${(props) => (props.selected ? '#E07A5F' : 'transparent')};
+  border: 2px solid ${(props) => (props.selected ? '#E07A5F' : 'transparent')};
+  border-radius: 4px;
+`;
+
+const ProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
 `;
 
 export {
@@ -136,6 +142,7 @@ export {
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
+  ProductInfo,
   StyleButton,
   ThumbnailImage,
   ThumbnailWrapperDiv,
