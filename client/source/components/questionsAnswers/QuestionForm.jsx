@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import styled from 'styled-components';
-import FormInput from './form/FormInput';
-import FormTextarea from './form/FormTextarea';
+import { Form, InputSubmit } from '../shared/form/FormStyles';
+import FormInput from '../shared/form/FormInput';
+import FormTextarea from '../shared/form/FormTextarea';
 
 const initialFormInput = {
   question: '',
@@ -26,19 +26,19 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
   return (
     <Form onSubmit={(e) => {
       e.preventDefault();
-      handlePost(formInput);
+      handlePost(e, formInput);
       clearForm();
     }}
     >
       <FormTextarea
-        labelText="What is your question? "
+        labelText="What is your question? *"
         name="question"
         value={formInput.question}
         placeholder="Why did you like the product or not?"
         onChange={handleFormInputChange}
       />
       <FormInput
-        labelText="What is your nickname? "
+        labelText="What is your nickname? *"
         type="text"
         name="name"
         value={formInput.name}
@@ -47,7 +47,7 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
         disclaimerText="For privacy reasons, do not use your full name or email address"
       />
       <FormInput
-        labelText="What is your email? "
+        labelText="What is your email? *"
         type="email"
         name="email"
         value={formInput.email}
@@ -55,26 +55,12 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
         onChange={handleFormInputChange}
         disclaimerText="For authentication reasons, you will not be emailed"
       />
-      <input
+      <InputSubmit
         type="submit"
         value="Submit question"
       />
     </Form>
   );
 };
-
-const Form = styled.form`
-  font-family: 'Nunito', sans-serif;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 5px;
-  row-gap: 10px;
-  input {
-    font-family: 'Nunito', sans-serif;
-    border-radius: 5px;
-  }
-`;
 
 export default QuestionForm;

@@ -12,6 +12,7 @@ const controllers = require('./controllers');
 
 // SERVE THE CLIENT PAGE
 router.use('/', express.static(path.join(__dirname, '../client/dist')));
+router.use('/images', express.static(path.join(__dirname, '../client/images')));
 
 // PASS THROUGH FOR AUTHENTICATION
 router.get('/api/*', controllers.get);

@@ -33,6 +33,7 @@ const PhotoTileDiv = styled.div`
 `;
 
 const OverlayDiv = styled.div`
+  backdrop-filter: blur(10px);
   position: fixed;
   top: 0;
   left: 0;
@@ -121,10 +122,11 @@ const StyleButton = styled.button`
     background-color: #E07A5F;
     transform: scale(1.1);
   }
-  transition: transform 0.2s;
-  color: grey;
-  border-radius: 4px;
-  border: none;
+background-color: ${(props) => (props.selected ? '#E07A5F' : null)};
+color: ${(props) => (props.selected ? '#FFFFFF' : 'grey')};
+transition: transform 0.2s;
+border-radius: 4px;
+border: none;
 `;
 
 export {

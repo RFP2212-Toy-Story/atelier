@@ -5,7 +5,7 @@ module.exports = {
   entry: path.join(__dirname, '/client/source/index.jsx'),
   output: {
     path: path.join(__dirname, '/client/dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   devtool: 'source-map', // creates a file to relate compiled code to source code for debugging use
   module: {
@@ -13,16 +13,16 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         resolve: {
-          extensions: ['.js', '.jsx', '.png', '.jpg'],
+          extensions: ['.js', '.jsx', '.png', '.jpg']
         },
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-      },
-    ],
-  },
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }
+        }
+      }
+    ]
+  }
 };

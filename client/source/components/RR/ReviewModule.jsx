@@ -14,19 +14,17 @@ const ReviewModule = function ReviewModule() {
   const [reviews, setReviews] = useState([]);
   const [sortType, setSortType] = useState('relevant');
   const [ratingsFilter, setRatingsFilter] = useState({
-    5: false,
-    4: false,
-    3: false,
+    1: false,
     2: false,
-    1: false
+    3: false,
+    4: false,
+    5: false
   });
 
   const updateList = () => {
     requests
       .get(`/reviews/?product_id=${prodID}&count=100&sort=${sortType}`)
-      .then((results) => {
-        setReviews(results.data.results);
-      })
+      .then((results) => setReviews(results.data.results))
       .catch((err) => console.error('Error with reviews request: ', err));
   };
 
@@ -34,18 +32,41 @@ const ReviewModule = function ReviewModule() {
     updateList();
   }, [sortType]);
 
+  const toggleRating = (starNum) => {
+    if (starNum) {
+      setRatingsFilter({
+        ...ratingsFilter,
+        [starNum]: !ratingsFilter[starNum]
+      });
+    } else {
+      setRatingsFilter({
+        ...ratingsFilter,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false
+      });
+    }
+  };
+
   return (
     <ReviewModuleContainer data-module-name="ratings and reviews">
       <h3>Ratings and Reviews</h3>
       <ReviewContentsContainer>
         <BreakdownContainer>
-          <RatingBreakdown ratings={meta.ratings} recommend={meta.recommended} />
+          <RatingBreakdown
+            ratings={meta.ratings}
+            recommend={meta.recommended}
+            ratingsFilter={ratingsFilter}
+            toggleRating={toggleRating}
+            updateList={updateList}
+          />
           <ProductBreakdown traits={meta.characteristics} />
         </BreakdownContainer>
         <ReviewListContainer>
           <div className="sort-container">
             <SortReviews
-              reviewCount={reviews.length}
               sortType={sortType}
               setSortType={setSortType}
             />
@@ -53,7 +74,7 @@ const ReviewModule = function ReviewModule() {
           <div className="review-list-container">
             <ReviewList
               reviews={reviews}
-              reviewCount={reviews.length}
+              ratingsFilter={ratingsFilter}
               updateList={updateList}
             />
           </div>
