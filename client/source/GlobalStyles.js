@@ -35,6 +35,25 @@ input, button {
   }
 }
 
+button {
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.075);
+}
+
+select {
+  background-color: #FEFCE9;
+  border: 1px solid #BBBBBB;
+  border-radius: 0.25rem;
+  color: #3D405B
+  font-family: 'Nunito', sans-serif;
+}
+select:hover {
+  background-color: #F6DEB6;
+}
+
+
 // CLASSES
 .FlexColumn {
   display: flex;
