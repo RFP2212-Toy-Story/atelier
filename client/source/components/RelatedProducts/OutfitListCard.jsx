@@ -6,16 +6,24 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import StyledOutfitListCard from './styles/OutfitListCard.styled.jsx';
 
 // MAIN
-const OutfitListCard = function CreateOutfitListCard({ outfit }) {
-  const outfitArray = Object.values(outfit);
-  const outfitDetails = JSON.parse(outfitArray[0]);
+const OutfitListCard = function CreateOutfitListCard({ outfit, setOutfitItems }) {
+  const outfitID = JSON.parse(outfit[0]);
+  const outfitData = JSON.parse(outfit[1]);
+
+  // HANDLERS
+  const handleRemoveClick = (e) => {
+    e.stopPropagation();
+    localStorage.removeItem(outfitID);
+    setOutfitItems({ ...localStorage });
+  };
+
   return (
     <StyledOutfitListCard>
-      <img alt="imagePlaceholder" />
-      <IoIosCloseCircleOutline className="removeButton" />
-      <h3>{outfitDetails.category}</h3>
-      <h4>{outfitDetails.name}</h4>
-      <h5>${outfitDetails.price}</h5>
+      <img alt="placeholder" src={outfitData.image} />
+      <IoIosCloseCircleOutline className="removeButton" onClick={handleRemoveClick} />
+      <h3>{outfitData.category}</h3>
+      <h4>{outfitData.name}</h4>
+      <h5>${outfitData.price}</h5>
     </StyledOutfitListCard>
   );
 };

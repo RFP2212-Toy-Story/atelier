@@ -29,19 +29,17 @@ const AppHolder = function CreateAppHolder() {
       .catch((err) => console.error('Error with reviews meta request: ', err));
   };
 
+  const getStyles = () => {
+    requests
+      .get(`/products/${prodID}/styles`)
+      .then((response) => setStyles(response.data.results))
+      .catch((error) => console.error(error));
+  };
+
   useEffect(() => {
     updateProdID();
     updateMeta();
-  }, [prodID]);
-
-  useEffect(() => {
-    requests.get(`/products/${prodID}/styles`)
-      .then((response) => {
-        console.info(response.status, response.data.results);
-        setStyles(response.data.results);
-        return (response.data.results);
-      })
-      .catch((error) => { console.error(error); });
+    getStyles();
   }, [prodID]);
 
   const providerValues = useMemo(() => ({
