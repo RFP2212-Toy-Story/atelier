@@ -62,6 +62,7 @@ export const RatingBreakdownContainer = styled.div`
 
   .bar-label {
     text-decoration: underline;
+    white-space: nowrap;
   }
 
   progress::-webkit-progress-bar {
@@ -74,6 +75,7 @@ export const RatingBreakdownContainer = styled.div`
     background-color: #F6DFB6;
     border-radius: 20px;
     width: 100%;
+    margin: 0.5em;
   }
 
   progress::-webkit-progress-value {
