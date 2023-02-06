@@ -11,7 +11,7 @@ import ClickTracker from './utilities/clickTracker.js';
 // MAIN
 const AppHolder = function CreateAppHolder() {
   // STATES
-  const [prodID, setProdID] = useState(40356); // TODO: default view for 'no item searched yet'
+  const [prodID, setProdID] = useState(40444); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState(undefined);
   const [styles, setStyles] = useState([]);
   const [meta, setMeta] = useState({});

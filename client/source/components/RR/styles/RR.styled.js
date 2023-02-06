@@ -27,6 +27,75 @@ export const BreakdownContainer = styled.div`
   padding: 0.5em;
 `;
 
+export const RatingBreakdownContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+
+  .rating-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+  }
+
+  .average-rating {
+    font-size: 300%;
+  }
+
+  .recommended-percentage, .review-count {
+    padding: 0.5em;
+  }
+
+  .rating-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+  }
+
+  .rating-bar:hover {
+    background: #f7eddc;
+  }
+
+  .bar-label {
+    text-decoration: underline;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color: #F6DFB6;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  progress {
+    background-color: #F6DFB6;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  progress::-webkit-progress-value {
+    background-color: #74AA90 !important;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  progress::-moz-progress-bar {
+    background-color: #74AA90 !important;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  progress {
+    color: #74AA90;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+`;
+
 export const ProductBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +108,7 @@ export const ProductBreakdownContainer = styled.div`
 
   input[type="range"] {
     -webkit-appearance: none;
-    background: #F6DFB6;
+    background: #E07A5F;
     border-radius: 20px;
     height: 0.35rem;
     width: 100%
@@ -85,9 +154,9 @@ export const SortContainer = styled.div`
 export const ReviewListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  /* align-items: stretch; */
   padding: 0.5em;
-  overscroll-behavior-y: contain;
+  /* overscroll-behavior-y: contain; */
 `;
 
 export const ReviewTileContainer = styled.div`
@@ -95,6 +164,9 @@ export const ReviewTileContainer = styled.div`
   flex-direction: column;
   align-items: stretch;
   padding: 0.5em;
+  border-bottom: solid;
+  border-width: 0.05rem;
+  border-color:  #3D405B;
 
   .review-header {
     display: flex;
@@ -179,6 +251,8 @@ export const ReviewPhotos = styled.div`
 
 export const ReviewListFooter = styled.div`
   justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
 
   .footer-button {
     background-color: #fffbea;
@@ -187,5 +261,6 @@ export const ReviewListFooter = styled.div`
     border-color: #3D405B;
     font-weight: bold;
     padding: 1em;
+    margin: 0.5em;
   }
 `;

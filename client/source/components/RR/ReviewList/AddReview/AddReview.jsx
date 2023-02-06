@@ -7,21 +7,14 @@ const AddReview = function AddReview() {
   const { prodID, product } = useContext(ProdContext);
   const [formInput, setFormInput] = useState({
     product_id: prodID,
-    rating: null,
+    rating: 0,
     summary: '',
     recommended: '',
     body: '',
     name: '',
     email: '',
     photos: [],
-    characteristics: {
-      14: null,
-      15: null,
-      16: null,
-      17: null,
-      18: null,
-      19: null
-    }
+    characteristics: {}
   });
 
   const traits = Object.entries(traitOptions);
