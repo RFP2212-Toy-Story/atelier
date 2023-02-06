@@ -6,7 +6,7 @@ import StyleButton from './StyleButton.jsx';
 
 
 // MAIN
-const ProductStlyes = function CreateProductStlyesComponent({
+const ProductStyles = function CreateProductStylesComponent({
   currentStyleID, styles, changeStyle
 }) {
   return (
@@ -32,4 +32,4 @@ const ProductStlyes = function CreateProductStlyesComponent({
 };
 
 
-export default ProductStlyes;
+export default ProductStyles;

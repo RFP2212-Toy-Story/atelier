@@ -12,7 +12,6 @@ const Photo = function CreatePhotoComponent({ photo }) {
   const [zoomed, setZoomed] = useState(false);
 
   const fastAverageColor = new FastAverageColor();
-  const photoWidth = (new URL(photo.url)).searchParams.get('w');
 
   const handleClick = () => {
     setZoomed((previous) => !previous);
@@ -42,7 +41,7 @@ const Photo = function CreatePhotoComponent({ photo }) {
         <img onClick={handleClick} style={{ width: '100%', maxHeight: '100%' }} alt="product photograph" src={photo.thumbnail_url} />
       </Styles.PhotoTileDiv>
       {zoomed ? <Styles.OverlayDiv /> : null}
-      {zoomed ? <ZoomedPhoto photoWidth={photoWidth} callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null} {/* eslint-disable-line */}
+      {zoomed ? <ZoomedPhoto callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null} {/* eslint-disable-line */}
     </div>
   );
 };

@@ -26,7 +26,7 @@ const Overview = function CreateOverviewComponent() {
   };
 
   useEffect(() => {
-    styles.forEach(findDefaultStyle);
+    styles?.forEach(findDefaultStyle);
   }, [prodID, product, styles]);
 
   return (
