@@ -59,7 +59,7 @@ const Header = function CreateHeaderComponent() {
           </a>
 
           <form>
-            <input style={{ backgroundColor: '#E07A5F' }} type="text" placeholder="search..." />
+            <input style={{ backgroundColor: '#74AA90' }} type="text" placeholder="search..." />
             <button type="submit">🔎</button>
           </form>
         </div>

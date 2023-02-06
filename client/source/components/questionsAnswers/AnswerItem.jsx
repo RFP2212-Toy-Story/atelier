@@ -38,6 +38,7 @@ const Answer = styled.div`
   gap: 12px;
   align-items: baseline;
   font-size: 95%
+  padding: 50%;
 `;
 
 export default AnswerItem;

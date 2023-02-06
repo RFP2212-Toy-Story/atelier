@@ -17,9 +17,17 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
           <H3>Q:</H3>
           <QuestionText>{questionBody}</QuestionText>
         </Question>
-        <HelpfulQ questionHelpfulness={questionHelpfulness} id={id} getQuestions={getQuestions} />
+        <HelpfulQ
+          questionHelpfulness={questionHelpfulness}
+          id={id}
+          getQuestions={getQuestions}
+          questionBody={questionBody}
+        />
       </QuestionRow>
-      <AnswerList answers={answers} getQuestions={getQuestions} />
+      <AnswerList
+        answers={answers}
+        getQuestions={getQuestions}
+      />
     </ListItem>
   );
 };
