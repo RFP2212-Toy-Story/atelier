@@ -28,7 +28,7 @@ const AnswerForm = function CreateAnswerFormComponent({ handlePost }) {
   return (
     <Form onSubmit={(e) => {
       e.preventDefault();
-      handlePost(formInput);
+      handlePost(e, formInput);
       clearForm();
     }}
     >
@@ -74,7 +74,11 @@ const AnswerForm = function CreateAnswerFormComponent({ handlePost }) {
 };
 
 const FileInput = styled.input`
-
+  font-family: inherit;
+  border-radius: 4px;
+  background-color: #fffbea;
+  padding: 4px;
+  cursor: pointer;
 `;
 
 export default AnswerForm;

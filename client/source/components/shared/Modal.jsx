@@ -4,6 +4,25 @@ import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
+export default function Modal({ children, isOpen, onClose }) {
+  return (
+    isOpen && createPortal(
+      <>
+        <ModalOverlay />
+        <Wrapper>
+          <ModalInner>
+            <CloseButton>
+              <IoIosCloseCircleOutline onClick={onClose} />
+            </CloseButton>
+            {children}
+          </ModalInner>
+        </Wrapper>
+      </>,
+      document.body
+    )
+  );
+}
+
 const Wrapper = styled.div`
   display: flex;
   width: 100vw;
@@ -50,22 +69,3 @@ const CloseButton = styled.button`
   font-size: 1.3rem;
   background: transparent;
 `;
-
-export default function Modal({ children, isOpen, onClose }) {
-  return (
-    isOpen && createPortal(
-      <>
-        <ModalOverlay />
-        <Wrapper>
-          <ModalInner>
-            <CloseButton>
-              <IoIosCloseCircleOutline onClick={onClose} />
-            </CloseButton>
-            {children}
-          </ModalInner>
-        </Wrapper>
-      </>,
-      document.body
-    )
-  );
-}

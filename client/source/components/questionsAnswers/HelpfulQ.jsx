@@ -5,9 +5,10 @@ import ProdContext from '../../ProdContext.js';
 import AnswerForm from './AnswerForm';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
+import ModalFormTitle from './ModalFormTitle';
 
 const HelpfulQ = function CreateHelpfulQComponent({
-  questionHelpfulness, id, getQuestions, questionBody, postAnswer
+  questionHelpfulness, id, getQuestions, questionBody
 }) {
   const { isOpen, onOpen, onClose } = useModal();
   const { product } = useContext(ProdContext);
@@ -23,17 +24,28 @@ const HelpfulQ = function CreateHelpfulQComponent({
       .catch((err) => console.error('handleHelpfulQ error: ', err));
   }, [id]);
 
-  const handlePost = (input) => {
+  const postAnswer = (data) => {
+    const obj = {
+      body: data.answer, name: data.name, email: data.email, photos: data.photos
+    };
+    return requests
+      .post(`/qa/questions/${id}/answers`, obj);
+  };
+
+  const handlePost = (event, input) => {
     const keys = Object.keys(input);
     for (let i = 0; i < keys.length; i += 1) {
       if (input[keys[i]] === '') {
         alert(`You must enter the following: ${keys[i]}`);
       }
     }
-    postAnswer(input);
+    postAnswer(input)
+      .then((results) => {
+        console.info(results.status);
+        onClose(event);
+      })
+      .catch((err) => console.error('postAnswer error: ', err));
   };
-
-  // console.log('product: ', product);
 
   return (
     <ButtonContainer>
@@ -46,8 +58,10 @@ const HelpfulQ = function CreateHelpfulQComponent({
         </button>
         <span>  |  </span>
         <Modal isOpen={isOpen} onClose={onClose}>
-          <h3>Submit Your Answer</h3>
-          <h4>{`${product?.name || 'unknown product'}: ${questionBody}`}</h4>
+          <ModalFormTitle
+            title="Submit Your Answer"
+            subtitle={`${product?.name || 'unknown product'}: ${questionBody}`}
+          />
           <AnswerForm handlePost={handlePost} />
         </Modal>
         <button

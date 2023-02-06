@@ -26,6 +26,7 @@ const FormTextarea = function CreateFormTextarea({
 const Textarea = styled.textarea`
   font-family: inherit;
   width: 100%;
+  padding: 8px;
 `;
 
 const Paragraph = styled.p`

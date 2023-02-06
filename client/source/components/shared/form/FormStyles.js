@@ -17,4 +17,7 @@ export const InputSubmit = styled.input`
   padding: 8px;
   font-weight: 700;
   cursor: pointer;
+  &:hover {
+    color: #f6dfb6;
+  }
 `;

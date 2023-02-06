@@ -26,7 +26,7 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
   return (
     <Form onSubmit={(e) => {
       e.preventDefault();
-      handlePost(formInput);
+      handlePost(e, formInput);
       clearForm();
     }}
     >

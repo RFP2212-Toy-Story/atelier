@@ -4,21 +4,36 @@ import ProdContext from '../../ProdContext.js';
 import QuestionForm from './QuestionForm';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
+import ModalFormTitle from './ModalFormTitle';
+import * as requests from '../../utilities/axiosRequests.js';
 
 const LoadAddQA = function CreateLoadAddQAComponent({
-  questionCount, setQuestionCount, postQuestion
+  questionCount, setQuestionCount
 }) {
   const { isOpen, onOpen, onClose } = useModal();
-  const { product } = useContext(ProdContext);
+  const { prodID, product } = useContext(ProdContext);
 
-  const handlePost = (input) => {
+  const postQuestion = (data) => {
+    const obj = {
+      body: data.question, name: data.name, email: data.email, product_id: prodID
+    };
+    return requests
+      .post('/qa/questions', obj);
+  };
+
+  const handlePost = (event, input) => {
     const keys = Object.keys(input);
     for (let i = 0; i < keys.length; i += 1) {
       if (input[keys[i]] === '') {
         alert(`You must enter the following: ${keys[i]}`);
       }
     }
-    postQuestion(input);
+    postQuestion(input)
+      .then((results) => {
+        console.info(results.status);
+        onClose(event);
+      })
+      .catch((err) => console.error('postQuestion error: ', err));
   };
 
   return (
@@ -32,8 +47,10 @@ const LoadAddQA = function CreateLoadAddQAComponent({
       >More Answered Questions
       </button>
       <Modal isOpen={isOpen} onClose={onClose}>
-        <h3>Ask Your Question</h3>
-        <h4>{`About the ${product?.name || 'unknown product'}`}</h4>
+        <ModalFormTitle
+          title="Ask Your Question"
+          subtitle={`About the ${product?.name || 'unknown product'}`}
+        />
         <QuestionForm handlePost={handlePost} />
       </Modal>
       <button onClick={onOpen} type="button">Add a Question</button>
