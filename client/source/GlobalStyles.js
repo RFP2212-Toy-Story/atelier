@@ -31,7 +31,7 @@ input, button, textarea, select {
 input, button {
   cursor: pointer;
   &:hover {
-    color: #E07A5F !important;
+    color: #E07A5F;
   }
 }
 
