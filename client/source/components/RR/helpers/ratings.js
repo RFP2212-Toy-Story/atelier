@@ -26,8 +26,20 @@ const recommended = function recommendedPercentage(votes) {
   return Math.round((recommend / total) * 100);
 };
 
+const filtered = function filteredRatings(filters) {
+  const selected = [];
+  const breakdown = Object.entries(filters);
+  breakdown.forEach((rating) => {
+    if (rating[1]) {
+      selected.push(rating[0]);
+    }
+  });
+  return selected;
+};
+
 export {
   count,
   percentages,
-  recommended
+  recommended,
+  filtered
 };

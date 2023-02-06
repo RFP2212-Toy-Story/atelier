@@ -12,11 +12,27 @@ body {
   background-color: #fffbea;
   font-family: 'Nunito', sans-serif;
   color: #3D405B
+  line-height: 1.5;
 }
 
 // BROWSER OVERRIDES
 html {
   scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+input, button {
+  cursor: pointer;
+  &:hover {
+    color: #E07A5F;
+  }
 }
 
 // CLASSES

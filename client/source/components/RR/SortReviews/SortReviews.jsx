@@ -1,12 +1,12 @@
 import React from 'react';
 import { SortContainer } from '../styles/RR.styled.js';
 
-const SortReviews = function SortReviews({ reviewCount, sortType, setSortType }) {
+const SortReviews = function SortReviews({ sortType, setSortType }) {
   return (
     <SortContainer>
       <div className="sort-bar">
         <label htmlFor={sortType}>
-          {reviewCount} reviews, sorted by { }
+          {'Reviews sorted by '}
           <select
             className="sort-selection"
             value={sortType}

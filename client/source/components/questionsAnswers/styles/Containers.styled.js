@@ -2,22 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   box-sizing: border-box;
+  padding: 16px 0;
 `;
 
-
 export const LoadContainer = styled.div`
-  button {
-    padding: 2em;
-    background-color: #EEF1F7;
-    font-size: 1em;
-    border-radius: 0.1em;
-    color: black;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover {
-    color: white;
-    }
-  }
+  padding: 1em;
+  padding-top: 0;
 `;
 
 export const PhotoContainer = styled.div`
@@ -41,13 +31,14 @@ export const ButtonContainer = styled.div`
     border-bottom-width: 1px;
     border-color: #3D405B;
     cursor: pointer;
+    &:hover {
+    color: #E07A5F;
+    }
   }
 `;
 
 export const MoreButtonContainer = styled(ButtonContainer)`
   button {
     font-size: 75%;
-    border: 1px solid #3D405B;
-    background-color: white;
   }
 `;

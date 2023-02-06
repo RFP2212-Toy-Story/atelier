@@ -17,9 +17,17 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
           <H3>Q:</H3>
           <QuestionText>{questionBody}</QuestionText>
         </Question>
-        <HelpfulQ questionHelpfulness={questionHelpfulness} id={id} getQuestions={getQuestions} />
+        <HelpfulQ
+          questionHelpfulness={questionHelpfulness}
+          id={id}
+          getQuestions={getQuestions}
+          questionBody={questionBody}
+        />
       </QuestionRow>
-      <AnswerList answers={answers} getQuestions={getQuestions} />
+      <AnswerList
+        answers={answers}
+        getQuestions={getQuestions}
+      />
     </ListItem>
   );
 };
@@ -42,7 +50,7 @@ const QuestionText = styled.p`
 const ListItem = styled.li`
   list-style: none;
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 0.5em;
   padding: 12px;
 `;
 
