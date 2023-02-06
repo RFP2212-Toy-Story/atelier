@@ -5,31 +5,30 @@ import styled from 'styled-components';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const Wrapper = styled.div`
-  background-color: #FFFBEA;
-  border: 0.21em dotted #74AA90;
-  border-radius: 12px;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  width: 600px;
-  max-width: 100%;
-  height: 550px;
-  max-height: 100%;
+  left: 0;
+  top: 0;
   z-index: 1010;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: auto;
 `;
 
 const ModalInner = styled.div`
-/* cover the modal */
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  border-radius: 12px;
+  background-color: #FFFBEA;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  z-index: 1010;
+  max-width: 600px;
   padding: 24px;
-  /* let it scroll */
-  overflow: auto;
 `;
 
 const ModalOverlay = styled.div`
