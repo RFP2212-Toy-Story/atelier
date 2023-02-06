@@ -5,6 +5,7 @@ import QuestionForm from './QuestionForm';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
 import ModalFormTitle from '../shared/form/ModalFormTitle';
+import ButtonMainStyle from '../shared/ButtonMainStyle';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const LoadAddQA = function CreateLoadAddQAComponent({
@@ -43,14 +44,14 @@ const LoadAddQA = function CreateLoadAddQAComponent({
 
   return (
     <LoadContainer>
-      <button
+      <ButtonMainStyle
         type="button"
         data-testid="More answered"
         onClick={() => {
           setQuestionCount(questionCount + 2);
         }}
       >More Answered Questions
-      </button>
+      </ButtonMainStyle>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalFormTitle
           title="Ask Your Question"
@@ -58,7 +59,7 @@ const LoadAddQA = function CreateLoadAddQAComponent({
         />
         <QuestionForm handlePost={handlePost} />
       </Modal>
-      <button onClick={onOpen} type="button">Add a Question</button>
+      <ButtonMainStyle onClick={onOpen} type="button">Add a Question</ButtonMainStyle>
     </LoadContainer>
   );
 };
