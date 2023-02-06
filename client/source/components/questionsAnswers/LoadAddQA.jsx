@@ -4,7 +4,7 @@ import ProdContext from '../../ProdContext.js';
 import QuestionForm from './QuestionForm';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
-import ModalFormTitle from './ModalFormTitle';
+import ModalFormTitle from '../shared/form/ModalFormTitle';
 import * as requests from '../../utilities/axiosRequests.js';
 
 const LoadAddQA = function CreateLoadAddQAComponent({
@@ -22,18 +22,23 @@ const LoadAddQA = function CreateLoadAddQAComponent({
   };
 
   const handlePost = (event, input) => {
+    let validQ = true;
     const keys = Object.keys(input);
     for (let i = 0; i < keys.length; i += 1) {
       if (input[keys[i]] === '') {
+        validQ = false;
         alert(`You must enter the following: ${keys[i]}`);
+        break;
       }
     }
-    postQuestion(input)
-      .then((results) => {
-        console.info(results.status);
-        onClose(event);
-      })
-      .catch((err) => console.error('postQuestion error: ', err));
+    if (validQ === true) {
+      postQuestion(input)
+        .then((results) => {
+          console.info(results.status);
+          onClose(event);
+        })
+        .catch((err) => console.error('postQuestion error: ', err));
+    }
   };
 
   return (
