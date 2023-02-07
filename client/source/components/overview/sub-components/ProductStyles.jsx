@@ -12,7 +12,8 @@ const ProductStyles = function CreateProductStylesComponent({
   return (
     <div style={{
       display: 'flex',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      margin: '10px 0'
     }}
     >
       {styles?.map((style, index) => {

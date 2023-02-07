@@ -12,9 +12,9 @@ const ProductText = function CreateProductTextComponent({ product }) {
         <p>{product?.description}</p>
       </div>
       <div>
-        <hr style={{ width: '2px', height: '80%', display: 'inline-block' }} />
+        <hr style={{ width: '2px', height: '80%' }} />
       </div>
-      <div style={{ margin: '0px 10px 0px 10px' }}>
+      <div style={{ margin: '0px 10px 0px 10px', width: '33%' }}>
         {product.features?.map((feature) => (
           <p key={feature.feature}>⧁ {feature.feature} : {feature.value}</p>))}
       </div>

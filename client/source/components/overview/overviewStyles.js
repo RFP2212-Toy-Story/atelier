@@ -20,8 +20,9 @@ const ZoomedPhotoDiv = styled.div`
 const PhotoTileDiv = styled.div`
   &:hover {
     cursor: zoom-in;
-    transform: scale(1.125);
+    transform: scale(1.1);
   };
+  position: relative;
   display: flex;
   transition: transform 1s ease-out;
   margin: 24px;
@@ -95,27 +96,36 @@ const CarouselButton = styled.button`
 `;
 
 const ThumbnailWrapperDiv = styled.div`
-  &:hover {
-    ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  }
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  ::-webkit-scrollbar-track {
-    visibility: hidden;
-  }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
-  }
   overflow-x: hidden;
   direction: rtl;
   scroll-behavior: smooth;
   max-height: 460px;
   overflow-y: auto;
   width: 12vw;
+
+  // This is a hacky way to get scrollbar transitions
+  color: rgba(0, 0, 0, 0);
+  transition: color 0.3s;
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    visibility: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-clip: content-box;
+    border: 4px solid transparent;
+    border-radius: 7px;
+    box-shadow: inset 0 0 0 10px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &:hover {
+    color: rgba(246, 222, 182, 0.5);
+  }
 `;
 
 const ThumbnailImage = styled.img`
@@ -123,28 +133,31 @@ const ThumbnailImage = styled.img`
     transform: scale(1.1);
   }
   transition: transform 0.2s;
+  max-width: 90%;
   max-height: 80px;
   display: block;
   box-sizing: border-box;
   margin: 4px auto;
-  background-color: ${(props) => `${props.color}`};
+  border: 2px solid rgba(128, 128, 128, 0.5);
   padding: 6px;
-  border: 2px solid ${(props) => `${props.color}`};
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 2px -2px,
+              rgba(10, 37, 64, 0.35) 0px -2px 3px 0px inset;
 `;
 
-const StyleButton = styled.button`
+const StyleButtonImage = styled.img`
   &:hover {
-    color: white;
     background-color: #E07A5F;
     transform: scale(1.1);
   }
-  transition: transform 0.2s;
-  background-color: ${(props) => (props.selected ? '#E07A5F' : 'transparent')};
+  cursor: pointer;
+  transition: transform 0.25s;
   border: 2px solid ${(props) => (props.selected ? '#E07A5F' : 'transparent')};
-  border-radius: 4px;
+  border-radius: 50%;
+  display: inline;
+  margin: 0.1rem;
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
 `;
 
 const ProductInfo = styled.div`
@@ -161,6 +174,7 @@ const ProductText = styled.div`
   background-color: #F6DEB6;
   padding: 10px;
   border: 4px solid #F6DEB6;
+  border-radius: 1rem 0.5rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
@@ -176,7 +190,7 @@ export {
   PhotoTileImage,
   ProductInfo,
   ProductText,
-  StyleButton,
+  StyleButtonImage,
   ThumbnailImage,
   ThumbnailWrapperDiv,
   ZoomedPhotoDiv

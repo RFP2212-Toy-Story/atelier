@@ -31,7 +31,7 @@ const Overview = function CreateOverviewComponent() {
 
   return (
     <div id="overview-component" className="FlexColumn" data-module-name="overview">
-      <div className="FlexRow">
+      <div className="FlexRow" style={{ height: '60vh' }} >
 
         <PhotoBlock photos={currentStyle.photos} />
         <ProductInfo
