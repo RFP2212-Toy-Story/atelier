@@ -14,9 +14,9 @@ const AddReview = function AddReview({ onClose }) {
 
   const initialFormInput = {
     product_id: prodID,
-    rating: 0,
+    rating: 1,
     summary: '',
-    recommended: null,
+    recommend: null,
     body: '',
     name: '',
     email: '',
@@ -31,12 +31,24 @@ const AddReview = function AddReview({ onClose }) {
   };
 
   const handleInputChange = useCallback((event) => {
-    console.log('event target name', event.target.name);
-    console.log('event target value', event.target.value);
     setFormInput({
       ...formInput,
       [event.target.name]: event.target.value
     });
+  }, [formInput]);
+
+  const handleRecommended = useCallback((event) => {
+    if (event.target.id === 'yes') {
+      setFormInput({
+        ...formInput,
+        [event.target.name]: true
+      });
+    } else {
+      setFormInput({
+        ...formInput,
+        [event.target.name]: false
+      });
+    }
   }, [formInput]);
 
   const handleRadioChange = useCallback((event) => {
@@ -52,12 +64,13 @@ const AddReview = function AddReview({ onClose }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     requests
-      .post(`/reviews/?product_id=${prodID}`, formInput)
+      .post('/reviews', formInput)
       .then((results) => {
         console.info(results.status);
         onClose(event);
         clearForm();
-      });
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -72,22 +85,22 @@ const AddReview = function AddReview({ onClose }) {
         <div className="radio-options">
           <label htmlFor="yes">
             <input
-              name="recommended"
+              name="recommend"
               type="radio"
               value={1}
               id="yes"
-              onChange={handleInputChange}
+              onChange={handleRecommended}
               required={true}
             />
             Yes
           </label>
           <label htmlFor="no">
             <input
-              name="recommended"
+              name="recommend"
               type="radio"
               value={0}
               id="no"
-              onChange={handleInputChange}
+              onChange={handleRecommended}
               required={true}
             />
             No
@@ -128,9 +141,9 @@ const AddReview = function AddReview({ onClose }) {
         onChange={handleInputChange}
       />
 
-      <div className="form-section">
+      {/* <div className="form-section">
         <div className="form-section-header">Upload your photos</div>
-      </div>
+      </div> */}
 
       <FormInput
         labelText="What is your nickname *"
