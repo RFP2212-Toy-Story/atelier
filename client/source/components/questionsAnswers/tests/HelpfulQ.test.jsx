@@ -2,7 +2,9 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import {
+  render, screen, cleanup, waitFor
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import HelpfulQ from '../HelpfulQ';
@@ -25,6 +27,10 @@ beforeEach(() => {
     getQuestions={() => {}}
     questionBody={question.question_body}
   />, { providerProps });
+});
+
+afterEach(() => {
+  cleanup();
 });
 
 describe('Button element is working', () => {
