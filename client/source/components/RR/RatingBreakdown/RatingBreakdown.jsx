@@ -8,7 +8,8 @@ const RatingBreakdown = function RatingsBreakdown({
   ratings,
   recommend,
   ratingsFilter,
-  toggleRating
+  toggleRating,
+  resetDefault
 }) {
   if (!ratings) {
     return <div />;
@@ -46,7 +47,7 @@ const RatingBreakdown = function RatingsBreakdown({
               <button
                 className="default-button"
                 type="button"
-                onClick={() => toggleRating()}
+                onClick={() => resetDefault()}
               >Remove all filters
               </button>
             </div>
