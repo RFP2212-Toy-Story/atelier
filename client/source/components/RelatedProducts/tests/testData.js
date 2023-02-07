@@ -103,6 +103,7 @@ const testProductRelated = [
 ];
 
 export {
+  testProductId,
   testProduct,
   testProductStyles,
   testProductRelated

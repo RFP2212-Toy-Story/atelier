@@ -62,7 +62,7 @@ const OutfitList = function CreateOutfitList() {
 
   return (
     <StyledOutfitList>
-      <h3>Your Outfits:</h3>
+      <h3>Your Outfits</h3>
       <div className="container">
         <StyledMediaScroll>
           <AddOutfitCard handleClick={handleAddClick} />
