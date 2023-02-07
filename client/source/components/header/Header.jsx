@@ -22,42 +22,23 @@ const Header = function CreateHeaderComponent() {
 
   return (
     <Styles.HeaderWrapperDiv data-module-name="header">
-
       <Styles.HeaderDiv data-testid="header-proper" scrolled={scrolled}>
 
-        <div className="FlexColumn">
+        <div style={{ position: 'relative' }}>
+          <Styles.FontDiv>
+            <h1>DINOMITE DESIGNS🦖</h1>
+          </Styles.FontDiv>
 
-          <div className="FlexRow">
-
-            <Styles.PixelFontDiv>
-              <h1>DINOMITE DESIGNS</h1>
-            </Styles.PixelFontDiv>
-
-            <h1 style={{ position: 'relative', bottom: '8px', marginLeft: '8px' }}>🦖</h1>
-
-          </div>
-
-          <Styles.PixelFontDiv>
-            <Styles.FadingDiv scrolled={scrolled}>
-              VINTAGE CLOTHES THAT OUTLAST EONS
-            </Styles.FadingDiv>
-          </Styles.PixelFontDiv>
-
+          <Styles.FadingDiv scrolled={scrolled}>
+            <Styles.FontDiv>
+              <div style={{ position: 'relative', top: '-4rem', left: '-2rem' }}>
+                VINTAGE CLOTHES THAT OUTLAST EONS
+              </div>
+            </Styles.FontDiv>
+          </Styles.FadingDiv>
         </div>
 
-        <div className="FlexRow">
-          <a href="#top">
-            <button type="button">TOP OF PAGE</button>
-          </a>
-
-          <a href="#overview-component">
-            <button type="button">OVERVIEW</button>
-          </a>
-
-          <a href="#test-api-component">
-            <button type="button">TEST API COMPONENT</button>
-          </a>
-
+        <div style={{ position: 'relative' }}>
           <form>
             <input style={{ backgroundColor: '#74AA90' }} type="text" placeholder="search..." />
             <button type="submit">🔎</button>
@@ -65,7 +46,7 @@ const Header = function CreateHeaderComponent() {
         </div>
 
       </Styles.HeaderDiv>
-    </Styles.HeaderWrapperDiv>
+    </Styles.HeaderWrapperDiv >
   );
 };
 
