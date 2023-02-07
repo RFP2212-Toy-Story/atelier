@@ -5,6 +5,7 @@ import AddReview from './AddReview/AddReview.jsx';
 import Modal from '../../shared/Modal.jsx';
 import useModal from '../../../useModal';
 import ModalFormTitle from '../../shared/form/ModalFormTitle.jsx';
+import ButtonMainStyle from '../../shared/ButtonMainStyle.js';
 import { ReviewListFooter } from '../styles/RR.styled.js';
 
 const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
@@ -39,20 +40,20 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
         <div className="review-list-footer">
           {(filteredReviews.length > 2 && numReviews < filteredReviews.length)
             ? (
-              <button
+              <ButtonMainStyle
                 className="footer-button"
                 type="button"
                 onClick={() => setNumReviews(numReviews + 2)}
               >MORE REVIEWS
-              </button>
+              </ButtonMainStyle>
             )
             : null }
-          <button
+          <ButtonMainStyle
             className="footer-button"
             type="button"
             onClick={onOpen}
-          > ADD A REVIEW
-          </button>
+          >ADD A REVIEW
+          </ButtonMainStyle>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalFormTitle
               title="Write Your Review"

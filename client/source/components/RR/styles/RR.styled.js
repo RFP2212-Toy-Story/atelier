@@ -5,7 +5,7 @@ export const ReviewModuleContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 0.1em solid black;
+  color: #3D405B;
 `;
 
 export const ReviewContentsContainer = styled.div`
@@ -13,12 +13,6 @@ export const ReviewContentsContainer = styled.div`
   gap: 1rem;
   justify-content: center;
   grid-auto-flow: column;
-  /* grid-auto-columns: auto 1fr 1fr auto; */
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0.5em; */
 `;
 
 export const BreakdownContainer = styled.div`
@@ -54,10 +48,12 @@ export const RatingBreakdownContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.5em;
-  }
-
-  .rating-bar:hover {
-    background: #f7eddc;
+    &:hover {
+      color: #E07A5F;
+      transform: scale(1.05);
+      background: #F7EDDC;
+      border-radius: 0.5rem;
+    }
   }
 
   .bar-label {
@@ -95,7 +91,6 @@ export const RatingBreakdownContainer = styled.div`
     border-radius: 20px;
     width: 100%;
   }
-
 `;
 
 export const ProductBreakdownContainer = styled.div`
@@ -105,7 +100,6 @@ export const ProductBreakdownContainer = styled.div`
 
   .trait-slider {
     padding: 0.5em;
-    margin-bottom: 1em;
   }
 
   input[type="range"] {
@@ -136,20 +130,12 @@ export const ProductBreakdownContainer = styled.div`
 export const SortContainer = styled.div`
   display: flex;
   padding: 0.5em;
-  font-weight: bold;
+  /* font-weight: bold; */
 
   .sort-bar {
     padding: 0.5em;
     color: #3D405B;
     font-size: 115%;
-  }
-
-  .sort-selection {
-    background-color: #FFFBEA;
-    font-family: 'Nunito', sans-serif;
-    color: #3D405B;
-    font-size: 100%;
-    font-weight: bold;
   }
 `;
 
@@ -189,7 +175,7 @@ export const ReviewTileContainer = styled.div`
   .review-summary {
     padding: 0.5em;
     font-weight: bold;
-    font-size: 115%;
+    /* font-size: 115%; */
   }
 
   .review-text {
@@ -205,6 +191,9 @@ export const ReviewTileContainer = styled.div`
     border-bottom: solid;
     border-bottom-width: 1px;
     border-color: #3D405B;
+    &:hover {
+      color: #E07A5F;
+    }
   }
 
   .review-rec {
@@ -228,7 +217,7 @@ export const ReviewTileContainer = styled.div`
 
   .review-footer-button {
     font-size: 95%;
-    font-family: 'Nunito', sans-serif;
+    font-family: inherit;
     color: #3D405B;
     background-color: #fffbea;
     padding: none;
@@ -236,6 +225,13 @@ export const ReviewTileContainer = styled.div`
     border-bottom: solid;
     border-bottom-width: 1px;
     border-color: #3D405B;
+    cursor: pointer;
+    &:hover {
+      color: #E07A5F;
+    }
+    &:disabled {
+      color: #F6DFB6;
+    }
   }
 `;
 
@@ -245,24 +241,19 @@ export const ReviewPhotos = styled.div`
 
   img {
     max-width: 20%;
+    border-radius: 15px;
     aspect-ratio: 3 / 2;
     object-fit: cover;
     padding: 0.5em;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 `;
 
 export const ReviewListFooter = styled.div`
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   padding: 0.5em;
-
-  .footer-button {
-    background-color: #fffbea;
-    font-family: 'Nunito', sans-serif;
-    color: #3D405B;
-    border-color: #3D405B;
-    font-weight: bold;
-    padding: 1em;
-    margin: 0.5em;
-  }
+  margin-top: 0.5em;
 `;
