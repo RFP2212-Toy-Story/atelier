@@ -36,6 +36,7 @@ export const RatingBreakdownContainer = styled.div`
 
   .average-rating {
     font-size: 300%;
+    font-weight: bold;
   }
 
   .recommended-percentage, .review-count {
@@ -53,6 +54,24 @@ export const RatingBreakdownContainer = styled.div`
       transform: scale(1.05);
       background: #F7EDDC;
       border-radius: 0.5rem;
+    }
+  }
+
+  .filters-applied {
+    padding: 0.5em;
+  }
+
+  .default-button {
+    padding: 0.5em;
+    color: #3D405B;
+    background-color: #fffbea;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    border-color: #3D405B;
+    &:hover {
+      color: #E07A5F;
     }
   }
 
