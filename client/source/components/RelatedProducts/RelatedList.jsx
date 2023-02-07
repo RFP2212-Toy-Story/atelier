@@ -1,6 +1,7 @@
 // LIBRARY IMPORTS
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { BiChevronLeftCircle, BiChevronRightCircle } from 'react-icons/bi';
+import { flushSync } from 'react-dom';
 
 // LOCAL IMPORTS
 import RelatedListCard from './RelatedListCard.jsx';
@@ -14,6 +15,8 @@ const RelatedList = function CreateRelatedList() {
   // STATES
   const { prodID } = useContext(ProdContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const selectedRef = useRef(null);
+  const [index, setIndex] = useState(0);
 
   // HOOKS
   useEffect(() => {
@@ -24,16 +27,51 @@ const RelatedList = function CreateRelatedList() {
       .catch((error) => { console.error(error); });
   }, [prodID]);
 
+  // HANDLERS
+  const handleRightClick = () => {
+    flushSync(() => {
+      if (index < relatedProducts.length - 1) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    });
+    selectedRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  };
+
+  const handleLeftClick = () => {
+    flushSync(() => {
+      if (index > 0) {
+        setIndex(index - 1);
+      } else {
+        setIndex(relatedProducts.length - 1);
+      }
+    });
+    selectedRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  };
+
   return (
     <StyledRelatedList data-module-name="related products">
       <h3>Related Products:</h3>
       <div className="container">
         <StyledMediaScroll>
           {/* eslint-disable-next-line max-len */}
-          {relatedProducts.map((relatedProdId) => <RelatedListCard key={relatedProdId} relatedProdId={relatedProdId} />)}
+          {relatedProducts.map((relatedProdId, i) => <RelatedListCard
+            key={relatedProdId}
+            relatedProdId={relatedProdId}
+            ref={index === i ? selectedRef : null}
+          />)}
         </StyledMediaScroll>
-        <BiChevronLeftCircle className="left" />
-        <BiChevronRightCircle className="right" />
+        {index > 0 && <BiChevronLeftCircle className="left" onClick={handleLeftClick} />}
+        {index < relatedProducts.length - 1 && <BiChevronRightCircle className="right" onClick={handleRightClick} />}
       </div>
     </StyledRelatedList>
   );

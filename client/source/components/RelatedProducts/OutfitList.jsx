@@ -1,6 +1,7 @@
 // LIBRARY IMPORTS
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { BiChevronLeftCircle, BiChevronRightCircle } from 'react-icons/bi';
+import { flushSync } from 'react-dom';
 
 // LOCAL IMPORTS
 import OutfitListCard from './OutfitListCard.jsx';
@@ -10,28 +11,54 @@ import StyledOutfitList from './styles/OutfitList.styled.jsx';
 import ProdContext from '../../ProdContext.js';
 
 const OutfitList = function CreateOutfitList() {
-  // STATES
+  // STATES & CONSTANTS
   const { prodID, product, styles } = useContext(ProdContext);
   const [outfitItems, setOutfitItems] = useState(localStorage);
-
+  const [index, setIndex] = useState(0);
+  const selectedRef = useRef(null);
+  const outfitItemsList = Object.entries(outfitItems);
 
   // HANDLERS
   const handleAddClick = () => {
-    // styles.
-    console.log('STYLES PROP: ', styles);
-    console.log('URL: ', styles[0].photos[0].thumbnail_url);
     localStorage.setItem(prodID, JSON.stringify({
       name: product.name,
       category: product.category,
       price: product.default_price,
-      image: 'https://images.unsplash.com/photo-1530092376999-2431865aa8df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=300&q=80',
+      image: styles[0].photos[0].thumbnail_url,
       stars: 3.5
     }));
     setOutfitItems({ ...localStorage });
   };
 
-  const outfitItemsList = Object.entries(outfitItems);
-  console.log('OUTFIT ITEMS LIST: ', outfitItemsList);
+  const handleRightClick = () => {
+    flushSync(() => {
+      if (index < outfitItemsList.length - 1) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    });
+    selectedRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  };
+
+  const handleLeftClick = () => {
+    flushSync(() => {
+      if (index > 0) {
+        setIndex(index - 1);
+      } else {
+        setIndex(outfitItemsList.length - 1);
+      }
+    });
+    selectedRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  };
 
   return (
     <StyledOutfitList>
@@ -39,12 +66,11 @@ const OutfitList = function CreateOutfitList() {
       <div className="container">
         <StyledMediaScroll>
           <AddOutfitCard handleClick={handleAddClick} />
-          {outfitItemsList.map((outfit) => {
-            console.log('OUTFIT MAP: ', outfit);
-            return <OutfitListCard outfit={outfit} setOutfitItems={setOutfitItems} /> })}
+          {/* eslint-disable-next-line max-len */}
+          {outfitItemsList.map((outfit, i) => <OutfitListCard outfit={outfit} setOutfitItems={setOutfitItems} ref={index === i ? selectedRef : null} />)}
         </StyledMediaScroll>
-        <BiChevronLeftCircle className="left" />
-        <BiChevronRightCircle className="right" />
+        {index > 0 && <BiChevronLeftCircle className="left" onClick={handleLeftClick} />}
+        {index < outfitItemsList.length - 1 && <BiChevronRightCircle className="right" onClick={handleRightClick} />}
       </div>
     </StyledOutfitList>
   );

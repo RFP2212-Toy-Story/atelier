@@ -6,7 +6,7 @@ const StyledMediaScroll = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 21%;
 
-  overflow-x: auto;
+  overflow-x: hidden;
   overscroll-behavior-inline: contain;
 
   .left {
