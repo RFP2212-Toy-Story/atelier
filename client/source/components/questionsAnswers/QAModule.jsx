@@ -4,7 +4,7 @@ import ProdContext from '../../ProdContext.js';
 import SearchQuestions from './SearchQuestions';
 import QAList from './QAList';
 import * as requests from '../../utilities/axiosRequests.js';
-import qaData from './exampleDataQA';
+import qaData from './tests/exampleDataQA';
 import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {

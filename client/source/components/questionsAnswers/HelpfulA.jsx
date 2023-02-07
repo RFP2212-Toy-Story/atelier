@@ -36,6 +36,7 @@ const HelpfulA = function CreateHelpfulAComponent({ id, getQuestions, helpfulnes
       <span>
         <button
           type="button"
+          data-testid="helpful"
           onClick={handleHelpfulA}
         >Yes {`(${helpfulness})`}
         </button>

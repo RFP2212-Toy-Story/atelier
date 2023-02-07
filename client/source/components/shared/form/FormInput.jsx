@@ -16,6 +16,7 @@ const FormInput = function CreateFormInput({
         placeholder={placeholder}
         onChange={onChange}
         cols="25"
+        required
       />
       {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
     </div>

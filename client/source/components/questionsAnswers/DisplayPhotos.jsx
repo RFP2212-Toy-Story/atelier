@@ -1,6 +1,6 @@
 import React from 'react';
 import { PhotoContainer } from './styles/Containers.styled';
-import qaData2 from './exampleDataQA2';
+import qaData2 from './tests/exampleDataQA2';
 
 const DisplayPhotos = function CreateDisplayPhotosComponent() {
   return (
