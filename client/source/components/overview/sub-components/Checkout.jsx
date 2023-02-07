@@ -51,18 +51,23 @@ const Checkout = function CreateCheckoutComponent({ style }) {
   return (
     <div>
       <div>
+
+        <hr />
+
         <select id="checkout-size-select" value={selectedSize} onChange={handleSizeChange}>
           <option defaultValue>Choose a size...</option>
-          {sizeArray?.map((size) => (<option key={size}>{size}</option>))}
+          <optgroup>
+            {sizeArray?.map((size) => (<option key={size}>{size}</option>))}
+          </optgroup>
         </select>
 
         <select id="checkout-quantity-select" value={selectedQuantity} onChange={handleQuantityChange}>
           <option defaultValue>Choose a quantity...</option>
-          {quantityArray.map((number) => (<option key={number}>{number}</option>))}
+          <optgroup>
+            {quantityArray.map((number) => (<option key={number}>{number}</option>))}
+          </optgroup>
         </select>
       </div>
-
-      <hr />
 
       <div>
         <button type="button">ADD TO CART</button>

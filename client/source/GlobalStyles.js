@@ -28,12 +28,23 @@ input, button, textarea, select {
   font: inherit;
 }
 
-input, button {
+input, button, select {
   cursor: pointer;
   &:hover {
     color: #E07A5F;
   }
 }
+
+select {
+  background-color: #FEFCE9;
+  border: 1px solid #BBBBBB;
+  border-radius: 0.25rem;
+  color: #3D405B
+}
+select:hover {
+  background-color: #F6DEB6;
+}
+
 
 // CLASSES
 .FlexColumn {
