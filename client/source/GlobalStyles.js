@@ -54,6 +54,20 @@ select:hover {
 
 
 // CLASSES
+.FlexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FlexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .stop-scrolling {
   height: 100%;
   overflow: hidden;

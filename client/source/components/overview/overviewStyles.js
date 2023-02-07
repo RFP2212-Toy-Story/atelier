@@ -20,7 +20,7 @@ const ZoomedPhotoDiv = styled.div`
 const PhotoTileDiv = styled.div`
   &:hover {
     cursor: zoom-in;
-    transform: scale(1.1);
+    transform: scale(1.2);
   };
   transition: transform 1s ease-out;
   margin: 20px;
@@ -47,14 +47,13 @@ const OverlayDiv = styled.div`
 
 const PhotoBlockDiv = styled.div`
   display: flex;
-  height: 600px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `;
 
 const CarouselWrapperDiv = styled.div`
-  width: 800px;
+  width: 50vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -136,6 +135,18 @@ const ProductInfo = styled.div`
   justify-content: center;
 `;
 
+const ProductText = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  background-color: #F6DEB6;
+  padding: 10px;
+  border: 4px solid #F6DEB6;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+`;
+
 export {
   CarouselButton,
   CarouselWrapperDiv,
@@ -143,6 +154,7 @@ export {
   PhotoBlockDiv,
   PhotoTileDiv,
   ProductInfo,
+  ProductText,
   StyleButton,
   ThumbnailImage,
   ThumbnailWrapperDiv,

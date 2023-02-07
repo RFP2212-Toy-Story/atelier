@@ -11,8 +11,8 @@ const ProductStyles = function CreateProductStylesComponent({
 }) {
   return (
     <div style={{
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr'
+      display: 'flex',
+      flexWrap: 'wrap'
     }}
     >
       {styles?.map((style, index) => {

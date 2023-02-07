@@ -30,7 +30,7 @@ const Overview = function CreateOverviewComponent() {
   }, [prodID, product, styles]);
 
   return (
-    <div id="overview-component" className="overview FlexColumn" data-module-name="overview">
+    <div id="overview-component" className="FlexColumn" data-module-name="overview">
       <div className="FlexRow">
 
         <PhotoBlock photos={currentStyle.photos} />
