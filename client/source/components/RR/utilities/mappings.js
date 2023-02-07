@@ -6,12 +6,12 @@ const recommendedOptions = {
 };
 
 const postID = {
-  Size: 14,
-  Width: 15,
-  Comfort: 16,
-  Quality: 17,
-  Length: 18,
-  Fit: 19
+  Size: '135240',
+  Width: '135241',
+  Comfort: '135242',
+  Quality: '135243',
+  Length: '135234',
+  Fit: '135235'
 };
 
 const traitOptions = {

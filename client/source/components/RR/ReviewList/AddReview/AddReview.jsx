@@ -1,10 +1,11 @@
-import React, { useState, useContext, useCallback } from 'react';
+import React, { useState, useContext } from 'react';
 import ProdContext from '../../../../ProdContext.js';
 import { Form, InputSubmit } from '../../../shared/form/FormStyles.js';
 import Characteristic from './Characteristic.jsx';
 import FormInput from '../../../shared/form/FormInput.jsx';
 import FormTextarea from '../../../shared/form/FormTextarea';
 import { postID, traitOptions } from '../../utilities/mappings.js';
+import StarRating from './StarRating.jsx';
 import * as requests from '../../../../utilities/axiosRequests.js';
 
 const AddReview = function AddReview({ onClose }) {
@@ -14,7 +15,7 @@ const AddReview = function AddReview({ onClose }) {
 
   const initialFormInput = {
     product_id: prodID,
-    rating: 1,
+    rating: 0,
     summary: '',
     recommend: null,
     body: '',
@@ -30,14 +31,22 @@ const AddReview = function AddReview({ onClose }) {
     setFormInput(initialFormInput);
   };
 
-  const handleInputChange = useCallback((event) => {
+  const handleStars = (input) => {
+    // console.log('event', event.target.attributes[4].value);
+    setFormInput({
+      ...formInput,
+      rating: input
+    });
+  };
+
+  const handleInputChange = (event) => {
     setFormInput({
       ...formInput,
       [event.target.name]: event.target.value
     });
-  }, [formInput]);
+  };
 
-  const handleRecommended = useCallback((event) => {
+  const handleRecommended = (event) => {
     if (event.target.id === 'yes') {
       setFormInput({
         ...formInput,
@@ -49,9 +58,9 @@ const AddReview = function AddReview({ onClose }) {
         [event.target.name]: false
       });
     }
-  }, [formInput]);
+  };
 
-  const handleRadioChange = useCallback((event) => {
+  const handleRadioChange = (event) => {
     setFormInput({
       ...formInput,
       characteristics: {
@@ -59,7 +68,7 @@ const AddReview = function AddReview({ onClose }) {
         [event.target.id]: Number(event.target.value)
       }
     });
-  }, [formInput]);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -77,7 +86,7 @@ const AddReview = function AddReview({ onClose }) {
     <Form onSubmit={handleSubmit}>
       <div className="form-section">
         <div className="form-section-header">Overall rating *</div>
-        <div>placeholder for stars</div>
+        <StarRating rating={formInput.rating} onClick={handleStars} />
       </div>
 
       <div className="form-section">
