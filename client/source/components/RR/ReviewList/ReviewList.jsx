@@ -29,13 +29,15 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
 
   return (
     <div className="review-list">
-      {filteredReviews.slice(0, numReviews).map((review) => (
-        <ReviewTile
-          review={review}
-          key={review.review_id}
-          updateList={updateList}
-        />
-      ))}
+      <div className="reviews-scroll-container">
+        {filteredReviews.slice(0, numReviews).map((review) => (
+          <ReviewTile
+            review={review}
+            key={review.review_id}
+            updateList={updateList}
+          />
+        ))}
+      </div>
       <ReviewListFooter>
         <div className="review-list-footer">
           {(filteredReviews.length > 2 && numReviews < filteredReviews.length)

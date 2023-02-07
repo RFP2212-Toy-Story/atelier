@@ -149,7 +149,6 @@ export const ProductBreakdownContainer = styled.div`
 export const SortContainer = styled.div`
   display: flex;
   padding: 0.5em;
-  /* font-weight: bold; */
 
   .sort-bar {
     padding: 0.5em;
@@ -161,9 +160,12 @@ export const SortContainer = styled.div`
 export const ReviewListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: stretch; */
   padding: 0.5em;
-  /* overscroll-behavior-y: contain; */
+
+  .reviews-scroll-container {
+    max-height: 600px;
+    overflow-y: auto;
+  }
 `;
 
 export const ReviewTileContainer = styled.div`
