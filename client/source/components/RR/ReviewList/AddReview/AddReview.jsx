@@ -32,7 +32,6 @@ const AddReview = function AddReview({ onClose }) {
   };
 
   const handleStars = (input) => {
-    // console.log('event', event.target.attributes[4].value);
     setFormInput({
       ...formInput,
       rating: input
