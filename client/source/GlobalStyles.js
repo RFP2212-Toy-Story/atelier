@@ -28,18 +28,11 @@ input, button, textarea, select {
   font: inherit;
 }
 
-input, button {
+input, button, select {
   cursor: pointer;
   &:hover {
     color: #E07A5F;
   }
-}
-
-button {
-  transition: transform 0.2s;
-}
-button:hover {
-  transform: scale(1.075);
 }
 
 select {
@@ -54,6 +47,20 @@ select:hover {
 
 
 // CLASSES
+.FlexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.FlexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .stop-scrolling {
   height: 100%;
   overflow: hidden;

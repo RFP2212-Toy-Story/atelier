@@ -10,7 +10,12 @@ const ProductStyles = function CreateProductStylesComponent({
   currentStyleID, styles, changeStyle
 }) {
   return (
-    <div className="product-styles">
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      margin: '10px 0'
+    }}
+    >
       {styles?.map((style, index) => {
         let selected = false;
         if (currentStyleID === style?.style_id) {
@@ -21,7 +26,6 @@ const ProductStyles = function CreateProductStylesComponent({
             selected={selected}
             index={index}
             key={style.style_id}
-            name={style.name}
             style={style}
             changeStyle={changeStyle}
           />
