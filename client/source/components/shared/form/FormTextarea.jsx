@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FormTextarea = function CreateFormTextarea({
-  labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000'
+  labelText, name, value, placeholder, onChange, disclaimerText, maxLength = '1000', minLength = '0'
 }) {
   return (
     <div>
@@ -12,6 +12,7 @@ const FormTextarea = function CreateFormTextarea({
           name={name}
           value={value}
           placeholder={placeholder}
+          minLength={minLength}
           maxLength={maxLength}
           onChange={onChange}
           rows="5"

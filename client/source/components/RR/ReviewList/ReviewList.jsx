@@ -58,7 +58,7 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
               title="Write Your Review"
               subtitle={`About the ${product?.name || 'unknown product'}`}
             />
-            <AddReview />
+            <AddReview onClose={onClose} />
           </Modal>
         </div>
       </ReviewListFooter>

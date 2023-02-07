@@ -1,25 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FormInput = function CreateFormInput({
-  name, value, labelText, placeholder, onChange, disclaimerText, minLength = '0', maxLength = '60', required = false, type = 'text'
+  <RadioInput
+    labelText="Do you recommend this product? *"
+    type="radio"
+    name="recommended"
+    value={formInput.recommended}
+  />;
+
+const RadioInput = function RadioInput({
+  name, value, option, labelText, id = '', onChange, required = true, type = 'radio'
 }) {
   return (
     <div>
       <Label htmlFor={name}>{labelText}</Label>
+      {id && (<SubLabel>{option[0]}</SubLabel>)}
       <Input
         type={type}
         name={name}
-        id={name}
+        id={id}
         value={value}
-        minLength={minLength}
-        maxLength={maxLength}
-        placeholder={placeholder}
         onChange={onChange}
         required={required}
         cols="25"
       />
-      {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
     </div>
   );
 };
@@ -29,6 +33,10 @@ const Label = styled.label`
   display: block;
 `;
 
+const SubLabel = styled.sublabel`
+
+`;
+
 const Input = styled.input`
   display: block;
   font-family: inherit;
@@ -36,10 +44,4 @@ const Input = styled.input`
   padding: 4px;
 `;
 
-const Paragraph = styled.p`
-  font-size: 75%;
-  margin-top: 4px;
-  color: #7b7366;
-`;
-
-export default FormInput;
+export default RadioInput;

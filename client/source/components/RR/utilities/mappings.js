@@ -1,3 +1,19 @@
+const recommendedOptions = {
+  recommended: [
+    { label: 'Yes', value: true },
+    { label: 'No', value: false }
+  ]
+};
+
+const postID = {
+  Size: 14,
+  Width: 15,
+  Comfort: 16,
+  Quality: 17,
+  Length: 18,
+  Fit: 19
+};
+
 const traitOptions = {
   Size: [
     { label: 'A size too small', value: 1 },
@@ -43,4 +59,8 @@ const traitOptions = {
   ]
 };
 
-export default traitOptions;
+export {
+  recommendedOptions,
+  postID,
+  traitOptions
+};
