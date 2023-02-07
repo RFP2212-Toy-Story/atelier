@@ -22,14 +22,33 @@ const PhotoTileDiv = styled.div`
     cursor: zoom-in;
     transform: scale(1.1);
   };
+  position: relative;
+  display: flex;
   transition: transform 1s ease-out;
-  margin: 20px;
+  margin: 24px;
   background-color: ${(props) => `${props.color}`};
-  padding: 10px;
+  padding: 12px;
   border: 4px solid ${(props) => `${props.color}`};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+`;
+
+const PhotoTileInnerDiv = styled.div`
+  display: flex;
+  padding: 16px;
+  background-color: white;
+  box-shadow: rgb(60, 60, 60, 0.5) 1px 1px 2px 1px inset,
+              rgba(60, 60, 60, 0.5) -1px -1px 2px 1px inset;
+`;
+
+const PhotoTileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 2px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 `;
 
 const OverlayDiv = styled.div`
@@ -47,14 +66,13 @@ const OverlayDiv = styled.div`
 
 const PhotoBlockDiv = styled.div`
   display: flex;
-  height: 600px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `;
 
 const CarouselWrapperDiv = styled.div`
-  width: 800px;
+  width: 50vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,6 +83,7 @@ const CarouselButton = styled.button`
   &:hover {
     color: #E07A5F;
     transform: scale(1.1);
+    background-color: transparent;
   }
   transition: transform 0.2s;
   color: grey;
@@ -77,26 +96,36 @@ const CarouselButton = styled.button`
 `;
 
 const ThumbnailWrapperDiv = styled.div`
-  &:hover {
-    ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-  }
-  }
+  overflow-x: hidden;
+  direction: rtl;
+  scroll-behavior: smooth;
+  max-height: 460px;
+  overflow-y: auto;
+  width: 12vw;
+
+  // This is a hacky way to get scrollbar transitions
+  color: rgba(0, 0, 0, 0);
+  transition: color 0.3s;
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 14px;
   }
   ::-webkit-scrollbar-track {
     visibility: hidden;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
+    background-clip: content-box;
+    border: 4px solid transparent;
+    border-radius: 7px;
+    box-shadow: inset 0 0 0 10px;
   }
-  overflow-x: hidden;
-  direction: rtl;
-  scroll-behavior: smooth;
-  max-height: 420px;
-  overflow-y: auto;
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &:hover {
+    color: rgba(246, 222, 182, 0.5);
+  }
 `;
 
 const ThumbnailImage = styled.img`
@@ -104,29 +133,51 @@ const ThumbnailImage = styled.img`
     transform: scale(1.1);
   }
   transition: transform 0.2s;
+  max-width: 90%;
   max-height: 80px;
   display: block;
   box-sizing: border-box;
   margin: 4px auto;
-  background-color: ${(props) => `${props.color}`};
+  border: 2px solid rgba(128, 128, 128, 0.5);
   padding: 6px;
-  border: 2px solid ${(props) => `${props.color}`};
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 2px -2px,
+              rgba(10, 37, 64, 0.35) 0px -2px 3px 0px inset;
 `;
 
-const StyleButton = styled.button`
+const StyleButtonImage = styled.img`
   &:hover {
-    color: white;
     background-color: #E07A5F;
     transform: scale(1.1);
   }
-background-color: ${(props) => (props.selected ? '#E07A5F' : null)};
-color: ${(props) => (props.selected ? '#FFFFFF' : 'grey')};
-transition: transform 0.2s;
-border-radius: 4px;
-border: none;
+  cursor: pointer;
+  transition: transform 0.25s;
+  border: 2px solid ${(props) => (props.selected ? '#E07A5F' : 'transparent')};
+  border-radius: 50%;
+  display: inline;
+  margin: 0.1rem;
+  object-fit: cover;
+  width: 60px;
+  height: 60px;
+`;
+
+const ProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+`;
+
+const ProductText = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  background-color: #F6DEB6;
+  padding: 10px;
+  border: 4px solid #F6DEB6;
+  border-radius: 1rem 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
 export {
@@ -135,7 +186,11 @@ export {
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
-  StyleButton,
+  PhotoTileInnerDiv,
+  PhotoTileImage,
+  ProductInfo,
+  ProductText,
+  StyleButtonImage,
   ThumbnailImage,
   ThumbnailWrapperDiv,
   ZoomedPhotoDiv
