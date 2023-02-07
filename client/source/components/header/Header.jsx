@@ -23,7 +23,7 @@ const Header = function CreateHeaderComponent() {
   return (
     <Styles.HeaderWrapperDiv data-module-name="header">
 
-      <Styles.HeaderDiv scrolled={scrolled}>
+      <Styles.HeaderDiv data-testid="header-proper" scrolled={scrolled}>
 
         <div className="FlexColumn">
 

@@ -20,7 +20,7 @@ const ZoomedPhotoDiv = styled.div`
 const PhotoTileDiv = styled.div`
   &:hover {
     cursor: zoom-in;
-    transform: scale(1.2);
+    transform: scale(1.125);
   };
   transition: transform 1s ease-out;
   margin: 20px;
@@ -95,8 +95,9 @@ const ThumbnailWrapperDiv = styled.div`
   overflow-x: hidden;
   direction: rtl;
   scroll-behavior: smooth;
-  max-height: 420px;
+  max-height: 460px;
   overflow-y: auto;
+  width: 12vw;
 `;
 
 const ThumbnailImage = styled.img`

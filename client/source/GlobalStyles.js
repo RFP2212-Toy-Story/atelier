@@ -28,18 +28,11 @@ input, button, textarea, select {
   font: inherit;
 }
 
-input, button {
+input, button, select {
   cursor: pointer;
   &:hover {
     color: #E07A5F;
   }
-}
-
-button {
-  transition: transform 0.2s;
-}
-button:hover {
-  transform: scale(1.075);
 }
 
 select {
