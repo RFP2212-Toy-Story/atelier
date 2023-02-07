@@ -9,36 +9,36 @@ import ProductText from './ProductText.jsx';
 
 import ProdContext from '../../ProdContext.js';
 
-import * as requests from '../../utilities/axiosRequests.js';
-
 
 // MAIN
 const Overview = function CreateOverviewComponent() {
-  const { prodID, product } = useContext(ProdContext);
-  const [styles, setStyles] = useState([]);
-  const [currentStyle, setCurrentStyle] = useState(0);
+  const { prodID, product, styles } = useContext(ProdContext);
+  const [currentStyle, setCurrentStyle] = useState({});
+
+  const findDefaultStyle = (style) => {
+    if (style['default?'] === true) {
+      setCurrentStyle(style);
+    }
+  };
+
+  const changeStyle = (style) => {
+    setCurrentStyle(style);
+  };
 
   useEffect(() => {
-    requests.get(`/products/${prodID}/styles`)
-      .then((response) => {
-        console.info(response.status, response.data.results);
-        setStyles(response.data.results);
-        return (response.data.results);
-      })
-      .catch((error) => { console.error(error); });
-  }, [prodID]);
+    styles?.forEach(findDefaultStyle);
+  }, [prodID, product, styles]);
 
   return (
-    <div id="overview-component" className="overview FlexColumn">
-      <div className="FlexRow">
+    <div id="overview-component" className="FlexColumn" data-module-name="overview">
+      <div className="FlexRow" style={{ height: '60vh' }} >
 
-        <PhotoBlock photos={styles[currentStyle]?.photos} />
-
+        <PhotoBlock photos={currentStyle.photos} />
         <ProductInfo
           product={product}
           styles={styles}
-          style={styles[currentStyle]}
-          setCurrentStyle={setCurrentStyle}
+          style={currentStyle}
+          changeStyle={changeStyle}
         />
 
       </div>

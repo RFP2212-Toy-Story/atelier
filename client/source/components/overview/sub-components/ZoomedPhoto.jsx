@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 
-import * as Styles from './overviewStyles.js';
+import * as Styles from '../overviewStyles.js';
 
 
 const ZoomedPhoto = function CreateZoomedPhotoComponent({
@@ -22,7 +22,9 @@ const ZoomedPhoto = function CreateZoomedPhotoComponent({
 
   return (
     <Styles.ZoomedPhotoDiv color={color} onClick={handleClick}>
-      <img style={{ maxHeight: '75vh' }} alt="large format product photograph" src={photo.url} />
+      <Styles.PhotoTileInnerDiv>
+        <Styles.PhotoTileImage style={{ maxHeight: '75vh' }} alt="large format product photograph" src={photo.url} />
+      </Styles.PhotoTileInnerDiv>
     </Styles.ZoomedPhotoDiv>
   );
 };

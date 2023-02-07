@@ -15,14 +15,18 @@ const App = function CreateAppComponent() {
   console.info('APP COMPONENT MOUNTED');
 
   return (
-    <div>
-      <Header />
-      <Overview />
-      <RelatedList />
-      <OutfitList />
-      <QAModule />
-      <ReviewModule />
-      <TestAPI />
+    <div style={{ display: 'grid', gridTemplateColumns: '5% 90% 5%' }}>
+      <div />
+      <div>
+        <Header />
+        <Overview />
+        <RelatedList />
+        <OutfitList />
+        <QAModule />
+        <ReviewModule />
+        <TestAPI />
+      </div>
+      <div />
     </div>
   );
 };

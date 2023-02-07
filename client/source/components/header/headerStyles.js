@@ -2,29 +2,29 @@ import styled, { css, keyframes } from 'styled-components';
 
 // FRAGMENTS
 const BoxShadowLarge = css`
-  rgba(69, 72, 107, 0.4) 0px 5px,
-  rgba(69, 72, 107, 0.3) 0px 10px,
-  rgba(69, 72, 107, 0.2) 0px 15px,
-  rgba(69, 72, 107, 0.1) 0px 20px,
-  rgba(69, 72, 107, 0.05) 0px 25px;
+  rgba(61, 64, 91, 0.4) 0px 5px,
+  rgba(61, 64, 91, 0.3) 0px 10px,
+  rgba(61, 64, 91, 0.2) 0px 15px,
+  rgba(61, 64, 91, 0.1) 0px 20px,
+  rgba(61, 64, 91, 0.05) 0px 25px;
 `;
 
 const BoxShadowSmall = css`
-  rgba(38, 40, 61, 0.4) 0px 5px,
-  rgba(38, 40, 61, 0.3) 0px 10px;
+  rgba(38, 38, 61, 0.4) 0px 5px,
+  rgba(38, 38, 61, 0.3) 0px 10px;
 `;
 
 const ShrinkAnimation = keyframes`
   from {
     height: 140px;
     background-color: #3D405B;
-    box-shadow: BoxShadowLarge;
+    box-shadow: ${BoxShadowLarge};
   }
 
   to {
     height: 80px;
     background-color: #26263D;
-    box-shadow: BoxShadowSmall;
+    box-shadow: ${BoxShadowSmall};
   }
 `;
 

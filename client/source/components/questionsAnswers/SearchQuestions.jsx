@@ -16,6 +16,8 @@ const SearchQuestions = function CreateSearchQuestions({ handleQ, query }) {
 
 const Input = styled.input`
   font-family: inherit;
+  border: 1px solid #3D405B;
+  border-radius: 0.5em;
   padding: 0.75em;
   color: inherit;
   width: 50%;

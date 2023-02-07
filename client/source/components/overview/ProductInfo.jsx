@@ -2,40 +2,33 @@
 // LIBRARY IMPORTS
 import React from 'react';
 
-import ProductStyles from './ProductStyles';
+import * as Styles from './overviewStyles.js';
+import Checkout from './sub-components/Checkout.jsx';
+import ProductStyles from './sub-components/ProductStyles';
+
 
 // MAIN
 const ProductInfo = function CreateProductInfoComponent({
-  product, styles, style, setCurrentStyle
+  product, styles, style, changeStyle
 }) {
   return (
-    <div className="product-info">
-      ✦✦✦✧✧ <a href="#reviews">GOTO REVIEWS</a>
+    <Styles.ProductInfo>
+      <div>
+        ✦✦✦✧✧ <a href="#ratings and reviews">GOTO REVIEWS</a>
+      </div>
       <div>{product?.category}</div>
       <h1>{product?.name}</h1>
-      <div>${product?.default_price}</div>
-      <div style={{ color: 'red' }}>${style?.sale_price}</div>
-      SELECT STYLE
-      <ProductStyles styles={styles} setStyle={setCurrentStyle} />
-
-      <div>
-        <select>
-          <option>SIZE SELECT</option>
-        </select>
-
-        <select>
-          <option>QUANTITY SELECT</option>
-        </select>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {style?.sale_price
+          ? <><div style={{ textDecoration: 'line-through' }}>${style?.original_price}</div>&nbsp;<div style={{ color: 'red' }}>${style?.sale_price}</div></>
+          : <div>${style?.original_price}</div>}
       </div>
+      <div style={{ fontSize: '0.75rem', fontWeight: 'bold' }}>STYLE &gt; {style?.name}</div>
+      <ProductStyles currentStyleID={style?.style_id} styles={styles} changeStyle={changeStyle} />
 
-      <hr />
+      <Checkout style={style} />
 
-      <div>
-        <button type="button">ADD TO CART</button>
-        <button type="button">💔</button>
-      </div>
-
-    </div>
+    </Styles.ProductInfo>
   );
 };
 
