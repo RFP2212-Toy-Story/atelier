@@ -22,14 +22,32 @@ const PhotoTileDiv = styled.div`
     cursor: zoom-in;
     transform: scale(1.125);
   };
+  display: flex;
   transition: transform 1s ease-out;
-  margin: 20px;
+  margin: 24px;
   background-color: ${(props) => `${props.color}`};
-  padding: 10px;
+  padding: 12px;
   border: 4px solid ${(props) => `${props.color}`};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+`;
+
+const PhotoTileInnerDiv = styled.div`
+  display: flex;
+  padding: 16px;
+  background-color: white;
+  box-shadow: rgb(60, 60, 60, 0.5) 1px 1px 2px 1px inset,
+              rgba(60, 60, 60, 0.5) -1px -1px 2px 1px inset;
+`;
+
+const PhotoTileImage = styled.img`
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 2px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 `;
 
 const OverlayDiv = styled.div`
@@ -154,6 +172,8 @@ export {
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
+  PhotoTileInnerDiv,
+  PhotoTileImage,
   ProductInfo,
   ProductText,
   StyleButton,

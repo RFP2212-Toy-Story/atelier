@@ -38,7 +38,9 @@ const Photo = function CreatePhotoComponent({ photo }) {
   return (
     <div>
       <Styles.PhotoTileDiv color={averageColor.hex}>
-        <img onClick={handleClick} style={{ width: '100%', maxHeight: '100%' }} alt="product photograph" src={photo.thumbnail_url} />
+        <Styles.PhotoTileInnerDiv>
+          <Styles.PhotoTileImage onClick={handleClick} alt="product photograph" src={photo.thumbnail_url} />
+        </Styles.PhotoTileInnerDiv>
       </Styles.PhotoTileDiv>
       {zoomed ? <Styles.OverlayDiv /> : null}
       {zoomed ? <ZoomedPhoto callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null} {/* eslint-disable-line */}
