@@ -13,13 +13,16 @@ const ReviewModule = function ReviewModule() {
   const { prodID, meta } = useContext(ProdContext);
   const [reviews, setReviews] = useState([]);
   const [sortType, setSortType] = useState('relevant');
-  const [ratingsFilter, setRatingsFilter] = useState({
+
+  const initialRatings = {
     1: false,
     2: false,
     3: false,
     4: false,
     5: false
-  });
+  };
+
+  const [ratingsFilter, setRatingsFilter] = useState(initialRatings);
 
   const updateList = () => {
     requests
@@ -38,16 +41,12 @@ const ReviewModule = function ReviewModule() {
         ...ratingsFilter,
         [starNum]: !ratingsFilter[starNum]
       });
-    } else {
-      setRatingsFilter({
-        ...ratingsFilter,
-        1: false,
-        2: false,
-        3: false,
-        4: false,
-        5: false
-      });
     }
+  };
+
+  const resetDefault = () => {
+    setRatingsFilter(initialRatings);
+    setSortType('relevant');
   };
 
   return (
@@ -60,6 +59,7 @@ const ReviewModule = function ReviewModule() {
             recommend={meta.recommended}
             ratingsFilter={ratingsFilter}
             toggleRating={toggleRating}
+            resetDefault={resetDefault}
             updateList={updateList}
           />
           <ProductBreakdown traits={meta.characteristics} />

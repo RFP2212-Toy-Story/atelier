@@ -1,4 +1,4 @@
-import * as helpers from '../helpers/ratings.js';
+import * as helpers from '../utilities/helpers.js';
 
 describe('Ratings calculations', () => {
   test('count returns total rating count', () => {

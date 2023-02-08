@@ -1,4 +1,6 @@
-const reviews = [
+const testProdID = 40444;
+
+const testReviews = [
   {
     review_id: 645236,
     rating: 2,
@@ -86,7 +88,88 @@ const reviews = [
         url: 'https://images.unsplash.com/photo-1553830591-d8632a99e6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1511&q=80'
       }
     ]
+  },
+  {
+    review_id: 645244,
+    rating: 4,
+    summary: 'Quaerat est cumque ipsum nihil ducimus.',
+    recommend: true,
+    response: '"Odio ut maxime molestias autem soluta est ab voluptas."',
+    body: 'Sed maxime quia vitae rerum explicabo quae deleniti. Minus et provident ab neque laudantium placeat minus ducimus repellat. Laudantium vitae et repellat accusantium. Omnis vel fugit quia consequuntur asperiores facilis optio.',
+    date: '2020-10-24T00:00:00.000Z',
+    reviewer_name: 'Tristian.Hahn',
+    helpfulness: 14,
+    photos: [
+      {
+        id: 1236157,
+        url: 'https://images.unsplash.com/photo-1530821875964-91927b611bad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+      },
+      {
+        id: 1236158,
+        url: 'https://images.unsplash.com/photo-1553830591-2f39e38a013c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2760&q=80'
+      }
+    ]
   }
 ];
 
-export default reviews;
+const testProduct = {
+  id: 10000,
+  campus: 'hr-rfp',
+  name: 'Camo Onesie',
+  slogan: 'Blend in to your crowd',
+  description: 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',
+  category: 'Jackets',
+  default_price: '140.00',
+  created_at: '2021-08-13T14:38:44.509Z',
+  updated_at: '2021-08-13T14:38:44.509Z',
+  features: [
+    {
+      feature: 'Fabric',
+      value: 'Canvas'
+    },
+    {
+      feature: 'Buttons',
+      value: 'Brass'
+    }
+  ]
+};
+
+const testMeta = {
+  product_id: '40444',
+  ratings: {
+    1: '9',
+    2: '9',
+    3: '9',
+    4: '13',
+    5: '7'
+  },
+  recommended: {
+    false: '10',
+    true: '37'
+  },
+  characteristics: {
+    Fit: {
+      id: 135553,
+      value: '2.7894736842105263'
+    },
+    Length: {
+      id: 135554,
+      value: '2.6052631578947368'
+    },
+    Comfort: {
+      id: 135555,
+      value: '2.8157894736842105'
+    },
+    Quality: {
+      id: 135556,
+      value: '3.1315789473684211'
+    }
+  }
+};
+
+export {
+  testProdID,
+  testReviews,
+  testProduct,
+  testMeta
+};
