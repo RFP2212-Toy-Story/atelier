@@ -87,7 +87,7 @@ const HeaderWrapperDiv = styled.div`
 const FontDiv = styled.div`
   // calc(minSize + (maxSize - minSize) * (100VW - minWidth) / (maxWidth - minWidth))
   @media (max-width: 900px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
     transform: font-size 2s;
   }
   transition: font-size 1s;
