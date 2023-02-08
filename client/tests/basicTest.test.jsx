@@ -2,7 +2,8 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen } from '@testing-library/react'; // jest is a jerk about using ES6 import
+import '@testing-library/jest-dom';
+import { act, render, screen } from '@testing-library/react'; // jest is a jerk about using ES6 import
 
 import TestApp from './basicTest';
 import * as requests from '../source/utilities/axiosRequests.js';
@@ -25,13 +26,20 @@ requests.get.mockImplementation((url) => {
   return (Promise.resolve({ data }));
 });
 
+// To handle GET requests inside useEffect, you need a lot of async
+beforeEach(async () => {
+  await act(async () => render(<TestApp />));
+});
+
 describe('REACT: testing basic div rendering', () => {
   test('loads items eventually', async () => {
-    await render(<TestApp />);
-
-    // Wait for page to update with query text
-    const string = await screen.getByText('Hello World!');
     screen.debug();
+
+    let string = await screen.getByText('Hello World!');
     expect(string.textContent).toBe('Hello World!');
+
+    string = await screen.getByText('data from ONE');
+    expect(requests.get).toHaveBeenCalledTimes(2);
+    expect(string).toBeInTheDocument();
   });
 });

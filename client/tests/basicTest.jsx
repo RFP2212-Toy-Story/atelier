@@ -7,23 +7,28 @@ import * as requests from '../source/utilities/axiosRequests.js';
 
 
 const TestApp = function CreateTestApp() {
-  const [value, setValue] = useState('default value');
+  const [value1, setValue1] = useState('nope');
+  const [value2, setValue2] = useState('nope');
 
   useEffect(() => {
-    requests.get('url_two')
-      .then((response) => { console.info('TWO GOT:', response.data); });
-
     requests.get('url_one')
       .then((response) => {
-        console.info('ONE GOT:', response.data);
-        setValue(response.data);
+        console.info(response);
+        setValue1(response.data);
       });
-  }, [value]);
+
+    requests.get('url_two')
+      .then((response) => {
+        console.info(response);
+        setValue2(response.data);
+      });
+  }, []);
 
   return (
     <>
       <div>Hello World!</div>
-      <div>{value}</div>
+      <div>{value1}</div>
+      <div>{value2}</div>
     </>
   );
 };
