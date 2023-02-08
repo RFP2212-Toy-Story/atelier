@@ -70,7 +70,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
                 className="show-more-button"
                 type="button"
                 onClick={() => setFullBody(true)}
-              >SHOW MORE +
+              >Show More +
               </button>
             )
             : null }

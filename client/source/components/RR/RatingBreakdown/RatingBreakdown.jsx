@@ -48,7 +48,7 @@ const RatingBreakdown = function RatingsBreakdown({
                 className="default-button"
                 type="button"
                 onClick={() => resetDefault()}
-              >REMOVE ALL FILTERS
+              >Remove all filters
               </button>
             </div>
           )

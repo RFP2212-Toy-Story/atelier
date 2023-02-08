@@ -46,7 +46,7 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
                 className="footer-button"
                 type="button"
                 onClick={() => setNumReviews(numReviews + 2)}
-              >MORE REVIEWS
+              >More Reviews
               </ButtonMainStyle>
             )
             : null }
@@ -54,7 +54,7 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
             className="footer-button"
             type="button"
             onClick={onOpen}
-          >ADD A REVIEW
+          >Add a Review
           </ButtonMainStyle>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalFormTitle
