@@ -6,11 +6,9 @@ import * as requests from '../../../utilities/axiosRequests.js';
 import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
-  // STATE
   const [fullBody, setFullBody] = useState(false);
   const [reported, setReported] = useState(false);
 
-  // FUNCTIONS
   const formatDate = (date) => {
     const parsedDate = parseISO(date);
     return format(parsedDate, 'PPP');
@@ -30,7 +28,6 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     return bodyText;
   };
 
-  // EVENT HANDLERS
   const handleHelpfulness = (event) => {
     event.target.setAttribute('disabled', true);
     requests
