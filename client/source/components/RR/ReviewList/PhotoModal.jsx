@@ -7,15 +7,15 @@ const PhotoModal = function PhotoModal({ photo, onClose }) {
     <ModalOverlay>
       <Wrapper>
         <ModalInner>
-          <div className="review-photo-modal">
+          <ImageContainer>
             <img
               src={photo.url}
               alt="Enlarged"
             />
-            <CloseButton type="button">
-              <IoIosCloseCircleOutline onClick={onClose} />
-            </CloseButton>
-          </div>
+          </ImageContainer>
+          <CloseButton type="button">
+            <IoIosCloseCircleOutline onClick={onClose} />
+          </CloseButton>
         </ModalInner>
       </Wrapper>
     </ModalOverlay>
@@ -54,9 +54,18 @@ const ModalInner = styled.div`
   background-color: #FFFBEA;
   margin-top: 64px;
   margin-bottom: 64px;
+  max-width: 50%;
   z-index: 1010;
-  /* max-width: fit-content(20em); */
   padding: 24px;
+  `;
+
+const ImageContainer = styled.div`
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    padding: 0.5em;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -68,5 +77,6 @@ const CloseButton = styled.button`
   font-size: 1.3rem;
   background: transparent;
 `;
+
 
 export default PhotoModal;
