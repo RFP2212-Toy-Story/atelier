@@ -1,5 +1,5 @@
 // LIBRARY IMPORTS
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // LOCAL IMPORTS
@@ -14,7 +14,7 @@ import FullStar from './FullStar.jsx';
 // STYLED COMPONENT
 const StyledAvgStarArray = styled.div`
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 `;
 
 const AvgStarArray = function CreateAvgStarArray({ avgRating }) {
