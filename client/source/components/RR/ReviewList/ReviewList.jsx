@@ -59,7 +59,7 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalFormTitle
               title="Write Your Review"
-              subtitle={`About the ${product?.name || 'unknown product'}`}
+              subtitle={`About the ${product.name || 'unknown product'}`}
             />
             <AddReview onClose={onClose} />
           </Modal>

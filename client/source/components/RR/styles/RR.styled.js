@@ -163,8 +163,11 @@ export const ReviewListContainer = styled.div`
   padding: 0.5em;
 
   .reviews-scroll-container {
-    max-height: 600px;
+    /* max-height: 800px; */
+    /* position: fixed; */
+    width: 100%;
     overflow-y: auto;
+    /* overscroll-behavior: contain; */
   }
 `;
 
