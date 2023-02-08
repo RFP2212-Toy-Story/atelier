@@ -1,5 +1,7 @@
 // LIBRARY IMPORTS
-import React, { useState, useEffect, useContext } from 'react';
+import React, {
+  useState, useEffect, useContext, forwardRef
+} from 'react';
 import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
@@ -9,9 +11,11 @@ import StyledRelatedListCard from './styles/RelatedListCard.styled.jsx';
 import CompareTable from './CompareTable.jsx';
 import Modal from '../shared/Modal';
 import useModal from '../../useModal';
+import AvgStarArray from '../shared/AvgStarArray.jsx';
 
 // MAIN
-const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
+// eslint-disable-next-line prefer-arrow-callback
+const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdId }, ref) {
   // STATES
   const { setProdID } = useContext(ProdContext);
   const [productDetail, setProductDetail] = useState({});
@@ -41,12 +45,13 @@ const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
   };
 
   return (
-    <StyledRelatedListCard onClick={handleCardClick}>
+    <StyledRelatedListCard onClick={handleCardClick} ref={ref}>
       <img alt={productDetail.name} src={imageURL} />
       <HiOutlineStar className="compareButton" onClick={onOpen} />
-      <h3>{productDetail.category}</h3>
+      <h3 data-testid="card-category">{productDetail.category}</h3>
       <h4>{productDetail.name}</h4>
       <h5>${productDetail.default_price}</h5>
+      <AvgStarArray />
       <Modal isOpen={isOpen} onClose={onClose}>
         <CompareTable
           relatedProductDetail={productDetail}
@@ -55,6 +60,6 @@ const RelatedListCard = function CreateRelatedListCard({ relatedProdId }) {
       </Modal>
     </StyledRelatedListCard>
   );
-};
+});
 
 export default RelatedListCard;
