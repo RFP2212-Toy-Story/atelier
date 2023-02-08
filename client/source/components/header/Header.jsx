@@ -26,12 +26,15 @@ const Header = function CreateHeaderComponent() {
 
         <div style={{ position: 'relative' }}>
           <Styles.FontDiv>
-            <h1>DINOMITE DESIGNS🦖</h1>
+            <h1>DINOMITE DESIGNS</h1>
+            <Styles.FadingDiv scrolled={scrolled}>
+              <img style={{ top: '3rem', right: '-5rem', width: '90px', position: 'absolute' }} alt="a cutie dinosaur" src="/images/t_rex_icon.png" />
+            </Styles.FadingDiv>
           </Styles.FontDiv>
 
           <Styles.FadingDiv scrolled={scrolled}>
             <Styles.FontDiv>
-              <div style={{ position: 'relative', top: '-4rem', left: '-2rem' }}>
+              <div style={{ position: 'relative', top: '-4rem', left: '0.66rem' }}>
                 VINTAGE CLOTHES THAT OUTLAST EONS
               </div>
             </Styles.FontDiv>
