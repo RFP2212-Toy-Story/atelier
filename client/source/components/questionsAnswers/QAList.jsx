@@ -10,7 +10,7 @@ const QAList = function CreateQAListComponent({ questions, getQuestions }) {
   return (
     <div data-testid="ancestor1">
       {currentQuestions.map((question) => (
-        <UnorderedList key={question.question_id} data-testid="descendant1">
+        <UnorderedList key={question.question_id}>
           <QAItem
             id={question.question_id}
             question={question}

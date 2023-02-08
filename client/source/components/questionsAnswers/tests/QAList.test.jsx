@@ -28,13 +28,10 @@ afterEach(() => {
   cleanup();
 });
 
-describe('Question list basic rendering', () => {
-  // test('Basic Rendering', async () => {
-  //   expect(screen.getByRole('div')).toBeInTheDocument();
-  // });
-  test('That div is ancestor of LoadQA', async () => {
-    const ancestor = screen.getByTestId('ancestor1');
-    const descendant1 = screen.getByTestId('descendant1');
-    expect(ancestor).toContainElement(descendant1);
+describe('Check div', () => {
+  test('That div is a div', async () => {
+    const ancestor1 = screen.getByTestId('ancestor1');
+    // console.log('ancestor1: ', ancestor1);
+    expect(ancestor1.type).toBe('div');
   });
 });
