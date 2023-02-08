@@ -36,7 +36,7 @@ const Photo = function CreatePhotoComponent({ photo }) {
   }, [zoomed]);
 
   return (
-    <div>
+    <>
       <Styles.PhotoTileDiv color={averageColor.hex}>
         <Styles.PhotoTileInnerDiv>
           <Styles.PhotoTileImage onClick={handleClick} alt="product photograph" src={photo.thumbnail_url} />
@@ -44,7 +44,7 @@ const Photo = function CreatePhotoComponent({ photo }) {
       </Styles.PhotoTileDiv>
       {zoomed ? <Styles.OverlayDiv /> : null}
       {zoomed ? <ZoomedPhoto callback={zoomedCB} color={averageColor.hex} photo={photo} /> : null} {/* eslint-disable-line */}
-    </div>
+    </>
   );
 };
 
