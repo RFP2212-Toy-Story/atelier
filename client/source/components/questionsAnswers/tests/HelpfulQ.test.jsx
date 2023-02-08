@@ -49,4 +49,8 @@ describe('Button element is working', () => {
       expect(modal).toBeInTheDocument();
     });
   });
+  test('check span', async () => {
+    const span = await screen.getByText('Helpful?', { exact: false });
+    expect(span).toBeInTheDocument();
+  });
 });

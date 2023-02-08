@@ -26,7 +26,6 @@ describe('div', () => {
   });
   test('That div has a value and a placeholder', async () => {
     const child = screen.getByTestId('child');
-    // console.log('child: ', child);
     expect(child).toHaveValue('1234');
     expect(child.placeholder).toBe('Have a Question? Search For Answers');
     expect(child.type).toBe('text');
