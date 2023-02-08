@@ -14,7 +14,7 @@ import FullStar from './FullStar.jsx';
 // STYLED COMPONENT
 const StyledAvgStarArray = styled.div`
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 `;
 
 const AvgStarArray = function CreateAvgStarArray({ avgRating }) {
