@@ -30,9 +30,9 @@ const Overview = function CreateOverviewComponent() {
   }, [prodID, product, styles]);
 
   return (
-    <div id="overview-component" className="FlexColumn" data-module-name="overview">
-      <div className="FlexRow" style={{ height: '60vh' }} >
+    <div id="overview-component" data-module-name="overview">
 
+      <div className="FlexRow">
         <PhotoBlock photos={currentStyle.photos} />
         <ProductInfo
           product={product}
@@ -40,7 +40,6 @@ const Overview = function CreateOverviewComponent() {
           style={currentStyle}
           changeStyle={changeStyle}
         />
-
       </div>
 
       <ProductText product={product} />

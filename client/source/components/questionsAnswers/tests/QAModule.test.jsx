@@ -2,20 +2,44 @@
  * @jest-environment jsdom
  */
 import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
-
+import { render } from '@testing-library/react';
+import mockAxios from 'axios';
+import ProdContext from '../../../ProdContext.js';
 import QAModule from '../QAModule';
+import qaData from './exampleDataQA';
 
-afterEach(() => {
-  cleanup();
+const questions = qaData.results;
+
+const testData = {
+  status: 200,
+  data: {
+    results: [questions]
+  }
+};
+
+function renderWithContext(id) {
+  const prodID = id;
+  return render(
+    <ProdContext.Provider value={{ prodID }}>
+      <QAModule />
+    </ProdContext.Provider>
+  );
+}
+
+jest.mock('axios');
+mockAxios.get.mockResolvedValue(testData);
+
+beforeEach(() => {
+  renderWithContext(questions[0].question_id);
 });
 
-describe('REACT: testing basic QAModule rendering', () => {
-  test('loads items eventually', async () => {
-    render(<QAModule />);
+afterEach(() => {
+  jest.restoreAllMocks();
+});
 
-    // Wait for page to update with query text
-    const string = await screen.getByText('Questions and Answers');
-    expect(string.textContent).toBe('Questions and Answers');
+describe('Axios mock get request', () => {
+  test('should return entry from API', async () => {
+    // const result = await getQuestions();
+    expect(mockAxios.get).toHaveBeenCalledTimes(1);
   });
 });

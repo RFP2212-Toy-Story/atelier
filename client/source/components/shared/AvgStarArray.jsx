@@ -1,9 +1,10 @@
 // LIBRARY IMPORTS
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 // LOCAL IMPORTS
-import average from '../../utilities/helpers.js';
+// import average from '../../utilities/helpers.js';
+// import ProdContext from '../../ProdContext.js';
 import EmptyStar from './EmptyStar.jsx';
 import QuarterStar from './QuarterStar.jsx';
 import HalfStar from './HalfStar.jsx';
@@ -16,10 +17,7 @@ const StyledAvgStarArray = styled.div`
   flex-direction: row
 `;
 
-const AvgStarArray = function CreateAvgStarArray() {
-  // TEMPORARY DATA
-  const avgRating = 3.5;
-
+const AvgStarArray = function CreateAvgStarArray({ avgRating }) {
   return (
     <StyledAvgStarArray>
       {Array.from(Array(5)).map((_, index) => {

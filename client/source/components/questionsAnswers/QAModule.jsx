@@ -4,12 +4,11 @@ import ProdContext from '../../ProdContext.js';
 import SearchQuestions from './SearchQuestions';
 import QAList from './QAList';
 import * as requests from '../../utilities/axiosRequests.js';
-import qaData from './exampleDataQA';
 import { Container } from './styles/Containers.styled';
 
 const QAModule = function CreateQAModuleComponent() {
   const { prodID } = useContext(ProdContext);
-  const [questions, setQuestions] = useState(qaData.results);
+  const [questions, setQuestions] = useState([]);
   const [query, setQuery] = useState('');
 
   const getQuestions = () => {

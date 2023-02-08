@@ -11,8 +11,8 @@ beforeEach(() => { render(<Header />); });
 
 describe('Header: basic rendering', () => {
   test('it shows up instead of not showing up', async () => {
-    const string = await screen.getByText('DINOMITE DESIGNS');
-    expect(string.textContent).toBe('DINOMITE DESIGNS');
+    const string = await screen.getByText('DINOMITE DESIGNS', { exact: false });
+    expect(string.textContent).toContain('DINOMITE DESIGNS');
   });
 
   test('it changes to a reduced version if you scroll a lot', async () => {

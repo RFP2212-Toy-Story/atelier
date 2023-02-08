@@ -33,10 +33,11 @@ const HelpfulA = function CreateHelpfulAComponent({ id, getQuestions, helpfulnes
   return (
     <ButtonContainer>
       <span>Helpful? </span>
-      <span>
+      <span data-testid="ancestor">
         <button
           type="button"
           onClick={handleHelpfulA}
+          data-testid="descendant"
         >Yes {`(${helpfulness})`}
         </button>
         <span>  |  </span>
