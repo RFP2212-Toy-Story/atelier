@@ -80,8 +80,11 @@
         "jsx-a11y/no-noninteractive-element-interactions": [
             "warn"
         ],
-        "react/jsx-boolean-value": [
-            "off"
+        "object-curly-newline": [
+            "error",
+            {
+                "ImportDeclaration": "never"
+            }
         ]
     }
 }

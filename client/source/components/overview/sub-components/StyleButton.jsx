@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiCircleClaws } from 'react-icons/gi'; // GiDinosaurRex GiDinosaurBones
+import { GiCircleClaws } from 'react-icons/gi';
 
 import * as Styles from '../overviewStyles.js';
 
@@ -12,7 +12,7 @@ const StyleButton = function CreateStyleButtonComponent({
 
   return (
     <div style={{ position: 'relative' }}>
-      <Styles.StyleButtonImage selected={selected} onClick={handleClick} id={index} type="button" alt="stlye thumbnail" src={style?.photos[0].thumbnail_url} />
+      <Styles.StyleButtonImage selected={selected} onClick={handleClick} id={index} type="button" alt={style.name} src={style?.photos[0].thumbnail_url} />
       {selected ? (
         <div style={{
           fontWeight: 'bold',

@@ -14,7 +14,8 @@ const ZoomedPhotoDiv = styled.div`
   z-index: 201;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,
+              rgba(0, 0, 0, 0.25) 0px 0px 2px 1px inset;
 `;
 
 const PhotoTileDiv = styled.div`
@@ -31,7 +32,8 @@ const PhotoTileDiv = styled.div`
   border: 4px solid ${(props) => `${props.color}`};
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,
+              rgba(0, 0, 0, 0.25) 0px 0px 2px 1px inset;
 `;
 
 const PhotoTileInnerDiv = styled.div`
@@ -73,6 +75,7 @@ const PhotoBlockDiv = styled.div`
 
 const CarouselWrapperDiv = styled.div`
   width: 50vw;
+  height: 60vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -140,8 +143,8 @@ const ThumbnailImage = styled.img`
   margin: 4px auto;
   border: 2px solid rgba(128, 128, 128, 0.5);
   padding: 6px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 2px -2px,
-              rgba(10, 37, 64, 0.35) 0px -2px 3px 0px inset;
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,
+              rgba(128, 128, 128, 1) 0px 0px 1px 1px inset;
 `;
 
 const StyleButtonImage = styled.img`
@@ -158,6 +161,8 @@ const StyleButtonImage = styled.img`
   object-fit: cover;
   width: 60px;
   height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.50) 2px 3px 6px -2px,
+              rgba(10, 30, 60, 0.20) 3px 3px 9px 2px;
 `;
 
 const ProductInfo = styled.div`

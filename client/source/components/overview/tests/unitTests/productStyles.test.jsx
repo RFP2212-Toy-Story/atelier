@@ -14,7 +14,7 @@ describe('Product Info: basic rendering', () => {
       styles={testData.testProductStyles.results}
       setStyle={null}
     />);
-    const string = await screen.getByText('Forest Green & Black');
-    expect(string.textContent).toBe('Forest Green & Black');
+    const image = await screen.getByAltText('Forest Green & Black');
+    expect(image.alt).toBe('Forest Green & Black');
   });
 });

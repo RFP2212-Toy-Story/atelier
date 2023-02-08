@@ -30,8 +30,12 @@ const ShrinkAnimation = keyframes`
 
 // STYLES
 const FadingDiv = styled.div`
-  margin-right: 34px;
-  margin-top: -60px;
+  @media (max-width: 900px) {
+    visibility: hidden;
+    opacity: 0;
+    transform: font-size 2s;
+    transition: visibility 1s, opacity 1s linear;
+  }
   height: 0px;
   ${(props) => {
     if (props.scrolled) {
@@ -57,6 +61,7 @@ const HeaderDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   ${(props) => {
     if (props.scrolled) {
@@ -76,10 +81,16 @@ const HeaderDiv = styled.div`
 `;
 
 const HeaderWrapperDiv = styled.div`
-  height: 150px;
+  height: 160px;
 `;
 
-const PixelFontDiv = styled.div`
+const FontDiv = styled.div`
+  // calc(minSize + (maxSize - minSize) * (100VW - minWidth) / (maxWidth - minWidth))
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+    transform: font-size 2s;
+  }
+  transition: font-size 1s;
   font-size: 2rem;
   font-family: 'Nerko One';
 `;
@@ -88,5 +99,5 @@ export {
   FadingDiv,
   HeaderDiv,
   HeaderWrapperDiv,
-  PixelFontDiv
+  FontDiv
 };
