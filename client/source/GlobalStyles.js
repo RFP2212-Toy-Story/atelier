@@ -47,6 +47,13 @@ select:hover {
 
 
 // CLASSES
+.color-hover:hover {
+  cursor: pointer;
+  color: #E07A5F;
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
 .FlexColumn {
   display: flex;
   flex-direction: column;

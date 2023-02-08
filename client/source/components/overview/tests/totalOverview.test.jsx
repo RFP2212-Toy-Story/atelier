@@ -33,13 +33,13 @@ describe('OVERVIEW: comprehensive test', () => {
   });
 
   it('should change the style presented on screen', () => {
-    const button = screen.getByText('Desert Brown & Tan');
+    const button = screen.getByAltText('Desert Brown & Tan');
     let cost = screen.getByText('$140.00').parentNode;
     expect(cost.textContent).toBe('$140.00');
 
     fireEvent.click(button);
     cost = screen.getByText('$100.00').parentNode;
-    expect(cost.textContent).toBe('$140.00$100.00');
+    expect(cost.textContent).toBe('$140.00\xa0$100.00'); // Jest does not recognize &nbsp; as a space, so use \xa0
   });
 
   it.skip('will display the DOM in debug mode', () => {
