@@ -9,7 +9,7 @@ export default function Modal({ children, isOpen, onClose }) {
     isOpen && createPortal(
       <>
         <ModalOverlay />
-        <Wrapper>
+        <Wrapper data-testid="modal">
           <ModalInner>
             <CloseButton>
               <IoIosCloseCircleOutline onClick={onClose} />

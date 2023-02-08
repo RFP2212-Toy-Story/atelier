@@ -1,0 +1,31 @@
+/**
+ * @jest-environment jsdom
+ */
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import userEvent from '@testing-library/user-event';
+import QuestionForm from '../QuestionForm';
+
+beforeEach(() => {
+  render(<QuestionForm
+    handlePost={() => {}}
+  />);
+});
+
+describe('Question form related', () => {
+  test('should render a form to the page', () => {
+    expect(screen.getByRole('form')).toBeInTheDocument();
+  });
+  test('test inputs', async () => {
+    const questionInput = screen.getByLabelText('What is your question? *');
+    const nicknameInput = screen.getByLabelText('What is your nickname? *');
+    const emailInput = screen.getByLabelText('What is your email? *');
+    await userEvent.type(questionInput, 'I have a question about the product');
+    await expect(questionInput).toHaveValue('I have a question about the product');
+    await userEvent.type(nicknameInput, 'Uncle J');
+    await expect(nicknameInput).toHaveValue('Uncle J');
+    await userEvent.type(emailInput, 'uncleJ@galvanize.com');
+    await expect(emailInput).toHaveValue('uncleJ@galvanize.com');
+  });
+});

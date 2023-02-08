@@ -24,11 +24,13 @@ const QuestionForm = function CreateQuestionFormComponent({ handlePost }) {
   }, [formInput]);
 
   return (
-    <Form onSubmit={(e) => {
-      e.preventDefault();
-      handlePost(e, formInput);
-      clearForm();
-    }}
+    <Form
+      aria-label="form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handlePost(e, formInput);
+        clearForm();
+      }}
     >
       <FormTextarea
         labelText="What is your question? *"

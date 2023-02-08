@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 const SearchQuestions = function CreateSearchQuestions({ handleQ, query }) {
   return (
-    <InputContainer>
+    <InputContainer data-testid="parent">
       <Input
         type="text"
         placeholder="Have a Question? Search For Answers"
         onChange={handleQ}
         value={query}
+        data-testid="child"
       />
     </InputContainer>
   );

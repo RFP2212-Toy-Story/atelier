@@ -17,6 +17,7 @@ const FormTextarea = function CreateFormTextarea({
           onChange={onChange}
           rows="5"
           cols="62"
+          required
         />
       </label>
       {disclaimerText && (<Paragraph>{disclaimerText}</Paragraph>)}
