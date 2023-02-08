@@ -1,32 +1,43 @@
 /**
  * @jest-environment jsdom
  */
-
+// LIBRARY IMPORTS
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
+// LOCAL IMPORTS
 import RelatedList from '../RelatedList.jsx';
 import ProdContext from '../../../ProdContext';
-import testProductId from './testData.js';
+import { testProductId, testRelatedProductsList } from './testData.js';
+import * as requests from '../../../utilities/axiosRequests';
 
-const customRender = (component, { providerProps }) => (
-  render(
-    <ProdContext.Provider value={providerProps}>{component}</ProdContext.Provider>
-  )
-);
+jest.mock('../../../utilities/axiosRequests.js');
+
+function renderWithContext(testProdId) {
+  const prodID = testProdId;
+  return render(
+    <ProdContext.Provider value={{ prodID }}>
+      <RelatedList />
+    </ProdContext.Provider>
+  );
+}
 
 beforeEach(() => {
-  const providerProps = { testProductId };
-  customRender(<RelatedList />, { providerProps });
+  requests.get.mockImplementation(() => {
+    const data = testRelatedProductsList;
+    return (Promise.resolve(data));
+  });
+  renderWithContext(testProductId);
 });
 
 afterEach(() => {
   cleanup();
 });
 
-describe('Related Product List icons working', () => {
-  it('Icons are clickable', async () => {
-    const textElement = screen.getByText('Related Products');
-    expect(textElement).toBeInTheDocument();
+describe('Related Product List header is displaying', () => {
+  it('Header is rendering', async () => {
+    const heading = await screen.getByTestId('heading');
+    expect(heading).toBeInTheDocument();
   });
 });

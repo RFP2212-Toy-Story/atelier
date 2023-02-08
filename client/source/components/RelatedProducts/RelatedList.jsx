@@ -60,7 +60,7 @@ const RelatedList = function CreateRelatedList() {
 
   return (
     <StyledRelatedList data-module-name="related products">
-      <h3>Related Products</h3>
+      <h3 data-testid="heading">Related Products</h3>
       <div className="container">
         <StyledMediaScroll>
           {/* eslint-disable-next-line max-len */}
@@ -70,8 +70,8 @@ const RelatedList = function CreateRelatedList() {
             ref={index === i ? selectedRef : null}
           />)}
         </StyledMediaScroll>
-        {index > 0 && <BiChevronLeftCircle className="left" onClick={handleLeftClick} />}
-        {index < relatedProducts.length - 1 && <BiChevronRightCircle className="right" onClick={handleRightClick} />}
+        {index > 0 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
+        {index < relatedProducts.length - 1 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
       </div>
     </StyledRelatedList>
   );
