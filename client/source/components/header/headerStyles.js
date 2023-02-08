@@ -30,6 +30,12 @@ const ShrinkAnimation = keyframes`
 
 // STYLES
 const FadingDiv = styled.div`
+  @media (max-width: 900px) {
+    visibility: hidden;
+    opacity: 0;
+    transform: font-size 2s;
+    transition: visibility 1s, opacity 1s linear;
+  }
   height: 0px;
   ${(props) => {
     if (props.scrolled) {
@@ -80,6 +86,11 @@ const HeaderWrapperDiv = styled.div`
 
 const FontDiv = styled.div`
   // calc(minSize + (maxSize - minSize) * (100VW - minWidth) / (maxWidth - minWidth))
+  @media (max-width: 900px) {
+    font-size: 1rem;
+    transform: font-size 2s;
+  }
+  transition: font-size 1s;
   font-size: 2rem;
   font-family: 'Nerko One';
 `;

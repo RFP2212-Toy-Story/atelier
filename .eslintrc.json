@@ -79,6 +79,12 @@
         ],
         "jsx-a11y/no-noninteractive-element-interactions": [
             "warn"
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "ImportDeclaration": {"multiline": true, "minProperties": 5 }
+            }
         ]
     }
 }

@@ -50,7 +50,7 @@ const Checkout = function CreateCheckoutComponent({ style }) {
 
   return (
     <div>
-      <div>
+      <div style={{ margin: '0.5rem 0' }}>
 
         <hr />
 

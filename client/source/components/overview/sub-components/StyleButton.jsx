@@ -1,5 +1,5 @@
 import React from 'react';
-import { GiCircleClaws } from 'react-icons/gi'; // GiDinosaurRex GiDinosaurBones
+import { GiCircleClaws } from 'react-icons/gi';
 
 import * as Styles from '../overviewStyles.js';
 
