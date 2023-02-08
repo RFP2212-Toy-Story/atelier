@@ -17,7 +17,7 @@ afterEach(() => {
   cleanup();
 });
 
-describe('div', () => {
+describe('Test that div has value, a placeholder, and is parent of input', () => {
   test('That div is parent of input', async () => {
     const parent = screen.getByTestId('parent');
     const child = screen.getByTestId('child');
