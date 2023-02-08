@@ -22,16 +22,6 @@ const PhotoModal = function PhotoModal({ photo, onClose }) {
   );
 };
 
-const ModalOverlay = styled.div`
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-`;
-
 const Wrapper = styled.div`
   display: flex;
   width: 100vw;
@@ -42,8 +32,8 @@ const Wrapper = styled.div`
   z-index: 1010;
   justify-content: center;
   align-items: flex-start;
-  overflow: auto;
-`;
+  overflow: hidden;
+  `;
 
 const ModalInner = styled.div`
   display: flex;
@@ -58,6 +48,16 @@ const ModalInner = styled.div`
   z-index: 1010;
   padding: 24px;
   `;
+
+const ModalOverlay = styled.div`
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+`;
 
 const ImageContainer = styled.div`
   img {

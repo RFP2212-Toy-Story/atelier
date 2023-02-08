@@ -2,6 +2,7 @@ import React from 'react';
 import RatingBar from './RatingBar.jsx';
 import * as helpers from '../utilities/helpers.js';
 import average from '../../../utilities/helpers.js';
+import AvgStarArray from '../../shared/AvgStarArray.jsx';
 import { RatingBreakdownContainer } from '../styles/RR.styled.js';
 
 const RatingBreakdown = function RatingsBreakdown({
@@ -26,7 +27,9 @@ const RatingBreakdown = function RatingsBreakdown({
       <div className="rating-breakdown">
         <div className="rating-details">
           <div className="average-rating">{averageRating}</div>
-          <div className="star-rating">stars here</div>
+          <div className="star-rating">
+            <AvgStarArray avgRating={averageRating} />
+          </div>
         </div>
         <div className="recommended-percentage">
           {`${votes}% of reviews recommend this product`}
