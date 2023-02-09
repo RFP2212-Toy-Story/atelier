@@ -85,6 +85,9 @@
             {
                 "ImportDeclaration": "never"
             }
+        ],
+        "react/jsx-boolean-value": [
+            "off"
         ]
     }
 }
