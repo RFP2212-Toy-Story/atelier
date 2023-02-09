@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import AnswerItem from './AnswerItem';
-import UnorderedList from './styles/UnorderedList';
+// import UnorderedList from './styles/UnorderedList';
 import { MoreButtonContainer } from './styles/Containers.styled';
 
 const AnswerList = function CreateAnswerListComponent({ answers, getQuestions }) {
@@ -28,5 +29,9 @@ const AnswerList = function CreateAnswerListComponent({ answers, getQuestions })
     </div>
   );
 };
+
+const UnorderedList = styled.ul`
+  padding-left: 0;
+`;
 
 export default AnswerList;
