@@ -148,11 +148,6 @@ const AddReview = function AddReview({ onClose }) {
           : 'Minimum reached'}
         onChange={handleInputChange}
       />
-
-      {/* <div className="form-section">
-        <div className="form-section-header">Upload your photos</div>
-      </div> */}
-
       <FormInput
         labelText="What is your nickname *"
         type="text"
