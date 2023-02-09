@@ -7,30 +7,20 @@ const PhotoModal = function PhotoModal({ photo, onClose }) {
     <ModalOverlay>
       <Wrapper>
         <ModalInner>
-          <div className="review-photo-modal">
+          <ImageContainer>
             <img
               src={photo.url}
               alt="Enlarged"
             />
-            <CloseButton type="button">
-              <IoIosCloseCircleOutline onClick={onClose} />
-            </CloseButton>
-          </div>
+          </ImageContainer>
+          <CloseButton type="button">
+            <IoIosCloseCircleOutline onClick={onClose} />
+          </CloseButton>
         </ModalInner>
       </Wrapper>
     </ModalOverlay>
   );
 };
-
-const ModalOverlay = styled.div`
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,8 +32,8 @@ const Wrapper = styled.div`
   z-index: 1010;
   justify-content: center;
   align-items: flex-start;
-  overflow: auto;
-`;
+  overflow: hidden;
+  `;
 
 const ModalInner = styled.div`
   display: flex;
@@ -54,9 +44,28 @@ const ModalInner = styled.div`
   background-color: #FFFBEA;
   margin-top: 64px;
   margin-bottom: 64px;
+  max-width: 50%;
   z-index: 1010;
-  /* max-width: fit-content(20em); */
   padding: 24px;
+  `;
+
+const ModalOverlay = styled.div`
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+`;
+
+const ImageContainer = styled.div`
+  img {
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    padding: 0.5em;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -68,5 +77,6 @@ const CloseButton = styled.button`
   font-size: 1.3rem;
   background: transparent;
 `;
+
 
 export default PhotoModal;
