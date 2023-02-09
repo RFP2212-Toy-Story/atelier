@@ -39,6 +39,11 @@ export const RatingBreakdownContainer = styled.div`
     font-weight: bold;
   }
 
+  .star-rating {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
   .recommended-percentage, .review-count {
     padding: 0.5em;
   }
@@ -168,6 +173,11 @@ export const ReviewListContainer = styled.div`
     width: 100%;
     overflow-y: auto;
     /* overscroll-behavior: contain; */
+  }
+
+  .trait-options {
+    display: flex;
+    flex-direction: column;
   }
 `;
 

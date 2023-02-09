@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import ReviewRating from './ReviewRating.jsx';
+import AvgStarArray from '../../shared/AvgStarArray.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../../utilities/axiosRequests.js';
 import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
@@ -52,7 +52,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     <ReviewTileContainer>
       <div className="review-tile">
         <div className="review-header">
-          <ReviewRating rating={review.rating} />
+          <AvgStarArray avgRating={review.rating} />
           <div className="review-user-date">
             {`${review.reviewer_name}, `}
             {formatDate(review.date)}
