@@ -169,10 +169,8 @@ export const ReviewListContainer = styled.div`
 
   .reviews-scroll-container {
     max-height: 800px;
-    /* position: fixed; */
     width: 100%;
     overflow-y: auto;
-    /* overscroll-behavior: contain; */
   }
 
   .trait-options {
@@ -209,7 +207,6 @@ export const ReviewTileContainer = styled.div`
   .review-summary {
     padding: 0.5em;
     font-weight: bold;
-    /* font-size: 115%; */
   }
 
   .review-text {
