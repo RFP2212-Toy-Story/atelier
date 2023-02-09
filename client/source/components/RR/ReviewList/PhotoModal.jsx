@@ -39,6 +39,7 @@ const ModalInner = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  align-self: center;
   width: 100%;
   border-radius: 12px;
   background-color: #FFFBEA;
