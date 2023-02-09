@@ -1,15 +1,14 @@
 // LIBRARY IMPORTS
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 // LOCAL IMPORTS
 import ProdContext from '../../ProdContext.js';
 import StyledCompareTable from './styles/CompareTable.styled.jsx';
 
 // MAIN
-const CompareTable = function CreateCompareTable({ relatedProductDetail, relatedStyleData }) {
+const CompareTable = function CreateCompareTable({ relatedProductDetail }) {
   // STATES
-  const { product, styles } = useContext(ProdContext);
-  const [sizeRange, setSizeRange] = useState('');
+  const { product } = useContext(ProdContext);
 
   return (
     <StyledCompareTable>
