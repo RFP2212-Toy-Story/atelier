@@ -9,14 +9,16 @@ import * as Styles from './overviewStyles.js';
 import Checkout from './sub-components/Checkout.jsx';
 import ProductStyles from './sub-components/ProductStyles';
 
+import AvgStarArray from '../shared/AvgStarArray.jsx';
+
 // MAIN
 const ProductInfo = function CreateProductInfoComponent({
-  product, styles, style, changeStyle
+  product, rating, styles, style, changeStyle
 }) {
   return (
     <Styles.ProductInfo>
-      <div>
-        ✦✦✦✧✧ <a href="#ratings and reviews">GOTO REVIEWS</a>
+      <div className="FlexRow" style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+        <AvgStarArray avgRating={rating} /><a style={{ fontSize: '0.75rem' }} href="#ratings and reviews">GOTO REVIEWS</a>
       </div>
       <span>{product?.category}</span>
       <h1>{product?.name}</h1>
