@@ -23,7 +23,6 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
             className="lbl-accordion"
           >
             {value === true ? (<SpanR><GoTriangleDown size="1.3em" style={{ verticalAlign: 'middle' }} /></SpanR>) : (<Span><GoTriangleRight size="1.3em" style={{ verticalAlign: 'middle' }} /></Span>)}
-            {/* <SpanR>&#x3e;</SpanR> */}
           </label>
           <H3>Q:</H3>
           <QuestionText>{questionBody}</QuestionText>
