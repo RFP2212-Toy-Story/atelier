@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-
-const authServerURL = 'http://localhost:3000';
+const authServerURL = `http://${process.env.SITE_URL}:${process.env.PORT}`;
 
 /**
  * Fire an Axios Get Request.
