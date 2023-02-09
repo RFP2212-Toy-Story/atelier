@@ -8,6 +8,10 @@ const StyledMediaScroll = styled.div`
 
   overflow-x: hidden;
   overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scroll-snap-align: start;
+  scroll-padding-inline: 1rem;
 
   .left {
     color: #3D405B;

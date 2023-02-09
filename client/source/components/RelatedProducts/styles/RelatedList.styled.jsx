@@ -4,6 +4,7 @@ const StyledRelatedList = styled.div`
   .container {
     display: grid;
     position: relative;
+    scroll-snap-align: start;
   }
 
   .left {

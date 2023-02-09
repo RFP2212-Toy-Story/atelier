@@ -12,7 +12,7 @@ export default function Modal({ children, isOpen, onClose }) {
         <Wrapper data-testid="modal">
           <ModalInner>
             <CloseButton>
-              <IoIosCloseCircleOutline onClick={onClose} />
+              <IoIosCloseCircleOutline className="modal-close" onClick={onClose} />
             </CloseButton>
             {children}
           </ModalInner>
