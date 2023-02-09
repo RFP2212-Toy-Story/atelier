@@ -14,6 +14,14 @@ const postID = {
   Fit: '135235'
 };
 
+const ratingText = {
+  1: 'Poor',
+  2: 'Fair',
+  3: 'Average',
+  4: 'Good',
+  5: 'Great'
+};
+
 const traitOptions = {
   Size: [
     { label: 'A size too small', value: 1 },
@@ -62,5 +70,6 @@ const traitOptions = {
 export {
   recommendedOptions,
   postID,
+  ratingText,
   traitOptions
 };

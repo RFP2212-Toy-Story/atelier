@@ -179,6 +179,31 @@ export const ReviewListContainer = styled.div`
   }
 `;
 
+export const FormRatingContents = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  .rating-text {
+    padding: 0.5em;
+  }
+`;
+
+export const RecommendRadioOptions = styled.div`
+  padding: 0.5em;
+`;
+
+export const TraitOptions = styled.div`
+  padding: 0.5em;
+  display: grid;
+  grid-auto-flow: row;
+
+  .trait-container {
+    display: grid;
+    grid-auto-flow: column;
+    padding: 0.5em;
+  }
+`;
+
 export const ReviewTileContainer = styled.div`
   display: flex;
   flex-direction: column;
