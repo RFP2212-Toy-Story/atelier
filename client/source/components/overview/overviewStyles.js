@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 const ZoomedPhotoDiv = styled.div`
-  &:hover {
-    cursor: zoom-out;
-  };
+  overflow: hidden;
   border: 6px solid ${(props) => `${props.color}`};
   padding: 20px;
   background-color: ${(props) => `${props.color}`};
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -44,6 +42,23 @@ const PhotoTileInnerDiv = styled.div`
               rgba(60, 60, 60, 0.5) -1px -1px 2px 1px inset;
 `;
 
+const ZoomedPhotoTileImage = styled.img`
+  &:hover {
+    cursor: zoom-in;
+  }
+  ${(props) => (props.clicked ? `&:hover {
+    cursor: crosshair;
+    transform: scale(4.0);
+  };` : null)}
+  transition: transform 2s ease-in-out;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 2px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+`;
+
 const PhotoTileImage = styled.img`
   width: 100%;
   height: 100%;
@@ -61,7 +76,7 @@ const OverlayDiv = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: black;
-  opacity: 0.75;
+  opacity: 0.50;
   z-index: 101;
   cursor: auto;
 `;
@@ -198,5 +213,6 @@ export {
   StyleButtonImage,
   ThumbnailImage,
   ThumbnailWrapperDiv,
-  ZoomedPhotoDiv
+  ZoomedPhotoDiv,
+  ZoomedPhotoTileImage
 };
