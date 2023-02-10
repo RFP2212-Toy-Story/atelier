@@ -46,7 +46,8 @@ const ModalInner = styled.div`
   margin-top: 64px;
   margin-bottom: 64px;
   z-index: 1010;
-  max-width: 800px;
+  max-width: 1000px;
+  color: #3D405B;
   padding: 24px;
 `;
 

@@ -6,7 +6,7 @@ import FormInput from '../../../shared/form/FormInput.jsx';
 import FormTextarea from '../../../shared/form/FormTextarea';
 import { postID, ratingText, traitOptions } from '../../utilities/mappings.js';
 import StarRating from './StarRating.jsx';
-import { FormRatingContents, RecommendRadioOptions } from '../../styles/RR.styled.js';
+import { FormRatingContents, RecommendRadioOptions, RadioOptions } from '../../styles/RR.styled.js';
 import * as requests from '../../../../utilities/axiosRequests.js';
 
 const AddReview = function AddReview({ onClose }) {
@@ -128,7 +128,7 @@ const AddReview = function AddReview({ onClose }) {
         <div className="form-section-header">
           Characteristics *
         </div>
-        <div className="radio-options">
+        <RadioOptions>
           {traits.map((trait) => (
             <Characteristic
               trait={trait}
@@ -137,7 +137,7 @@ const AddReview = function AddReview({ onClose }) {
               onChange={handleRadioChange}
             />
           ))}
-        </div>
+        </RadioOptions>
       </div>
       <FormInput
         labelText="Review summary"

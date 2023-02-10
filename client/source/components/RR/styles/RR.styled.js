@@ -169,6 +169,21 @@ export const SortContainer = styled.div`
     color: #3D405B;
     font-size: 115%;
   }
+
+  select option[value="relevant"] {
+    color: #3D405B;
+    background: #F7EDDC;
+  }
+
+  select option[value="helpful"] {
+    color: #3D405B;
+    background: #F7EDDC;
+  }
+
+  select option[value="newest"] {
+    color: #3D405B;
+    background: #F7EDDC;
+  }
 `;
 
 export const ReviewListContainer = styled.div`
@@ -201,15 +216,18 @@ export const RecommendRadioOptions = styled.div`
   padding: 0.5em;
 `;
 
+export const RadioOptions = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+`;
+
 export const TraitOptions = styled.div`
   padding: 0.5em;
-  display: grid;
-  grid-auto-flow: row;
+  display: flex;
+  flex-direction: column;
 
-  .trait-container {
-    display: grid;
-    grid-auto-flow: column;
-    padding: 0.5em;
+  .option-label {
+    font-size: 14px;
   }
 `;
 
@@ -310,7 +328,7 @@ export const ReviewTileContainer = styled.div`
       color: #E07A5F;
     }
     &:disabled {
-      color: #F6DFB6;
+      color: #FFCAAF;
     }
   }
 `;
