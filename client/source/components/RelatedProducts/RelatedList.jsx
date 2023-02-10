@@ -70,8 +70,8 @@ const RelatedList = function CreateRelatedList() {
             ref={index === i ? selectedRef : null}
           />)}
         </StyledMediaScroll>
-        {index > 0 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
-        {index < relatedProducts.length - 1 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
+        {index > 1 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
+        {index < relatedProducts.length - 2 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
       </div>
     </StyledRelatedList>
   );

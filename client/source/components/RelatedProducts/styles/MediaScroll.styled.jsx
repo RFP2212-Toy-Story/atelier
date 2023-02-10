@@ -6,8 +6,12 @@ const StyledMediaScroll = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 21%;
 
-  overflow-x: auto;
+  overflow-x: hidden;
   overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scroll-snap-align: start;
+  scroll-padding-inline: 1rem;
 
   .left {
     color: #3D405B;
