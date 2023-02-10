@@ -35,6 +35,7 @@ const StarRating = function StarRating({ rating, onClick }) {
 const Stars = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0.5rem;
 `;
 
 export default StarRating;

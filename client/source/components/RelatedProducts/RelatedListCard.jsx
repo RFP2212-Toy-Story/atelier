@@ -1,7 +1,5 @@
 // LIBRARY IMPORTS
-import React, {
-  useState, useEffect, useContext, forwardRef
-} from 'react';
+import React, { useState, useEffect, useContext, forwardRef } from 'react';
 import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
@@ -23,7 +21,6 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
   const [avgRating, setAvgRating] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
   const { isOpen, onOpen, onClose } = useModal();
 
   // HOOKS

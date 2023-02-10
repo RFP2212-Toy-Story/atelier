@@ -17,7 +17,7 @@ const percentages = function createPercentageBreakdown(ratings) {
     const ratingCount = Number(rating[1]);
     result[ratingNum] = Math.round((ratingCount / total) * 100);
   });
-  return Object.entries(result);
+  return Object.entries(result).reverse();
 };
 
 const recommended = function recommendedPercentage(votes) {

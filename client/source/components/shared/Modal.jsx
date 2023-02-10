@@ -12,7 +12,7 @@ export default function Modal({ children, isOpen, onClose }) {
         <Wrapper data-testid="modal">
           <ModalInner>
             <CloseButton>
-              <IoIosCloseCircleOutline onClick={onClose} />
+              <IoIosCloseCircleOutline className="modal-close" onClick={onClose} />
             </CloseButton>
             {children}
           </ModalInner>
@@ -46,7 +46,8 @@ const ModalInner = styled.div`
   margin-top: 64px;
   margin-bottom: 64px;
   z-index: 1010;
-  max-width: 800px;
+  max-width: 1000px;
+  color: #3D405B;
   padding: 24px;
 `;
 

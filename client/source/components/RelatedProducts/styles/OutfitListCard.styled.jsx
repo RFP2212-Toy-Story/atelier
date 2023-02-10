@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledRelatedListCard = styled.div`
-  padding: .5vh;
+  padding: .5em;
   border-style: solid;
   border-color: #F6DEB6;
   border-radius: .5rem;
@@ -11,6 +11,11 @@ const StyledRelatedListCard = styled.div`
   display: grid;
   grid-template-rows: min-content;
   gap: 0.5 vh;
+
+  .card-content {
+    padding: .4em;
+    margin: 0em;
+  }
 
   img {
     inline-size: 100%;
