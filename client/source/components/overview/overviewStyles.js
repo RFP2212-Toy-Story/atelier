@@ -5,7 +5,7 @@ const ZoomedPhotoDiv = styled.div`
   border: 6px solid ${(props) => `${props.color}`};
   padding: 20px;
   background-color: ${(props) => `${props.color}`};
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
