@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import * as Styles from '../overviewStyles.js';
+
 
 const Checkout = function CreateCheckoutComponent({ style }) {
   const [quantityArray, setQuantityArray] = useState(['SOLD OUT']);
@@ -69,9 +71,9 @@ const Checkout = function CreateCheckoutComponent({ style }) {
         </select>
       </div>
 
-      <div>
-        <button type="button">ADD TO CART</button>
-        <button type="button">💔</button>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Styles.CheckoutButton type="button">ADD TO CART</Styles.CheckoutButton>
+        <Styles.CheckoutButton type="button">💔</Styles.CheckoutButton>
       </div>
     </div>
   );
