@@ -64,7 +64,7 @@ const TestAPI = function CreateTestAPIComponent() {
   }
 
   return (
-    <div id="test-api-component" data-module-name="test-api-component">
+    <div id="test-api-component" data-module-name="test-api-component" style={{ margin: '2rem 0' }}>
       <div id="adorable-pikachu">
         <button
           onClick={() => { document.getElementById('adorable-pikachu').style.visibility = 'hidden'; }}
