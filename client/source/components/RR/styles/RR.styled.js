@@ -169,21 +169,6 @@ export const SortContainer = styled.div`
     color: #3D405B;
     font-size: 115%;
   }
-
-  select option[value="relevant"] {
-    color: #3D405B;
-    background: #F7EDDC;
-  }
-
-  select option[value="helpful"] {
-    color: #3D405B;
-    background: #F7EDDC;
-  }
-
-  select option[value="newest"] {
-    color: #3D405B;
-    background: #F7EDDC;
-  }
 `;
 
 export const ReviewListContainer = styled.div`
