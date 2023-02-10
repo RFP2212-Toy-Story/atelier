@@ -54,8 +54,6 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
 };
 
 const AnswerWrapper = styled.div`
-  padding: 0 10px;
-  line-height: 76 px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
