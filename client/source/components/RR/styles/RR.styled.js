@@ -10,7 +10,7 @@ export const ReviewModuleContainer = styled.div`
 
 export const ReviewContentsContainer = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 2.0rem;
   justify-content: center;
   grid-auto-flow: column;
 `;
@@ -128,10 +128,10 @@ export const RatingBreakdownContainer = styled.div`
 export const ProductBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.2em;
 
   .trait-slider {
-    padding: 0.5em;
+    padding: 0.2em;
   }
 
   input[type="range"] {
@@ -247,6 +247,8 @@ export const ReviewTileContainer = styled.div`
 
   .review-text {
     padding: 0.5em;
+    padding-top: 0;
+    font-size: 1.1rem;
   }
 
   .show-more-button {
