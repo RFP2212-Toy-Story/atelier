@@ -4,11 +4,13 @@ import React, { useContext } from 'react';
 // LOCAL IMPORTS
 import ProdContext from '../../ProdContext.js';
 import StyledCompareTable from './styles/CompareTable.styled.jsx';
+import AvgStarArray from '../shared/AvgStarArray.jsx';
+import average from '../../utilities/helpers';
 
 // MAIN
-const CompareTable = function CreateCompareTable({ relatedProductDetail }) {
+const CompareTable = function CreateCompareTable({ relatedProductDetail, relatedAvgRating }) {
   // STATES
-  const { product } = useContext(ProdContext);
+  const { product, meta } = useContext(ProdContext);
 
   return (
     <StyledCompareTable>
@@ -53,29 +55,11 @@ const CompareTable = function CreateCompareTable({ relatedProductDetail }) {
           </tr>
           <tr>
             <td className="middle">
-              Some Stars
+              <AvgStarArray avgRating={average(meta.ratings)} />
             </td>
             <td>Average Rating</td>
             <td className="middle">
-              Some Stars
-            </td>
-          </tr>
-          <tr>
-            <td className="middle">
-              Does this exist or is it the description?
-            </td>
-            <td>Overview</td>
-            <td className="middle">
-              TBD
-            </td>
-          </tr>
-          <tr>
-            <td className="middle">
-              Do I really want to include this?
-            </td>
-            <td>Sizes</td>
-            <td className="middle">
-              Its kinda complicated to get a range
+              <AvgStarArray avgRating={relatedAvgRating} />
             </td>
           </tr>
         </tbody>

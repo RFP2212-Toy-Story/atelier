@@ -49,6 +49,7 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
   const handleCardClick = (e) => {
     if (e.target.className.baseVal !== 'compareButton') {
       setProdID(relatedProdId);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -66,6 +67,7 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
         <CompareTable
           relatedProductDetail={productDetail}
           relatedStyleData={styleData}
+          relatedAvgRating={avgRating}
         />
       </Modal>
     </>
