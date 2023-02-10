@@ -9,10 +9,11 @@ import AddOutfitCard from './AddOutfitCard.jsx';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledOutfitList from './styles/OutfitList.styled.jsx';
 import ProdContext from '../../ProdContext.js';
+import average from '../../utilities/helpers';
 
 const OutfitList = function CreateOutfitList() {
   // STATES & CONSTANTS
-  const { prodID, product, styles } = useContext(ProdContext);
+  const { prodID, product, styles, meta } = useContext(ProdContext);
   const [outfitItems, setOutfitItems] = useState(localStorage);
   const [index, setIndex] = useState(0);
   const selectedRef = useRef(null);
@@ -20,14 +21,18 @@ const OutfitList = function CreateOutfitList() {
 
   // HANDLERS
   const handleAddClick = () => {
-    localStorage.setItem(prodID, JSON.stringify({
-      name: product.name,
-      category: product.category,
-      price: product.default_price,
-      image: styles[0].photos[0].thumbnail_url,
-      stars: 3.5
-    }));
-    setOutfitItems({ ...localStorage });
+    try {
+      localStorage.setItem(prodID, JSON.stringify({
+        name: product.name,
+        category: product.category,
+        price: product.default_price,
+        image: styles[0].photos[0].thumbnail_url,
+        stars: average(meta.ratings)
+      }));
+      setOutfitItems({ ...localStorage });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleRightClick = () => {

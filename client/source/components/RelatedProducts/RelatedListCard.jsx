@@ -21,7 +21,6 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
   const [avgRating, setAvgRating] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
   const { isOpen, onOpen, onClose } = useModal();
 
   // HOOKS

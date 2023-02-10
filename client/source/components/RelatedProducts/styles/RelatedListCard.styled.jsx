@@ -16,6 +16,7 @@ const StyledRelatedListCard = styled.div`
     padding: .4em;
     margin: 0em;
   }
+
   img {
     inline-size: 100%;
     aspect-ratio: 3 / 4;
