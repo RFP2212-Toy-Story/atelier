@@ -37,6 +37,7 @@ const UserInfoWrapper = styled.div`
   gap: 8px;
   font-size: 0.75em;
   padding-left: 25px;
+  padding-top: 5px;
 `;
 
 const Answer = styled.div`
