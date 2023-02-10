@@ -38,6 +38,14 @@ const StyledRelatedListCard = styled.div`
     bottom: 94%;
     font-size: 2rem;
   }
+
+  .addButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 6rem;
+  }
 `;
 
 export default StyledRelatedListCard;
