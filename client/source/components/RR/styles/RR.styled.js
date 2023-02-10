@@ -25,7 +25,7 @@ export const RatingBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.2em;
-  margin-bottom: 2em;
+  margin-bottom: 2.2em;
 
   .rating-details {
     display: flex;
@@ -33,6 +33,7 @@ export const RatingBreakdownContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2em;
+    margin-bottom: 1em;
   }
 
   .average-rating {
@@ -60,7 +61,7 @@ export const RatingBreakdownContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2em;
-    /* padding-bottom: 0; */
+    margin-bottom: 0.5em;
     &:hover {
       color: #E07A5F;
       transform: scale(1.05);
@@ -324,5 +325,5 @@ export const ReviewListFooter = styled.div`
   justify-content: space-around;
   align-items: flex-end;
   padding: 0.5em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 `;
