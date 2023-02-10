@@ -19,6 +19,7 @@ const AnswerList = function CreateAnswerListComponent({ answers, getQuestions })
             username={answers[key].answerer_name}
             date={answers[key].date}
             helpfulness={answers[key].helpfulness}
+            photos={answers[key].photos}
             getQuestions={getQuestions}
           />
         </UnorderedList>
