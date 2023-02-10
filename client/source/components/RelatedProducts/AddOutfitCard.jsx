@@ -1,10 +1,10 @@
+
 // LIBRARY IMPORTS
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 
 // LOCAL IMPORTS
 import StyledOutfitListCard from './styles/OutfitListCard.styled.jsx';
-import ProdContext from '../../ProdContext.js';
 
 // MAIN
 const AddOutfitCard = function CreateAddOutfitCard({ handleClick }) {
