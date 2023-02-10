@@ -9,6 +9,7 @@ const AnswerItem = function CreateAnswerItemComponent({
 }) {
   const parsedDate = parseISO(date);
   const formattedDate = format(parsedDate, 'PPP');
+
   return (
     <>
       <Answer>
@@ -16,8 +17,8 @@ const AnswerItem = function CreateAnswerItemComponent({
         <P>{answer}</P>
       </Answer>
       <APhotos>
-        {/* eslint-disable-next-line react/no-array-index-key */}
-        {photos.length ? (photos.map((photo, i) => (<AnswerPhoto key={i} photo={photo} />))) : null}
+        {photos.length ? (
+          photos.map((photo) => (<AnswerPhoto key={photo.slice(34, 40)} photo={photo} />))) : null}
       </APhotos>
       <UserInfoWrapper>
         <div>{`By ${username}, ${formattedDate}`}</div>
