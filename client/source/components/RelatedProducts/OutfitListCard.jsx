@@ -6,6 +6,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import StyledOutfitListCard from './styles/OutfitListCard.styled.jsx';
 
 // MAIN
+// eslint-disable-next-line prefer-arrow-callback
 const OutfitListCard = forwardRef(function CreateOutfitListCard({ outfit, setOutfitItems }, ref) {
   const outfitID = JSON.parse(outfit[0]);
   const outfitData = JSON.parse(outfit[1]);
@@ -18,7 +19,7 @@ const OutfitListCard = forwardRef(function CreateOutfitListCard({ outfit, setOut
   };
 
   return (
-    <StyledOutfitListCard ref={ref} >
+    <StyledOutfitListCard ref={ref}>
       <img alt="placeholder" src={outfitData.image} />
       <IoIosCloseCircleOutline className="removeButton" onClick={handleRemoveClick} />
       <h3>{outfitData.category}</h3>

@@ -1,7 +1,5 @@
 // LIBRARY IMPORTS
-import React, {
-  useState, useEffect, useContext, forwardRef
-} from 'react';
+import React, { useState, useEffect, useContext, forwardRef } from 'react';
 import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
