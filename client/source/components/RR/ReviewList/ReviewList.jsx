@@ -41,15 +41,14 @@ const ReviewList = function ReviewList({ reviews, ratingsFilter, updateList }) {
       <ReviewListFooter>
         <div className="review-list-footer">
           {(filteredReviews.length > 2 && numReviews < filteredReviews.length)
-            ? (
+            && (
               <ButtonMainStyle
                 className="footer-button"
                 type="button"
                 onClick={() => setNumReviews(numReviews + 2)}
               >More Reviews
               </ButtonMainStyle>
-            )
-            : null }
+            )}
           <ButtonMainStyle
             className="footer-button"
             type="button"
