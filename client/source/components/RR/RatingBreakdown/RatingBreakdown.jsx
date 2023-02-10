@@ -44,7 +44,7 @@ const RatingBreakdown = function RatingsBreakdown({
           />
         ))}
         { filters.length > 0 && filters.length < 5
-          ? (
+          && (
             <div className="filter-message">
               <div className="filters-applied">{`Filters applied: ${filters.join(', ')}`}</div>
               <button
@@ -54,8 +54,7 @@ const RatingBreakdown = function RatingsBreakdown({
               >Remove all filters
               </button>
             </div>
-          )
-          : null }
+          )}
       </div>
     </RatingBreakdownContainer>
   );

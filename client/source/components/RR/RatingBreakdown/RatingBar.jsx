@@ -17,7 +17,7 @@ const RatingBar = function RatingBar({ ratings, rating, toggleRating }) {
         {`${starNum} star`}
       </div>
       <progress value={`${percentage}`} max="100" />
-      <div className="review-count">
+      <div className="review-count-number">
         {reviews}
       </div>
     </div>

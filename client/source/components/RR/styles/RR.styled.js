@@ -10,7 +10,7 @@ export const ReviewModuleContainer = styled.div`
 
 export const ReviewContentsContainer = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 2.0rem;
   justify-content: center;
   grid-auto-flow: column;
 `;
@@ -24,19 +24,21 @@ export const BreakdownContainer = styled.div`
 export const RatingBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.2em;
+  margin-bottom: 2.2em;
 
   .rating-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
   }
 
   .average-rating {
     font-size: 300%;
-    font-weight: bold;
+    font-weight: 510;
   }
 
   .star-rating {
@@ -44,8 +46,13 @@ export const RatingBreakdownContainer = styled.div`
     max-height: 100%;
   }
 
-  .recommended-percentage, .review-count {
-    padding: 0.5em;
+  .recommended-percentage {
+    padding: 0.2em;
+  }
+
+  .review-count {
+    padding: 0.2em;
+    margin-bottom: 0.5em;
   }
 
   .rating-bar {
@@ -53,7 +60,8 @@ export const RatingBreakdownContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
     &:hover {
       color: #E07A5F;
       transform: scale(1.05);
@@ -63,11 +71,12 @@ export const RatingBreakdownContainer = styled.div`
   }
 
   .filters-applied {
-    padding: 0.5em;
+    padding: 0.2em;
+    margin-top: 0.5em;
   }
 
   .default-button {
-    padding: 0.5em;
+    padding: 0.2em;
     color: #3D405B;
     background-color: #fffbea;
     font-family: 'Nunito', sans-serif;
@@ -120,10 +129,10 @@ export const RatingBreakdownContainer = styled.div`
 export const ProductBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.2em;
 
   .trait-slider {
-    padding: 0.5em;
+    padding: 0.2em;
   }
 
   input[type="range"] {
@@ -168,16 +177,42 @@ export const ReviewListContainer = styled.div`
   padding: 0.5em;
 
   .reviews-scroll-container {
-    /* max-height: 800px; */
-    /* position: fixed; */
+    max-height: 800px;
     width: 100%;
     overflow-y: auto;
-    /* overscroll-behavior: contain; */
   }
 
   .trait-options {
     display: flex;
     flex-direction: column;
+  }
+`;
+
+export const FormRatingContents = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  .rating-text {
+    padding: 0.5em;
+  }
+`;
+
+export const RecommendRadioOptions = styled.div`
+  padding: 0.5em;
+`;
+
+export const RadioOptions = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+`;
+
+export const TraitOptions = styled.div`
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+
+  .option-label {
+    font-size: 14px;
   }
 `;
 
@@ -189,6 +224,8 @@ export const ReviewTileContainer = styled.div`
   border-bottom: solid;
   border-width: 0.05rem;
   border-color:  #3D405B;
+  padding-bottom: 1em;
+  margin-bottom: 0.6em;
 
   .review-header {
     display: flex;
@@ -202,18 +239,30 @@ export const ReviewTileContainer = styled.div`
   }
 
   .review-user-date {
+    display: flex;
+    flex-direction: row;
     text-align: right;
     font-size: 90%;
+  }
+
+  .review-user {
+    padding: 0.3em;
+  }
+
+  .review-date {
+    padding: 0.3em;
   }
 
   .review-summary {
     padding: 0.5em;
     font-weight: bold;
-    /* font-size: 115%; */
+    font-size: 1.1rem;
   }
 
   .review-text {
     padding: 0.5em;
+    padding-top: 0;
+    font-size: 1.1rem;
   }
 
   .show-more-button {
@@ -264,7 +313,7 @@ export const ReviewTileContainer = styled.div`
       color: #E07A5F;
     }
     &:disabled {
-      color: #F6DFB6;
+      color: #FFCAAF;
     }
   }
 `;
@@ -289,5 +338,5 @@ export const ReviewListFooter = styled.div`
   justify-content: space-around;
   align-items: flex-end;
   padding: 0.5em;
-  margin-top: 0.5em;
+  margin-bottom: 1em;
 `;

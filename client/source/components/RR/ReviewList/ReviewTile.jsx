@@ -54,8 +54,12 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
         <div className="review-header">
           <AvgStarArray avgRating={review.rating} />
           <div className="review-user-date">
-            {`${review.reviewer_name}, `}
-            {formatDate(review.date)}
+            <div className="review-user">
+              {`${review.reviewer_name}, `}
+            </div>
+            <div className="review-date">
+              {formatDate(review.date)}
+            </div>
           </div>
         </div>
         <div className="review-summary">{capSummary(review.summary)}</div>
