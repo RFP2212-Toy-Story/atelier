@@ -53,6 +53,7 @@ const ZoomedPhoto = function CreateZoomedPhotoComponent({
           />
         </Styles.PhotoTileInnerDiv>
       </Styles.ZoomedPhotoDiv>
+      {/* TODO: Implement thumbnail yet another carousel in this modal */}
       {/* <div style={{ position: 'relative', zIndex: '102', backgroundColor: 'white' }}>
         BUTTONS
       </div>
