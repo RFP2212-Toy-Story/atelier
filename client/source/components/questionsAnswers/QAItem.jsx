@@ -54,6 +54,7 @@ const QAItem = function CreateQAItemComponent({ id, question, getQuestions }) {
 };
 
 const AnswerWrapper = styled.div`
+  padding: 0 10px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s;
@@ -61,7 +62,7 @@ const AnswerWrapper = styled.div`
 `;
 
 const Span = styled.span`
-  color: black;
+  color: #3d405b;
 `;
 
 const SpanR = styled.span`
@@ -70,7 +71,7 @@ const SpanR = styled.span`
 
 const ListItem = styled.li`
   list-style: none;
-  border: 1px solid black;
+  border: 1px solid #3d405b;
   border-radius: 0.5em;
   padding: 12px;
   label {
@@ -84,7 +85,7 @@ const ListItem = styled.li`
   }
   input[type="checkbox"]:checked + ${AnswerWrapper} {
     max-height: 320px;
-    overflow: scroll;
+    overflow-y: auto;
   }
 `;
 
@@ -100,7 +101,7 @@ const Question = styled.div`
 `;
 
 const H3 = styled.h3`
-  color: black;
+  color: #3d405b;
   margin: 0;
 `;
 

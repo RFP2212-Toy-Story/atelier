@@ -24,7 +24,7 @@ const AnswerList = function CreateAnswerListComponent({ answers, getQuestions })
         </UnorderedList>
       ))}
       <MoreButtonContainer>
-        {count < answerKeys.length ? (<button type="button" onClick={() => setCount(count + 2)}>See more answers</button>) : (<button type="button" onClick={() => setCount(count + 2)} />)}
+        {count < answerKeys.length ? (<button type="button" onClick={() => setCount(count + 2)}>See more answers</button>) : (<button type="button" onClick={() => setCount(2)}>Collapse answers</button>)}
       </MoreButtonContainer>
     </div>
   );

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   box-sizing: border-box;
+  color: #3d405b;
   padding: 16px 0;
 `;
 
@@ -16,7 +17,7 @@ export const PhotoContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 0.1em solid black;
+  border: 0.1em solid #3d405b;
 `;
 
 export const ButtonContainer = styled.div`
