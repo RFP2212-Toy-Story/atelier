@@ -24,14 +24,15 @@ export const BreakdownContainer = styled.div`
 export const RatingBreakdownContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5em;
+  padding: 0.2em;
+  margin-bottom: 2em;
 
   .rating-details {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 0.2em;
   }
 
   .average-rating {
@@ -44,8 +45,13 @@ export const RatingBreakdownContainer = styled.div`
     max-height: 100%;
   }
 
-  .recommended-percentage, .review-count {
-    padding: 0.5em;
+  .recommended-percentage {
+    padding: 0.2em;
+  }
+
+  .review-count {
+    padding: 0.2em;
+    margin-bottom: 0.5em;
   }
 
   .rating-bar {
@@ -53,7 +59,8 @@ export const RatingBreakdownContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 0.2em;
+    /* padding-bottom: 0; */
     &:hover {
       color: #E07A5F;
       transform: scale(1.05);
@@ -63,11 +70,12 @@ export const RatingBreakdownContainer = styled.div`
   }
 
   .filters-applied {
-    padding: 0.5em;
+    padding: 0.2em;
+    margin-top: 0.5em;
   }
 
   .default-button {
-    padding: 0.5em;
+    padding: 0.2em;
     color: #3D405B;
     background-color: #fffbea;
     font-family: 'Nunito', sans-serif;
@@ -212,6 +220,8 @@ export const ReviewTileContainer = styled.div`
   border-bottom: solid;
   border-width: 0.05rem;
   border-color:  #3D405B;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
 
   .review-header {
     display: flex;
@@ -232,6 +242,7 @@ export const ReviewTileContainer = styled.div`
   .review-summary {
     padding: 0.5em;
     font-weight: bold;
+    font-size: 1.1rem;
   }
 
   .review-text {
@@ -311,5 +322,5 @@ export const ReviewListFooter = styled.div`
   justify-content: space-around;
   align-items: flex-end;
   padding: 0.5em;
-  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 `;
