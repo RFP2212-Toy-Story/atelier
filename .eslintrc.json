@@ -88,6 +88,9 @@
         ],
         "react/jsx-boolean-value": [
             "off"
+        ],
+        "react/jsx-no-bind": [
+            "warn"
         ]
     }
 }
