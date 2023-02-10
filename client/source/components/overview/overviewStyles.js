@@ -200,9 +200,27 @@ const ProductText = styled.div`
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
+const CheckoutButton = styled.button`
+  &:hover {
+    background-color: #E07A5F;
+    color: white;
+    transform: scale(1.1);
+  }
+  cursor: pointer;
+  background-color: #F6DEB6;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  transition: transform 0.25s;
+  box-shadow: rgba(0, 0, 0, 0.50) 2px 3px 6px -2px,
+              rgba(10, 30, 60, 0.20) 3px 3px 9px 2px;
+`;
+
 export {
   CarouselButton,
   CarouselWrapperDiv,
+  CheckoutButton,
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
