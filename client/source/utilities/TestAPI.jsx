@@ -43,11 +43,23 @@ function testGetStylesRequest() {
     .catch((error) => { console.error(error); });
 }
 
+function clearLocalStorage() {
+  try {
+    console.info(localStorage);
+    localStorage.clear();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 const TestAPI = function CreateTestAPIComponent() {
   const { setProdID } = useContext(ProdContext);
 
-  function testSetProdID() {
-    const newProdID = prompt('please enter your desired PROD_ID...');
+  function testSetProdID(event) {
+    let newProdID = event?.target?.id;
+    if (newProdID === 'input') {
+      newProdID = prompt('please enter your desired PROD_ID...');
+    }
     setProdID(newProdID);
   }
 
@@ -80,11 +92,22 @@ const TestAPI = function CreateTestAPIComponent() {
           src="/images/pikachu-hard-at-work.gif"
         />
       </div>
-      <button type="button" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
-      <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
-      <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
-      <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
-      <button type="button" onClick={testGetStylesRequest}>OVERVIEW TEST GET STYLES</button>
+      <hr />
+      <div style={{ fontSize: '2rem' }}>
+        ⛔ 𝔸𝔻𝕄𝕀ℕ𝕊 𝕆ℕ𝕃𝕐 ⛔
+      </div>
+      <div>
+        <button type="button" id="input" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
+        <button type="button" id="40355" onClick={testSetProdID}>SET PROD_ID TO 40355</button>
+        <button type="button" id="40344" onClick={testSetProdID}>SET PROD_ID TO 40344</button>
+      </div>
+      <div>
+        <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
+        <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
+        <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
+        <button type="button" onClick={testGetStylesRequest}>OVERVIEW TEST GET STYLES</button>
+      </div>
+      <button type="button" onClick={clearLocalStorage}>CLEAR LOCAL STORAGE</button>
     </div>
   );
 };
