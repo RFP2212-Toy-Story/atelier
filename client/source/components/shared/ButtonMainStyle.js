@@ -8,7 +8,7 @@ const ButtonMainStyle = styled.button`
   border: none;
   border-radius: 20px;
   margin-right: 12px;
-  color: black;
+  color: #3d405b;
   font-weight: 700;
   transition: transform .2s;
   --shadow-color: 49deg 31% 60%;

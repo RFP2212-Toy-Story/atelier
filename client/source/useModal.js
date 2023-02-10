@@ -5,13 +5,11 @@ const useModal = function useModal() {
 
   return {
     isOpen: showModal,
-    onOpen: (e) => {
-      e.stopPropagation();
+    onOpen: () => {
       document.body.classList.add('stop-scrolling');
       setShowModal(true);
     },
-    onClose: (e) => {
-      e.stopPropagation();
+    onClose: () => {
       document.body.classList.remove('stop-scrolling');
       setShowModal(false);
     }

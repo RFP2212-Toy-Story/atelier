@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack'); // eslint-disable-line
 
 module.exports = {
   mode: 'development', // as opposed to `production` which obfuscates namespaces
@@ -7,6 +8,9 @@ module.exports = {
     path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js'
   },
+  plugins: [
+    new Dotenv()
+  ],
   devtool: 'source-map', // creates a file to relate compiled code to source code for debugging use
   module: {
     rules: [
