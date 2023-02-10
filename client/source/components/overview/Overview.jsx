@@ -9,10 +9,11 @@ import ProductText from './ProductText.jsx';
 
 import ProdContext from '../../ProdContext.js';
 
+import average from '../../utilities/helpers.js';
 
 // MAIN
 const Overview = function CreateOverviewComponent() {
-  const { prodID, product, styles } = useContext(ProdContext);
+  const { prodID, product, styles, meta } = useContext(ProdContext);
   const [currentStyle, setCurrentStyle] = useState({});
 
   const findDefaultStyle = (style) => {
@@ -36,6 +37,7 @@ const Overview = function CreateOverviewComponent() {
         <PhotoBlock photos={currentStyle.photos} />
         <ProductInfo
           product={product}
+          rating={average(meta?.ratings)}
           styles={styles}
           style={currentStyle}
           changeStyle={changeStyle}

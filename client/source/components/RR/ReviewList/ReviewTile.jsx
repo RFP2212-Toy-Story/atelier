@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
-import ReviewRating from './ReviewRating.jsx';
+import AvgStarArray from '../../shared/AvgStarArray.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import * as requests from '../../../utilities/axiosRequests.js';
 import { ReviewTileContainer, ReviewPhotos } from '../styles/RR.styled.js';
 
 const ReviewTile = function ReviewTile({ review, updateList }) {
-  // STATE
   const [fullBody, setFullBody] = useState(false);
   const [reported, setReported] = useState(false);
 
-  // FUNCTIONS
   const formatDate = (date) => {
     const parsedDate = parseISO(date);
     return format(parsedDate, 'PPP');
@@ -30,7 +28,6 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     return bodyText;
   };
 
-  // EVENT HANDLERS
   const handleHelpfulness = (event) => {
     event.target.setAttribute('disabled', true);
     requests
@@ -55,7 +52,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
     <ReviewTileContainer>
       <div className="review-tile">
         <div className="review-header">
-          <ReviewRating rating={review.rating} />
+          <AvgStarArray avgRating={review.rating} />
           <div className="review-user-date">
             {`${review.reviewer_name}, `}
             {formatDate(review.date)}
@@ -70,7 +67,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
                 className="show-more-button"
                 type="button"
                 onClick={() => setFullBody(true)}
-              >SHOW MORE +
+              >Show More +
               </button>
             )
             : null }
@@ -118,6 +115,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           </span>
         </div>
       </div>
+
     </ReviewTileContainer>
   );
 };

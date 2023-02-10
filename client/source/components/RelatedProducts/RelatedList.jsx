@@ -63,7 +63,7 @@ const RelatedList = function CreateRelatedList() {
       <h3 data-testid="heading">Related Products</h3>
       <div className="container">
         <StyledMediaScroll>
-          {/* eslint-disable-next-line max-len */}
+          {/* eslint-disable-next-line max-len, react/jsx-wrap-multilines */}
           {relatedProducts.map((relatedProdId, i) => <RelatedListCard
             key={relatedProdId}
             relatedProdId={relatedProdId}

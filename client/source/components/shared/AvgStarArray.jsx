@@ -1,5 +1,5 @@
 // LIBRARY IMPORTS
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 // LOCAL IMPORTS
