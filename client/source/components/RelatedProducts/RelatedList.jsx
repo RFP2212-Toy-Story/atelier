@@ -60,7 +60,7 @@ const RelatedList = function CreateRelatedList() {
 
   return (
     <StyledRelatedList data-module-name="related products">
-      <h3 data-testid="heading">Related Products</h3>
+      <h3 className="section-header" data-testid="heading">Related Products</h3>
       <div className="container">
         <StyledMediaScroll>
           {/* eslint-disable-next-line max-len, react/jsx-wrap-multilines */}

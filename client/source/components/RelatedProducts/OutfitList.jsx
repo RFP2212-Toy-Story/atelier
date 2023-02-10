@@ -15,7 +15,7 @@ const OutfitList = function CreateOutfitList() {
   // STATES & CONSTANTS
   const { prodID, product, styles, meta } = useContext(ProdContext);
   const [outfitItems, setOutfitItems] = useState(localStorage);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const selectedRef = useRef(null);
   const outfitItemsList = Object.entries(outfitItems);
 
@@ -38,7 +38,7 @@ const OutfitList = function CreateOutfitList() {
   const handleRightClick = () => {
     flushSync(() => {
       if (index < outfitItemsList.length - 1) {
-        setIndex(index + 1);
+        setIndex(index + 2);
       } else {
         setIndex(0);
       }
@@ -61,13 +61,13 @@ const OutfitList = function CreateOutfitList() {
     selectedRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
-      inline: 'center'
+      inline: 'start'
     });
   };
 
   return (
     <StyledOutfitList>
-      <h3>Your Outfits</h3>
+      <h3 className="section-header">Your Outfits</h3>
       <div className="container">
         <StyledMediaScroll>
           <AddOutfitCard handleClick={handleAddClick} />
