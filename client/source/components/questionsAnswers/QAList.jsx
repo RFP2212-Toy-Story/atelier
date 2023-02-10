@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UnorderedList from './styles/UnorderedList';
+import styled from 'styled-components';
 import QAItem from './QAItem';
 import LoadAddQA from './LoadAddQA';
 
@@ -25,5 +25,9 @@ const QAList = function CreateQAListComponent({ questions, getQuestions }) {
     </div>
   );
 };
+
+const UnorderedList = styled.ul`
+  padding-left: 0;
+`;
 
 export default QAList;

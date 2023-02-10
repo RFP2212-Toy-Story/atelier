@@ -4,8 +4,9 @@ import { Form, InputSubmit } from '../../../shared/form/FormStyles.js';
 import Characteristic from './Characteristic.jsx';
 import FormInput from '../../../shared/form/FormInput.jsx';
 import FormTextarea from '../../../shared/form/FormTextarea';
-import { postID, traitOptions } from '../../utilities/mappings.js';
+import { postID, ratingText, traitOptions } from '../../utilities/mappings.js';
 import StarRating from './StarRating.jsx';
+import { FormRatingContents, RecommendRadioOptions, RadioOptions } from '../../styles/RR.styled.js';
 import * as requests from '../../../../utilities/axiosRequests.js';
 
 const AddReview = function AddReview({ onClose }) {
@@ -84,13 +85,21 @@ const AddReview = function AddReview({ onClose }) {
   return (
     <Form onSubmit={handleSubmit}>
       <div className="form-section">
-        <div className="form-section-header">Overall rating *</div>
-        <StarRating rating={formInput.rating} onClick={handleStars} />
+        <div className="form-section-header">
+          Overall rating *
+        </div>
+        <FormRatingContents>
+          <StarRating rating={formInput.rating} onClick={handleStars} />
+          {formInput.rating > 0
+          && <div className="rating-text">{ratingText[formInput.rating]}</div>}
+        </FormRatingContents>
       </div>
 
       <div className="form-section">
-        <div className="form-section-header">Do you recommend this product?*</div>
-        <div className="radio-options">
+        <div className="form-section-header">
+          Do you recommend this product?*
+        </div>
+        <RecommendRadioOptions>
           <label htmlFor="yes">
             <input
               name="recommend"
@@ -113,11 +122,13 @@ const AddReview = function AddReview({ onClose }) {
             />
             No
           </label>
-        </div>
+        </RecommendRadioOptions>
       </div>
       <div className="form-section">
-        <div className="form-section-header">Characteristics *</div>
-        <div className="radio-options">
+        <div className="form-section-header">
+          Characteristics *
+        </div>
+        <RadioOptions>
           {traits.map((trait) => (
             <Characteristic
               trait={trait}
@@ -126,7 +137,7 @@ const AddReview = function AddReview({ onClose }) {
               onChange={handleRadioChange}
             />
           ))}
-        </div>
+        </RadioOptions>
       </div>
       <FormInput
         labelText="Review summary"
@@ -148,11 +159,6 @@ const AddReview = function AddReview({ onClose }) {
           : 'Minimum reached'}
         onChange={handleInputChange}
       />
-
-      {/* <div className="form-section">
-        <div className="form-section-header">Upload your photos</div>
-      </div> */}
-
       <FormInput
         labelText="What is your nickname *"
         type="text"
@@ -168,11 +174,13 @@ const AddReview = function AddReview({ onClose }) {
         type="email"
         name="email"
         value={formInput.email}
-        placeholder="Example: jackson11@email.com!"
+        placeholder="Example: jackson11@email.com"
         disclaimerText="For authentication reasons, you will not be emailed"
         onChange={handleInputChange}
       />
-      <div className="required-field">* indicates required field</div>
+      <div className="required-field">
+        * indicates required field
+      </div>
       <InputSubmit
         type="submit"
         value="Submit review"
