@@ -49,7 +49,7 @@ const StyledRelatedListCard = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 6rem;
+    font-size: 4rem;
   }
 `;
 

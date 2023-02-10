@@ -26,10 +26,10 @@ const OutfitListCard = forwardRef(function CreateOutfitListCard({ outfit, setOut
     <StyledOutfitListCard ref={ref}>
       <img alt="placeholder" src={outfitData.image} />
       <IoIosCloseCircleOutline className="removeButton" onClick={handleRemoveClick} />
-      <h3 className="card-content">{outfitData.category}</h3>
-      <h4 className="card-content">{outfitData.name}</h4>
-      <h5 className="card-content">${outfitData.price}</h5>
-      <AvgStarArray className="card-content" avgRating={outfitData.stars} />
+      <h3 className="card-content">{outfitData?.category}</h3>
+      <h4 className="card-content">{outfitData?.name}</h4>
+      <h5 className="card-content">${outfitData?.price}</h5>
+      <AvgStarArray className="card-content" avgRating={outfitData?.stars} />
     </StyledOutfitListCard>
   );
 });
