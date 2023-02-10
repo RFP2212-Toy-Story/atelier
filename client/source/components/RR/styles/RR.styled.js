@@ -33,12 +33,12 @@ export const RatingBreakdownContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0.2em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
   }
 
   .average-rating {
     font-size: 300%;
-    font-weight: bold;
+    font-weight: 510;
   }
 
   .star-rating {
@@ -222,7 +222,7 @@ export const ReviewTileContainer = styled.div`
   border-width: 0.05rem;
   border-color:  #3D405B;
   padding-bottom: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.6em;
 
   .review-header {
     display: flex;
@@ -236,8 +236,18 @@ export const ReviewTileContainer = styled.div`
   }
 
   .review-user-date {
+    display: flex;
+    flex-direction: row;
     text-align: right;
     font-size: 90%;
+  }
+
+  .review-user {
+    padding: 0.3em;
+  }
+
+  .review-date {
+    padding: 0.3em;
   }
 
   .review-summary {
