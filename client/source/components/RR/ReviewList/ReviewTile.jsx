@@ -76,7 +76,7 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
             )
             : null }
           <ReviewPhotos>
-            <div className="review-photos">
+            <div>
               {review.photos.map((photo) => (
                 <ReviewPhoto
                   photo={photo}

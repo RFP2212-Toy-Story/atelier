@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
-import { createPortal } from 'react-dom';
-import PhotoModal from './PhotoModal.jsx';
+import React from 'react';
+
+import Modal from '../../shared/Modal.jsx';
+import useModal from '../../../useModal.js';
 
 const ReviewPhoto = function ReviewPhoto({ photo }) {
-  const [modal, setModal] = useState(false);
-
-  const openModal = () => {
-    document.body.classList.add('stop-scrolling');
-    setModal(true);
-  };
-
-  const closeModal = () => {
-    document.body.classList.remove('stop-scrolling');
-    setModal(false);
-  };
+  const { isOpen, onOpen, onClose } = useModal();
 
   return (
     <>
@@ -22,12 +13,17 @@ const ReviewPhoto = function ReviewPhoto({ photo }) {
         src={photo.url}
         alt="Submitted by reviewer"
         aria-hidden="true"
-        onClick={openModal}
+        onClick={onOpen}
       />
-      { modal && createPortal(<PhotoModal
-        photo={photo}
-        onClose={closeModal}
-      />, document.body)}
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <img
+          // currently CSS from ReviewPhotos is leaking into here
+          style={{ maxWidth: '100%' }}
+          src={photo.url}
+          alt="Enlarged"
+        />
+      </Modal>
     </>
   );
 };
