@@ -6,9 +6,11 @@ import { flushSync } from 'react-dom';
 // LOCAL IMPORTS
 import RelatedListCard from './RelatedListCard.jsx';
 import * as requests from '../../utilities/axiosRequests';
+import OutfitList from './OutfitList';
 import ProdContext from '../../ProdContext.js';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledRelatedList from './styles/RelatedList.styled.jsx';
+
 
 // MAIN
 const RelatedList = function CreateRelatedList() {
@@ -73,6 +75,7 @@ const RelatedList = function CreateRelatedList() {
         {index > 1 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
         {index < relatedProducts.length - 2 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
       </div>
+      <OutfitList />
     </StyledRelatedList>
   );
 };
