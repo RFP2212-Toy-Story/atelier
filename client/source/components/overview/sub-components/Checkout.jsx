@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import * as Styles from '../overviewStyles.js';
+
 
 const Checkout = function CreateCheckoutComponent({ style }) {
   const [quantityArray, setQuantityArray] = useState(['SOLD OUT']);
@@ -54,24 +56,24 @@ const Checkout = function CreateCheckoutComponent({ style }) {
 
         <hr />
 
-        <select id="checkout-size-select" value={selectedSize} onChange={handleSizeChange}>
+        <Styles.CheckoutSelect id="checkout-size-select" value={selectedSize} onChange={handleSizeChange}>
           <option defaultValue>Choose a size...</option>
           <optgroup>
             {sizeArray?.map((size) => (<option key={size}>{size}</option>))}
           </optgroup>
-        </select>
+        </Styles.CheckoutSelect>
 
-        <select id="checkout-quantity-select" value={selectedQuantity} onChange={handleQuantityChange}>
+        <Styles.CheckoutSelect id="checkout-quantity-select" value={selectedQuantity} onChange={handleQuantityChange}>
           <option defaultValue>Choose a quantity...</option>
           <optgroup>
             {quantityArray.map((number) => (<option key={number}>{number}</option>))}
           </optgroup>
-        </select>
+        </Styles.CheckoutSelect>
       </div>
 
-      <div>
-        <button type="button">ADD TO CART</button>
-        <button type="button">💔</button>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Styles.CheckoutButton style={{ margin: '0 0.5rem', width: '-webkit-fill-available' }} type="button">ADD TO CART</Styles.CheckoutButton>
+        <Styles.CheckoutButton type="button">💔</Styles.CheckoutButton>
       </div>
     </div>
   );

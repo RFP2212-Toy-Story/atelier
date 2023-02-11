@@ -321,16 +321,16 @@ export const ReviewTileContainer = styled.div`
 export const ReviewPhotos = styled.div`
   display: flex;
   flex-direction: row;
+`;
 
-  img {
-    max-width: 20%;
-    border-radius: 15px;
-    aspect-ratio: 3 / 2;
-    object-fit: cover;
-    padding: 0.5em;
-    &:hover {
-      transform: scale(1.05);
-    }
+export const ReviewPhotoThumbnail = styled.img`
+  max-width: 20%;
+  border-radius: 15px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  padding: 0.5em;
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 

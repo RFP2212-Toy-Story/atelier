@@ -5,12 +5,14 @@
   "main": "server/index.js",
   "scripts": {
     "server-dev": "npx nodemon --watch server server/index.js",
-    "client-dev": "npx webpack --watch",
+    "client-dev": "npx webpack --config webpack-dev.config.js -w",
+    "client-prod": "npx webpack --config webpack-prod.config",
     "eslint-dev": "npx eslint .",
     "test": "jest --verbose",
     "test-coverage": "jest --coverage --collectCoverageFrom=\"**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "axios": "^1.2.5",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",

@@ -43,48 +43,44 @@ function testGetStylesRequest() {
     .catch((error) => { console.error(error); });
 }
 
+function clearLocalStorage() {
+  try {
+    console.info(localStorage);
+    localStorage.clear();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 const TestAPI = function CreateTestAPIComponent() {
   const { setProdID } = useContext(ProdContext);
 
-  function testSetProdID() {
-    const newProdID = prompt('please enter your desired PROD_ID...');
+  function testSetProdID(event) {
+    let newProdID = event?.target?.id;
+    if (newProdID === 'input') {
+      newProdID = prompt('please enter your desired PROD_ID...');
+    }
     setProdID(newProdID);
   }
 
   return (
-    <div id="test-api-component" data-module-name="test-api-component">
-      <div id="adorable-pikachu">
-        <button
-          onClick={() => { document.getElementById('adorable-pikachu').style.visibility = 'hidden'; }}
-          type="button"
-          style={{
-            position: 'fixed',
-            bottom: 100,
-            right: 60,
-            zIndex: 9002,
-            border: 'none',
-            backgroundColor: 'transparent'
-          }}
-        >
-          <h2>✗</h2>
-        </button>
-        <img
-          style={{
-            position: 'fixed',
-            bottom: 10,
-            right: 80,
-            zIndex: 9001,
-            border: 'none'
-          }}
-          alt="lightning rat with power tools"
-          src="/images/pikachu-hard-at-work.gif"
-        />
+    <div id="test-api-component" data-module-name="test-api-component" style={{ margin: '2rem 0' }}>
+      <hr />
+      <div style={{ fontSize: '2rem' }}>
+        ⛔ 𝔸𝔻𝕄𝕀ℕ𝕊 𝕆ℕ𝕃𝕐 ⛔
       </div>
-      <button type="button" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
-      <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
-      <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
-      <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
-      <button type="button" onClick={testGetStylesRequest}>OVERVIEW TEST GET STYLES</button>
+      <div>
+        <button type="button" id="input" onClick={testSetProdID}>SET PROD_ID TO _INPUT_</button>
+        <button type="button" id="40355" onClick={testSetProdID}>SET PROD_ID TO 40355</button>
+        <button type="button" id="40344" onClick={testSetProdID}>SET PROD_ID TO 40344</button>
+      </div>
+      <div>
+        <button type="button" onClick={testGetRequest}>TEST GET PRODUCTS</button>
+        <button type="button" onClick={testPostRequest}>TEST POST REVIEW</button>
+        <button type="button" onClick={testPutRequest}>TEST PUT HELPFUL REVIEW</button>
+        <button type="button" onClick={testGetStylesRequest}>OVERVIEW TEST GET STYLES</button>
+      </div>
+      <button type="button" onClick={clearLocalStorage}>CLEAR LOCAL STORAGE</button>
     </div>
   );
 };

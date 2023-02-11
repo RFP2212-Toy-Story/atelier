@@ -9,31 +9,36 @@ import AddOutfitCard from './AddOutfitCard.jsx';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledOutfitList from './styles/OutfitList.styled.jsx';
 import ProdContext from '../../ProdContext.js';
+import average from '../../utilities/helpers';
 
 const OutfitList = function CreateOutfitList() {
   // STATES & CONSTANTS
-  const { prodID, product, styles } = useContext(ProdContext);
+  const { prodID, product, styles, meta } = useContext(ProdContext);
   const [outfitItems, setOutfitItems] = useState(localStorage);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const selectedRef = useRef(null);
   const outfitItemsList = Object.entries(outfitItems);
 
   // HANDLERS
   const handleAddClick = () => {
-    localStorage.setItem(prodID, JSON.stringify({
-      name: product.name,
-      category: product.category,
-      price: product.default_price,
-      image: styles[0].photos[0].thumbnail_url,
-      stars: 3.5
-    }));
-    setOutfitItems({ ...localStorage });
+    try {
+      localStorage.setItem(prodID, JSON.stringify({
+        name: product.name,
+        category: product.category,
+        price: product.default_price,
+        image: styles[0].photos[0].thumbnail_url,
+        stars: average(meta.ratings)
+      }));
+      setOutfitItems({ ...localStorage });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleRightClick = () => {
     flushSync(() => {
       if (index < outfitItemsList.length - 1) {
-        setIndex(index + 1);
+        setIndex(index + 2);
       } else {
         setIndex(0);
       }
@@ -56,13 +61,13 @@ const OutfitList = function CreateOutfitList() {
     selectedRef.current.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
-      inline: 'center'
+      inline: 'start'
     });
   };
 
   return (
     <StyledOutfitList>
-      <h3>Your Outfits</h3>
+      <h3 className="section-header">Your Outfits</h3>
       <div className="container">
         <StyledMediaScroll>
           <AddOutfitCard handleClick={handleAddClick} />

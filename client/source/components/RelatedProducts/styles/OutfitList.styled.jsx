@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const StyledOutfitList = styled.div`
+  .section-header {
+    text-align: center;
+    padding: 16 px 0;
+  }
+
   .container {
     display: grid;
     position: relative;

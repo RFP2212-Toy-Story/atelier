@@ -1,7 +1,5 @@
 // LIBRARY IMPORTS
-import React, {
-  useState, useEffect, useContext, forwardRef
-} from 'react';
+import React, { useState, useEffect, useContext, forwardRef } from 'react';
 import { HiOutlineStar } from 'react-icons/hi';
 
 // LOCAL IMPORTS
@@ -23,7 +21,6 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
   const [styleData, setStyleData] = useState([]);
   const [imageURL, setImageURL] = useState('');
   const [avgRating, setAvgRating] = useState(0);
-  const [modalOpen, setModalOpen] = useState(false);
   const { isOpen, onOpen, onClose } = useModal();
 
   // HOOKS
@@ -52,6 +49,7 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
   const handleCardClick = (e) => {
     if (e.target.className.baseVal !== 'compareButton') {
       setProdID(relatedProdId);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -60,15 +58,16 @@ const RelatedListCard = forwardRef(function CreateRelatedListCard({ relatedProdI
       <StyledRelatedListCard onClick={handleCardClick} ref={ref}>
         <img alt={productDetail.name} src={imageURL} />
         <HiOutlineStar className="compareButton" onClick={onOpen} />
-        <h3 className="card-content" data-testid="card-category">{productDetail.category}</h3>
-        <h4 className="card-content">{productDetail.name}</h4>
-        <h5 className="card-content">${productDetail.default_price}</h5>
+        <h3 className="card-content" data-testid="card-category">{productDetail?.category}</h3>
+        <h4 className="card-content">{productDetail?.name}</h4>
+        <h5 className="card-content">${productDetail?.default_price}</h5>
         <AvgStarArray className="card-content" avgRating={avgRating} />
       </StyledRelatedListCard>
       <Modal isOpen={isOpen} onClose={onClose}>
         <CompareTable
           relatedProductDetail={productDetail}
           relatedStyleData={styleData}
+          relatedAvgRating={avgRating}
         />
       </Modal>
     </>

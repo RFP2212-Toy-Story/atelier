@@ -1,25 +1,27 @@
 // LIBRARY IMPORTS
 import React from 'react';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 export default function Modal({ children, isOpen, onClose }) {
   return (
-    isOpen && createPortal(
-      <>
-        <ModalOverlay />
-        <Wrapper data-testid="modal">
-          <ModalInner>
-            <CloseButton>
-              <IoIosCloseCircleOutline onClick={onClose} />
-            </CloseButton>
-            {children}
-          </ModalInner>
-        </Wrapper>
-      </>,
-      document.body
-    )
+    <div style={{ position: 'fixed', zIndex: '999' }}>
+      {!isOpen
+        ? null
+        : (
+          <div>
+            <ModalOverlay />
+            <Wrapper data-testid="modal">
+              <ModalInner>
+                <CloseButton>
+                  <IoIosCloseCircleOutline className="modal-close" onClick={onClose} />
+                </CloseButton>
+                {children}
+              </ModalInner>
+            </Wrapper>
+          </div>
+        )}
+    </div>
   );
 }
 

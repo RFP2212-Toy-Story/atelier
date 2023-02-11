@@ -35,6 +35,9 @@ export const ButtonContainer = styled.div`
     &:hover {
     color: #E07A5F;
     }
+    &:disabled {
+      color: #FFCAAF;
+    }
   }
 `;
 

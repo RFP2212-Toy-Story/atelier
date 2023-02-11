@@ -6,9 +6,11 @@ import { flushSync } from 'react-dom';
 // LOCAL IMPORTS
 import RelatedListCard from './RelatedListCard.jsx';
 import * as requests from '../../utilities/axiosRequests';
+import OutfitList from './OutfitList';
 import ProdContext from '../../ProdContext.js';
 import StyledMediaScroll from './styles/MediaScroll.styled.jsx';
 import StyledRelatedList from './styles/RelatedList.styled.jsx';
+
 
 // MAIN
 const RelatedList = function CreateRelatedList() {
@@ -60,7 +62,7 @@ const RelatedList = function CreateRelatedList() {
 
   return (
     <StyledRelatedList data-module-name="related products">
-      <h3 data-testid="heading">Related Products</h3>
+      <h3 className="section-header" data-testid="heading">Related Products</h3>
       <div className="container">
         <StyledMediaScroll>
           {/* eslint-disable-next-line max-len, react/jsx-wrap-multilines */}
@@ -70,9 +72,10 @@ const RelatedList = function CreateRelatedList() {
             ref={index === i ? selectedRef : null}
           />)}
         </StyledMediaScroll>
-        {index > 0 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
-        {index < relatedProducts.length - 1 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
+        {index > 1 && <BiChevronLeftCircle data-testid="reactIcon" className="left" onClick={handleLeftClick} />}
+        {index < relatedProducts.length - 2 && <BiChevronRightCircle data-testid="right-icon" className="right" onClick={handleRightClick} />}
       </div>
+      <OutfitList />
     </StyledRelatedList>
   );
 };

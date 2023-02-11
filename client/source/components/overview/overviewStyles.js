@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 const ZoomedPhotoDiv = styled.div`
-  &:hover {
-    cursor: zoom-out;
-  };
+  overflow: hidden;
   border: 6px solid ${(props) => `${props.color}`};
   padding: 20px;
   background-color: ${(props) => `${props.color}`};
@@ -44,6 +42,23 @@ const PhotoTileInnerDiv = styled.div`
               rgba(60, 60, 60, 0.5) -1px -1px 2px 1px inset;
 `;
 
+const ZoomedPhotoTileImage = styled.img`
+  &:hover {
+    cursor: zoom-in;
+  }
+  ${(props) => (props.clicked ? `&:hover {
+    cursor: crosshair;
+    transform: scale(4.0);
+  };` : null)}
+  transition: transform 2s ease-in-out;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 2px;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+`;
+
 const PhotoTileImage = styled.img`
   width: 100%;
   height: 100%;
@@ -61,7 +76,7 @@ const OverlayDiv = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: black;
-  opacity: 0.75;
+  opacity: 0.50;
   z-index: 101;
   cursor: auto;
 `;
@@ -185,9 +200,44 @@ const ProductText = styled.div`
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
 
+const CheckoutButton = styled.button`
+  &:hover {
+    background-color: #E07A5F;
+    color: white;
+    transform: scale(1.05);
+  }
+  cursor: pointer;
+  background-color: #F6DEB6;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-weight: bold;
+  transition: transform 0.25s;
+  box-shadow: rgba(0, 0, 0, 0.50) 1px 2px 3px -2px,
+              rgba(10, 30, 60, 0.20) 3px 3px 6px 2px;
+`;
+
+const CheckoutSelect = styled.select`
+  &:hover {
+    background-color: #E07A5F;
+    color: white;
+    transform: scale(1.05);
+  }
+  text-indent: 0.5rem;
+  transition: transform 0.25s;
+  border: none;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  background-color: #F6DEB6;
+  box-shadow: rgba(0, 0, 0, 0.50) 1px 2px 3px -2px,
+              rgba(10, 30, 60, 0.20) 3px 3px 6px 2px;
+`;
+
 export {
   CarouselButton,
   CarouselWrapperDiv,
+  CheckoutButton,
+  CheckoutSelect,
   OverlayDiv,
   PhotoBlockDiv,
   PhotoTileDiv,
@@ -198,5 +248,6 @@ export {
   StyleButtonImage,
   ThumbnailImage,
   ThumbnailWrapperDiv,
-  ZoomedPhotoDiv
+  ZoomedPhotoDiv,
+  ZoomedPhotoTileImage
 };

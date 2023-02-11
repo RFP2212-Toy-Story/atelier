@@ -14,13 +14,13 @@ class ClickTracker {
   }
 
   addClickTracker() {
-    document.addEventListener('click', this.recordUserClick.bind(this));
+    document.body.addEventListener('click', this.recordUserClick.bind(this));
   }
 
   recordUserClick(event) {
     const interaction = {
-      element: event.target.tagName, // TODO: assign trackable values to important elements
-      widget: undefined,
+      element: event.target.tagName || 'undefined', // TODO: assign trackable values to important elements
+      widget: 'undefined',
       time: String(Date.now())
     };
 
