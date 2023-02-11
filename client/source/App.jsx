@@ -24,7 +24,7 @@ const App = function CreateAppComponent({ adminStatus }) {
         <QAModule />
         <ReviewModule />
         {adminStatus ? <TestAPI /> : null}
-        <Pikachu />
+        {adminStatus ? <Pikachu /> : null}
       </div>
       <div />
     </div>
