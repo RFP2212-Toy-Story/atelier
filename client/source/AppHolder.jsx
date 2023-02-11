@@ -11,6 +11,7 @@ import ClickTracker from './utilities/clickTracker.js';
 // MAIN
 const AppHolder = function CreateAppHolder() {
   // STATES
+  const [adminActive, setAdminActive] = useState(false);
   const [prodID, setProdID] = useState(40355); // TODO: default view for 'no item searched yet'
   const [product, setProduct] = useState({});
   const [meta, setMeta] = useState({});
@@ -55,14 +56,14 @@ const AppHolder = function CreateAppHolder() {
   }, []);
 
   const providerValues = useMemo(() => ({
-    prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta
+    prodID, setProdID, product, setProduct, styles, setStyles, meta, setMeta, setAdminActive
   }), [prodID, product]);
 
   return (
     <div>
       <ProdContext.Provider value={providerValues}>
         <GlobalStyles />
-        <App />
+        <App adminStatus={adminActive} />
       </ProdContext.Provider>
     </div>
   );
