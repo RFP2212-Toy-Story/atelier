@@ -2,7 +2,7 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack'); // eslint-disable-line
 
 module.exports = {
-  mode: 'development', // as opposed to `production` which obfuscates namespaces
+  mode: 'production',
   entry: path.join(__dirname, '/client/source/index.jsx'),
   output: {
     path: path.join(__dirname, '/client/dist'),
