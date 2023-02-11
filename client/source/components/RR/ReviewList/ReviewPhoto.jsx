@@ -3,12 +3,14 @@ import React from 'react';
 import Modal from '../../shared/Modal.jsx';
 import useModal from '../../../useModal.js';
 
+import { ReviewPhotoThumbnail } from '../styles/RR.styled.js';
+
 const ReviewPhoto = function ReviewPhoto({ photo }) {
   const { isOpen, onOpen, onClose } = useModal();
 
   return (
     <>
-      <img
+      <ReviewPhotoThumbnail
         className="review-photo-thumbnail"
         src={photo.url}
         alt="Submitted by reviewer"
@@ -18,8 +20,7 @@ const ReviewPhoto = function ReviewPhoto({ photo }) {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <img
-          // currently CSS from ReviewPhotos is leaking into here
-          style={{ maxWidth: '100%' }}
+          style={{ maxWidth: '100%', margin: '1rem' }}
           src={photo.url}
           alt="Enlarged"
         />
