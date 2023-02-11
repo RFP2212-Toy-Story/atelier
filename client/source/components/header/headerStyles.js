@@ -95,9 +95,25 @@ const FontDiv = styled.div`
   font-family: 'Nerko One';
 `;
 
+const SearchButton = styled.button`
+  &:hover {
+    background-color: #E07A5F;
+    color: white;
+    transform: scale(1.05);
+  }
+  cursor: pointer;
+  background-color: #F6DEB6;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1rem;
+  transition: transform 0.25s;
+  margin: 0 0.5rem;
+`;
+
 export {
   FadingDiv,
   HeaderDiv,
   HeaderWrapperDiv,
-  FontDiv
+  FontDiv,
+  SearchButton
 };

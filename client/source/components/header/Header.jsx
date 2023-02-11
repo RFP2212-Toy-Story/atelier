@@ -1,16 +1,30 @@
 
 // LIBRARY IMPORTS
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import * as Styles from './headerStyles.js';
+import ProdContext from '../../ProdContext.js';
 
 
 // HEADER COMPONENT
 const Header = function CreateHeaderComponent() {
+  const { setAdminActive } = useContext(ProdContext);
   const [scrolled, setScrolled] = useState(false);
+  const [searchBarText, setSearchBarText] = useState('');
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 100);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const searchString = event.target[0].value;
+    if (searchString === "You've got a friend in me") { setAdminActive(true); }
+    setSearchBarText('');
+  };
+
+  const handleChange = (event) => {
+    setSearchBarText(event.target.value);
   };
 
   useEffect(() => {
@@ -41,10 +55,10 @@ const Header = function CreateHeaderComponent() {
           </Styles.FadingDiv>
         </div>
 
-        <div style={{ position: 'relative' }}>
+        <div onSubmit={handleSubmit} style={{ position: 'relative' }}>
           <form>
-            <input style={{ backgroundColor: '#74AA90' }} type="text" placeholder="search..." />
-            <button type="submit">🔎</button>
+            <input value={searchBarText} onChange={handleChange} style={{ backgroundColor: '#F6DEB6' }} type="text" placeholder="search..." />
+            <Styles.SearchButton type="submit">🔎</Styles.SearchButton>
           </form>
         </div>
 
