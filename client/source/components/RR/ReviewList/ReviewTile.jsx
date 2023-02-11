@@ -66,15 +66,14 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
         <div className="review-body-container">
           <div className="review-text">{capBody(review.body)}</div>
           { review.body.length > 250 && fullBody === false
-            ? (
+            && (
               <button
                 className="show-more-button"
                 type="button"
                 onClick={() => setFullBody(true)}
               >Show More +
               </button>
-            )
-            : null }
+            )}
           <ReviewPhotos>
             <div>
               {review.photos.map((photo) => (
@@ -87,17 +86,15 @@ const ReviewTile = function ReviewTile({ review, updateList }) {
           </ReviewPhotos>
         </div>
         { review.recommend
-          ? <div className="review-rec">✓ I recommend this product</div>
-          : null }
+          && <div className="review-rec">✓ I recommend this product</div>}
         { review.response
-          ? (
+          && (
             <div className="review-response">
               <div className="response-header">Response:</div>
               <p />
               <div className="response-text">{review.response}</div>
             </div>
-          )
-          : null }
+          )}
         <div className="review-footer">
           <span>Helpful? </span>
           <span>

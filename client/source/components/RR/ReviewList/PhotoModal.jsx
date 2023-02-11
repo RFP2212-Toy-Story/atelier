@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
-  `;
+`;
 
 const ModalInner = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const ModalInner = styled.div`
   max-width: 50%;
   z-index: 1010;
   padding: 24px;
-  `;
+`;
 
 const ModalOverlay = styled.div`
   z-index: 1000;
