@@ -43,14 +43,14 @@ Created By: [Aimee Kang](https://github.com/aimeekang)
 ### Setup an automatic ESLint pre-commit hook
 - from the project root, run a script with the command `./dev/set-up-hooks.sh`
 
-## Running the Client and Server:
+## Running the Client and Server
 - in two separate terminals, run the following commands:
   - `npm run server-dev`
   - `npm run client-dev`
 
 You should now be able to access the client application at the location you set for your server `.env` file.
 
-## Running Tests:
+## Running Tests
 - the command `npm test` will run all tests locally
 - to run tests and also ouput total coverage, use the command `npm run test-coverage`
   - any file here that matches the pattern `*.{js/jsx}` will be considered for coverage
