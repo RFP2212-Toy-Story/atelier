@@ -39,6 +39,7 @@ Created By: [Brett Eastman](https://github.com/BrettEastman)
 Created By: [Aimee Kang](https://github.com/aimeekang)
 
 ## Installation
+Your experience may vary from shown images, as the project was built with an assumption of access to a 3rd party API.
 
 ### Install Dependencies
 - run the command `npm install` in the project root.
@@ -51,7 +52,7 @@ Created By: [Aimee Kang](https://github.com/aimeekang)
 ### Setup an automatic ESLint pre-commit hook
 - from the project root, run a script with the command `./dev/set-up-hooks.sh`
 
-## Running the Client and Server
+## Building & Running the Client and Server
 - in two separate terminals, run the following commands:
   - `npm run server-dev`
   - `npm run client-dev`
