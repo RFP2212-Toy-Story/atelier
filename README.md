@@ -40,6 +40,9 @@ Created By: [Brett Eastman](https://github.com/BrettEastman)
 
 ### Ratings & Reviews
 Created By: [Aimee Kang](https://github.com/aimeekang)
+![ratingsandreviews](https://user-images.githubusercontent.com/112139070/225777267-0e699fae-2866-4f6d-9dc9-d3a9657ee957.gif)
+![addreviewgiphy](https://user-images.githubusercontent.com/112139070/225777307-17dcf26e-7b21-4170-a304-13ed01aa0a5b.gif)
+
 
 ## Installation
 Your experience may vary from shown images, as the project was built with an assumption of access to a 3rd party API.
