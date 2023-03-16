@@ -15,6 +15,20 @@
 </div>
 
 ## Primary Features
+### Product Overview
+Created By: [August Beck](https://github.com/AedonGrunGott)
+
+### Related Products
+Created By: [Archaa Shrivastav](https://github.com/avinashi10)
+
+### Saved Products
+Created By: [Archaa Shrivastav](https://github.com/avinashi10)
+
+### Questions & Answers
+Created By: [Brett Eastman](https://github.com/BrettEastman)
+
+### Ratings & Reviews
+Created By: [Aimee Kang](https://github.com/aimeekang)
 
 ## Installation:
 
@@ -35,15 +49,6 @@
   - `npm run client-dev`
 
 You should now be able to access the client application at the location you set for your server `.env` file.
-
-## Running ESLint:
-- if using VSCode, make sure the settings file in this repo is being seen and used
-- you may manually run ESLint with the command `npm run eslint-dev` in the project root
-- to specifically ignore ESLint's opinion about a given line, add the comment `// eslint-disable-line`
-  - EG `const forFutureUse = require('package-name'); // esline-disable-line`
-- when you commit code locally, ESLint will automatically check your code and may prevent the commit
-- you may intentionally override this with the flag `--no-verify`
-  - EG `git commit --no-verify`
 
 ## Running Tests:
 - the command `npm test` will run all tests locally
