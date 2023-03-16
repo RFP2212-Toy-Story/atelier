@@ -17,6 +17,8 @@
 ## Primary Features
 ### Product Overview
 Created By: [August Beck](https://github.com/AedonGrunGott)
+![products-readme-one](https://user-images.githubusercontent.com/16231955/225773177-bec7ef7f-d9c9-423f-9d1e-d345aae84b2d.gif)
+![products-readme-two](https://user-images.githubusercontent.com/16231955/225773275-8af5aa70-e1d6-4d6b-8d86-85fbf763b5f4.gif)
 
 ### Related Products
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
