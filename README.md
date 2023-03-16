@@ -3,7 +3,7 @@
   <p>A complete redesign of a retail portal</p>
 </div>
 
-# Tech Stack
+## Tech Stack
 <div>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img src='https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white' />
@@ -14,9 +14,9 @@
   <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
 </div>
 
-# Primary Features
+## Primary Features
 
-# Installation:
+## Installation:
 
 ### Install Dependencies
 - run the command `npm install` in the project root.
@@ -29,14 +29,14 @@
 ### Setup an automatic ESLint pre-commit hook
 - from the project root, run a script with the command `./dev/set-up-hooks.sh`
 
-# Running the Client and Server:
+## Running the Client and Server:
 - in two separate terminals, run the following commands:
   - `npm run server-dev`
   - `npm run client-dev`
 
 You should now be able to access the client application at the location you set for your server `.env` file.
 
-# Running ESLint:
+## Running ESLint:
 - if using VSCode, make sure the settings file in this repo is being seen and used
 - you may manually run ESLint with the command `npm run eslint-dev` in the project root
 - to specifically ignore ESLint's opinion about a given line, add the comment `// eslint-disable-line`
@@ -45,7 +45,7 @@ You should now be able to access the client application at the location you set 
 - you may intentionally override this with the flag `--no-verify`
   - EG `git commit --no-verify`
 
-# Running Tests:
+## Running Tests:
 - the command `npm test` will run all tests locally
 - to run tests and also ouput total coverage, use the command `npm run test-coverage`
   - any file here that matches the pattern `*.{js/jsx}` will be considered for coverage
