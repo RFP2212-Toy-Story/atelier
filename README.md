@@ -48,30 +48,3 @@ Created By: [Aimee Kang](https://github.com/aimeekang)
   <img alt="demo image" src="https://user-images.githubusercontent.com/112139070/225777267-0e699fae-2866-4f6d-9dc9-d3a9657ee957.gif" width="45%"/>
   <img alt="demo image" src="https://user-images.githubusercontent.com/112139070/225777307-17dcf26e-7b21-4170-a304-13ed01aa0a5b.gif" width="45%"/>
 </p>
-
-## Installation
-Your experience may vary from shown images, as the project was built with an assumption of access to a 3rd party API.
-
-### Install Dependencies
-- run the command `npm install` in the project root.
-
-### Setup environment variables
-- create a local file `.env` using `example.env` as a template.
-  - `.env` is listed in the `.gitignore` file and thus will not be added to Git's source control
-  - populate this new `.env` file with the required values for your local machine
-
-### Setup an automatic ESLint pre-commit hook
-- from the project root, run a script with the command `./dev/set-up-hooks.sh`
-
-## Building & Running the Client and Server
-- in two separate terminals, run the following commands:
-  - `npm run server-dev`
-  - `npm run client-dev`
-
-You should now be able to access the client application at the location you set for your server `.env` file.
-
-## Running Tests
-- the command `npm test` will run all tests locally
-- to run tests and also ouput total coverage, use the command `npm run test-coverage`
-  - any file here that matches the pattern `*.{js/jsx}` will be considered for coverage
-  - this will both print to screen, and produce a pretty HTML report in `./coverage`
