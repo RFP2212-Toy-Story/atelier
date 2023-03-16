@@ -22,6 +22,9 @@ Created By: [August Beck](https://github.com/AedonGrunGott)
   <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773177-bec7ef7f-d9c9-423f-9d1e-d345aae84b2d.gif" width="45%"/>
   <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773275-8af5aa70-e1d6-4d6b-8d86-85fbf763b5f4.gif" width="45%"/>
 </p>
+
+The top of the fold displays the current Hero Product, along with a gallery of product images. An assortment of styles for each product, along with its descriptions, slogans, features, pricing, and quantity of sizes available dynamically adjust while navigating the other sections of the site.
+
   
 ### Related Products
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
