@@ -18,9 +18,11 @@
 ### Product Overview
 Created By: [August Beck](https://github.com/AedonGrunGott)
 
-<div>
-  <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773177-bec7ef7f-d9c9-423f-9d1e-d345aae84b2d.gif" height=400 width=300/>
-  <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773275-8af5aa70-e1d6-4d6b-8d86-85fbf763b5f4.gif" height=400 width=300/>
+<div align="center">
+  <div style="display: flex;">
+    <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773177-bec7ef7f-d9c9-423f-9d1e-d345aae84b2d.gif" height=400 width=200/>
+    <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773275-8af5aa70-e1d6-4d6b-8d86-85fbf763b5f4.gif" height=400 width=200/>
+  </div>
 </div>
   
 ### Related Products
@@ -31,9 +33,6 @@ Created By: [Archaa Shrivastav](https://github.com/avinashi10)
 
 ### Questions & Answers
 Created By: [Brett Eastman](https://github.com/BrettEastman)
-![Q A1](https://user-images.githubusercontent.com/76603041/225774169-fcea894a-eed0-49db-8f3d-6a9b8ee5f483.gif)
-![Q A2](https://user-images.githubusercontent.com/76603041/225774205-ffd5eeaf-1bc6-4b05-88f9-b05f50ec1e21.gif)
-![Q A3](https://user-images.githubusercontent.com/76603041/225774227-fd4e7005-c622-4dbd-a1db-a701c3b909de.gif)
 
 ### Ratings & Reviews
 Created By: [Aimee Kang](https://github.com/aimeekang)
