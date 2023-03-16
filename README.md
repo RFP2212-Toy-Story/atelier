@@ -19,7 +19,7 @@
 Created By: [August Beck](https://github.com/AedonGrunGott)
 
 <div align="center">
-  <div style="display: flex; flex-direction:row;">
+  <div float"left">
     <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773177-bec7ef7f-d9c9-423f-9d1e-d345aae84b2d.gif" width="50%"/>
     <img alt="demo image" src="https://user-images.githubusercontent.com/16231955/225773275-8af5aa70-e1d6-4d6b-8d86-85fbf763b5f4.gif" width="50%"/>
   </div>
