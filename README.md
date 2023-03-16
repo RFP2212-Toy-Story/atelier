@@ -30,7 +30,7 @@ Created By: [Brett Eastman](https://github.com/BrettEastman)
 ### Ratings & Reviews
 Created By: [Aimee Kang](https://github.com/aimeekang)
 
-## Installation:
+## Installation
 
 ### Install Dependencies
 - run the command `npm install` in the project root.
