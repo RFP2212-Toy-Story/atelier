@@ -39,7 +39,6 @@ Created By: [Brett Eastman](https://github.com/BrettEastman)
 <p float="left">
   <img alt="demo image" src="https://user-images.githubusercontent.com/76603041/225774737-1426d080-d1c1-4796-98a4-d317b732d0a6.gif" width="45%"/>
   <img alt="demo image" src="https://user-images.githubusercontent.com/76603041/225774753-8c55faff-7bb1-4d1e-84dc-bd0987bc9d8b.gif" width="45%"/>
-  <img alt="demo image" src="https://user-images.githubusercontent.com/76603041/225774764-1138af10-e272-4f60-afed-0a4f25063634.gif" width="45%"/>
 </p>
 
 ### Ratings & Reviews
