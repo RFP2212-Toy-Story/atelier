@@ -33,6 +33,10 @@ Created By: [Archaa Shrivastav](https://github.com/avinashi10)
   <img alt="saved products gif" src="https://user-images.githubusercontent.com/115492619/225779906-0e272152-8b9b-466a-9393-bc1cbd563002.gif" width="45%"/>
 </p>
 
+The Related Products section populates with the products related to the hero product above. Clicking on a related product will navigate to its overview page and clicking on the star icon on a product card will open a modal window comparing that product to the related product. 
+
+The Saved Product section populates with the hero product when the user clicks 'Add to Your Outfit.' The user can add to this list across pages and delete from this list. These saved outfits will persist across pages, on refresh, and on reload.
+
 ### Questions & Answers
 Created By: [Brett Eastman](https://github.com/BrettEastman)
 
