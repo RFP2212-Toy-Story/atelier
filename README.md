@@ -26,15 +26,10 @@ Created By: [August Beck](https://github.com/AedonGrunGott)
 The top of the fold displays the current Hero Product, along with a gallery of product images. An assortment of styles for each product, along with its descriptions, slogans, features, pricing, and quantity of sizes available dynamically adjust while navigating the other sections of the site.
 
   
-### Related Products
+### Related Products & Saved Products
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
-<p>
+<p float="left">
   <img alt="related products gif" src="https://user-images.githubusercontent.com/115492619/225780064-8e90ea91-4778-4c9a-916d-20402b72d872.gif" width="45%"/>
-</p>
-
-### Saved Products
-Created By: [Archaa Shrivastav](https://github.com/avinashi10)
-<p>
   <img alt="saved products gif" src="https://user-images.githubusercontent.com/115492619/225779906-0e272152-8b9b-466a-9393-bc1cbd563002.gif" width="45%"/>
 </p>
 
