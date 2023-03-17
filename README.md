@@ -28,11 +28,15 @@ The top of the fold displays the current Hero Product, along with a gallery of p
   
 ### Related Products
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
-![compressed-RelatedProd](https://user-images.githubusercontent.com/115492619/225780064-8e90ea91-4778-4c9a-916d-20402b72d872.gif)
+<p>
+  <img alt="related products gif" src="https://user-images.githubusercontent.com/115492619/225780064-8e90ea91-4778-4c9a-916d-20402b72d872.gif" width="45%"/>
+</p>
 
 ### Saved Products
 Created By: [Archaa Shrivastav](https://github.com/avinashi10)
-![compressed-SavedProd](https://user-images.githubusercontent.com/115492619/225779906-0e272152-8b9b-466a-9393-bc1cbd563002.gif)
+<p>
+  <img alt="saved products gif" src="https://user-images.githubusercontent.com/115492619/225779906-0e272152-8b9b-466a-9393-bc1cbd563002.gif" width="45%"/>
+</p>
 
 ### Questions & Answers
 Created By: [Brett Eastman](https://github.com/BrettEastman)
