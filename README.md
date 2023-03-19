@@ -45,6 +45,8 @@ Created By: [Brett Eastman](https://github.com/BrettEastman)
   <img alt="demo image" src="https://user-images.githubusercontent.com/76603041/225774753-8c55faff-7bb1-4d1e-84dc-bd0987bc9d8b.gif" width="45%"/>
 </p>
 
+The questions and answers section presents all questions/answers about the selected product, only showing two questions at a time, with a button to show more. It has a search bar which will automatically search with 3 characters or more. You can mark a question or answer as helpful and you can input a question or answer using the form modal that pops up when the button is pressed.
+
 ### Ratings & Reviews
 Created By: [Aimee Kang](https://github.com/aimeekang)
 
