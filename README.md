@@ -54,3 +54,5 @@ Created By: [Aimee Kang](https://github.com/aimeekang)
   <img alt="demo image" src="https://user-images.githubusercontent.com/112139070/225777267-0e699fae-2866-4f6d-9dc9-d3a9657ee957.gif" width="45%"/>
   <img alt="demo image" src="https://user-images.githubusercontent.com/112139070/225777307-17dcf26e-7b21-4170-a304-13ed01aa0a5b.gif" width="45%"/>
 </p>
+
+The ratings and reviews section allows users to view and submit reviews for the selected product. The user can sort reviews based on relevant, newest, and helpful reviews. The breakdown of the ratings received for the product also doubles as the filtering options for the reviews list. Reviews will provide the ability to give feedback on specific characteristics of the product. Within the product breakdown, the user can view the average feedback received for all characteristics which apply to the product. 
